@@ -43,4 +43,23 @@ footer
     background-color: #f8f8f8;
     border-top: 1px solid #e7e7e7;
     padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.footer-nav
+{
+    list-style-type: none;
+    padding: 0px;
+    font-size: 10px;
+}
+
+.footer-nav .nav-title
+{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.footer-nav > li > a
+{
+    color: #999999;
 }
