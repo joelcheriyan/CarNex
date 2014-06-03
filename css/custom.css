@@ -38,6 +38,29 @@
     background-color: #d6d6d6;
 }
 
+#search-form
+{
+    opacity: 0.7;
+}
+
+.postings-header
+{
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+.posting .btn
+{
+    padding: 3px 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.posting .panel-footer
+{
+    padding: 8px 8px 36px;
+}
+
 footer
 {
     background-color: #f8f8f8;
@@ -45,6 +68,7 @@ footer
     padding-top: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    padding-bottom: 1px;
 }
 .footer-nav
 {
