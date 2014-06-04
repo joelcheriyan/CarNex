@@ -84,9 +84,23 @@ a.badge:focus
 
 .posting .panel-footer .btn
 {
-  padding: 3px 6px;
-  margin-left: 2px;
-  margin-right: 2px;
+    padding: 3px 6px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.btn-other
+{
+    color: #fff;
+    background-color: #876996;
+    border-color: #775086;
+}
+
+.btn-other:hover
+{
+    color: #fff;
+    background-color: #725581;
+    border-color: #642673;
 }
 
 footer
