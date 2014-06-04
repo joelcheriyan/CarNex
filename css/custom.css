@@ -115,6 +115,7 @@ a.badge:focus
 {
     list-style-type: none;
     padding-left: 0px;
+    margin-bottom: 0px;
 }
 
 .posting .panel-footer
