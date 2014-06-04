@@ -44,11 +44,22 @@ a.badge:focus
 .jumbotron
 {
     background-color: #d6d6d6;
+    background-image: url('http://commuterchallenge.ca/wp-content/uploads/2013/04/carpool2.jpg');
+    background-position: top right;
 }
 
-#search-form
+#search-form .form-control,
+#search-form .btn
 {
     opacity: 0.7;
+}
+
+#search-form .form-control:focus,
+#search-form .btn:hover,
+#search-form .btn:active,
+#search-form .btn:focus
+{
+    opacity: 1;
 }
 
 .postings-header
