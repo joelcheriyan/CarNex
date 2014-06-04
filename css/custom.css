@@ -13,6 +13,14 @@
     text-transform: uppercase;
 }
 
+a.badge:hover,
+a.badge:active,
+a.badge:focus
+{
+    color: #333333;
+    background-color: #ebebeb;
+}
+
 #sub-nav
 {
     min-height: 30px;
