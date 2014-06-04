@@ -54,192 +54,158 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>CarNex</h1>
-        <p>Welcome back, Jane.</p>
+        <h1>Welcome, Jane.</h1>
+        <p>Search for a trip?</p>
 
         <form class="form-inline" id="search-form" role="search">
-            <div class="form-group">
-                <label class="sr-only" for="field-from">Leaving From</label>
-                <input type="text" id="field-from" class="form-control" placeholder="Leaving From">
-            </div>
+          <div class="form-group">
+            <label class="sr-only" for="field-from">Leaving From</label>
+            <input type="text" id="field-from" class="form-control" placeholder="Leaving From">
+          </div>
 
-            <div class="form-group">
-                <label class="sr-only" for="field-to">Traveling To</label>
-                <input type="text" id="field-to" class="form-control" placeholder="Traveling To">
-            </div>
+          <div class="form-group">
+            <label class="sr-only" for="field-to">Traveling To</label>
+            <input type="text" id="field-to" class="form-control" placeholder="Traveling To">
+          </div>
 
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
         </form>
       </div>
     </div>
 
     <div class="container">
-        <h2 class="postings-header">Postings Since Your Last Login</h2>
+      <h2 class="postings-header">Postings Since Your Last Login</h2>
 
-        <div class="container">
-            <div class="panel panel-primary posting">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Posting Title</h3>
-                </div>
+      <div class="container">
+        <div class="panel panel-primary posting">
+          <div class="panel-heading">
+            <p class="pull-right"><strong>Origin</strong> to <strong>Destination</strong></p>
+            <h3 class="panel-title">Posting Title</h3>
+          </div>
 
-                <div class="panel-body">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed magna lacus. Nunc dignissim tincidunt tempus. Maecenas turpis urna, lacinia et aliquam eu, imperdiet eu felis. Etiam ultricies sodales lacus vitae mollis. Donec vel dolor pretium, convallis lectus eu, auctor tortor. Maecenas facilisis urna non orci eleifend, sed suscipit augue consectetur. Cras condimentum pulvinar eros, sit amet laoreet metus tincidunt sed. Sed vel mauris elementum, lacinia lectus id, scelerisque ligula. Nam augue purus, eleifend in tortor ut, ornare rhoncus nulla. Sed aliquet quam et dolor mattis, eget tempus sapien consectetur. Ut et semper metus. Cras eleifend libero quis faucibus luctus.
-                </div>
-
-                <div class="panel-footer">
-                    <p class="pull-left">
-                        <button class="btn btn-info">
-                            <span class="glyphicon glyphicon-user"></span> Profile
-                        </button>
-
-                        <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-comment"></span> Respond
-                        </button>
-                    </p>
-
-                    <p class="pull-right">
-                      <button class="btn btn-primary">
-                          <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                      </button>
-
-                      <button class="btn btn-danger">
-                          <span class="glyphicon glyphicon-ban-circle"></span> Report
-                      </button>
-                    </p>
-                </div>
+          <div class="panel-body">
+            <div class="poster">
+              <h4>Poster's Username</h4>
+              (<span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>)
             </div>
 
-            <div class="panel panel-primary posting">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Posting Title</h3>
-                </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris sed magna lacus. Nunc dignissim tincidunt tempus. Maecenas turpis urna, lacinia et aliquam eu, imperdiet eu felis. Etiam ultricies sodales lacus vitae mollis.</p>
+          </div>
 
-                <div class="panel-body">
-                    Donec tempus posuere porttitor. Vivamus sit amet placerat libero, in consequat risus. Morbi consequat ante et leo faucibus, at luctus est venenatis. Vivamus ullamcorper eleifend eros ac sollicitudin. Nunc ac fringilla metus. Nulla rhoncus fermentum mattis. Cras lacinia sem in erat convallis, vel ullamcorper ante condimentum. Pellentesque nec metus ac ipsum ullamcorper euismod. Mauris semper dolor dolor, vel aliquam arcu ultricies id. Duis commodo vel neque at consequat. Suspendisse potenti. Donec imperdiet eleifend ligula, sed mattis felis scelerisque non.
-                </div>
+          <div class="panel-footer">
+            <p class="pull-left">
+              <button class="btn btn-info">
+                <span class="glyphicon glyphicon-user"></span> Profile
+              </button>
 
-                <div class="panel-footer">
-                    <p class="pull-left">
-                        <button class="btn btn-info">
-                            <span class="glyphicon glyphicon-user"></span> Profile
-                        </button>
+              <button class="btn btn-success">
+                  <span class="glyphicon glyphicon-comment"></span> Respond
+              </button>
+            </p>
 
-                        <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-comment"></span> Respond
-                        </button>
-                    </p>
+            <p class="pull-right">
+              <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span> Save
+              </button>
 
-                    <p class="pull-right">
-                      <button class="btn btn-primary">
-                          <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                      </button>
+              <button class="btn btn-danger">
+                <span class="glyphicon glyphicon-ban-circle"></span> Report
+              </button>
+            </p>
+          </div>
+        </div> <!-- posting -->
 
-                      <button class="btn btn-danger">
-                          <span class="glyphicon glyphicon-ban-circle"></span> Report
-                      </button>
-                    </p>
-                </div>
+        <div class="panel panel-primary posting">
+          <div class="panel-heading">
+            <p class="pull-right"><strong>Origin</strong> to <strong>Destination</strong></p>
+            <h3 class="panel-title">Posting Title</h3>
+          </div>
+
+          <div class="panel-body">
+            <div class="poster">
+              <h4>Poster's Username</h4>
+              (<span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>)
             </div>
 
-            <div class="panel panel-primary posting">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Posting Title</h3>
-                </div>
+            <p>Donec tempus posuere porttitor. Vivamus sit amet placerat libero, in consequat risus. Morbi consequat ante et leo faucibus, at luctus est venenatis. Vivamus ullamcorper eleifend eros ac sollicitudin.</p>
+          </div>
 
-                <div class="panel-body">
-                    Donec risus nisl, elementum vitae suscipit in, pellentesque et neque. Nunc porttitor sit amet nisl et dictum. In hac habitasse platea dictumst. Ut commodo felis eget enim fermentum, sed elementum arcu fermentum. Nullam condimentum imperdiet sollicitudin. Aliquam varius orci non lacus varius posuere. Aliquam feugiat sollicitudin nibh, at luctus mauris placerat auctor. Curabitur bibendum magna sit amet ipsum adipiscing malesuada. Ut a convallis massa. Integer eget imperdiet lorem, iaculis pellentesque odio. Cras volutpat iaculis urna, in ultricies nulla pellentesque sit amet. Nam vel venenatis nulla. Nam odio libero, aliquet at viverra eget, vehicula vel libero.
-                </div>
+          <div class="panel-footer">
+            <p class="pull-left">
+              <button class="btn btn-info">
+                <span class="glyphicon glyphicon-user"></span> Profile
+              </button>
 
-                <div class="panel-footer">
-                    <p class="pull-left">
-                        <button class="btn btn-info">
-                            <span class="glyphicon glyphicon-user"></span> Profile
-                        </button>
+              <button class="btn btn-success">
+                <span class="glyphicon glyphicon-comment"></span> Respond
+              </button>
+            </p>
 
-                        <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-comment"></span> Respond
-                        </button>
-                    </p>
+            <p class="pull-right">
+              <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span> Save
+              </button>
 
-                    <p class="pull-right">
-                      <button class="btn btn-primary">
-                          <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                      </button>
+              <button class="btn btn-danger">
+                <span class="glyphicon glyphicon-ban-circle"></span> Report
+              </button>
+            </p>
+          </div>
+        </div> <!-- posting -->
 
-                      <button class="btn btn-danger">
-                          <span class="glyphicon glyphicon-ban-circle"></span> Report
-                      </button>
-                    </p>
-                </div>
+        <div class="panel panel-primary posting">
+          <div class="panel-heading">
+            <p class="pull-right"><strong>Origin</strong> to <strong>Destination</strong></p>
+            <h3 class="panel-title">Posting Title</h3>
+          </div>
+
+          <div class="panel-body">
+            <div class="poster">
+              <h4>Poster's Username</h4>
+              (<span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>
+              <span class="glyphicon glyphicon-star-empty"></span>)
             </div>
 
-            <div class="panel panel-primary posting">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Posting Title</h3>
-                </div>
+            <p>Maecenas eget dolor et quam feugiat accumsan eu ac quam. Praesent commodo enim lacus, in ultrices massa dignissim vitae. Sed lobortis diam nulla, eget vulputate enim vulputate sed.</p>
+          </div>
 
-                <div class="panel-body">
-                    Phasellus fermentum, odio non tincidunt rhoncus, tellus velit hendrerit risus, ut ornare mauris arcu et elit. Nam in lacus euismod, sodales lorem in, porta ipsum. In feugiat sollicitudin mauris non condimentum. Curabitur a mi aliquam nisi adipiscing ultricies eu eu orci. Praesent ultricies varius consectetur. Nunc fermentum interdum sapien, quis venenatis leo ullamcorper a. Duis lobortis turpis sed lacus laoreet, sit amet ullamcorper quam ullamcorper. Aenean posuere tincidunt ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed pulvinar turpis eget dignissim semper. Vestibulum mattis sapien ut neque ultricies, nec dignissim ante eleifend. Nulla at gravida urna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec interdum commodo erat, eget fermentum est. Integer ullamcorper dui non mi auctor sollicitudin.
-                </div>
+          <div class="panel-footer">
+            <p class="pull-left">
+              <button class="btn btn-info">
+                <span class="glyphicon glyphicon-user"></span> Profile
+              </button>
 
-                <div class="panel-footer">
-                    <p class="pull-left">
-                        <button class="btn btn-info">
-                            <span class="glyphicon glyphicon-user"></span> Profile
-                        </button>
+              <button class="btn btn-success">
+                <span class="glyphicon glyphicon-comment"></span> Respond
+              </button>
+            </p>
 
-                        <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-comment"></span> Respond
-                        </button>
-                    </p>
+            <p class="pull-right">
+              <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-floppy-disk"></span> Save
+              </button>
 
-                    <p class="pull-right">
-                      <button class="btn btn-primary">
-                          <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                      </button>
-
-                      <button class="btn btn-danger">
-                          <span class="glyphicon glyphicon-ban-circle"></span> Report
-                      </button>
-                    </p>
-                </div>
-            </div>
-
-            <div class="panel panel-primary posting">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Posting Title</h3>
-                </div>
-
-                <div class="panel-body">
-                    Morbi adipiscing commodo lobortis. Nullam commodo tempus nisl, non aliquet mi mattis nec. Phasellus in sodales massa. Suspendisse dapibus odio eget leo blandit, ac bibendum ipsum blandit. Vivamus pulvinar lacus tempor, sodales sapien in, ornare odio. In luctus quam cursus venenatis accumsan. Duis lacinia augue et lectus congue sollicitudin. Morbi in massa lacus.
-                </div>
-
-                <div class="panel-footer">
-                    <p class="pull-left">
-                        <button class="btn btn-info">
-                            <span class="glyphicon glyphicon-user"></span> Profile
-                        </button>
-
-                        <button class="btn btn-success">
-                            <span class="glyphicon glyphicon-comment"></span> Respond
-                        </button>
-                    </p>
-
-                    <p class="pull-right">
-                      <button class="btn btn-primary">
-                          <span class="glyphicon glyphicon-floppy-disk"></span> Save
-                      </button>
-
-                      <button class="btn btn-danger">
-                          <span class="glyphicon glyphicon-ban-circle"></span> Report
-                      </button>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
+              <button class="btn btn-danger">
+                <span class="glyphicon glyphicon-ban-circle"></span> Report
+              </button>
+            </p>
+          </div>
+        </div> <!-- posting -->
+      </div> <!-- postings container -->
+    </div> <!-- main container -->
 
     <footer>
       <div class="row visible-xs">

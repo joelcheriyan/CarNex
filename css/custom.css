@@ -49,16 +49,36 @@
     margin-bottom: 20px;
 }
 
-.posting .btn
+.posting .panel-body .poster
 {
-    padding: 3px 6px;
-    margin-left: 2px;
-    margin-right: 2px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.posting .panel-body .poster > h4::before
+{
+    content: "by: ";
+    font-weight: normal;
+}
+
+.posting .panel-body .poster > h4
+{
+    margin-top: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline;
 }
 
 .posting .panel-footer
 {
     padding: 8px 8px 36px;
+}
+
+.posting .panel-footer .btn
+{
+  padding: 3px 6px;
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 footer
