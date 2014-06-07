@@ -30,7 +30,7 @@
 
 #subnav-how
 {
-    padding-left: 90px;
+    padding-left: 70px;
 }
 
 .jumbotron
@@ -42,9 +42,7 @@ footer
 {
     background-color: #f8f8f8;
     border-top: 1px solid #e7e7e7;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px 15px 1px;
 }
 .footer-nav
 {
