@@ -106,6 +106,15 @@ a.badge:focus
     display: inline;
 }
 
+@media (max-width: 768px)
+{
+    .posting .panel-body .poster .poster-rating
+    {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
 .posting .content
 {
   clear: both;
