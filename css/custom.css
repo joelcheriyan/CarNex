@@ -21,6 +21,11 @@ a.badge:focus
     background-color: #ebebeb;
 }
 
+#popover-content
+{
+    display: none;
+}
+
 #sub-nav
 {
     min-height: 30px;
