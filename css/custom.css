@@ -82,7 +82,27 @@ a.badge:focus
 .postings-header
 {
     padding-left: 15px;
+    padding-right: 15px;
     margin-bottom: 20px;
+}
+
+.postings-header h2
+{
+    display: inline;
+}
+
+.postings-header .sort-btn-group
+{
+    float: right;
+}
+
+@media (max-width: 768px)
+{
+    .postings-header .sort-btn-group
+    {
+        float: none;
+        margin-top: 15px;
+    }
 }
 
 .posting .panel-body > h5.date::before
