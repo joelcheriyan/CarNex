@@ -203,3 +203,8 @@ footer
 {
     color: #999999;
 }
+
+.footer-nav .nav-title > a
+{
+    color: #000;
+}
