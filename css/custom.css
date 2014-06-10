@@ -171,7 +171,9 @@ a.badge:focus
     border-color: #775086;
 }
 
-.btn-other:hover
+.btn-other:hover,
+.btn-other:active,
+.btn-other:focus
 {
     color: #fff;
     background-color: #725581;
