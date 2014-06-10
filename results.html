@@ -4,7 +4,6 @@
     <title>CarNex</title>
 
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,10 +32,12 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
-            <p class="navbar-text">
-              <a href="#">Jane Doe</a>
-              (<a class="badge">0</a>)
-            </p>
+            <li>
+              <p class="navbar-text">
+                <a href="#">Jane Doe</a>
+                (<a class="badge">0</a>)
+              </p>
+            </li>
 
             <li><button type="button" class="btn btn-primary navbar-btn">Log Out</button></li>
           </ul>
@@ -86,7 +87,7 @@
           <small>Trips from [origin] to [destination]</small>
         </h2>
 
-        <span class="btn-group sort-btn-group">
+        <div class="btn-group sort-btn-group">
           <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="sort-btn">
             Sort by: Total distance <span class="caret"></span>
           </button>
@@ -100,7 +101,7 @@
             <li><a href="#">Newest first</a></li>
             <li><a href="#">Oldest first</a></li>
           </ul>
-        </span>
+        </div>
       </div>
 
       <div class="container-fluid">
