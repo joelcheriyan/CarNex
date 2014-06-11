@@ -101,7 +101,7 @@ a.badge:focus
     float: right;
 }
 
-@media (max-width: 768px)
+@media (max-width: 767px)
 {
     .postings-header .sort-btn-group
     {
@@ -136,7 +136,7 @@ a.badge:focus
     display: inline;
 }
 
-@media (max-width: 768px)
+@media (max-width: 767px)
 {
     .posting .panel-body .poster .poster-rating
     {
