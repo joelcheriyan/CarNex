@@ -43,7 +43,12 @@ a.badge:focus
 
 #subnav-how
 {
-    padding-left: 70px;
+    margin-left: 70px;
+}
+
+#subnav-about
+{
+    margin-left: -25px;
 }
 
 .jumbotron
