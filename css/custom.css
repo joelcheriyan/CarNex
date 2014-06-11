@@ -21,6 +21,11 @@ a.badge:focus
     background-color: #ebebeb;
 }
 
+#popover-content
+{
+    display: none;
+}
+
 #sub-nav
 {
     min-height: 30px;
@@ -104,6 +109,15 @@ a.badge:focus
     font-size: 16px;
     font-weight: bold;
     display: inline;
+}
+
+@media (max-width: 768px)
+{
+    .posting .panel-body .poster .poster-rating
+    {
+        display: block;
+        margin-bottom: 5px;
+    }
 }
 
 .posting .content

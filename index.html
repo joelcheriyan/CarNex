@@ -32,10 +32,30 @@
             <li><a href="#">Contact</a></li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Log In</a></li>
+          <ul class="nav navbar-nav navbar-right" id="popover-container">
+            <li><a href="#" id="log-in" rel="popover" data-toggle="popover">Log In</a></li>
             <li><button type="button" class="btn btn-primary navbar-btn">Sign Up</button></li>
           </ul>
+
+          <div id="popover-content">
+            <form role="form">
+              <div class="form-group">
+                <label for="field-username">Username</label>
+                <input type="text" class="form-control" id="field-username" placeholder="Username">
+              </div>
+
+              <div class="form-group">
+                <label for="field-password">Password</label>
+                <input type="password" class="form-control" id="field-password" placeholder="Password">
+              </div>
+
+              <div class="checkbox pull-left">
+                <label><input type="checkbox">Remember me</label>
+              </div>
+
+              <button type="submit" class="btn btn-success pull-right">Go!</button>
+            </form>
+          </div>
         </div>
       </div>
     </nav>
@@ -120,5 +140,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $('#log-in').popover(
+        {
+          html: true,
+          placement: 'bottom',
+          title: 'Log In',
+          content: document.getElementById('popover-content').innerHTML,
+          container: '#popover-container'
+        });
+    </script>
   </body>
 </html>
