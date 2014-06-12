@@ -78,6 +78,40 @@ a.badge:focus
     margin-top: 20px;
 }
 
+.img-bio
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.bios .pull-right + .media-body
+{
+    text-align: right;
+}
+
+#chidi
+{
+    background-image: url('../img/team/chidi.jpg');
+    background-position: top;
+}
+
+#aliya
+{
+    background-image: url('../img/team/aliya.png');
+    background-position: center;
+}
+
+#joel
+{
+    background-image: url('../img/team/joel.jpg');
+    background-position: top;
+}
+
 #search-form .form-control,
 #search-form .btn
 {
