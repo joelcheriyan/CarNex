@@ -92,6 +92,11 @@ a.badge:focus
     margin-top: 20px;
 }
 
+.bios
+{
+    margin-top: 20px;
+}
+
 .img-bio
 {
     width: 150px;
@@ -103,9 +108,15 @@ a.badge:focus
     background-size: 100% auto;
 }
 
+.media .pull-right + .media-body
+{
+    text-align: right;
+}
+
+
 @media (max-width: 767px)
 {
-    #bio
+    .container-header
     {
         text-align: center;
     }
@@ -120,11 +131,6 @@ a.badge:focus
     {
         text-align: center !important;
     }
-}
-
-.bios .pull-right + .media-body
-{
-    text-align: right;
 }
 
 #chidi
