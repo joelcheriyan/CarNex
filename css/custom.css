@@ -82,6 +82,28 @@ a.badge:focus
     margin-top: 70px;
 }
 
+.container-small
+{
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact-form
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px)
+{
+    .responsive-break
+    {
+        display: none;
+    }
+}
+
 .blurbs
 {
     text-align: center;
