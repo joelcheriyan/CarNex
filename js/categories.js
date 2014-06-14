@@ -12,6 +12,16 @@ window.onload = function()
 
 function changeSubjectText()
 {
-    document.getElementById("field-subject").value = this.innerHTML;
+    if (this.innerHTML == "(no subject)")
+    {
+        text = "";
+    }
+
+    else
+    {
+        text = this.innerHTML;
+    }
+
+    document.getElementById("field-subject").value = text;
     return false;
 }
