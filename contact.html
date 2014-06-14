@@ -101,10 +101,25 @@
 
         <div class="form-group">
           <label for="field-subject" class="control-label">
-            Subject <span class="text-muted">(optional)</span>
+            Subject <span class="text-muted">(optional - you can also choose from one of our preset categories)</span>
           </label>
 
-          <input type="text" class="form-control" id="field-subject" placeholder="What are you writing to us about?">
+          <div class="input-group">
+            <input type="text" class="form-control" id="field-subject" placeholder="What are you writing to us about?">
+
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                Categories <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu pull-right" id="category-dropdown">
+                <li><a href="#"></a></li>
+                <li><a href="#">Problem with a user</a></li>
+                <li><a href="#">Problem with the website</a></li>
+                <li><a href="#">Account help</a></li>
+              </ul>
+            </div> <!-- input-group-btn -->
+          </div>
         </div>
 
         <div class="form-group">
@@ -145,5 +160,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/categories.js"></script>
   </body>
 </html>
