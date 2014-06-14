@@ -90,6 +90,58 @@ a.badge:focus
     margin-top: 70px;
 }
 
+.profile-header
+{
+    background-color: #D6D6D6;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.profile-header .col-sm-offset-4
+{
+    text-align: center;
+}
+
+.profile-header .img-map-container
+{
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.profile-header .img-map
+{
+    padding-top: 100%;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-image: url('http://maps.googleapis.com/maps/api/staticmap?center=Bahen+Centre+for+Information+Technology,+St+George+St&zoom=11&size=300x300&markers=43.659489,-79.397613');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+@media(max-width: 767px)
+{
+    .profile-header .img-map-container
+    {
+        margin-top: 20px;
+    }
+}
+
+@media(min-width: 768px)
+{
+    .profile-header .img-map-container
+    {
+        float: right;
+    }
+}
+
+.profile-header-text
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .container-small
 {
     padding-left: 15%;
@@ -120,6 +172,13 @@ a.badge:focus
 .taglines
 {
     margin-top: 20px;
+}
+
+.img-profile
+{
+    background-image: url('../img/171x180.svg');
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bios
