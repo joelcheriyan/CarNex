@@ -256,6 +256,12 @@ a.badge:focus
     background-size: 105% auto;
 }
 
+.main-profile .panel-body > p:last-of-type,
+.main-profile .panel-footer > p:last-of-type
+{
+    margin-bottom: 0px;
+}
+
 #search-form .form-control,
 #search-form .btn
 {
@@ -350,7 +356,7 @@ a.badge:focus
   clear: both;
 }
 
-.posting ul
+.panel-body ul
 {
     list-style-type: none;
     padding-left: 0px;
