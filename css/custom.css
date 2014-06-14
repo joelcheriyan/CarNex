@@ -97,7 +97,7 @@ a.badge:focus
     margin-bottom: 30px;
 }
 
-.profile-header .col-sm-offset-4
+.profile-header
 {
     text-align: center;
 }
@@ -125,6 +125,7 @@ a.badge:focus
     .profile-header .img-map-container
     {
         margin-top: 20px;
+        margin-bottom: 20px;
     }
 }
 
@@ -140,6 +141,14 @@ a.badge:focus
 {
     margin-left: auto;
     margin-right: auto;
+}
+
+@media (max-width: 479px)
+{
+    .hidden-xxs
+    {
+        display: none;
+    }
 }
 
 .container-small
@@ -382,6 +391,7 @@ footer
     border-top: 1px solid #e7e7e7;
     padding: 10px 15px 1px;
 }
+
 .footer-nav
 {
     list-style-type: none;
