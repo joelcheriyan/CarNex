@@ -21,6 +21,14 @@ a.badge:focus
     background-color: #ebebeb;
 }
 
+@media (max-width: 767px)
+{
+    #popover-container
+    {
+        text-align: center;
+    }
+}
+
 #popover-content
 {
     display: none;
