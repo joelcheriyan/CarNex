@@ -173,9 +173,24 @@ a.badge:focus
     text-align: center;
 }
 
+.blurbs h3
+{
+    font-size: 32px;
+}
+
 .taglines
 {
     margin-top: 20px;
+}
+
+.taglines h2
+{
+    font-size: 48px;
+}
+
+.taglines p
+{
+    font-size: 18px;
 }
 
 .img-profile
