@@ -15,10 +15,10 @@ var popoverContent =
     </form>';
 
 $('#log-in').popover(
-        {
-          html: true,
-          placement: 'bottom',
-          title: 'Log In',
-          container: '#popover-container',
-          content: popoverContent
-});
+    {
+        html: true,
+        placement: 'bottom',
+        title: 'Log In',
+        container: '#popover-container',
+        content: popoverContent
+    });
