@@ -64,7 +64,7 @@
         <input type="password" class="form-control" id="field-new-password" placeholder="Password" required>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Continue &raquo;</button>
+      <button type="submit" class="btn btn-primary">Continue &raquo;</button>
     </form>
   </div>
 
@@ -77,7 +77,43 @@
         <input type="tel" class="form-control" id="field-new-phone" placeholder="(123) 456-7890" required>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block">Continue &raquo;</button>
+      <div class="form-group">
+        <label for="field-new-dob">Date of Birth</label>
+        <input type="date" class="form-control" id="field-new-dob" placeholder="mm/dd/yyyy" required>
+      </div>
+
+      <div class="form-group">
+        <label for="field-new-from">City</label>
+        <input type="text" class="form-control" id="field-new-from" placeholder="Where do you usually commute from?" required>
+      </div>
+
+      <button type="button" class="btn btn-default">&laquo; Back</button>
+      <button type="submit" class="btn btn-primary">Continue &raquo;</button>
     </form>
+  </div>
+
+  <div id="step3">
+    <h2>Verify Phone Number</h2>
+
+    <p>A text has been sent to the phone number you provided in step 1 with a 6-digit activation code. Please enter that code below to continue:</p>
+
+    <form role="form">
+      <div class="form-group">
+        <label for="field-new-verify">Activation Code</label>
+        <input type="number" class="form-control" id="field-new-verify" required>
+      </div>
+
+      <button type="button" class="btn btn-default">&laquo; Back</button>
+      <button type="button" class="btn btn-primary">Resend Activation Code</button>
+      <button type="submit" class="btn btn-success">Verify!</button>
+    </form>
+  </div>
+
+  <div id="step4">
+    <h2>Done!</h2>
+
+    <p>Thanks for registering, janedoe! You're now ready to log in and start using CarNex.</p>
+
+    <p><a href="index.html" class="btn btn-primary">Take me there!</a></p>
   </div>
 </div>
