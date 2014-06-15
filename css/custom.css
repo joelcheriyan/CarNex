@@ -29,11 +29,6 @@ a.badge:focus
     }
 }
 
-#popover-content
-{
-    display: none;
-}
-
 #sub-nav
 {
     min-height: 30px;
