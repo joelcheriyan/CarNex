@@ -462,18 +462,18 @@ footer
 .btn-input {
    display: block;
 }
- 
+
 .btn-input .btn.form-control {
     text-align: left;
 }
- 
+
 .btn-input .btn.form-control span:first-child {
    left: 10px;
    overflow: hidden;
    position: absolute;
    right: 25px;
 }
- 
+
 .btn-input .btn.form-control .caret {
    margin-top: -1px;
    position: absolute;
@@ -496,8 +496,8 @@ footer
 /* COLLAPSE PANEL CHEVRONS - CURRENTLY NOT IMPLEMENTED */
 
 /* http://stackoverflow.com/questions/18325779/bootstrap-3-collapse-show-state-with-chevron-icon */
-/*.glyphicon .glyphicon-chevron-right, .glyphicon .glyphicon-chevron-down, 
-.panel-heading .glyphicon-chevron-right, 
+/*.glyphicon .glyphicon-chevron-right, .glyphicon .glyphicon-chevron-down,
+.panel-heading .glyphicon-chevron-right,
 .panel-heading .glyphicon-chevron-down {
     display: inline-block;
     position: absolute;
@@ -505,7 +505,7 @@ footer
     z-index: 5;
     vertical-align: middle;
 }*/
-.panel-heading:after {
+.settings-panel-heading:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
@@ -513,7 +513,7 @@ footer
     color: grey;         /* adjust as needed */
 }
 
-.panel-heading.collapsed:after {
+.settings-panel-heading.collapsed:after {
     /* symbol for "collapsed" panels */
     content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }
