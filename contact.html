@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CarNex - How it Works</title>
+    <title>CarNex - Contact Us</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,9 +26,9 @@
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav" id="nav-main">
-            <li><a href="about.html">About Us</a></li>
-            <li class="active"><a href="howitworks.html">How it Works</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="active"><a href="about.html">About Us</a></li>
+            <li><a href="howitworks.html">How it Works</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right" id="popover-container">
@@ -42,10 +42,10 @@
     <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
       <div class="container">
         <div class="navbar-collapse">
-          <ul class="nav navbar-nav nav-right" id="subnav-how">
-            <li><a href="start.html">Getting Started</a></li>
-            <li><a href="safety.html">Safety</a></li>
-            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          <ul class="nav navbar-nav nav-right" id="subnav-about">
+            <li><a href="about.html#mission">Our Mission</a></li>
+            <li><a href="about.html#bio">Founders</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </div>
       </div>
@@ -54,46 +54,62 @@
     <div class="jumbotron">
       <div class="container">
         <h1>CarNex</h1>
-        <p>How it Works</p>
+        <p>Contact Us</p>
       </div>
     </div>
 
-    <div class="container">
-      <div class="media">
-        <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object pull-right img-media">
+    <div class="container-small">
+      <h2>
+        Anything you want us to know? <br class="responsive-break">
+        <span class="text-muted">Contact the team behind CarNex here.</span>
+      </h2>
 
-        <div class="media-body">
-          <h2>
-            Easy as <span class="text-muted">One, Two, Three.</span>
-          </h2>
+      <form role="form" id="contact-form">
+        <div class="form-group">
+          <label for="field-name" class="control-label">Name</label>
 
-          <p>Here at CarNex, we want to make organizing your commute as easy as can be. Just make an account, search through postings near your planned route, and contact posters through our integrated chat system once you're ready. It's that simple!</p>
+          <input type="text" class="form-control" id="field-name" form="contact-form" placeholder="What should we call you?" required>
         </div>
-      </div>
 
-      <div class="media">
-        <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object pull-left img-media">
+        <div class="form-group">
+          <label for="field-email" class="control-label">
+            Email <span class="text-muted">(optional)</span>
+          </label>
 
-        <div class="media-body">
-          <h2>
-            No Postings? <span class="text-muted">No Problem!</span>
-          </h2>
-
-          <p>Don't worry if nobody's posted looking to share a ride for a trip that meets your criteria yet. It's easy to put up a request of your own. Just pick a public place near the location you want to depart from, and another public place that's near your destination. CarNex will make it easy for people who want to make the same trip to find you.</p>
+          <input type="email" class="form-control" id="field-email" placeholder="How can we get back to you?">
         </div>
-      </div>
 
-      <div class="media">
-        <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object pull-right img-media">
+        <div class="form-group">
+          <label for="field-subject" class="control-label">
+            Subject <span class="text-muted">(optional, or choose a preset)</span>
+          </label>
 
-        <div class="media-body">
-          <h2>
-            Don't Worry, <span class="text-muted">You're Safe With Us.</span>
-          </h2>
+          <div class="input-group">
+            <input type="text" class="form-control" id="field-subject" placeholder="What are you writing to us about?">
 
-          <p>CarNex is deeply invested in the safety of each and every one of our users. You control what's shown on your profile to other users of the service, and to people who haven't made an account. By using our integrated chat service to communicate with people you might want to share a ride with, you can keep your private information to yourself until you're ready to share. All they'll be able to see is what you make available to them.</p>
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="hidden-xs">Categories</span> <span class="caret"></span>
+              </button>
+
+              <ul class="dropdown-menu pull-right" id="category-dropdown">
+                <li><a href="#">(no subject)</a></li>
+                <li><a href="#">Problem with a user</a></li>
+                <li><a href="#">Problem with the website</a></li>
+                <li><a href="#">Account help</a></li>
+              </ul>
+            </div> <!-- input-group-btn -->
+          </div>
         </div>
-      </div>
+
+        <div class="form-group">
+          <label for="field-message">Message</label>
+
+          <textarea class="form-control" id="field-message" form="contact-form" rows="10" placeholder="Tell us of your troubles." required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Send us a message!</button>
+      </form>
     </div>
 
     <footer>
@@ -125,5 +141,6 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/categories.js"></script>
   </body>
 </html>

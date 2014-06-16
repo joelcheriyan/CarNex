@@ -21,9 +21,12 @@ a.badge:focus
     background-color: #ebebeb;
 }
 
-#popover-content
+@media (max-width: 767px)
 {
-    display: none;
+    #popover-container
+    {
+        text-align: center;
+    }
 }
 
 #sub-nav
@@ -63,9 +66,106 @@ a.badge:focus
     padding-bottom: 15px;
 }
 
+@media (max-width: 767px)
+{
+    .jumbotron
+    {
+        background-image: none;
+        background-color: #D6D6D6;
+        color: #000;
+        text-align: left;
+        padding-left: 0px;
+        padding-top: 5px;
+        padding-bottom: 0px;
+    }
+}
+
 .jumbotron .container
 {
     margin-top: 70px;
+}
+
+.profile-header
+{
+    background-color: #D6D6D6;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.profile-header
+{
+    text-align: center;
+}
+
+.profile-header .img-map-container
+{
+    width: 100%;
+    max-width: 300px;
+    margin: auto;
+}
+
+.profile-header .img-map
+{
+    padding-top: 100%;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+    background-image: url('http://maps.googleapis.com/maps/api/staticmap?center=Bahen+Centre+for+Information+Technology,+St+George+St&zoom=11&size=300x300&markers=43.659489,-79.397613');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+@media(max-width: 767px)
+{
+    .profile-header .img-map-container
+    {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+@media(min-width: 768px)
+{
+    .profile-header .img-map-container
+    {
+        float: right;
+    }
+}
+
+.profile-header-text
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 479px)
+{
+    .hidden-xxs
+    {
+        display: none;
+    }
+}
+
+.container-small
+{
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#contact-form
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px)
+{
+    .responsive-break
+    {
+        display: none;
+    }
 }
 
 .blurbs
@@ -76,6 +176,103 @@ a.badge:focus
 .taglines
 {
     margin-top: 20px;
+}
+
+.taglines h2
+{
+    font-size: 48px;
+}
+
+.taglines p
+{
+    font-size: 18px;
+}
+
+.img-profile
+{
+    background-image: url('../img/171x180.svg');
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.review h3
+{
+    display: inline;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.bios
+{
+    margin-top: 20px;
+}
+
+.img-bio
+{
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    -webkit-border-radius: 75px;
+    -moz-border-radius: 75px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+.media .pull-right + .media-body
+{
+    text-align: right;
+}
+
+
+@media (max-width: 767px)
+{
+    .container-header
+    {
+        text-align: center;
+    }
+
+    .img-media, .img-bio
+    {
+        float: none !important;
+        margin: auto !important;
+    }
+
+    .media-body
+    {
+        text-align: center !important;
+    }
+}
+
+#chidi
+{
+    background-image: url('../img/team/chidi.jpg');
+    background-position: top;
+}
+
+#aliya
+{
+    background-image: url('../img/team/aliya.png');
+    background-position: center;
+}
+
+#joel
+{
+    background-image: url('../img/team/joel.jpg');
+    background-position: top;
+}
+
+#richard
+{
+    background-image: url('../img/team/richard.png');
+    background-position: center;
+    background-size: 105% auto;
+}
+
+.main-profile .panel-body > p:last-of-type,
+.main-profile .panel-footer > p:last-of-type
+{
+    margin-bottom: 0px;
 }
 
 #search-form .form-control,
@@ -172,7 +369,7 @@ a.badge:focus
   clear: both;
 }
 
-.posting ul
+.panel-body ul
 {
     list-style-type: none;
     padding-left: 0px;
@@ -212,7 +409,9 @@ footer
     background-color: #f8f8f8;
     border-top: 1px solid #e7e7e7;
     padding: 10px 15px 1px;
+    margin-top: 5px;
 }
+
 .footer-nav
 {
     list-style-type: none;
@@ -234,4 +433,87 @@ footer
 .footer-nav .nav-title > a
 {
     color: #000;
+}
+
+
+/* BUTTONS */
+
+/* http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3 */
+.btn-info {
+    position: relative;
+    overflow: hidden;
+}
+.btn-info input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.btn-input {
+   display: block;
+}
+ 
+.btn-input .btn.form-control {
+    text-align: left;
+}
+ 
+.btn-input .btn.form-control span:first-child {
+   left: 10px;
+   overflow: hidden;
+   position: absolute;
+   right: 25px;
+}
+ 
+.btn-input .btn.form-control .caret {
+   margin-top: -1px;
+   position: absolute;
+   right: 10px;
+   top: 50%;
+}
+
+/* FORM LABEL */
+
+.form-horizontal .control-label{
+    text-align:left;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+    padding:5px;
+}
+
+/* COLLAPSE PANEL CHEVRONS - CURRENTLY NOT IMPLEMENTED */
+
+/* http://stackoverflow.com/questions/18325779/bootstrap-3-collapse-show-state-with-chevron-icon */
+/*.glyphicon .glyphicon-chevron-right, .glyphicon .glyphicon-chevron-down, 
+.panel-heading .glyphicon-chevron-right, 
+.panel-heading .glyphicon-chevron-down {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    vertical-align: middle;
+}*/
+.panel-heading:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+
+.panel-heading.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
 }

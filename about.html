@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a href="#" class="navbar-brand">brand logo</a>
+          <a href="index.html" class="navbar-brand">brand logo</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -33,28 +33,8 @@
 
           <ul class="nav navbar-nav navbar-right" id="popover-container">
             <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
-            <li><button type="button" class="btn btn-primary navbar-btn">Sign Up</button></li>
+            <li><button type="button" class="btn btn-primary navbar-btn" onclick="signUp();">Sign Up</button></li>
           </ul>
-
-          <div id="popover-content">
-            <form role="form">
-              <div class="form-group">
-                <label for="field-username">Username</label>
-                <input type="text" class="form-control" id="field-username" placeholder="Username">
-              </div>
-
-              <div class="form-group">
-                <label for="field-password">Password</label>
-                <input type="password" class="form-control" id="field-password" placeholder="Password">
-              </div>
-
-              <div class="checkbox pull-left">
-                <label><input type="checkbox">Remember me</label>
-              </div>
-
-              <button type="submit" class="btn btn-success pull-right">Go!</button>
-            </form>
-          </div>
         </div>
       </div>
     </nav>
@@ -79,38 +59,69 @@
     </div>
 
     <div class="container">
-        <div class="media">
-            <a href="#" name="mission" class="pull-right">
-                <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object">
-            </a>
+      <h2 class="container-header" id="mission">Our Mission</h2>
 
-            <div class="media-body">
-                <h2>Header</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-            </div>
+      <div class="media">
+        <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object pull-left img-media">
+
+        <div class="media-body">
+          <h3>Header</h3>
+          <p>The team behind CarNex has a dream of improving the lives of commuters and car owners in Canada. It was launched on May 31, 2014 by five young entrepreneurs who wished to contribute to an environmental cause by providing an efficient solution to facilitate carpooling between citizens. CarNex is strongly devoted to promoting carpooling as an alternate mode of transportation to driving alone, taking a taxi, or using public transit systems.</p>
         </div>
+      </div>
 
-        <div class="media">
-            <a href="#" name="bio" class="pull-left">
-                <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object">
-            </a>
+      <div class="media">
+        <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object pull-right img-media">
 
-            <div class="media-body">
-                <h2>Header</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-            </div>
+        <div class="media-body">
+          <h3>Header</h3>
+          <p>Our website is primarily built to connect people wishing to commute to a common destination. It acts as an intermediary between registered members and does not provide transportation for people. CarNex has many objectives such as reducing money and time spent by individuals driving alone, reducing the number of vehicles on the roads, helping ease traffic congestion and lowering emissions of greenhouse gases. In addition, we aim to collaborate with some transit agencies to offer a complementary mode of transportation to their existing network.</p>
         </div>
+      </div>
+    </div>
 
-        <div class="media">
-            <a href="#" class="pull-right">
-                <img src="img/171x180.svg" width="171" height="180" alt="Alternate Text" class="media-object">
-            </a>
+    <div class="container bios">
+      <h2 class="container-header" id="bio">The CarNex Team</h2>
 
-            <div class="media-body">
-                <h2>Header</h2>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
-            </div>
+      <div class="media">
+        <div class="img-bio pull-left" id="chidi"></div>
+
+        <div class="media-body">
+          <h3>Chidinma Nwaka</h3>
+
+          <p>Hi, my name is Chidinma Nwaka. I'm a computer science student at the University of Toronto. I just started a hobby which is programming on the web and I love it. My dream is to become a Sunday school teacher, successful entrepreneur and philanthropist. Aside from computer science, I enjoy learning about how businesses start up and operate. My love for junk food will never allow me to become a vegetarian.</p>
         </div>
+      </div>
+
+      <div class="media">
+        <div class="img-bio pull-right" id="aliya"></div>
+
+        <div class="media-body">
+          <h3>Aliya Hameer</h3>
+
+          <p>I'm Aliya Hameer, an innocent victim. As a computer science student at the University of Toronto, I love solitary pursuits such as programming in dark rooms and watching people argue over tiny semantics at 3 AM. I hope to go on to become a crusty old academic and lecturer, specializing in theory of computation, that field of computer science that everybody complains about.</p>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="img-bio pull-left" id="joel"></div>
+
+        <div class="media-body">
+          <h3>Joel Cheriyan</h3>
+
+          <p>My name is Joel Cheriyan. I'm currently a student in the Engineering Science program at the University of Toronto. I'm very passionate about technology and I'm always excited by new gadgets and ideas.</p>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="img-bio pull-right" id="richard"></div>
+
+        <div class="media-body">
+          <h3>Chuanrui Li</h3>
+
+          <p>Hello, my name is Chuanrui Li. As an electrical and computer engineering student, I have long been interested in both software and hardware development industry and have several years’ experience of programming and project design.</p>
+        </div>
+      </div>
     </div>
 
     <footer>
@@ -135,11 +146,12 @@
       </div>
 
       <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
-      <p>Copyright &copy; 2014 Someone or Other</p>
+      <p>Copyright &copy; 2014 CarNex, Inc.</p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/other.js"></script>
     <script src="js/login.js"></script>
   </body>
 </html>
