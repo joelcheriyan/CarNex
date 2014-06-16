@@ -434,3 +434,61 @@ footer
 {
     color: #000;
 }
+
+
+/* BUTTONS */
+
+/* http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3 */
+.btn-info {
+    position: relative;
+    overflow: hidden;
+}
+.btn-info input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 999px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+.btn-input {
+   display: block;
+}
+ 
+.btn-input .btn.form-control {
+    text-align: left;
+}
+ 
+.btn-input .btn.form-control span:first-child {
+   left: 10px;
+   overflow: hidden;
+   position: absolute;
+   right: 25px;
+}
+ 
+.btn-input .btn.form-control .caret {
+   margin-top: -1px;
+   position: absolute;
+   right: 10px;
+   top: 50%;
+}
+
+/* FORM LABEL */
+
+.form-horizontal .control-label{
+    text-align:left;
+}
+
+/* INPUT GROUP */
+
+.input-group{
+    padding:5px;
+}
