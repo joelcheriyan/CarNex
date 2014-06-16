@@ -288,6 +288,13 @@ a.badge:focus
     background-size: 105% auto;
 }
 
+#monica
+{
+    background-image: url('../img/team/monica.jpg');
+    background-position: center;
+    background-size: 105% auto;
+}
+
 .main-profile .panel-body > p:last-of-type,
 .main-profile .panel-footer > p:last-of-type
 {
