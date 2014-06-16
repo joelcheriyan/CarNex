@@ -530,15 +530,16 @@ footer
     z-index: 5;
     vertical-align: middle;
 }*/
-.settings-panel-heading:after {
+.settings-panel-heading .panel-title:after {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
     float: right;        /* adjust as needed */
-    color: grey;         /* adjust as needed */
+    color: #fff;         /* adjust as needed */
 }
 
-.settings-panel-heading.collapsed:after {
+.settings-panel-heading.collapsed .panel-title:after {
     /* symbol for "collapsed" panels */
-    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+    font-family: 'Glyphicons Halflings';
+    content: "\e079";    /* adjust as needed, taken from bootstrap.css */
 }
