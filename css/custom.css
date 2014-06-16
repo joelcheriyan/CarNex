@@ -58,14 +58,19 @@ a.badge:focus
     text-transform: uppercase;
 }
 
+#subnav-about
+{
+    margin-left: -25px;
+}
+
 #subnav-how
 {
     margin-left: 70px;
 }
 
-#subnav-about
+#subnav-account
 {
-    margin-left: -25px;
+    margin-left: 240px;
 }
 
 .jumbotron
@@ -283,6 +288,13 @@ a.badge:focus
     background-size: 105% auto;
 }
 
+#monica
+{
+    background-image: url('../img/team/monica.jpg');
+    background-position: center;
+    background-size: 105% auto;
+}
+
 .main-profile .panel-body > p:last-of-type,
 .main-profile .panel-footer > p:last-of-type
 {
@@ -464,11 +476,13 @@ footer
 /* BUTTONS */
 
 /* http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3 */
-.btn-info {
+.btn-info
+{
     position: relative;
     overflow: hidden;
 }
-.btn-info input[type=file] {
+.btn-info input[type=file]
+{
     position: absolute;
     top: 0;
     right: 0;
@@ -484,37 +498,41 @@ footer
     display: block;
 }
 
-.btn-input {
+.btn-input
+{
    display: block;
 }
 
-.btn-input .btn.form-control {
+.btn-input .btn.dropdown-toggle
+{
+    padding-left: 7px;
     text-align: left;
 }
 
-.btn-input .btn.form-control span:first-child {
-   left: 10px;
-   overflow: hidden;
-   position: absolute;
-   right: 25px;
-}
-
-.btn-input .btn.form-control .caret {
+.btn-input .btn.dropdown-toggle .caret
+{
    margin-top: -1px;
    position: absolute;
    right: 10px;
    top: 50%;
 }
 
+.btn-input .dropdown-menu
+{
+    left: 15px;
+}
+
 /* FORM LABEL */
 
-.form-horizontal .control-label{
+.form-horizontal .control-label
+{
     text-align:left;
 }
 
 /* INPUT GROUP */
 
-.input-group{
+.input-group
+{
     padding:5px;
 }
 
@@ -530,7 +548,8 @@ footer
     z-index: 5;
     vertical-align: middle;
 }*/
-.settings-panel-heading .panel-title:after {
+.settings-panel-heading .panel-title:after
+{
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
@@ -538,7 +557,8 @@ footer
     color: #fff;         /* adjust as needed */
 }
 
-.settings-panel-heading.collapsed .panel-title:after {
+.settings-panel-heading.collapsed .panel-title:after
+{
     /* symbol for "collapsed" panels */
     font-family: 'Glyphicons Halflings';
     content: "\e079";    /* adjust as needed, taken from bootstrap.css */
