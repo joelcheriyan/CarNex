@@ -58,14 +58,19 @@ a.badge:focus
     text-transform: uppercase;
 }
 
+#subnav-about
+{
+    margin-left: -25px;
+}
+
 #subnav-how
 {
     margin-left: 70px;
 }
 
-#subnav-about
+#subnav-account
 {
-    margin-left: -25px;
+    margin-left: 240px;
 }
 
 .jumbotron
