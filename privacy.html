@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -80,14 +81,11 @@
                 <!--http://www.benknowscode.com/2013/12/bootstrap-dropdown-button-select-box-control.html-->
                 <form class="form-horizontal privacy-form" role="form">
                   <div class="form-group">
-                    <label for="priv_name" class="col-sm-6 control-label">
-                      <div class="row">
-                        <p class="col-sm-4"><strong>Name:</strong></p>
-                        <p class="col-sm-8">Jane Doe</p>
-                      </div>
-                    </label>
+                    <label for="priv-name" class="col-sm-2 control-label">Name:</label>
+                    <p class="col-sm-4 form-control-static"><strong>Jane Doe</strong></p>
+
                     <div class="btn-group btn-input clearfix col-sm-6">
-                      <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                      <button type="button" id="priv-name" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
                         <span data-bind="label">Only Me</span> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
@@ -98,14 +96,11 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="priv_username" class="col-sm-6 control-label">
-                      <div class="row">
-                        <p class="col-sm-4"><strong>Username:</strong></p>
-                        <p class="col-sm-8">awesomesauce</p>
-                      </div>
-                    </label>
+                    <label for="priv-username" class="col-sm-2 control-label">Username:</label>
+                    <p class="col-sm-4 form-control-static"><strong>awesomesauce</strong></p>
+
                     <div class="btn-group btn-input clearfix col-sm-6">
-                      <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                      <button type="button" id="priv-username" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
                         <span data-bind="label">Public</span> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
@@ -116,14 +111,11 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="priv_email" class="col-sm-6 control-label">
-                      <div class="row">
-                        <p class="col-sm-4"><strong>Email:</strong></p>
-                        <p class="col-sm-8">awesomesauce@gmail.com</p>
-                      </div>
-                    </label>
+                    <label for="priv-email" class="col-sm-2 control-label">Email:</label>
+                    <p class="col-sm-4 form-control-static"><strong>awesomesauce@gmail.com</strong></p>
+
                     <div class="btn-group btn-input clearfix col-sm-6">
-                      <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                      <button type="button" id="priv-email" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
                         <span data-bind="label">Only Me</span> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
@@ -134,14 +126,11 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="priv_phone" class="col-sm-6 control-label">
-                      <div class="row">
-                        <p class="col-sm-4"><strong>Phone:</strong></p>
-                        <p class="col-sm-8">416-111-1111</p>
-                      </div>
-                    </label>
+                    <label for="priv-phone" class="col-sm-2 control-label">Phone:</label>
+                    <p class="col-sm-4 form-control-static"><strong>416-111-1111</strong></p>
+
                     <div class="btn-group btn-input clearfix col-sm-6">
-                      <button type="button" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
+                      <button type="button" id="priv-phone" class="btn btn-default btn-block dropdown-toggle" data-toggle="dropdown">
                         <span data-bind="label">Only Me</span> <span class="caret"></span>
                       </button>
                       <ul class="dropdown-menu" role="menu">
