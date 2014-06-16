@@ -492,3 +492,28 @@ footer
 .input-group{
     padding:5px;
 }
+
+/* COLLAPSE PANEL CHEVRONS - CURRENTLY NOT IMPLEMENTED */
+
+/* http://stackoverflow.com/questions/18325779/bootstrap-3-collapse-show-state-with-chevron-icon */
+/*.glyphicon .glyphicon-chevron-right, .glyphicon .glyphicon-chevron-down, 
+.panel-heading .glyphicon-chevron-right, 
+.panel-heading .glyphicon-chevron-down {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    vertical-align: middle;
+}*/
+.panel-heading:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+
+.panel-heading.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
