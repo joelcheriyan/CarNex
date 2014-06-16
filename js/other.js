@@ -5,6 +5,7 @@ function signUp()
 
 $('#account').tooltip(
     {
-        placement: 'bottom'
+        placement: 'right',
+        container: '#nav-main'
     }
 );
