@@ -243,6 +243,16 @@ a.badge:focus
     text-align: right;
 }
 
+.img-media
+{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+}
+
 
 @media (max-width: 767px)
 {
@@ -536,25 +546,13 @@ footer
     padding:5px;
 }
 
-/* COLLAPSE PANEL CHEVRONS - CURRENTLY NOT IMPLEMENTED */
-
-/* http://stackoverflow.com/questions/18325779/bootstrap-3-collapse-show-state-with-chevron-icon */
-/*.glyphicon .glyphicon-chevron-right, .glyphicon .glyphicon-chevron-down,
-.panel-heading .glyphicon-chevron-right,
-.panel-heading .glyphicon-chevron-down {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    z-index: 5;
-    vertical-align: middle;
-}*/
 .settings-panel-heading a.pull-right:after
 {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-    float: right;        /* adjust as needed */
-    color: #fff;         /* adjust as needed */
+    float: right;
+    color: #fff;
 }
 
 .settings-panel-heading a.pull-right.collapsed:after
