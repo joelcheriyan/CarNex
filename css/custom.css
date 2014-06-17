@@ -548,7 +548,7 @@ footer
     z-index: 5;
     vertical-align: middle;
 }*/
-.settings-panel-heading .panel-title:after
+.settings-panel-heading a.pull-right:after
 {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
@@ -557,9 +557,8 @@ footer
     color: #fff;         /* adjust as needed */
 }
 
-.settings-panel-heading.collapsed .panel-title:after
+.settings-panel-heading a.pull-right.collapsed:after
 {
     /* symbol for "collapsed" panels */
-    font-family: 'Glyphicons Halflings';
     content: "\e079";    /* adjust as needed, taken from bootstrap.css */
 }
