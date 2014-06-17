@@ -243,6 +243,12 @@ a.badge:focus
     text-align: right;
 }
 
+.img-crop-container
+{
+    max-height: 200px;
+    overflow: hidden;
+}
+
 .img-media
 {
     width: 100%;
@@ -261,7 +267,9 @@ a.badge:focus
         text-align: center;
     }
 
-    .img-media, .img-bio
+    .img-crop-container,
+    .img-media,
+    .img-bio
     {
         float: none !important;
         margin: auto !important;
