@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a href="#" class="navbar-brand">brand logo</a>
+          <a href="dashboard.html" class="navbar-brand">brand logo</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -60,9 +60,9 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Welcome, Jane.</h1>
-        <p>Search for a trip?</p>
+        <p>Search again?</p>
 
-        <form class="form-inline" id="search-form" role="search" action="results.html">
+        <form class="form-inline" id="search-form" role="search">
           <div class="form-group">
             <label class="sr-only" for="field-from">Leaving From</label>
             <input type="text" id="field-from" class="form-control" placeholder="Leaving From">
@@ -81,7 +81,28 @@
     </div>
 
     <div class="container">
-      <h2 class="postings-header">Postings Since Your Last Login</h2>
+      <div class="postings-header">
+        <h2>
+          Search Results <br>
+          <small>Trips from [origin] to [destination]</small>
+        </h2>
+
+        <div class="btn-group sort-btn-group">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="sort-btn">
+            Sort by: Total distance <span class="caret"></span>
+          </button>
+
+          <ul class="dropdown-menu" role="menu" id="sort-dropdown">
+            <li><a href="#">Total distance</a></li>
+            <li><a href="#">Distance from starting point</a></li>
+            <li><a href="#">Distance from destination</a></li>
+            <li><a href="#">Poster rating</a></li>
+            <li><a href="#">Trip date</a></li>
+            <li><a href="#">Newest first</a></li>
+            <li><a href="#">Oldest first</a></li>
+          </ul>
+        </div>
+      </div>
 
       <div class="container-fluid">
         <div class="panel panel-primary posting">
@@ -303,5 +324,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>
+    <script src="js/sort.js"></script>
   </body>
 </html>
