@@ -490,16 +490,30 @@ footer
     color: #000;
 }
 
+input#dob[disabled]
+{
+    background-color: #fff;
+    cursor: text;
+}
 
-/* BUTTONS */
 
-/* http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3 */
-.btn-info
+form#photoUpload
+{
+    margin-top: 15px;
+}
+
+
+/*
+ * File upload input
+ * http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3
+ */
+.btn-file
 {
     position: relative;
     overflow: hidden;
 }
-.btn-info input[type=file]
+
+.btn-file input[type=file]
 {
     position: absolute;
     top: 0;
@@ -511,47 +525,29 @@ footer
     filter: alpha(opacity=0);
     opacity: 0;
     outline: none;
-    background: white;
+    background: #fff;
     cursor: inherit;
     display: block;
 }
 
-.btn-input
+.input-group-btn + input[readonly]
 {
-   display: block;
-}
-
-.btn-input .btn.dropdown-toggle
-{
-    padding-left: 7px;
-    text-align: left;
-}
-
-.btn-input .btn.dropdown-toggle .caret
-{
-   margin-top: -1px;
-   position: absolute;
-   right: 10px;
-   top: 50%;
-}
-
-.btn-input .dropdown-menu
-{
-    left: 15px;
+    background-color: #fff !important;
+    cursor: text !important;
 }
 
 /* FORM LABEL */
 
 .form-horizontal .control-label
 {
-    text-align:left;
+    text-align: left;
 }
 
 /* INPUT GROUP */
 
 .input-group
 {
-    padding:5px;
+    padding: 5px;
 }
 
 .settings-panel-heading a.pull-right:after
