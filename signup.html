@@ -57,34 +57,38 @@
         <div class="col-xs-3 bs-wizard-step active" id="step1-prog">
           <div class="text-center bs-wizard-stepnum">Step 1</div>
           <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
+          <span class="bs-wizard-dot"></span>
           <div class="bs-wizard-info text-center">Account Information</div>
         </div>
 
         <div class="col-xs-3 bs-wizard-step disabled" id="step2-prog">
           <div class="text-center bs-wizard-stepnum">Step 2</div>
           <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
+          <span class="bs-wizard-dot"></span>
           <div class="bs-wizard-info text-center">Personal Information</div>
         </div>
 
         <div class="col-xs-3 bs-wizard-step disabled" id="step3-prog">
           <div class="text-center bs-wizard-stepnum">Step 3</div>
           <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
+          <span class="bs-wizard-dot"></span>
           <div class="bs-wizard-info text-center">Verify Phone Number</div>
         </div>
 
         <div class="col-xs-3 bs-wizard-step disabled" id="step4-prog">
           <div class="text-center bs-wizard-stepnum">Step 4</div>
           <div class="progress"><div class="progress-bar"></div></div>
-          <a href="#" class="bs-wizard-dot"></a>
+          <span class="bs-wizard-dot"></span>
           <div class="bs-wizard-info text-center">Done!</div>
         </div>
       </div>
 
       <div class="container">
         <div id="step1">
+          <p>
+            Thanks for considering creating an account with CarNex! The registration process shouldn't take you too long. We'll need some basic information for your account to get started.
+          </p>
+
           <h2>Account Information</h2>
 
           <form role="form">
@@ -98,11 +102,19 @@
                 <label for="field-new-lastname" class="control-label sr-only">Last Name</label>
                 <input type="text" class="form-control" id="field-new-lastname" placeholder="Last" required>
               </div>
+
+              <p class="help-block">
+                Your name won't be shared with anyone unless you allow it.
+              </p>
             </div>
 
             <div class="form-group">
               <label for="field-new-email">Email</label>
               <input type="email" class="form-control" id="field-new-email" placeholder="Email address" required>
+
+              <p class="help-block">
+                No one but you will be able to see your email address unless you choose otherwise.
+              </p>
             </div>
 
             <div class="form-group">
@@ -113,6 +125,10 @@
             <div class="form-group">
               <label for="field-new-password">Password</label>
               <input type="password" class="form-control" id="field-new-password" placeholder="Password" required>
+
+              <p class="help-block">
+                We won't place any restrictions on your password, but for best security we recommend that your password be at least eight characters long, not contain any information that somebody who knows you could figure out (first name, birth date, etc.), and contain a combination of uppercase and lowercase letters, numbers, and symbols.
+              </p>
             </div>
 
             <button type="button" class="btn btn-primary" onclick="stepTwo();">Continue &raquo;</button>
@@ -120,17 +136,29 @@
         </div>
 
         <div id="step2">
+          <p>
+            Awesome! Now we'll need a bit more personal information to get you going with CarNex.
+          </p>
+
           <h2>Personal Information</h2>
 
           <form role="form">
             <div class="form-group">
               <label for="field-new-phone">Phone Number</label>
               <input type="tel" class="form-control" id="field-new-phone" placeholder="(123) 456-7890" required>
+
+              <p class="help-block">
+                For the security of all our users, we'll need this to verify your identity in the next step.
+              </p>
             </div>
 
             <div class="form-group">
               <label for="field-new-dob">Date of Birth</label>
               <input type="date" class="form-control" id="field-new-dob" required>
+
+              <p class="help-block">
+                You need to be at least 18 years of age to use our service. Be sure to enter your date of birth accurately, as you won't be able to change this later.
+              </p>
             </div>
 
             <div class="form-group">
@@ -146,7 +174,7 @@
         <div id="step3">
           <h2>Verify Phone Number</h2>
 
-          <p>A text has been sent to the phone number you provided in step 1 with a 6-digit activation code. Please enter that code below to continue:</p>
+          <p>A text has been sent to the phone number you provided in step 2 with a 6-digit activation code. Please enter that code below to continue:</p>
 
           <form role="form">
             <div class="form-group">
