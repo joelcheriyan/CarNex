@@ -53,6 +53,13 @@ $(document).ready(function ()
 
         if (loggedIn)
         {
+            $("body").prepend(
+                '<div id="open-friends"> \
+                  <button class="btn btn-primary pageslide-open"> \
+                    <span class="sr-only">Chat</span> \
+                    <span class="glyphicon glyphicon-comment"></span> \
+                  </button> \
+                </div>');
             $("#open-friends button.pageslide-open").pageslide(
                 {
                     direction: "left",
