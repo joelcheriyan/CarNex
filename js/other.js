@@ -12,17 +12,25 @@ $('#account').tooltip(
 
 function moveTabLeft()
 {
-    $("#open-friends").css(
+    $("#open-friends").animate(
         {
-            right: '+' + $("#pageslide").outerWidth(true) + "px"
+            right: $("#pageslide").outerWidth(true) + "px"
+        },
+        {
+            duration: 200,
+            queue: false
         });
 }
 
 function moveTabRight()
 {
-    $("#open-friends").css(
+    $("#open-friends").animate(
         {
             right: "0px"
+        },
+        {
+            duration: 200,
+            queue: false
         });
 }
 
