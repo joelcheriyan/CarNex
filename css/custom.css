@@ -607,14 +607,14 @@ form#photoUpload
     }
 }
 
-#open-friends
+#open-chat
 {
     position: fixed;
     top: 70%;
     right: -5px;
 }
 
-#open-friends .pageslide-open
+#open-chat .pageslide-open
 {
     padding-top: 30px;
     padding-bottom: 30px;

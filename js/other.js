@@ -12,7 +12,7 @@ $('#account').tooltip(
 
 function moveTabLeft()
 {
-    $("#open-friends").animate(
+    $("#open-chat").animate(
         {
             right: ($("#pageslide").outerWidth(true) - 5) + "px"
         },
@@ -24,7 +24,7 @@ function moveTabLeft()
 
 function moveTabRight()
 {
-    $("#open-friends").animate(
+    $("#open-chat").animate(
         {
             right: "-5px"
         },
@@ -54,16 +54,16 @@ $(document).ready(function ()
         if (loggedIn)
         {
             $("body").prepend(
-                '<div id="open-friends"> \
+                '<div id="open-chat"> \
                   <button class="btn btn-primary pageslide-open"> \
                     <span class="sr-only">Chat</span> \
                     <span class="glyphicon glyphicon-comment"></span> \
                   </button> \
                 </div>');
-            $("#open-friends button.pageslide-open").pageslide(
+            $("#open-chat button.pageslide-open").pageslide(
                 {
                     direction: "left",
-                    href: "settings.html"
+                    href: "chat.html"
                 });
         }
 })
