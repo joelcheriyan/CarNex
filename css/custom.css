@@ -564,3 +564,58 @@ form#photoUpload
     /* symbol for "collapsed" panels */
     content: "\e079";    /* adjust as needed, taken from bootstrap.css */
 }
+
+/*
+ * jQuery pageSlide
+ * Version 2.0
+ * http://srobbin.com/jquery-pageslide/
+ *
+ * jQuery Javascript plugin which slides a webpage over to reveal an additional interaction pane.
+ *
+ * Copyright (c) 2011 Scott Robbin (srobbin.com)
+ * Dual licensed under the MIT and GPL licenses.
+*/
+#pageslide
+{
+    /* These styles MUST be included. Do not change. */
+    display: none;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 999999;
+
+    /* Specify the width of your pageslide here */
+    width: 20%;
+    min-width: 240px;
+
+    /* These styles are optional, and describe how the pageslide will look */
+    background-color: #333;
+    color: #FFF;
+    -webkit-box-shadow: inset 0 0 5px 5px #222;
+    -moz-shadow: inset 0 0 5px 5px #222;
+    box-shadow: inset 0 0 5px 5px #222;
+}
+
+@media (max-width: 768px)
+{
+    #pageslide
+    {
+        width: 60%;
+        min-width: 0px;
+        max-width: 240px;
+    }
+}
+
+#open-friends
+{
+    position: fixed;
+    top: 50%;
+    right: 0px;
+}
+
+#open-friends .pageslide-open
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
