@@ -1,0 +1,78 @@
+/* Styles for the chat page. */
+html, body, .container
+{
+    height: 100%;
+}
+
+body
+{
+    background-color: #f8f8f8;
+}
+
+.list-group
+{
+    height: 40%;
+    overflow: auto;
+}
+
+.list-group .list-group-item
+{
+    padding: 5px;
+}
+
+.list-group .media
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-bottom: 0px;
+}
+
+.list-group .media:last-child
+{
+    border-bottom: 1px solid #ddd;
+}
+
+.img-chat
+{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    background-image: url('../img/171x180.svg');
+    background-size: 100% auto;
+    display: inline-block;
+}
+
+.chat-name
+{
+    padding-top: 10px;
+    font-weight: bold;
+    color: #999;
+}
+
+.dot-status
+{
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.dot-status-online
+{
+    background-color: #0f0;
+}
+
+.dot-status-offline
+{
+    background-color: #f00;
+}
+
+.dot-status-unknown
+{
+    background-color: #86adca;
+}
