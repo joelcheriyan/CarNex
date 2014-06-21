@@ -14,7 +14,7 @@ function moveTabLeft()
 {
     $("#open-friends").animate(
         {
-            right: $("#pageslide").outerWidth(true) + "px"
+            right: ($("#pageslide").outerWidth(true) - 5) + "px"
         },
         {
             duration: 200,
@@ -26,7 +26,7 @@ function moveTabRight()
 {
     $("#open-friends").animate(
         {
-            right: "0px"
+            right: "-5px"
         },
         {
             duration: 200,

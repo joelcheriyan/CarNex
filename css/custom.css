@@ -611,11 +611,12 @@ form#photoUpload
 {
     position: fixed;
     top: 50%;
-    right: 0px;
+    right: -5px;
 }
 
 #open-friends .pageslide-open
 {
     padding-top: 30px;
     padding-bottom: 30px;
+    padding-right: 17px;
 }
