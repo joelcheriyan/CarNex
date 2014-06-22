@@ -1,7 +1,10 @@
 /* Styles for the chat page. */
-html, body, .container
+html,
+body,
+.container-no-padding
 {
     height: 100%;
+    overflow: hidden;
 }
 
 body
@@ -9,12 +12,25 @@ body
     background-color: #f8f8f8;
 }
 
+.container-no-padding h1
+{
+    padding-left: 5px;
+    text-transform: uppercase;
+    color: #999;
+    font-size: 12px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 .list-group
 {
-    height: 30%;
+    max-height: 35%;
     overflow: auto;
     border-radius: 4px;
     border: 1px solid #ddd;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
 }
 
 .list-group .media.list-group-item
@@ -25,6 +41,11 @@ body
     border-left: 0px;
     border-right: 0px;
     border-bottom: 0px;
+}
+
+.list-group .list-group-item.active
+{
+    border: 1px solid #357ebd;
 }
 
 .list-group .media.list-group-item:first-child
@@ -48,6 +69,11 @@ body
 {
     padding-top: 10px;
     color: #999;
+}
+
+.active .chat-name
+{
+    color: #fff;
 }
 
 .dot-status
@@ -92,5 +118,81 @@ body
     {
         margin-top: 5px;
         margin-right: 5px;
+    }
+}
+
+#chat-box
+{
+    border-top: 3px solid #3276b1;
+    max-height: 57%;
+    overflow: auto;
+    position: absolute;
+    bottom: 0px;
+}
+
+.chat-msg
+{
+    font-size: 12px;
+    border-bottom: 1px solid #999;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.chat-msg-other
+{
+    float: left;
+    text-align: left;
+    background-color: #fff;
+}
+
+.chat-msg-self
+{
+    float: right;
+    text-align: right;
+    background-color: #d9edf7;
+}
+
+.chat-msg .sender
+{
+    text-align: center;
+    color: #777;
+}
+
+.chat-msg-other .sender
+{
+    float: left;
+    padding-right: 10px;
+}
+
+.chat-msg-self .sender
+{
+    float: right;
+    padding-left: 10px;
+}
+
+.chat-msg .msg
+{
+    overflow: hidden;
+}
+
+.chat-msg-other .msg
+{
+    text-align: left;
+    margin-right: 10px;
+}
+
+.chat-msg-self .msg
+{
+    text-align: right;
+    margin-left: 10px;
+}
+
+@media (max-width: 240px)
+{
+    /* Put sender names on a different line. */
+    .chat-msg .msg
+    {
+        clear: both;
     }
 }
