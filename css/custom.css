@@ -605,6 +605,7 @@ form#photoUpload
     position: fixed;
     top: 70%;
     right: -5px;
+    z-index: 999999;
 }
 
 #open-chat .pageslide-open
