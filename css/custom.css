@@ -590,7 +590,7 @@ form#photoUpload
     border-left: 3px solid #3276b1;
 }
 
-@media (max-width: 768px)
+@media (max-width: 767px)
 {
     #pageslide
     {
@@ -613,4 +613,12 @@ form#photoUpload
     padding-top: 30px;
     padding-bottom: 30px;
     padding-right: 17px;
+}
+
+@media (max-width: 830px)
+{
+    #open-chat
+    {
+        opacity: 0.5;
+    }
 }
