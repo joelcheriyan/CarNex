@@ -63,7 +63,8 @@ $(document).ready(function ()
             $("#open-chat button.pageslide-open").pageslide(
                 {
                     direction: "left",
-                    href: "chat.html"
+                    href: "chat.html",
+                    modal: true
                 });
         }
 })
