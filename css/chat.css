@@ -121,13 +121,18 @@ body
     }
 }
 
-#chat-box
+#chat-container
 {
     border-top: 3px solid #3276b1;
-    max-height: 57%;
-    overflow: auto;
     position: absolute;
     bottom: 0px;
+    max-height: 57%;
+}
+
+#chat-box
+{
+    max-height: 100%;
+    overflow: auto;
 }
 
 .chat-msg
@@ -196,4 +201,30 @@ body
     {
         clear: both;
     }
+}
+
+#chat-form
+{
+    border-top: 3px solid #3276b1;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
+#chat-form .form-group
+{
+    overflow: hidden;
+    margin-right: 5px;
+    margin-bottom: 0px;
+}
+
+#chat-text
+{
+    border: 0px;
+}
+
+#chat-form .btn
+{
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }

@@ -60,46 +60,57 @@
         </a>
       </div>
 
-      <div id="chat-box">
-        <div class="chat-msg chat-msg-other">
-          <div class="sender">
-            <div class="img-chat"></div>
+      <div id="chat-container">
+        <div id="chat-box">
+          <div class="chat-msg chat-msg-other">
+            <div class="sender">
+              <div class="img-chat"></div>
 
-            <div class="msg-info">Tom</div>
+              <div class="msg-info">Tom</div>
+            </div>
+
+            <p class="msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
           </div>
 
-          <p class="msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        </div>
+          <div class="chat-msg chat-msg-self">
+            <div class="sender">
+              <div class="img-chat"></div>
 
-        <div class="chat-msg chat-msg-self">
-          <div class="sender">
-            <div class="img-chat"></div>
+              <div class="msg-info">You</div>
+            </div>
 
-            <div class="msg-info">You</div>
+            <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
 
-          <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
+          <div class="chat-msg chat-msg-self">
+            <div class="sender">
+              <div class="img-chat"></div>
 
-        <div class="chat-msg chat-msg-self">
-          <div class="sender">
-            <div class="img-chat"></div>
+              <div class="msg-info">You</div>
+            </div>
 
-            <div class="msg-info">You</div>
+            <p class="msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
           </div>
 
-          <p class="msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-        </div>
+          <div class="chat-msg chat-msg-other">
+            <div class="sender">
+              <div class="img-chat"></div>
 
-        <div class="chat-msg chat-msg-other">
-          <div class="sender">
-            <div class="img-chat"></div>
+              <div class="msg-info">Tom</div>
+            </div>
 
-            <div class="msg-info">Tom</div>
+            <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
           </div>
-
-          <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
+
+        <form id="chat-form" role="form">
+          <button type="submit" class="btn btn-primary pull-right">Send</button>
+
+          <div class="form-group">
+            <label for="chat-text" class="control-label sr-only">Message</label>
+            <input type="text" class="form-control" id="chat-text" placeholder="Type a message...">
+          </div>
+        </form>
       </div>
     </div>
   </body>
