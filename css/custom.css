@@ -587,7 +587,6 @@ form#photoUpload
 
     width: 20%;
     min-width: 240px;
-    border-left: 3px solid #3276b1;
 }
 
 @media (max-width: 767px)
