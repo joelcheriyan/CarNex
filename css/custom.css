@@ -243,6 +243,22 @@ a.badge:focus
     text-align: right;
 }
 
+.img-crop-container
+{
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.img-media
+{
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+}
+
 
 @media (max-width: 767px)
 {
@@ -251,7 +267,9 @@ a.badge:focus
         text-align: center;
     }
 
-    .img-media, .img-bio
+    .img-crop-container,
+    .img-media,
+    .img-bio
     {
         float: none !important;
         margin: auto !important;
@@ -472,16 +490,30 @@ footer
     color: #000;
 }
 
+input#dob[disabled]
+{
+    background-color: #fff;
+    cursor: text;
+}
 
-/* BUTTONS */
 
-/* http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3 */
-.btn-info
+form#photoUpload
+{
+    margin-top: 15px;
+}
+
+
+/*
+ * File upload input
+ * http://www.surrealcms.com/blog/whipping-file-inputs-into-shape-with-bootstrap-3
+ */
+.btn-file
 {
     position: relative;
     overflow: hidden;
 }
-.btn-info input[type=file]
+
+.btn-file input[type=file]
 {
     position: absolute;
     top: 0;
@@ -493,72 +525,99 @@ footer
     filter: alpha(opacity=0);
     opacity: 0;
     outline: none;
-    background: white;
+    background: #fff;
     cursor: inherit;
     display: block;
 }
 
-.btn-input
+.input-group-btn + input[readonly]
 {
-   display: block;
-}
-
-.btn-input .btn.dropdown-toggle
-{
-    padding-left: 7px;
-    text-align: left;
-}
-
-.btn-input .btn.dropdown-toggle .caret
-{
-   margin-top: -1px;
-   position: absolute;
-   right: 10px;
-   top: 50%;
-}
-
-.btn-input .dropdown-menu
-{
-    left: 15px;
+    background-color: #fff !important;
+    cursor: text !important;
 }
 
 /* FORM LABEL */
 
 .form-horizontal .control-label
 {
-    text-align:left;
+    text-align: left;
 }
 
 /* INPUT GROUP */
 
 .input-group
 {
-    padding:5px;
+    padding: 5px;
 }
 
-/* COLLAPSE PANEL CHEVRONS - CURRENTLY NOT IMPLEMENTED */
-
-/* http://stackoverflow.com/questions/18325779/bootstrap-3-collapse-show-state-with-chevron-icon */
-/*.glyphicon .glyphicon-chevron-right, .glyphicon .glyphicon-chevron-down,
-.panel-heading .glyphicon-chevron-right,
-.panel-heading .glyphicon-chevron-down {
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    z-index: 5;
-    vertical-align: middle;
-}*/
 .settings-panel-heading a.pull-right:after
 {
     /* symbol for "opening" panels */
     font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
     content: "\e114";    /* adjust as needed, taken from bootstrap.css */
-    float: right;        /* adjust as needed */
-    color: #fff;         /* adjust as needed */
+    float: right;
+    color: #fff;
 }
 
 .settings-panel-heading a.pull-right.collapsed:after
 {
     /* symbol for "collapsed" panels */
     content: "\e079";    /* adjust as needed, taken from bootstrap.css */
+}
+
+/*
+ * jQuery pageSlide
+ * Version 2.0
+ * http://srobbin.com/jquery-pageslide/
+ *
+ * jQuery Javascript plugin which slides a webpage over to reveal an additional interaction pane.
+ *
+ * Copyright (c) 2011 Scott Robbin (srobbin.com)
+ * Dual licensed under the MIT and GPL licenses.
+*/
+#pageslide
+{
+    /* These styles MUST be included. Do not change. */
+    display: none;
+    position: absolute;
+    position: fixed;
+    top: 0;
+    height: 100%;
+    z-index: 999999;
+
+    width: 20%;
+    min-width: 240px;
+}
+
+@media (max-width: 767px)
+{
+    #pageslide
+    {
+        width: 85%;
+        min-width: 0px;
+        max-width: initial;
+    }
+}
+
+#open-chat
+{
+    position: fixed;
+    top: 70%;
+    right: -5px;
+    z-index: 999999;
+}
+
+#open-chat .pageslide-open
+{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 17px;
+}
+
+@media (max-width: 830px)
+{
+    #open-chat
+    {
+        opacity: 0.5;
+    }
 }
