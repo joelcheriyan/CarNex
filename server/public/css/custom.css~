@@ -101,15 +101,10 @@ a.badge:focus
     }
 }
 
-.jumbotron .homecontainer
-{
-    	
-    margin-top: 350px;
-}
 .jumbotron .container
 {
     	
-    margin-top: 70px;
+    margin-top: 350px;
 }
 
 .profile-header

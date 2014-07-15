@@ -52,7 +52,7 @@
     </nav>
 
     <div class="jumbotron">
-      <div class="homecontainer">
+      <div class="container">
         <h1>CarNex</h1>
         <p>People Moving People.</p>
       </div>

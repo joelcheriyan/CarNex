@@ -85,12 +85,12 @@
                     <label for="from" class="input-group-addon control-label">From</label>
 	            <input name = "from" type="text" value ="" class="form-control" id="from" placeholder="Toronto">
    		    <label for="to" class="input-group-addon control-label">To</label>
-		    <input name="to" type="text" value ="" class="form-control" id="to" placeholder="Ottawa">
+		    <input name = "to" type="text" value ="" class="form-control" id="to" placeholder="Ottawa">
                   </div>
 
                   <div class="input-group">
                     <label for="sDate" class="input-group-addon control-label">Start Date</label>
-                    <input  id="sDate" name = "startdate" type="data" value ="" class="date-picker form-control" required/>
+                    <input id="sDate" name = "startdate" type="data" value ="" class="date-picker form-control" required/>
                     <label for="sDate" class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></label>
                   </div>
                   <div class="input-group">

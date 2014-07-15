@@ -147,10 +147,10 @@ module.exports = function (flights) {
 				res.status(500).json({status: 'failure'});
 			} else {
 				console.log(posts);
-				res.render('dashboard.ejs', {
-					posts: posts
+				//res.render('dashboard.ejs', {
+					//arrivals: arrivals,
 					
-				});
+				//});
 			}
 		});
 	};
