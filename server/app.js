@@ -78,8 +78,15 @@ module.exports = function (flights, db) {
 
 	});
 
-   // stores in database. Post is sent from signup.ejs form
+   	// stores in database. Post is sent from signup.ejs form
 	app.post('/signup', routes.signup);
+
+ 	// retrieve data from posts database
+	app.get('/dashboard', function(req, res) {
+  	res.render('dashboard.ejs', {posts: null});
+
+	});
+	app.post('/dashboard',routes.dashboard);
 
 
 

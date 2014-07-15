@@ -73,6 +73,7 @@ a.badge:focus
     margin-left: 240px;
 }
 
+
 .jumbotron
 {
     background-color: #707070;
@@ -82,7 +83,8 @@ a.badge:focus
     color: #fff;
     text-align: center;
     max-width: 1920px;
-    padding-bottom: 15px;
+    padding-bottom: 65px;
+    
 }
 
 @media (max-width: 767px)
@@ -101,7 +103,8 @@ a.badge:focus
 
 .jumbotron .container
 {
-    margin-top: 70px;
+    	
+    margin-top: 350px;
 }
 
 .profile-header
@@ -187,6 +190,10 @@ a.badge:focus
     }
 }
 
+.featurette-divider 
+{
+  margin: 80px 0; /* Space out the <hr> more */
+}
 .blurbs
 {
     text-align: center;

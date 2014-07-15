@@ -91,17 +91,17 @@ module.exports = function (flights) {
 	};
 
 	functions.createpost = function(req, res) {
-  	console.log('1');
+  	
   		var record = new PostsSchema({
-			title: req.body.post,
+			from: req.body.from,
+			to: req.body.to,
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
 			description: req.body.descript
 		});
-  		console.log('2');
+  		
 			//save the records into the user database
 			record.save(function(err) {
-				console.log('3');
 				if (err) {
 					console.log(err);
 					res.status(500).json({status: 'failure'});
@@ -109,9 +109,6 @@ module.exports = function (flights) {
 					res.json({status: 'success'});
 				} 
 			});
-
-		console.log('4');
-
 };
 
 
@@ -138,6 +135,25 @@ module.exports = function (flights) {
 			});
 
 };
+
+
+
+	functions.dashboard = function(req, res) {
+		
+		PostsSchema.find({from: req.body.from, to: req.body.to})
+		.setOptions({sort: 'startdate'})
+		.exec(function(err, posts) {
+			if (err) {
+				res.status(500).json({status: 'failure'});
+			} else {
+				console.log(posts);
+				res.render('dashboard.ejs', {
+					posts: posts
+					
+				});
+			}
+		});
+	};
 
 
 
