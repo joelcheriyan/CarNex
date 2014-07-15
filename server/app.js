@@ -8,23 +8,16 @@ module.exports = function (flights, db) {
 	var MongoStore = require('connect-mongo')(express);
 	var passport = require('./auth');
 	var routes = require('./routes')(flights);
-	var path = require('path');	
+	var path = require('path');
 	var app = express();
-
-	// var connect = require('connect');
-	// var app = connect()
-	// .use(connect.static('public'))
-	// .use(function (req, res) {
-	// 	res.end("Couldn't find it.");
-	// })
-	// .listen(3000);
-
+	var connect = require('connect');
 
 
 	// all environments
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
-	app.set('view engine', 'jade');
+	//app.set('view engine', 'jade');
+	app.set('view engine', 'ejs');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
 	app.use(express.cookieParser());
@@ -49,6 +42,14 @@ module.exports = function (flights, db) {
 	if ('development' == app.get('env')) {
 	  app.use(express.errorHandler());
 	}
+	
+	//some inner testing work
+	app.use(connect.bodyParser());
+
+	
+
+
+
 
 	app.get('/flight/:number', routes.flight);
 	app.put('/flight/:number/arrived', routes.arrived);
@@ -63,8 +64,25 @@ module.exports = function (flights, db) {
 
 	app.get('/user', routes.user);
 
-	//set from the user input
-	app.put('/set', routes.set);
+	//create a post to posts database
+	app.get('/createpost', function(req, res) {
+  	res.render('create_post.ejs');
+	console.log('0');
+	});
+	app.post('/createpost', routes.createpost);
+
+
+	//registration form to the user database
+	app.get('/signup', function(req, res) {
+  	res.render('signup.ejs');
+
+	});
+
+   // stores in database. Post is sent from signup.ejs form
+	app.post('/signup', routes.signup);
+
+
+
 
 	return app;
 }

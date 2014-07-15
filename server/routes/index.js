@@ -4,6 +4,9 @@
  */
 
 var FlightSchema = require('../schemas/flight');
+var UserSchema = require('../schemas/user');
+var PostsSchema = require('../schemas/posts');
+
 
 module.exports = function (flights) {
 	var flight = require('../flight');
@@ -87,36 +90,55 @@ module.exports = function (flights) {
 		}
 	};
 
-	//new set function
-	functions.set = function (req, res) {
-		res.render('set', {title: 'set new variable'});
+	functions.createpost = function(req, res) {
+  	console.log('1');
+  		var record = new PostsSchema({
+			title: req.body.post,
+			startdate: req.body.startdate,
+			returndate: req.body.returndate,
+			description: req.body.descript
+		});
+  		console.log('2');
+			//save the records into the user database
+			record.save(function(err) {
+				console.log('3');
+				if (err) {
+					console.log(err);
+					res.status(500).json({status: 'failure'});
+				}else {
+					res.json({status: 'success'});
+				} 
+			});
+
+		console.log('4');
+
+};
 
 
+	functions.signup = function(req, res) {
 
 
+		var record = new UserSchema({
+			firstname: req.body.firstname, 
+			lastname: req.body.lastname,
+			email: req.body.email,
+			username: req.body.username,
+			password: req.body.password,
+			phone: req.body.phone,
+			birthdate: req.body.birthdate,     
+			city: req.body.city
+		});
 
+			//save the records into the user database
+			record.save(function(err) {
+				if (err) {
+					console.log(err);
+					res.status(500).json({status: 'failure'});
+				} 
+			});
 
-		// if (typeof flights[number] === 'undefined') {
-		// 	res.status(404).json({status: 'error'});
-		// } else {
-		// 	flights[number].triggerArrive();
+};
 
-		// 	var record = new FlightSchema(
-		// 		flights[number].getInformation()
-		// 	);
-
-		// 	record.save(function(err) {
-		// 		if (err) {
-		// 			console.log(err);
-		// 			res.status(500).json({status: 'failure'});
-		// 		} else {
-		// 			res.json({status: 'success'});
-		// 		}
-		// 	});
-
-		// 	res.json({status: 'done'});
-		// }
-	};
 
 
 
