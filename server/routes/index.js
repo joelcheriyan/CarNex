@@ -15,12 +15,12 @@ module.exports = function (flights) {
 		flights[number] = flight(flights[number]);
 	}
 
-	var functions = {};
+	var functions = {};//this cannot be removed
 
 	functions.flight = function(req, res){
 		var number = req.param('number');
 
-		req.session.lastNumber = number;
+		req.session.lastNumber = number;//the login function
 
 		if (typeof flights[number] === 'undefined') {
 			res.status(404).json({status: 'error'});
@@ -70,16 +70,18 @@ module.exports = function (flights) {
 				res.render('arrivals', {
 					title: 'Arrivals',
 					arrivals: arrivals,
-					lastNumber: req.session.lastNumber
+					lastNumber: req.session.lastNumber//the login function
 				});
 			}
 		});
 	};
 
+	//the login function
 	functions.login = function(req, res) {
 		res.render('login', {title: 'Log in'});
 	};
 
+	//the login function
 	functions.user = function(req, res) {
 		if (req.session.passport.user === undefined) {
 			res.redirect('/login');
@@ -90,6 +92,9 @@ module.exports = function (flights) {
 		}
 	};
 
+
+	//our work starts here
+	//create a post page
 	functions.createpost = function(req, res) {
   	
   		var record = new PostsSchema({
@@ -112,9 +117,8 @@ module.exports = function (flights) {
 };
 
 
+	//signup page 
 	functions.signup = function(req, res) {
-
-
 		var record = new UserSchema({
 			firstname: req.body.firstname, 
 			lastname: req.body.lastname,
@@ -138,15 +142,19 @@ module.exports = function (flights) {
 
 
 
+	//dashboard page
 	functions.dashboard = function(req, res) {
-		
-		PostsSchema.find({from: req.body.from, to: req.body.to})
+		//this is the condition that we have for query: starting point, destination and date
+
+		var current_date = new Date();
+
+		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
 		.setOptions({sort: 'startdate'})
 		.exec(function(err, posts) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} else {
-				console.log(posts);
+
 				res.render('dashboard.ejs', {
 					posts: posts
 					

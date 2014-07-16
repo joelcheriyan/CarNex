@@ -64,6 +64,10 @@ module.exports = function (flights, db) {
 
 	app.get('/user', routes.user);
 
+
+
+
+	//our work below 
 	//create a post to posts database
 	app.get('/createpost', function(req, res) {
   	res.render('create_post.ejs');
@@ -77,16 +81,18 @@ module.exports = function (flights, db) {
   	res.render('signup.ejs');
 
 	});
-
    	// stores in database. Post is sent from signup.ejs form
 	app.post('/signup', routes.signup);
+
+
 
  	// retrieve data from posts database
 	app.get('/dashboard', function(req, res) {
   	res.render('dashboard.ejs', {posts: null});
-
-	});
+  	});
 	app.post('/dashboard',routes.dashboard);
+
+
 
 
 
