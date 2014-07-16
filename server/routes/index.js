@@ -96,6 +96,15 @@ module.exports = function (flights) {
 		// i++;
 	};
 
+
+	functions.logout = function(req, res) 
+	{
+
+		req.session.passport.user = undefined;
+		res.render('index.ejs');
+		
+	};
+
 	//the login function
 	functions.user = function(req, res) {
 		if (req.session.passport.user === undefined) {
