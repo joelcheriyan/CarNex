@@ -75,10 +75,25 @@ module.exports = function (flights) {
 			}
 		});
 	};
-
+	var i = 0;
 	//the login function
-	functions.login = function(req, res) {
-		res.render('login', {title: 'Log in'});
+	functions.login = function(req, res) 
+	{
+		res.render('index.ejs');
+		console.log('0');	
+		// if(i > 0)
+		// {
+		// 	res.render('index.ejs', {error: 'error'
+		// 	});
+		// 	console.log(i);
+		// }
+		// else
+		// {
+		// 	res.render('index.ejs', {error: null
+		// 	});
+		// 	console.log(i);	
+		// }
+		// i++;
 	};
 
 	//the login function
@@ -88,7 +103,7 @@ module.exports = function (flights) {
 		} else {
 			res.render('user', {title: 'Welcome!',
 				user: req.user
-			})
+			});
 		}
 	};
 
@@ -146,6 +161,8 @@ module.exports = function (flights) {
 	functions.dashboard = function(req, res) {
 		//this is the condition that we have for query: starting point, destination and date
 
+
+
 		var current_date = new Date();
 
 		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
@@ -154,7 +171,6 @@ module.exports = function (flights) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} else {
-
 				res.render('dashboard.ejs', {
 					posts: posts
 					
