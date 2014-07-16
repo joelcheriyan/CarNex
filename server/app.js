@@ -56,13 +56,17 @@ module.exports = function (flights, db) {
 	app.get('/list', routes.list);
 	app.get('/arrivals', routes.arrivals);
 
+
+
+
 	app.get('/login', routes.login);
 	app.post('/login', passport.authenticate('local', {
 		failureRedirect: '/login',
-		successRedirect: '/user'
+		successRedirect: '/dashboard'
 	}));
 
-	app.get('/user', routes.user);
+	
+	//app.get('/user', routes.user);
 
 
 
@@ -71,7 +75,7 @@ module.exports = function (flights, db) {
 	//create a post to posts database
 	app.get('/createpost', function(req, res) {
   	res.render('create_post.ejs');
-	console.log('0');
+
 	});
 	app.post('/createpost', routes.createpost);
 
@@ -85,11 +89,21 @@ module.exports = function (flights, db) {
 	app.post('/signup', routes.signup);
 
 
-
+//eq.session.passport.user === undefined
  	// retrieve data from posts database
 	app.get('/dashboard', function(req, res) {
-  	res.render('dashboard.ejs', {posts: null});
+		if (req.session.passport.user === undefined) {
+			res.redirect('/login');
+			//console.log('1 ' + req.session.passport.user);
+		} 
+		else 
+		{
+			res.render('dashboard.ejs', {posts: null});
+			//console.log('2 ' + req.session.passport.user);
+		}
   	});
+		
+
 	app.post('/dashboard',routes.dashboard);
 
 
