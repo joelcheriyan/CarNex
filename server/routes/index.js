@@ -121,10 +121,10 @@ module.exports = function (flights) {
 	//our work starts here
 	//create a post page
 	functions.createpost = function(req, res) {
-  	
+  
   		var record = new PostsSchema({
-			from: req.body.from,
-			to: req.body.to,
+			from: req.body.from.toLowerCase(),
+			to: req.body.to.toLowerCase(),
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
 			description: req.body.descript
@@ -174,7 +174,7 @@ module.exports = function (flights) {
 
 
 		var current_date = new Date();
-		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
+		PostsSchema.find({from: req.body.from.toLowerCase(), to: req.body.to.toLowerCase(), returndate: { $gt: current_date} })
 		.setOptions({sort: 'startdate'})
 		.exec(function(err, posts) {
 			if (err) {

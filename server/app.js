@@ -98,9 +98,7 @@ module.exports = function (flights, db) {
 		 	res.redirect('/login');
 		} 
 		else 
-		{
-			console.log('first, inside the dashboard' + req.session.passport.user);
-			
+		{	
 			res.render('dashboard.ejs', {posts: null, username: req.session.passport.user});
 		}
   	});
