@@ -11,7 +11,7 @@ var popoverContent =
       <div class="checkbox pull-left"> \
         <label><input type="checkbox">Remember me</label> \
       </div> \
-      <button type="submit" class="btn btn-primary">Go!</button> \
+      <button type="submit" class="btn btn-primary pull-right">Go!</button> \
     </form>';
 
 $('#log-in').popover(

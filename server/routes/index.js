@@ -80,21 +80,22 @@ module.exports = function (flights) {
 	//the login function
 	functions.login = function(req, res) 
 	{
-		res.render('index.ejs');
-		console.log('0');	
-		// if(i > 0)
-		// {
-		// 	res.render('index.ejs', {error: 'error'
-		// 	});
-		// 	console.log(i);
-		// }
-		// else
-		// {
-		// 	res.render('index.ejs', {error: null
-		// 	});
-		// 	console.log(i);	
-		// }
-		// i++;
+	
+			
+		if(i > 0)
+		{
+			res.render('index.ejs', {error: 'error'
+			});
+			console.log(i);
+		}
+		else
+		{	
+			res.render('index.ejs', {
+			error: 'Strat it now'
+			});
+			console.log(i);	
+		}
+		i++;
 	};
 
 
@@ -121,10 +122,10 @@ module.exports = function (flights) {
 	//our work starts here
 	//create a post page
 	functions.createpost = function(req, res) {
-  	
+  
   		var record = new PostsSchema({
-			from: req.body.from,
-			to: req.body.to,
+			from: req.body.from.toLowerCase(),
+			to: req.body.to.toLowerCase(),
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
 			description: req.body.descript
@@ -174,16 +175,15 @@ module.exports = function (flights) {
 
 
 		var current_date = new Date();
-
-		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
+		PostsSchema.find({from: req.body.from.toLowerCase(), to: req.body.to.toLowerCase(), returndate: { $gt: current_date} })
 		.setOptions({sort: 'startdate'})
 		.exec(function(err, posts) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} else {
 				res.render('dashboard.ejs', {
-					posts: posts
-					
+					posts: posts,
+					username: req.session.passport.user
 				});
 			}
 		});

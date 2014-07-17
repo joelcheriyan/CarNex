@@ -633,3 +633,10 @@ form#photoUpload
         opacity: 0.5;
     }
 }
+
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

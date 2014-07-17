@@ -10,7 +10,7 @@ passport.use(new LocalStrategy(
 		.exec(function(err, posts) 
 		{
 
-			console.log(posts);
+			//console.log(posts);
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} 
@@ -18,14 +18,10 @@ passport.use(new LocalStrategy(
 			{	
 				if(posts != "")
 				{
-
-					console.log("inside the first one " + username);
-
 					return done(null, {username: username});
 				}
 				else
 				{
-					console.log("inside the second one");
 					return done(null, false);
 				}
 			}
