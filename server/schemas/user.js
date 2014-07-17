@@ -9,8 +9,13 @@ module.exports = mongoose.model('user', {
 	username: String,
 	password: String,
 	phone: String,
-	birthdate: Date,     //specific date type
-	city: String
+	birthdate: Date,    
+	city: String,
+	comments: [{
+			commenter: String,
+			comment: String
+		}]
+			
 
 });
 

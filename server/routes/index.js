@@ -8,6 +8,7 @@ var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
 
 
+
 module.exports = function (flights) {
 	var flight = require('../flight');
 
@@ -188,8 +189,31 @@ module.exports = function (flights) {
 		});
 	};
 
+	functions.comment = function(req, res) {
+	//query user to whom the comment should be sent to
 
-	//setting file, we can do tmr
+		UserSchema.update({username:'Joel'}, { $addToSet: { comments: [{commenter: req.body.first, comment: req.body.comment}]}})
+		.exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.render('profile.ejs',);
+					
+			}
+			});
+
+		
+
+
+		
+	};
+
+
+
+	
 
 
 
