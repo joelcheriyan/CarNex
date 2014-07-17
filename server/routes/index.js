@@ -192,7 +192,7 @@ module.exports = function (flights) {
 	functions.comment = function(req, res) {
 	//query user to whom the comment should be sent to
 
-		UserSchema.update({username:'Joel'}, { $addToSet: { comments: [{commenter: req.body.first, comment: req.body.comment}]}})
+		UserSchema.update({username:'Joel'}, { $addToSet: { comments: {commenter: req.body.first, comment: req.body.comment}}})
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -200,22 +200,37 @@ module.exports = function (flights) {
 			} else 
 			{
 
-				res.render('profile.ejs',);
-					
+				UserSchema.find({username: 'Joel'})
+				.exec(function(err, user) {
+				if (err) {
+				res.status(500).json({status: 'failure'});
+				} 
+				else {
+					res.render('profile.ejs', {
+					user: user});					
+				}
+				});
 			}
+					
+			
 			});
-
-		
-
-
 		
 	};
 
 
+	functions.profile = function(req, res) {
 
-	
-
-
+		UserSchema.find({username: 'Joel'})
+		.exec(function(err, user) {
+				if (err) {
+				res.status(500).json({status: 'failure'});
+				} 
+				else {
+					res.render('profile.ejs', {
+					user: user});					
+					}
+				});
+	};
 
 	return functions;
 };

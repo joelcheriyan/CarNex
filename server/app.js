@@ -106,10 +106,7 @@ module.exports = function (flights, db) {
 
 	app.post('/dashboard',routes.dashboard);
 	app.post('/comment',routes.comment);
-	app.get('/profile',  function(req, res) {
-  	res.render('profile.ejs');
-	});
-
+	app.get('/profile',  routes.profile);
 
 
 
