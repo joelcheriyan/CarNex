@@ -34,15 +34,26 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
               <p class="navbar-text">
-                <a href="profile.html">Jane Doe</a>
+                <a href="profile.html"><%= username %></a>
                 (<a class="badge">0</a>)
               </p>
             </li>
-            <form class="form-inline" role="form" action="/logout" method="post"> 
-              <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
-            </form>
-
+            <li>
+              <form class="form-inline" role="form" action="/logout" method="post"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
+            <li>
+             <div class="divider"/>
+             </div>
+            <li>
+            <li>
+             
+                <button type="submit" class="btn btn-primary navbar-btn" onClick="location.href='create_post.html'">create a post</button>
+              
+            </li>
           </ul>
+
         </div>
       </div>
     </nav>
@@ -61,7 +72,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome, Jane.</h1>
+        <h1><%= username %></h1>
         <p>Search for a trip?</p>
 
         <form class="form-inline" role="form" action="/dashboard" method="post">
@@ -90,11 +101,11 @@
         </a></p>
       </noscript>
 
-      <h2 class="postings-header">Postings Since Your Last Login
+    <!--   <h2 class="postings-header">Postings Since Your Last Login
         <button class="btn btn-info pull-right" title="createPost" onClick="location.href='create_post.html'">
             <span class="glyphicon glyphicon-plus"></span>
             Create Post
-        </button></h2>
+        </button></h2> -->
 
       <div class="container-fluid">
 <!-- posting results from query-->

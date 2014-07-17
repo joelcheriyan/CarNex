@@ -79,21 +79,22 @@ module.exports = function (flights) {
 	//the login function
 	functions.login = function(req, res) 
 	{
-		res.render('index.ejs');
-		console.log('0');	
-		// if(i > 0)
-		// {
-		// 	res.render('index.ejs', {error: 'error'
-		// 	});
-		// 	console.log(i);
-		// }
-		// else
-		// {
-		// 	res.render('index.ejs', {error: null
-		// 	});
-		// 	console.log(i);	
-		// }
-		// i++;
+	
+			
+		if(i > 0)
+		{
+			res.render('index.ejs', {error: 'error'
+			});
+			console.log(i);
+		}
+		else
+		{	
+			res.render('index.ejs', {
+			error: 'Strat it now'
+			});
+			console.log(i);	
+		}
+		i++;
 	};
 
 
@@ -173,7 +174,6 @@ module.exports = function (flights) {
 
 
 		var current_date = new Date();
-
 		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
 		.setOptions({sort: 'startdate'})
 		.exec(function(err, posts) {
@@ -181,8 +181,8 @@ module.exports = function (flights) {
 				res.status(500).json({status: 'failure'});
 			} else {
 				res.render('dashboard.ejs', {
-					posts: posts
-					
+					posts: posts,
+					username: req.session.passport.user
 				});
 			}
 		});

@@ -95,13 +95,13 @@ module.exports = function (flights, db) {
  	// retrieve data from posts database
 	app.get('/dashboard', function(req, res) {
 		if (req.session.passport.user === undefined) {
-			res.redirect('/login');
-			//console.log('1 ' + req.session.passport.user);
+		 	res.redirect('/login');
 		} 
 		else 
 		{
-			res.render('dashboard.ejs', {posts: null});
-			//console.log('2 ' + req.session.passport.user);
+			console.log('first, inside the dashboard' + req.session.passport.user);
+			
+			res.render('dashboard.ejs', {posts: null, username: req.session.passport.user});
 		}
   	});
 		
