@@ -51,35 +51,23 @@
       </div>
     </nav>
 
-    <div class="profile-header">
+
+  	<div class="profile-header">
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
+
           <div class="img-bio img-profile"></div>
 
           <h2>Jane Doe</h2>
 
-
-          <post>
-            <div class="alert alert-success pull-right hide">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              You gave a rating of <span id="count">0</span> star(s)
-            </div>
-            <div class="row">
-              <h2>Ratings for Bootstrap 3<p class="lead">Click the stars to vote</p></h2>
-            </div>
-            <div class="row lead">
-              <div id="stars" class="starrr"></div>
-            </div>
-          </p>
-
-         <!--  <p>
+          <p>
             <strong>Average Rating</strong>:
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star-empty"></span>
             <span class="glyphicon glyphicon-star-empty"></span>
-          </p> -->
+          </p>
 
           <p><strong>Usually commutes from around</strong>: Bahen Centre for Information Technology, Toronto</p>
         </div>
@@ -128,26 +116,8 @@
                 <li><strong>Member Since</strong>: 1st Jan 1970</li>
                 <li><strong>Common Destinations</strong>: Richmond Hill, Mississauga</li>
                 <li><strong>Able to Drive?</strong> yes</li>
-                <li><strong>Access to a Car?</strong> yes</li> 
+                <li><strong>Access to a Car?</strong> yes</li>
               </ul>
-
-              <h3><center>Submit a feedback</center></h3>
-              <form role="form" action="/comment" method="post">
-                    <div class="input-group">
-                      <label for="first" class="input-group-addon control-label">Name</label>
-                      <input name = "first" type="text" value ="" class="form-control" id="first" placeholder="First">
-                    </div>
-
-                    <div class="input-group">
-                      <label for="comment" class="input-group-addon control-label">Comment</label>
-                     <textarea id="comment" name = "comment" value = "" class="form-control" rows="3"  required></textarea>
-                    </div>
-                  <button type="submit" class="btn btn-primary">Submit &raquo;</button>
-              </form>
-
-
-
-
             </div>
           </div>
         </div>
@@ -158,11 +128,9 @@
               <h3 class="panel-title">Recent Feedback</h3>
             </div>
 
-            <% user.forEach(function(item) { %>
-            <% for(var i=0; i<item.comments.length; i++) { %>         
             <div class="panel-body">
               <div class="review">
-                <h3><%=item.comments[i].commenter %></h3>
+                <h3>John Smith</h3>
                 <span>
                   <span class="glyphicon glyphicon-star"></span>
                   <span class="glyphicon glyphicon-star"></span>
@@ -170,11 +138,23 @@
                   <span class="glyphicon glyphicon-star-empty"></span>
                   <span class="glyphicon glyphicon-star-empty"></span>
                 </span>
-                <p><%=item.comments[i].comment %> </p>
-              </div>              
-            </div>
-            <% }});%>
 
+                <p><em>yesterday</em>: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+              </div>
+
+              <div class="review">
+                <h3>Tom Jones</h3>
+                <span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star"></span>
+                  <span class="glyphicon glyphicon-star-empty"></span>
+                </span>
+
+                <p><em>two weeks ago</em>: Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.</p>
+              </div>
+            </div>
 
             <div class="panel-footer">
               <p><a href="#">View older feedback...</a></p>
@@ -183,7 +163,34 @@
         </div>
       </div>
     </div>
+ 	<div class="col-sm-6">
+          <div class="panel panel-primary">
+            
+        <form role="form" action="/comment" method="post">
+        <!-- Column -->
+        <div class="col-sm-12">
+          <div class="panel panel-primary posting">
+            <div class="panel-heading settings-panel-heading" id="postInfo">
+              <a href="#collapsePosting" data-toggle="collapse" class="pull-right"></a>
+              <h3 class="panel-title">Submit Feedback</h3>
+            </div>
 
+            <div id="collapsePosting" class="panel-collapse collapse in">
+              <div class="panel-body">
+                  <div class="input-group">
+                    <label for="first" class="input-group-addon control-label">Name</label>
+	            <input name = "first" type="text" value ="" class="form-control" id="first" placeholder="First">
+   		   
+		    <input name="last" type="text" value ="" class="form-control" id="last" placeholder="Last">
+                  </div>
+
+                  <div class="input-group">
+                    <label for="comment" class="input-group-addon control-label">Description</label>
+                    <textarea id="comment" name = "comment" value = "" class="form-control" rows="3"  required></textarea>
+                  </div>
+              </div>
+            </div>
+          </div>
     <footer>
       <div class="row visible-xs">
         <div class="col-xs-6">
@@ -209,17 +216,9 @@
       <p>Copyright &copy; 2014 CarNex, Inc.</p>
     </footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>
     <script src="js/login.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-

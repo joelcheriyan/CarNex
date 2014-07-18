@@ -109,8 +109,10 @@ module.exports = function (flights, db) {
 	app.get('/profile',  routes.profile);
 	app.post('/profile',routes.profile);
 
+	app.get('/personalprofile',  function(req, res) {
+  	res.render('personprofile.ejs');
 
-
+	});
 
 	return app;
 }

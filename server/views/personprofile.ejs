@@ -57,29 +57,14 @@
           <div class="img-bio img-profile"></div>
 
           <h2>Jane Doe</h2>
-
-
-          <post>
-            <div class="alert alert-success pull-right hide">
-              <button type="button" class="close" data-dismiss="alert">×</button>
-              You gave a rating of <span id="count">0</span> star(s)
-            </div>
-            <div class="row">
-              <h2>Ratings for Bootstrap 3<p class="lead">Click the stars to vote</p></h2>
-            </div>
-            <div class="row lead">
-              <div id="stars" class="starrr"></div>
-            </div>
-          </p>
-
-         <!--  <p>
+          <p>
             <strong>Average Rating</strong>:
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star"></span>
             <span class="glyphicon glyphicon-star-empty"></span>
             <span class="glyphicon glyphicon-star-empty"></span>
-          </p> -->
+          </p>
 
           <p><strong>Usually commutes from around</strong>: Bahen Centre for Information Technology, Toronto</p>
         </div>
@@ -114,75 +99,44 @@
       </div>
     </div>
 
-    <div class="container main-profile">
-      <div class="row">
+  
+
+        <!-- column 1: User Info -->
+        <div class="container main-profile">
         <div class="col-sm-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Basic Information</h3>
+          <div class="panel panel-primary posting">
+            <div class="panel-heading settings-panel-heading" id="changeUserInfo">
+              <a href="#collapsePersonal" data-toggle="collapse" class="pull-right"></a>
+              <h3 class="panel-title">Your Information</h3>
             </div>
 
-            <div class="panel-body">
-              <ul>
-                <li><strong>Gender</strong>: female</li>
-                <li><strong>Member Since</strong>: 1st Jan 1970</li>
-                <li><strong>Common Destinations</strong>: Richmond Hill, Mississauga</li>
-                <li><strong>Able to Drive?</strong> yes</li>
-                <li><strong>Access to a Car?</strong> yes</li> 
-              </ul>
-
-              <h3><center>Submit a feedback</center></h3>
-              <form role="form" action="/comment" method="post">
-                    <div class="input-group">
-                      <label for="first" class="input-group-addon control-label">Name</label>
-                      <input name = "first" type="text" value ="" class="form-control" id="first" placeholder="First">
-                    </div>
-
-                    <div class="input-group">
-                      <label for="comment" class="input-group-addon control-label">Comment</label>
-                     <textarea id="comment" name = "comment" value = "" class="form-control" rows="3"  required></textarea>
-                    </div>
-                  <button type="submit" class="btn btn-primary">Submit &raquo;</button>
-              </form>
+            <div id="collapsePersonal" class="panel-collapse collapse in">
+                <div class="panel-body">
 
 
-
-
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="col-sm-6">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <h3 class="panel-title">Recent Feedback</h3>
+
+          <div class="col-sm-6">
+          <div class="panel panel-primary posting">
+            <div class="panel-heading settings-panel-heading" id="changeUserInfo">
+              <a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
+              <h3 class="panel-title">Your Information</h3>
             </div>
 
-            <% user.forEach(function(item) { %>
-            <% for(var i=0; i<item.comments.length; i++) { %>         
-            <div class="panel-body">
-              <div class="review">
-                <h3><%=item.comments[i].commenter %></h3>
-                <span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star"></span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-                  <span class="glyphicon glyphicon-star-empty"></span>
-                </span>
-                <p><%=item.comments[i].comment %> </p>
-              </div>              
-            </div>
-            <% }});%>
+            <div id="collapsePersonal1" class="panel-collapse collapse in">
+                <div class="panel-body">
 
 
-            <div class="panel-footer">
-              <p><a href="#">View older feedback...</a></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+        </div>
+
 
     <footer>
       <div class="row visible-xs">
