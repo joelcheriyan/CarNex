@@ -180,19 +180,30 @@ module.exports = function (flights) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} else {
-				console.log("create a new post");
-				res.render('dashboard.ejs', {
-					posts: posts,
+				UserSchema.find({username: req.session.passport.user})
+				.exec(function(err, user) {
+				if (err) {
+				res.status(500).json({status: 'failure'});
+				} 
+				else {
+					res.render('dashboard.ejs', {
+					posts:posts,
+					firstname: user.firstname,
 					username: req.session.passport.user
+					
+					});					
+				}
 				});
 			}
 		});
+			
+		
 	};
 
 	functions.comment = function(req, res) {
 	//query user to whom the comment should be sent to
 
-		UserSchema.update({username:'Joel'}, { $addToSet: { comments: {commenter: req.body.first, comment: req.body.comment}}})
+		UserSchema.update({username:req.body.user}, { $addToSet: { comments: {commenter: req.body.first, comment: req.body.comment}}})
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -200,7 +211,7 @@ module.exports = function (flights) {
 			} else 
 			{
 
-				UserSchema.find({username: 'Joel'})
+				UserSchema.find({username: req.body.user})
 				.exec(function(err, user) {
 				if (err) {
 				res.status(500).json({status: 'failure'});
@@ -219,17 +230,21 @@ module.exports = function (flights) {
 
 
 	functions.profile = function(req, res) {
-		console.log(req.body.username);
-		UserSchema.find({username: 'Joel'})
-		.exec(function(err, user) {
+		console.log(req.body.username);	
+		if(req.body.username != undefined)
+		{
+			UserSchema.find({username: req.body.username})
+			.exec(function(err, user) {
 				if (err) {
 				res.status(500).json({status: 'failure'});
 				} 
 				else {
 					res.render('profile.ejs', {
 					user: user});					
-					}
+				}
+		
 				});
+		}
 	};
 
 

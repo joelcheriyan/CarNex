@@ -15,6 +15,10 @@ module.exports = mongoose.model('user', {
 			commenter: String,
 			comment: String
 		}]
+
+	saved: [{
+			post_id: ObjectId,   
+		}]
 			
 
 });
