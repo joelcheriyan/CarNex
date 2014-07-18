@@ -174,7 +174,13 @@
 
             <p class="pull-right">
 	  <form role="form" action="/save" method="post">
-          <input name = "post_id" type="hidden" value = <%= item._id %>>
+          	<input name = "from" type="hidden" value = <%= item.from %>>
+	 	<input name = "to" type="hidden" value = <%= item.to %>>
+		<input name = "descript" type="hidden" value = <%= item.description %>>
+		<input name = "startdate" type="hidden" value = <%= item.startdate %>>
+		<input name = "returndate" type="hidden" value = <%= item.returndate %>>
+		<input name = "poster" type="hidden" value = <%= item.username %>>
+
               <button class="btn btn-primary" title="Save">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 <span class="hidden-xs">Save</span>

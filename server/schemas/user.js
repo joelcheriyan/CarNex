@@ -16,8 +16,22 @@ module.exports = mongoose.model('user', {
 			comment: String
 		}],
 
-	saved_posts: [ObjectId],
-	my_posts: [ObjectId]
+	saved_posts: [{
+			from: String,
+			to: String,
+			startdate: Date,
+			returndate: Date,
+			description: String, 
+			poster: String
+		}],
+	my_posts: [{
+			from: String,
+			to: String,
+			startdate: Date,
+			returndate: Date,
+			description: String, 
+			poster: String
+		}],
 			
 
 });

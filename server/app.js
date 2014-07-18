@@ -110,14 +110,13 @@ module.exports = function (flights, db) {
 	app.post('/profile',routes.profile);
 
 
-	app.get('/personalprofile',  function(req, res) {
-  	res.render('personprofile.ejs');
+	app.get('/personalprofile', routes.personalprofile); 
 
 	app.post('/save', routes.save);	
 
 
 
-	});
+	
 
 	return app;
 }
