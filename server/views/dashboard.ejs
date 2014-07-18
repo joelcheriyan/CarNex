@@ -48,7 +48,9 @@
              </div>
             <li>
             <li>
-                <button type="submit" class="btn btn-primary navbar-btn" onClick="location.href='create_post.html'">create a post</button>
+                <form class="form-inline" role="form" action="/createpost" method="get">
+                <button type="submit" class="btn btn-primary navbar-btn" >create a post</button>
+                </form>
             </li>
           </ul>
 
@@ -123,7 +125,7 @@
             <h5 class="date pull-right">yesterday</h5>
 
             <div class="poster">
-              <h4>Poster's Username</h4>
+              <h4><%= item.username %></h4>
               <span class="poster-rating">
                 (<span class="glyphicon glyphicon-star"></span>
                 <span class="glyphicon glyphicon-star"></span>
@@ -143,10 +145,14 @@
 
           <div class="panel-footer">
             <p class="pull-left">
-              <button class="btn btn-info" title="Profile">
-                <span class="glyphicon glyphicon-user"></span>
-                <span class="hidden-xs">Profile</span>
-              </button>
+              <form role="form" action="/profile" method="post">
+              <input name = "username" type="hidden" value = <%= item.username %>>
+
+                <button class="btn btn-info" title="Profile" type="submit" >
+                  <span class="glyphicon glyphicon-user"></span>
+                <span class="hidden-xs">profile</span>
+                </button>
+              </form>
 
               <button class="btn btn-other" title="Map">
                 <span class="glyphicon glyphicon-globe"></span>

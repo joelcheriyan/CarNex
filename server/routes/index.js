@@ -124,11 +124,12 @@ module.exports = function (flights) {
 	functions.createpost = function(req, res) {
   
   		var record = new PostsSchema({
-			from: req.body.from.toLowerCase(),
-			to: req.body.to.toLowerCase(),
+			from: req.body.from,
+			to: req.body.to,
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
-			description: req.body.descript
+			description: req.body.descript,
+			username: req.session.passport.user
 		});
   		
 			//save the records into the user database
@@ -172,15 +173,14 @@ module.exports = function (flights) {
 	functions.dashboard = function(req, res) {
 		//this is the condition that we have for query: starting point, destination and date
 
-
-
 		var current_date = new Date();
-		PostsSchema.find({from: req.body.from.toLowerCase(), to: req.body.to.toLowerCase(), returndate: { $gt: current_date} })
+		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
 		.setOptions({sort: 'startdate'})
 		.exec(function(err, posts) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
 			} else {
+				console.log("create a new post");
 				res.render('dashboard.ejs', {
 					posts: posts,
 					username: req.session.passport.user
@@ -219,7 +219,7 @@ module.exports = function (flights) {
 
 
 	functions.profile = function(req, res) {
-
+		console.log(req.body.username);
 		UserSchema.find({username: 'Joel'})
 		.exec(function(err, user) {
 				if (err) {
@@ -231,6 +231,11 @@ module.exports = function (flights) {
 					}
 				});
 	};
+
+
+
+
+
 
 	return functions;
 };

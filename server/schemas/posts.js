@@ -7,5 +7,6 @@ module.exports = mongoose.model('posts', {
 	to: String,
 	startdate: Date,
 	returndate: Date,
-	description: String
+	description: String, 
+	username: String
 });

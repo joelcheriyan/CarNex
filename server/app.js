@@ -107,7 +107,7 @@ module.exports = function (flights, db) {
 	app.post('/dashboard',routes.dashboard);
 	app.post('/comment',routes.comment);
 	app.get('/profile',  routes.profile);
-
+	app.post('/profile',routes.profile);
 
 
 
