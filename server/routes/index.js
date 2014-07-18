@@ -141,6 +141,9 @@ module.exports = function (flights) {
 					res.json({status: 'success'});
 				} 
 			});
+
+
+		
 };
 
 
@@ -247,7 +250,23 @@ module.exports = function (flights) {
 		}
 	};
 
+	functions.save = function(req, res) {
+	//query user to whom the comment should be sent to
 
+		UserSchema.update({username:req.session.passport.user}, { $addToSet: {saved_posts : req.body.post_id, }})
+		.exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.redirect('/dashboard');
+			}		
+			
+		});
+		
+	};
 
 
 

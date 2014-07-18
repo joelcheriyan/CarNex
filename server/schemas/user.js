@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 
 module.exports = mongoose.model('user', {
@@ -14,11 +14,10 @@ module.exports = mongoose.model('user', {
 	comments: [{
 			commenter: String,
 			comment: String
-		}]
+		}],
 
-	saved: [{
-			post_id: ObjectId,   
-		}]
+	saved_posts: [ObjectId],
+	my_posts: [ObjectId]
 			
 
 });

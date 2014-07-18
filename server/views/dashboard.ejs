@@ -166,10 +166,13 @@
             </p>
 
             <p class="pull-right">
+	  <form role="form" action="/save" method="post">
+          <input name = "post_id" type="hidden" value = <%= item._id %>>
               <button class="btn btn-primary" title="Save">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 <span class="hidden-xs">Save</span>
               </button>
+	  </form>
 
               <button class="btn btn-danger" title="Report">
                 <span class="glyphicon glyphicon-ban-circle"></span>

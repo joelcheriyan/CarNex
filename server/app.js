@@ -109,6 +109,8 @@ module.exports = function (flights, db) {
 	
 	app.post('/profile',routes.profile);
 
+	app.post('/save', routes.save);	
+
 
 
 
