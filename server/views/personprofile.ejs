@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CarNex - Jane Doe</title>
+    <title>CarNex - Personal Profile</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,8 +55,10 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="img-bio img-profile"></div>
+	<% if (user!= undefined){user.forEach(function(item) { %>
+          <h2><%=item.username%></h2>
+	
 
-          <h2>Jane Doe</h2>
           <p>
             <strong>Average Rating</strong>:
             <span class="glyphicon glyphicon-star"></span>
@@ -66,7 +68,7 @@
             <span class="glyphicon glyphicon-star-empty"></span>
           </p>
 
-          <p><strong>Usually commutes from around</strong>: Bahen Centre for Information Technology, Toronto</p>
+          <p><strong>Usually commutes from around</strong>: <%=item.city%></p>
         </div>
 
         <div class="col-sm-3">
@@ -105,45 +107,60 @@
       </div>
     </div>
 
-  
+ <div class="container main-profile">
+      <div class="row">
 
-        <!-- column 1: User Info -->
-        <div class="container main-profile">
+        <!-- column 1: Saved posts Info -->
         <div class="col-sm-6">
-          <div class="panel panel-primary posting">
-            <div class="panel-heading settings-panel-heading" id="changeUserInfo">
-              <a href="#collapsePersonal" data-toggle="collapse" class="pull-right"></a>
-              <h3 class="panel-title">Your Information</h3>
+          <div class="panel panel-primary  settings-panel-heading">
+            <div class="panel-heading">
+		<a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
+              <h3 class="panel-title">Saved Posts</h3>
             </div>
+            
+            <% for(var i=0; i<item.saved_posts.length; i++) { %>
+	<div id="collapsePersonal1" class="panel-collapse collapse in">         
+            <div class="panel-body">
+              <div class="review">
+                <h3><%=item.saved_posts[i].from %> to <%=item.saved_posts[i].to %></h3>
+		 <p>Posted by: <%=item.saved_posts[i].poster %> </p>
+          
+                <p><%=item.saved_posts[i].desciption %> </p>
+		
+              </div>              
+            </div>         
 
-            <div id="collapsePersonal" class="panel-collapse collapse in">
-                <div class="panel-body">
-
-
-
-
-              </div>
-            </div>
           </div>
         </div>
+	</div>
+	<%}%>
 
 
-          <div class="col-sm-6">
-          <div class="panel panel-primary posting">
-            <div class="panel-heading settings-panel-heading" id="changeUserInfo">
-              <a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
-              <h3 class="panel-title">Your Information</h3>
+	<div class="col-sm-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading settings-panel-heading">
+ 		<a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
+              <h3 class="panel-title">My Posts</h3>
             </div>
 
-            <div id="collapsePersonal1" class="panel-collapse collapse in">
-                <div class="panel-body">
-
-
-              </div>
-            </div>
+            
+            <% for(var i=0; i<item.my_posts.length; i++) { %>         
+             <div id="collapsePersonal1" class="panel-collapse collapse in">
+               
+	   <div class="panel-body">
+              <div class="review">
+                <h3><%=item.my_posts[i].from %> to <%=item.my_posts[i].to %></h3>
+		 <p>Posted by: <%=item.my_posts[i].poster %> </p>
+          
+                <p><%=item.my_posts[i].desciption %> </p>
+              </div>              
+            </div>         
           </div>
         </div>
-        </div>
+      </div>
+	<%}%>
+ <% })}; %>
+          
 
 
     <footer>

@@ -101,8 +101,9 @@ module.exports = function (flights) {
 
 	functions.logout = function(req, res) 
 	{
+		req.logout();
 
-		req.session.passport.user = undefined;
+		//req.session.passport.user = undefined;
 		res.render('index.ejs');
 		
 	};
@@ -122,6 +123,15 @@ module.exports = function (flights) {
 	//our work starts here
 	//create a post page
 	functions.createpost = function(req, res) {
+
+	UserSchema.update({username:req.session.passport.user}, { $addToSet: {my_posts :{
+												from: req.body.from,
+												to: req.body.to,
+												startdate: req.body.startdate,
+												returndate: req.body.returndate,
+												description: req.body.descript, 
+												poster: req.session.passport.user
+												}}}).exec(function(err){})
   
   		var record = new PostsSchema({
 			from: req.body.from,
@@ -256,7 +266,14 @@ module.exports = function (flights) {
 	functions.save = function(req, res) {
 	//query user to whom the comment should be sent to
 
-		UserSchema.update({username:req.session.passport.user}, { $addToSet: {saved_posts : req.body.post_id, }})
+		UserSchema.update({username:req.session.passport.user}, { $addToSet: {saved_posts :{
+													from: req.body.from,
+													to: req.body.to,
+													startdate: req.body.startdate,
+													returndate: req.body.returndate,
+													description: req.body.descript, 
+													poster: req.body.poster
+												}}})
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -270,6 +287,23 @@ module.exports = function (flights) {
 		});
 		
 	};
+
+
+	functions.personalprofile = function(req, res) {
+		//this is the condition that we have for query: starting point, destination and date
+		var query = UserSchema.find({username: req.session.passport.user})
+		.exec(function(err, user) {
+			if (err) {
+				res.status(500).json({status: 'failure'});
+			}
+			else{
+				 res.render('personprofile.ejs',{user:user});
+				}		
+
+			});				
+		
+	};
+
 
 
 
