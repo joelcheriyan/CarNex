@@ -11,6 +11,10 @@ module.exports = mongoose.model('user', {
 	phone: String,
 	birthdate: Date,    
 	city: String,
+	lat: Number,
+    lon: Number,
+
+
 	comments: [{
 			commenter: String,
 			comment: String
