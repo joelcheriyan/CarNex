@@ -99,18 +99,23 @@ module.exports = function (flights, db) {
 		} 
 		else 
 		{	
-			res.render('dashboard.ejs', {posts: null, username: req.session.passport.user});
+			res.render('dashboard.ejs', {posts: undefined, username: req.session.passport.user});
 		}
   	});
 		
 
 	app.post('/dashboard',routes.dashboard);
 	app.post('/comment',routes.comment);
-	app.get('/profile',  routes.profile);
+	
 	app.post('/profile',routes.profile);
+
 
 	app.get('/personalprofile',  function(req, res) {
   	res.render('personprofile.ejs');
+
+	app.post('/save', routes.save);	
+
+
 
 	});
 

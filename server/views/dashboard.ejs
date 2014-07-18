@@ -45,7 +45,7 @@
 
             <li>
                 <form class="form-inline" role="form" action="/createpost" method="get">
-                <button type="submit" class="btn btn-primary navbar-btn" >create a post</button>
+                <button type="submit" class="btn btn-primary navbar-btn" >Create a Post</button>
                 </form>
             </li>
 
@@ -79,7 +79,7 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1><%= username %></h1>
+        <h1>Welcome, <%= username %></h1>
         <p>Search for a trip?</p>
 
         <form class="form-inline" role="form" action="/dashboard" method="post">
@@ -120,7 +120,7 @@
  	
 	
 	<ul>
-	<% if (posts!= null){posts.forEach(function(item) { %>
+	<% if (posts!= undefined){posts.forEach(function(item) { %>
 
         <div class="panel panel-primary posting">
           <div class="panel-heading">
@@ -157,7 +157,7 @@
 
                 <button class="btn btn-info" title="Profile" type="submit" >
                   <span class="glyphicon glyphicon-user"></span>
-                <span class="hidden-xs">profile</span>
+                <span class="hidden-xs">Profile</span>
                 </button>
               </form>
 
@@ -173,10 +173,13 @@
             </p>
 
             <p class="pull-right">
+	  <form role="form" action="/save" method="post">
+          <input name = "post_id" type="hidden" value = <%= item._id %>>
               <button class="btn btn-primary" title="Save">
                 <span class="glyphicon glyphicon-floppy-disk"></span>
                 <span class="hidden-xs">Save</span>
               </button>
+	  </form>
 
               <button class="btn btn-danger" title="Report">
                 <span class="glyphicon glyphicon-ban-circle"></span>

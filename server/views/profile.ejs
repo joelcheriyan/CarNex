@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CarNex - Jane Doe</title>
+    <title>CarNex - Profile</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,8 +55,8 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="img-bio img-profile"></div>
-
-          <h2>Jane Doe</h2>
+	 <% user.forEach(function(item) { %>
+          <h2><%=item.username %></h2>
 
 
           <post>
@@ -124,20 +124,19 @@
 
             <div class="panel-body">
               <ul>
-                <li><strong>Gender</strong>: female</li>
-                <li><strong>Member Since</strong>: 1st Jan 1970</li>
-                <li><strong>Common Destinations</strong>: Richmond Hill, Mississauga</li>
-                <li><strong>Able to Drive?</strong> yes</li>
-                <li><strong>Access to a Car?</strong> yes</li> 
+                <li><strong>Email</strong>: <%= item.email %></li>
+                <li><strong>Phone</strong>:  <%= item.phone %></li>
+                <li><strong>Common Deprature</strong>: <%= item.city %></li>
+ 
               </ul>
-
-              <h3><center>Submit a feedback</center></h3>
+		
+              <h3><center>Submit feedback</center></h3>
               <form role="form" action="/comment" method="post">
                     <div class="input-group">
                       <label for="first" class="input-group-addon control-label">Name</label>
                       <input name = "first" type="text" value ="" class="form-control" id="first" placeholder="First">
                     </div>
-
+		<input name = "username" type="hidden" value = <%= item.username %> class="form-control" id="username" >
                     <div class="input-group">
                       <label for="comment" class="input-group-addon control-label">Comment</label>
                      <textarea id="comment" name = "comment" value = "" class="form-control" rows="3"  required></textarea>
@@ -146,7 +145,7 @@
               </form>
 
 
-
+	<% });%>
 
             </div>
           </div>
