@@ -328,7 +328,7 @@ module.exports = function (flights) {
 		
 	};
 
-	functions.settings = function(req, res) {
+	functions.update = function(req, res) {
 	//query user to whom the comment should be sent to
 
 		UserSchema.update({username:req.session.passport.user},  {
@@ -338,6 +338,21 @@ module.exports = function (flights) {
 										email: req.body.email,
 										phone: req.body.phone 
 									})
+		.exec(function(err, user){});
+		
+
+				res.redirect('/settings' );
+					
+			
+		
+		
+	};
+
+
+	functions.settings = function(req, res) {
+	//query user to whom the comment should be sent to
+
+		UserSchema.find({username:req.session.passport.user})
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -345,12 +360,13 @@ module.exports = function (flights) {
 			} else 
 			{
 
-				res.redirect('/dashboard');
+				res.render('settings.ejs',{user: user});
 			}		
 			
 		});
 		
 	};
+
 
 
 

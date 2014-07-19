@@ -35,6 +35,7 @@ module.exports = mongoose.model('user', {
 			description: String, 
 			poster: String
 		}],
+	
 			
 
 });

@@ -60,7 +60,8 @@
 
     <div class="jumbotron">
       <div class="container">
-        <h1>Welcome, Jane.</h1>
+	<%user.forEach(function(item){%>
+        <h1>Welcome, <%=item.name%></h1>
         <p>Here's your account information.</p>
       </div>
     </div>
@@ -75,38 +76,38 @@
           <div class="panel panel-primary posting">
             <div class="panel-heading settings-panel-heading" id="changeUserInfo">
               <a href="#collapsePersonal" data-toggle="collapse" class="pull-right"></a>
-              <h3 class="panel-title">Your Information</h3>
+              <h3 class="panel-title">Update Your Information</h3>
             </div>
 
             <div id="collapsePersonal" class="panel-collapse collapse in">
               <div class="panel-body">
                 <!-- Should autofill this info from backend db -->
-                <form class="form" role="form" id="userInfo" action = "/settings" method ="post">
+                <form class="form" role="form" id="userInfo" action = "/update" method ="post">
                   <div class="input-group">
                     <label for="name" class="input-group-addon control-label">Name</label>
-                    <input name = "name" type="text" class="form-control" id="name" placeholder="Jane Doe">
+                    <input name = "name" type="text" class="form-control" value=<%=item.name%> id="name" >
                   </div>
 
                   <div class="input-group">
                     <label for="username" class="input-group-addon control-label">Username</label>
-                    <input name= "username" type="text" class="form-control" id="username" placeholder="awesomesauce">
+                    <input name= "username" type="text" class="form-control" value=<%=item.username%>  id="username" >
                   </div>
 		  <div class="input-group">
                     <label for="password" class="input-group-addon control-label">Password</label>
-                    <input name= "password" type="text" class="form-control" id="username" placeholder="xxxxx">
+                    <input name= "password" type="text" class="form-control"value= <%=item.password%> id="password" >
                   </div>
 
                   <div class="input-group">
                     <label for="email" class="input-group-addon control-label">Email</label>
-                    <input name = "email" type="email" class="form-control" id="email" placeholder="awesomesauce@gmail.com">
+                    <input name = "email" type="email" class="form-control" value=<%=item.email%> id="email" >
                   </div>
 
                   <div class="input-group">
                     <label for="phone" class="input-group-addon control-label">Phone</label>
-                    <input name= "phone" type="text" class="form-control" id="phone" placeholder="416-111-1111">
+                    <input name= "phone" type="text" class="form-control" value=<%=item.phone%> id="phone" >
                   </div>
 		 <div class="panel-footer">
-                	<button class="btn btn-info pull-left" title="Profile" type="submit" form="userInfo">
+                	<button class="btn btn-info pull-left"  type="submit" >
                  	 <span class="glyphicon glyphicon-cog"></span>
                  	 Update Information
                 	</button>
@@ -116,49 +117,13 @@
               </div>
 
              
-            </div>
+            
           </div>
 
-          <div class="panel panel-primary posting">
-            <div class="panel-heading settings-panel-heading" id="changePass">
-              <a href="#collapsePassChange" data-toggle="collapse" class="pull-right"></a>
-              <h3 class="panel-title">Change Your Password</h3>
-            </div>
-
-            <div id="collapsePassChange" class="panel-collapse collapse in">
-              <div class="panel-body">
-                <form class="form-horizontal" role="form">
-                  <div class="input-group">
-                    <label for="user-pass-old" class="input-group-addon control-label">Old Password</label>
-                    <input type="password" class="form-control" id="user-pass-old" placeholder="Last changed 3 days ago">
-                  </div>
-
-                  <div class="input-group">
-                    <label for="user-pass-new" class="input-group-addon control-label">New Password</label>
-                    <input type="password" class="form-control" id="user-pass-new" placeholder="Last changed 3 days ago">
-                  </div>
-
-                  <div class="input-group">
-                    <label for="user-pass-repeat" class="input-group-addon control-label">Confirm New Password</label>
-                    <input type="password" class="form-control" id="user-pass-repeat" placeholder="Last changed 3 days ago">
-                  </div>
-                </form>
-              </div>
-
-              <div class="panel-footer">
-                <p class="pull-left">
-                  <button class="btn btn-info" title="Profile" type="submit">
-                    <span class="glyphicon glyphicon-cog"></span>
-                    Update Password
-                  </button>
-
-                  <a href="#">I forgot my password</a>
-                </p>
-              </div>
-            </div>
+         
           </div>
         </div> <!-- column 1: User Info -->
-
+<%});%>
         <!-- column 2: Photo -->
         <div class="col-sm-4" id="userPhoto">
           <div class="panel panel-primary posting">
@@ -171,26 +136,27 @@
 
               <div class="img-bio img-profile"></div>
 
-              <form role="form" id="photoUpload">
+              <form role="form" id="photoUpload" action="/upload" metho="post">
                 <div class="input-group">
                   <span class="input-group-btn">
                     <span class="btn btn-primary btn-file">
                       Browse&hellip;
-                      <input type="file" form="photoUpload">
+                      <input name="image"type="file" form="photoUpload">
                     </span>
                   </span>
 
                   <input type="text" class="form-control" readonly>
                 </div>
               </div>
-            </form>
-
-            <div class="panel-footer">
+  	     <div class="panel-footer">
               <button class="btn btn-info pull-left" title="Photo" form="photoUpload">
                 <span class="glyphicon glyphicon-camera"></span>
                 Update Photo
               </button>
             </div>
+            </form>
+
+          
           </div>
         </div> <!-- column 2: Photo -->
       </div> <!-- row -->

@@ -106,13 +106,8 @@ module.exports = function (flights, db) {
 
 	app.post('/save', routes.save);	
 	
-	app.get('/settings', function(req, res) {
-  	res.render('settings.ejs');
-
-	});		
-	app.post('/settings', routes.settings);
-
-
+	app.get('/settings', routes.settings);
+	app.post('/update', routes.update);
 
 	
 
