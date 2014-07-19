@@ -640,3 +640,10 @@ form#photoUpload
     height:auto;
     display:inline-block;
 }
+
+
+
+.pad{
+   padding: 0 35px;
+   font-size: 18px;
+}
