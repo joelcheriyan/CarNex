@@ -93,18 +93,10 @@ module.exports = function (flights, db) {
 
 //eq.session.passport.user === undefined
  	// retrieve data from posts database
-	app.get('/dashboard', function(req, res) {
-		if (req.session.passport.user === undefined) {
-		 	res.redirect('/login');
-		} 
-		else 
-		{	
-			res.render('dashboard.ejs', {posts: undefined, username: req.session.passport.user});
-		}
-  	});
-		
+	app.get('/dashboard', routes.dashboard)
+	
 
-	app.post('/dashboard',routes.dashboard);
+	app.post('/search',routes.search);
 	app.post('/comment',routes.comment);
 	
 	app.post('/profile',routes.profile);
@@ -113,6 +105,8 @@ module.exports = function (flights, db) {
 	app.get('/personalprofile', routes.personalprofile); 
 
 	app.post('/save', routes.save);	
+		
+	app.post('/settings', routes.settings);
 
 
 

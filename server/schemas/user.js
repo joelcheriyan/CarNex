@@ -3,8 +3,7 @@ var ObjectId = mongoose.Schema.Types.ObjectId;
 
 
 module.exports = mongoose.model('user', {
-	firstname: String,
-	lastname: String,
+	name: String,
 	email: String,
 	username: String,
 	password: String,
