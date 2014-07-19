@@ -125,21 +125,25 @@
                 <h3><%=item.saved_posts[i].from %> to <%=item.saved_posts[i].to %></h3>
 		 <p>Posted by: <%=item.saved_posts[i].poster %> </p>
           
-                <p><%=item.saved_posts[i].desciption %> </p>
+                <p><%=item.saved_posts[i].description %> </p>
 		
               </div>              
             </div>         
-
           </div>
+	<%}%>
         </div>
 	</div>
-	<%}%>
+	
 
 
 	<div class="col-sm-6">
           <div class="panel panel-primary">
             <div class="panel-heading settings-panel-heading">
+<<<<<<< HEAD
  		         <a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
+=======
+ 		<a href="#collapsePersonal1" data-toggle="collapse" class="pull-left"></a>
+>>>>>>> 31141542d2bdbd0e1dcd1705cb383bda26d93c24
               <h3 class="panel-title">My Posts</h3>
             </div>
 
@@ -152,16 +156,17 @@
                 <h3><%=item.my_posts[i].from %> to <%=item.my_posts[i].to %></h3>
 		             <p>Posted by: <%=item.my_posts[i].poster %> </p>
           
-                <p><%=item.my_posts[i].desciption %> </p>
+                <p><%=item.my_posts[i].description %> </p>
               </div>              
             </div>         
           </div>
+	<%}%>
         </div>
       </div>
-	<%}%>
+	
  <% })}; %>
           
-
+ 
 
     <footer>
       <div class="row visible-xs">

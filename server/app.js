@@ -65,7 +65,7 @@ module.exports = function (flights, db) {
 		successRedirect: '/dashboard'
 	}));
 
-	app.post('/logout',routes.logout);
+	app.get('/logout',routes.logout);
 
 	
 	//app.get('/user', routes.user);
@@ -93,18 +93,10 @@ module.exports = function (flights, db) {
 
 //eq.session.passport.user === undefined
  	// retrieve data from posts database
-	app.get('/dashboard', function(req, res) {
-		if (req.session.passport.user === undefined) {
-		 	res.redirect('/login');
-		} 
-		else 
-		{	
-			res.render('dashboard.ejs', {posts: undefined, username: req.session.passport.user});
-		}
-  	});
-		
+	app.get('/dashboard', routes.dashboard);
+	
 
-	app.post('/dashboard',routes.dashboard);
+	app.post('/postsearch',routes.postsearch);
 	app.post('/comment',routes.comment);
 	
 	app.post('/profile',routes.profile);
@@ -113,7 +105,12 @@ module.exports = function (flights, db) {
 	app.get('/personalprofile', routes.personalprofile); 
 
 	app.post('/save', routes.save);	
+
 	app.post('/map', routes.map);
+
+	
+	app.get('/settings', routes.settings);
+	app.post('/update', routes.update);
 
 
 	

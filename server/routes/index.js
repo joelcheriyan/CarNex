@@ -154,7 +154,7 @@ module.exports = function (flights) {
 					console.log(err);
 					res.status(500).json({status: 'failure'});
 				}else {
-					res.json({status: 'success'});
+					res.redirect('/dashboard');
 				} 
 			});
 		
@@ -164,8 +164,7 @@ module.exports = function (flights) {
 	//signup page 
 	functions.signup = function(req, res) {
 		var record = new UserSchema({
-			firstname: req.body.firstname, 
-			lastname: req.body.lastname,
+			name: req.body.name, 
 			email: req.body.email,
 			username: req.body.username,
 			password: req.body.password,
@@ -189,7 +188,33 @@ module.exports = function (flights) {
 
 
 	//dashboard page
+
 	functions.dashboard = function(req, res) {
+		//this is the condition that we have for query: starting point, destination and date
+
+		if (req.session.passport.user === undefined) {
+		 	res.redirect('/login');
+		} 
+		else{
+		var query = UserSchema.find({username: req.session.passport.user})
+		.exec(function(err, user) {
+			if (err) {
+				res.status(500).json({status: 'failure'});
+			}
+			else{
+				 res.render('dashboard.ejs',{
+								posts: undefined,
+								user:user
+								});
+			}		
+
+		});
+		}				
+		
+	};
+
+
+	functions.postsearch = function(req, res) {
 		//this is the condition that we have for query: starting point, destination and date
 
 		var current_date = new Date();
@@ -207,8 +232,7 @@ module.exports = function (flights) {
 				else {
 					res.render('dashboard.ejs', {
 					posts:posts,
-					firstname: user.firstname,
-					username: req.session.passport.user
+					user: user
 					
 					});					
 				}
@@ -222,7 +246,7 @@ module.exports = function (flights) {
 	functions.comment = function(req, res) {
 	//query user to whom the comment should be sent to
 
-		UserSchema.update({username:req.body.user}, { $addToSet: { comments: {commenter: req.body.first, comment: req.body.comment}}})
+		UserSchema.update({username:req.body.user}, { $addToSet: { comments: {commenter: req.body.name, comment: req.body.comment}}})
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -308,7 +332,47 @@ module.exports = function (flights) {
 		
 	};
 
+<<<<<<< HEAD
 	
+=======
+	functions.update = function(req, res) {
+	//query user to whom the comment should be sent to
+
+		UserSchema.update({username:req.session.passport.user},  {
+										name: req.body.name,
+										username: req.body.username,
+										password: req.body.password,
+										email: req.body.email,
+										phone: req.body.phone 
+									})
+		.exec(function(err, user){});
+		
+
+				res.redirect('/logout');
+		
+	};
+
+
+	functions.settings = function(req, res) {
+	//query user to whom the comment should be sent to
+
+		UserSchema.find({username:req.session.passport.user})
+		.exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.render('settings.ejs',{user: user});
+			}		
+			
+		});
+		
+	};
+
+
+>>>>>>> 31141542d2bdbd0e1dcd1705cb383bda26d93c24
 
 	functions.map = function(req, res) {
 		res.render('map.ejs', {
