@@ -34,7 +34,7 @@
           <ul class="nav navbar-nav navbar-right">
             <li>
                <form class="form-inline" role="form" action="/personalprofile" method="get"> 
-                <button type="submit" class="btn btn-primary navbar-btn">view posts</button>
+                <button type="submit" class="btn btn-primary navbar-btn">View Profile</button>
               </form>   
             </li>
 
@@ -78,17 +78,18 @@
     </nav>
 
     <div class="jumbotron">
-	<%if(posts ===undefined){ %>
+	<%if(posts != undefined){%>
       <div class="container">
 	<%}%>
-	<%else{ %>
+	<%if(posts === undefined){%>
       <div class="homecontainer">
 	<%}%>
-	<%user.forEach(function(item)%>
+
+	<%user.forEach(function(item){%>
         <h1>Welcome, <%= item.username %></h1>
         <p>Search for a trip?</p>
-	<%)%>
-        <form class="form-inline" role="form" action="/search" method="post">
+	<%});%>
+        <form class="form-inline" role="form" action="/postsearch" method="post">
           <div class="form-group">
             <label class="sr-only" for="field-from">Leaving From</label>
             <input name="from" type="text" id="field-from" value="" class="form-control" placeholder="Leaving From">
@@ -126,7 +127,7 @@
  	
 	
 	<ul>
-	<% if (posts!= undefined){posts.forEach(function(item) { %>
+	<% if (posts != undefined){posts.forEach(function(item) { %>
 
         <div class="panel panel-primary posting">
           <div class="panel-heading">
@@ -200,7 +201,7 @@
             </p>
           </div>
         </div> <!-- posting -->
-	<% })}; %>
+	<% });} %>
 	</ul>
 
 
@@ -239,7 +240,7 @@
       </div>
 
       <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
-      <p>Copyright &copy; 2014 CarNex, Inc.</p>
+      <p>Copyright &copy 2014 CarNex, Inc.</p>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

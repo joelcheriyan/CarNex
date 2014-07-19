@@ -198,19 +198,19 @@ module.exports = function (flights) {
 				res.status(500).json({status: 'failure'});
 			}
 			else{
-				 res.render('personprofile.ejs',{
+				 res.render('dashboard.ejs',{
 								posts: undefined,
 								user:user
 								});
-				}		
+			}		
 
-			});
+		});
 		}				
 		
 	};
 
 
-	functions.search = function(req, res) {
+	functions.postsearch = function(req, res) {
 		//this is the condition that we have for query: starting point, destination and date
 
 		var current_date = new Date();
@@ -228,7 +228,7 @@ module.exports = function (flights) {
 				else {
 					res.render('dashboard.ejs', {
 					posts:posts,
-					username: req.session.passport.user
+					user: user
 					
 					});					
 				}
