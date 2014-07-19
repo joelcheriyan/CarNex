@@ -65,7 +65,7 @@ module.exports = function (flights, db) {
 		successRedirect: '/dashboard'
 	}));
 
-	app.post('/logout',routes.logout);
+	app.get('/logout',routes.logout);
 
 	
 	//app.get('/user', routes.user);

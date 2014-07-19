@@ -341,10 +341,7 @@ module.exports = function (flights) {
 		.exec(function(err, user){});
 		
 
-				res.redirect('/settings' );
-					
-			
-		
+				res.redirect('/logout');
 		
 	};
 
