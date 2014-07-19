@@ -55,6 +55,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="img-bio img-profile"></div>
+     
 	 <% user.forEach(function(item) { %>
           <h2><%=item.username %></h2>
 
@@ -65,7 +66,7 @@
               You gave a rating of <span id="count">0</span> star(s)
             </div>
             <div class="row">
-              <h2>Ratings for Bootstrap 3<p class="lead">Click the stars to vote</p></h2>
+              <h2>Ratings for Bootstrap 3 <p class="lead">Click the stars to vote</p></h2>
             </div>
             <div class="row lead">
               <div id="stars" class="starrr"></div>
@@ -86,7 +87,13 @@
 
         <div class="col-sm-3">
           <div class="img-map-container">
-            <div class="img-map"></div>
+            <div class="input-group">      
+                    <input id="sLoc-address" type="hidden" class="form-control" value = "" />
+                    <div id="sLoc" style="width: 300px; height: 200px;"></div>
+                    <input type="hidden" id="sLoc-radius"/>
+                    <input type="hidden" id="sLoc-lat"  value = ""/>
+                    <input type="hidden" id="sLoc-lon"  value = ""/>
+              </div>
           </div>
         </div>
       </div>
@@ -212,6 +219,28 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>
     <script src="js/login.js"></script>
+    <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+    <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
+    <script>
+    $('#sLoc').locationpicker({
+        location: {latitude:  <%= user[0].lat%> , longitude: <%= user[0].lon%> },   
+        radius: 3000,
+        zoom: 10,
+        scrollwheel: true,
+        inputBinding: {
+            latitudeInput: $('#sLoc-lat'),
+            longitudeInput: $('#sLoc-lon'),
+            radiusInput: $('#sLoc-radius'),
+            locationNameInput: $('#sLoc-address')
+        },
+       
+        enableAutocomplete: true,
+        
+      });
+
+
+    </script>
+  
   </body>
 </html>
 

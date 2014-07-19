@@ -166,7 +166,9 @@ module.exports = function (flights) {
 			password: req.body.password,
 			phone: req.body.phone,
 			birthdate: req.body.birthdate,     
-			city: req.body.city
+			city: req.body.city,
+			lat: req.body.lat,
+			lon: req.body.lon
 		});
 
 			//save the records into the user database
@@ -277,7 +279,8 @@ module.exports = function (flights) {
 				} 
 				else {
 					res.render('profile.ejs', {
-					user: user});					
+					user: user
+					});					
 				}
 		
 				});
