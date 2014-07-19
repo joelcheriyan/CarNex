@@ -332,9 +332,6 @@ module.exports = function (flights) {
 		
 	};
 
-<<<<<<< HEAD
-	
-=======
 	functions.update = function(req, res) {
 	//query user to whom the comment should be sent to
 
@@ -372,7 +369,7 @@ module.exports = function (flights) {
 	};
 
 
->>>>>>> 31141542d2bdbd0e1dcd1705cb383bda26d93c24
+
 
 	functions.map = function(req, res) {
 		res.render('map.ejs', {
