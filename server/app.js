@@ -113,7 +113,7 @@ module.exports = function (flights, db) {
 	app.get('/personalprofile', routes.personalprofile); 
 
 	app.post('/save', routes.save);	
-
+	app.post('/map', routes.map);
 
 
 	

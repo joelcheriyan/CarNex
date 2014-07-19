@@ -139,7 +139,7 @@
 	<div class="col-sm-6">
           <div class="panel panel-primary">
             <div class="panel-heading settings-panel-heading">
- 		<a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
+ 		         <a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
               <h3 class="panel-title">My Posts</h3>
             </div>
 
@@ -147,10 +147,10 @@
             <% for(var i=0; i<item.my_posts.length; i++) { %>         
              <div id="collapsePersonal1" class="panel-collapse collapse in">
                
-	   <div class="panel-body">
+	         <div class="panel-body">
               <div class="review">
                 <h3><%=item.my_posts[i].from %> to <%=item.my_posts[i].to %></h3>
-		 <p>Posted by: <%=item.my_posts[i].poster %> </p>
+		             <p>Posted by: <%=item.my_posts[i].poster %> </p>
           
                 <p><%=item.my_posts[i].desciption %> </p>
               </div>              

@@ -125,21 +125,27 @@ module.exports = function (flights) {
 	functions.createpost = function(req, res) {
 
 	UserSchema.update({username:req.session.passport.user}, { $addToSet: {my_posts :{
-												from: req.body.from,
-												to: req.body.to,
-												startdate: req.body.startdate,
-												returndate: req.body.returndate,
-												description: req.body.descript, 
-												poster: req.session.passport.user
-												}}}).exec(function(err){})
+			from: req.body.from,
+			to: req.body.to,
+			startdate: req.body.startdate,
+			returndate: req.body.returndate,
+			description: req.body.descript, 
+			poster: req.session.passport.user
+		}}}).exec(function(err){})
   
+
   		var record = new PostsSchema({
 			from: req.body.from,
 			to: req.body.to,
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
 			description: req.body.descript,
-			username: req.session.passport.user
+			username: req.session.passport.user,
+			sLoc_lat: req.body.sLoc_lat,
+			sLoc_lon: req.body.sLoc_lon,
+			dest_lat: req.body.dest_lat,
+			dest_lon: req.body.dest_lon
+
 		});
   		
 			//save the records into the user database
@@ -151,8 +157,6 @@ module.exports = function (flights) {
 					res.json({status: 'success'});
 				} 
 			});
-
-
 		
 };
 
@@ -265,15 +269,15 @@ module.exports = function (flights) {
 
 	functions.save = function(req, res) {
 	//query user to whom the comment should be sent to
-
-		UserSchema.update({username:req.session.passport.user}, { $addToSet: {saved_posts :{
-													from: req.body.from,
-													to: req.body.to,
-													startdate: req.body.startdate,
-													returndate: req.body.returndate,
-													description: req.body.descript, 
-													poster: req.body.poster
-												}}})
+		UserSchema.update({username:req.session.passport.user}, 
+			{ $addToSet: {saved_posts :{
+				from: req.body.from,
+				to: req.body.to,
+				startdate: req.body.startdate,
+				returndate: req.body.returndate,
+				description: req.body.descript, 
+				poster: req.body.poster
+			}}})
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -304,7 +308,16 @@ module.exports = function (flights) {
 		
 	};
 
+	
 
+	functions.map = function(req, res) {
+		res.render('map.ejs', {
+			sLoc_lat: req.body.sLoc_lat,
+			sLoc_lon: req.body.sLoc_lon,
+			dest_lat: req.body.dest_lat,
+			dest_lon: req.body.dest_lon
+		});
+	};
 
 
 
