@@ -643,7 +643,38 @@ form#photoUpload
 
 
 
+
 .pad{
    padding: 0 35px;
    font-size: 18px;
 }
+
+#gmap-route
+{
+	height:250px;
+	width: 100%;
+	
+}
+
+/*
+#route
+{
+	height:500px;
+	width: 100%;
+}
+*/
+
+#km
+{
+	height:250px;
+	width: 100%;
+}
+
+
+table{
+	width: 100%;
+}
+
+
+
+
