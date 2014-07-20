@@ -84,11 +84,11 @@ module.exports = function (flights, db) {
 
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
-  	res.render('signup.ejs');
-
+  		res.render('signup.ejs');
 	});
    	// stores in database. Post is sent from signup.ejs form
 	app.post('/signup', routes.signup);
+
 
 
 //eq.session.passport.user === undefined

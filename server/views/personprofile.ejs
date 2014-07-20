@@ -28,7 +28,7 @@
           <ul class="nav navbar-nav" id="nav-main">
             <li><a href="about.html">About Us</a></li>
             <li class="active"><a href="howitworks.html">How it Works</a></li>
-            <li class="disabled"><a href="#" id="account" data-toggle="tooltip" title="You're not logged in!">Account</a></li>
+          
           </ul>
 
           <ul class="nav navbar-nav navbar-right" id="popover-container">
@@ -55,7 +55,7 @@
       <div class="row">
         <div class="col-sm-6 col-sm-offset-3">
           <div class="img-bio img-profile"></div>
-	<% if (user!= undefined){user.forEach(function(item) { %>
+	         <% if (user!= undefined){user.forEach(function(item) { %>
           <h2><%=item.username%></h2>
 	
 
@@ -123,33 +123,29 @@
             <div class="panel-body">
               <div class="review">
                 <h3><%=item.saved_posts[i].from %> to <%=item.saved_posts[i].to %></h3>
-		 <p>Posted by: <%=item.saved_posts[i].poster %> </p>
+		            <p>Posted by: <%=item.saved_posts[i].poster %> </p>
           
                 <p><%=item.saved_posts[i].description %> </p>
 		
               </div>              
             </div>         
           </div>
-	<%}%>
+	       <%}%>
         </div>
 	</div>
 	
 
 
-	<div class="col-sm-6">
+	   <div class="col-sm-6">
           <div class="panel panel-primary">
             <div class="panel-heading settings-panel-heading">
-<<<<<<< HEAD
- 		         <a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
-=======
- 		<a href="#collapsePersonal1" data-toggle="collapse" class="pull-left"></a>
->>>>>>> 31141542d2bdbd0e1dcd1705cb383bda26d93c24
+ 		         <a href="#collapsePersonal2" data-toggle="collapse" class="pull-right"></a>
               <h3 class="panel-title">My Posts</h3>
             </div>
 
             
             <% for(var i=0; i<item.my_posts.length; i++) { %>         
-             <div id="collapsePersonal1" class="panel-collapse collapse in">
+             <div id="collapsePersonal2" class="panel-collapse collapse in">
                
 	         <div class="panel-body">
               <div class="review">
@@ -160,13 +156,15 @@
               </div>              
             </div>         
           </div>
-	<%}%>
+	       <%}%>
         </div>
       </div>
 	
  <% })}; %>
           
- 
+ </div>
+ </div>
+
 
     <footer>
       <div class="row visible-xs">
@@ -199,7 +197,7 @@
     <script src="js/login.js"></script>
     <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
     <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
-       <script>
+    <script>
     $('#sLoc').locationpicker({
         location: {latitude: 43.653226, longitude: -79.38318429999998},   
         radius: 3000,
@@ -213,7 +211,7 @@
         },
         enableAutocomplete: true,
         });
-    </script>
+      </script>
 
 
   </body>

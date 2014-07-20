@@ -162,7 +162,8 @@ module.exports = function (flights) {
 
 
 	//signup page 
-	functions.signup = function(req, res) {
+	functions.signup = function(req, res) 
+	{
 		var record = new UserSchema({
 			name: req.body.name, 
 			email: req.body.email,
@@ -182,8 +183,7 @@ module.exports = function (flights) {
 					res.status(500).json({status: 'failure'});
 				} 
 			});
-
-};
+	};
 
 
 

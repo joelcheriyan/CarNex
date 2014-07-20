@@ -8,9 +8,9 @@ var popoverContent =
         <label for="field-password">Password</label> \
         <input name="password" value ="" type="password" class="form-control" id="field-password" placeholder="Password" required> \
       </div> \
-      <div class="checkbox pull-left"> \
-        <label><input type="checkbox">Remember me</label> \
-      </div> \
+        <div class="checkbox pull-left"> \
+          <label><input type="hidden"></label> \
+        </div> \
       <button type="submit" class="btn btn-primary pull-right">Go!</button> \
     </form>';
 
