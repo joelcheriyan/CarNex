@@ -203,9 +203,9 @@ module.exports = function (flights) {
 			}
 			else{
 				 res.render('dashboard.ejs',{
-								posts: undefined,
-								user:user
-								});
+					posts: undefined,
+					user:user
+				});
 			}		
 
 		});
@@ -259,9 +259,14 @@ module.exports = function (flights) {
 				if (err) {
 				res.status(500).json({status: 'failure'});
 				} 
+
 				else {
 					res.render('profile.ejs', {
-					user: user});					
+					user: user,
+					lat: user[0].lat,
+					lon: user[0].lon
+
+				  });					
 				}
 				});
 			}
@@ -282,8 +287,12 @@ module.exports = function (flights) {
 				res.status(500).json({status: 'failure'});
 				} 
 				else {
+
+					console.log(user[0].lat);
 					res.render('profile.ejs', {
-					user: user
+					user: user,
+					lat: user[0].lat,
+					lon: user[0].lon
 					});					
 				}
 		
@@ -336,11 +345,11 @@ module.exports = function (flights) {
 	//query user to whom the comment should be sent to
 
 		UserSchema.update({username:req.session.passport.user},  {
-										name: req.body.name,
-										username: req.body.username,
-										password: req.body.password,
-										email: req.body.email,
-										phone: req.body.phone 
+			name: req.body.name,
+			username: req.body.username,
+			password: req.body.password,
+			email: req.body.email,
+			phone: req.body.phone 
 									})
 		.exec(function(err, user){});
 		
@@ -361,7 +370,11 @@ module.exports = function (flights) {
 			} else 
 			{
 
-				res.render('settings.ejs',{user: user});
+				res.render('settings.ejs',{
+					user: user,
+					lat: user[0].lat,
+					lon: user[0].lon
+				});
 			}		
 			
 		});

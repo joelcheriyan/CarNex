@@ -22,24 +22,33 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a href="dashboard.html" class="navbar-brand">brand logo</a>
+          <a href="dashboard.html" class="navbar-brand">CarNex</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav" id="nav-main">
             <li><a href="about.html">About Us</a></li>
-            <li><a href="howitworks.html">How it Works</a></li>
+            <li class = "active" ><a href="howitworks.html">How it Works</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <p class="navbar-text">
-                <a href="profile.html">Jane Doe</a>
-                (<a class="badge">0</a>)
-              </p>
+              <form class="form-inline" role="form" action="/dashboard" method="get">
+                <button type="submit" class="btn btn-primary navbar-btn" > Back to Dashboard
+                </button>
+              </form>
             </li>
 
-            <li><button type="button" class="btn btn-primary navbar-btn">Log Out</button></li>
+            <li>
+             <div class="divider"/>
+            </div>
+            </li>
+
+            <li>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
           </ul>
         </div>
       </div>
@@ -48,27 +57,18 @@
     <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
       <div class="container">
         <div class="navbar-collapse">
-          <ul class="nav navbar-nav nav-right" id="subnav-account">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
-            <li><a href="trips.html">My Trips</a></li>
+          <ul class="nav navbar-nav nav-right" id="subnav-how">
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
     <div class="container">
-      <h2><%= sLoc_lat %></h2>
-
-        <h4 onClick="location.href='profile.html'">Poster's Username
-        <span class="poster-rating">
-        (<span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star"></span>
-        <span class="glyphicon glyphicon-star-empty"></span>)
-        </span></h4>
+      <h2>Detailed Route Information</h2>
+        <h4>Enjoy your trip</h4>
 
         <hr/>
 

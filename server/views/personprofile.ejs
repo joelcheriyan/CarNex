@@ -21,20 +21,22 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a href="index.html" class="navbar-brand">brand logo</a>
+          <a href="index.html" class="navbar-brand">CarNex</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav" id="nav-main">
             <li><a href="about.html">About Us</a></li>
             <li class="active"><a href="howitworks.html">How it Works</a></li>
-          
           </ul>
 
-          <ul class="nav navbar-nav navbar-right" id="popover-container">
-            <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
-            <li><button type="button" class="btn btn-primary navbar-btn" onclick="signUp();">Sign Up</button></li>
-          </ul>
+           <ul class="nav navbar-nav navbar-right" id="popover-container">
+            <li>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
+           </ul>
         </div>
       </div>
     </nav>
@@ -84,26 +86,26 @@
         </div>
       </div>
 
+<!-- need to be updated -->      
       <div class="profile-buttons">
-        <button class="btn btn-success" title="Add Contact">
-          <span class="glyphicon glyphicon-plus"></span>
-          <span class="hidden-xxs">Add Contact</span>
-        </button>
+          <form class="form-inline" role="form" action="/postsearch" method="post">
+             <button type="submit" class="btn btn-success" >
+             <span class="glyphicon glyphicon-floppy-open"></span>
+             <span class="hidden-xxs">update setting</span>
+             </button>
+          </form>
 
-        <button class="btn btn-other" title="Chat">
-          <span class="glyphicon glyphicon-envelope"></span>
-          <span class="hidden-xxs">Chat</span>
-        </button>
+          <button class="btn btn-danger" title="Report">
+            <span class="glyphicon glyphicon-ban-circle"></span>
+            <span class="hidden-xxs">Report</span>
+          </button>
 
-        <button class="btn btn-info" title="Review">
-          <span class="glyphicon glyphicon-comment"></span>
-          <span class="hidden-xxs">Review</span>
-        </button>
-
-        <button class="btn btn-danger" title="Report">
-          <span class="glyphicon glyphicon-ban-circle"></span>
-          <span class="hidden-xxs">Report</span>
-        </button>
+          <form class="form-inline" role="form" action="/postsearch" method="post">
+             <button type="submit" class="btn btn-info" >
+             <span class="glyphicon glyphicon-circle-arrow-left"></span>
+             <span class="hidden-xxs">back to dashboard</span>
+             </button>
+           </form>
       </div>
     </div>
 
@@ -199,7 +201,7 @@
     <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
     <script>
     $('#sLoc').locationpicker({
-        location: {latitude: 43.653226, longitude: -79.38318429999998},   
+        location: {latitude: <%= lat %>, longitude: <%= lon %>},   
         radius: 3000,
         zoom: 10,
         scrollwheel: true,

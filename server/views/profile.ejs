@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a href="index.html" class="navbar-brand">brand logo</a>
+          <a href="index.html" class="navbar-brand">CarNex</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -30,9 +30,14 @@
             <li class="active"><a href="howitworks.html">How it Works</a></li>
           </ul>
 
+
           <ul class="nav navbar-nav navbar-right" id="popover-container">
-            <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
-            <li><button type="button" class="btn btn-primary navbar-btn" onclick="signUp();">Sign Up</button></li>
+
+            <li>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
           </ul>
         </div>
       </div>
@@ -70,7 +75,7 @@
             <div class="row lead">
               <div id="stars" class="starrr"></div>
             </div>
-          </p>
+          </post>
 
          <!--  <p>
             <strong>Average Rating</strong>:
@@ -84,8 +89,8 @@
           <p><strong>Usually commutes from around</strong>: Bahen Centre for Information Technology, Toronto</p>
         </div>
 
-        <div class="col-sm-3">
-          <div class="img-map-container">
+          <div class="col-sm-3">
+           <div class="img-map-container">
             <div class="input-group">      
                     <input id="sLoc-address" type="hidden" class="form-control" value = "" />
                     <div id="sLoc" style="width: 300px; height: 200px;"></div>
@@ -108,15 +113,17 @@
           <span class="hidden-xxs">Chat</span>
         </button>
 
-        <button class="btn btn-info" title="Review">
-          <span class="glyphicon glyphicon-comment"></span>
-          <span class="hidden-xxs">Review</span>
-        </button>
-
         <button class="btn btn-danger" title="Report">
           <span class="glyphicon glyphicon-ban-circle"></span>
           <span class="hidden-xxs">Report</span>
         </button>
+        <form class="form-inline" role="form" action="/postsearch" method="post">
+             <button type="submit" class="btn btn-info" >
+             <span class="glyphicon glyphicon-circle-arrow-left"></span>
+             <span class="hidden-xxs">back to dashboard</span>
+             </button>
+        </form>
+
       </div>
     </div>
 
@@ -221,8 +228,9 @@
     <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
     <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
     <script>
+
     $('#sLoc').locationpicker({
-        location: {latitude:  <%= user[0].lat%> , longitude: <%= user[0].lon%> },   
+        location: {latitude:  <%= lat %> , longitude: <%= lon %> },   
         radius: 3000,
         zoom: 10,
         scrollwheel: true,

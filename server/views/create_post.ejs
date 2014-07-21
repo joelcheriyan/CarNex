@@ -34,13 +34,10 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <p class="navbar-text">
-                <a href="profile.html">Jane Doe</a>
-                (<a class="badge">0</a>)
-              </p>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
             </li>
-
-            <li><button type="button" class="btn btn-primary navbar-btn">Log Out</button></li>
           </ul>
         </div>
       </div>
@@ -215,7 +212,7 @@
     <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
     <script>
     $('#sLoc').locationpicker({
-        location: {latitude: 43.653226, longitude: -79.38318429999998},   
+        location: {latitude: 0, longitude: 0},   
         radius: 300,
         zoom: 15,
         scrollwheel: true,
@@ -228,7 +225,7 @@
         enableAutocomplete: true,
         });
     $('#dest').locationpicker({
-        location: {latitude: 43.653226, longitude: -79.38318429999998},   
+        location: {latitude: 0, longitude: 0},   
         radius: 300,
         zoom: 15,
         scrollwheel: true,
