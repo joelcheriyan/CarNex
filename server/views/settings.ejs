@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Link to the CSS files. -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
@@ -30,21 +31,16 @@
             <li class="active"><a href="howitworks.html">How it Works</a></li>
           </ul>
 
-
-           <ul class="nav navbar-nav navbar-right" id="popover-container"> 
-             
-
-            <li>
+          <ul class="nav navbar-nav navbar-right" id="popover-container"> 
+             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
               </form>
             </li>
-
             <li>
-             <div class="divider"/>
-             </div>
+               <div class="divider"/>
+               </div>
             </li>
-
             <li>
               <form class="form-inline" role="form" action="/postsearch" method="post"> 
                 <button type="submit" class="btn btn-primary navbar-btn">back to dashboard</button>
@@ -101,7 +97,8 @@
                     <label for="username" class="input-group-addon control-label">Username</label>
                     <input name= "username" type="text" class="form-control" value=<%=item.username%>  id="username" >
                   </div>
-		  <div class="input-group">
+		              
+                  <div class="input-group">
                     <label for="password" class="input-group-addon control-label">Password</label>
                     <input name= "password" type="text" class="form-control"value= <%=item.password%> id="password" >
                   </div>
@@ -115,22 +112,16 @@
                     <label for="phone" class="input-group-addon control-label">Phone</label>
                     <input name= "phone" type="text" class="form-control" value=<%=item.phone%> id="phone" >
                   </div>
-		            <div class="panel-footer">
-                	<button class="btn btn-info pull-left"  type="submit" >
-                 	 <span class="glyphicon glyphicon-cog"></span>
-                 	 Update Information
-                	</button>
-	
-                </div>
-              </form>
-		 
-              </div>
 
-             
-            
-          </div>
-
-         
+		              <div class="panel-footer">
+                  	<button class="btn btn-info pull-left"  type="submit" >
+                  	 <span class="glyphicon glyphicon-cog"></span>
+                 	   Update Information
+                	  </button>
+                  </div>
+                </form>
+              </div>   
+            </div> 
           </div>
         </div> <!-- column 1: User Info -->
 <%});%>
@@ -164,14 +155,13 @@
                 Update Photo
               </button>
             </div>
-            </form>
-
-          
+            </form>    
           </div>
         </div> <!-- column 2: Photo -->
       </div> <!-- row -->
     </div> <!-- main container -->
 
+     <!-- This makes the pooter page of this web page. -->
     <footer>
       <div class="row visible-xs">
         <div class="col-xs-4">
@@ -205,6 +195,7 @@
       <p>Copyright &copy; 2014 Someone or Other</p>
     </footer>
 
+    <!-- Link to the javaScripts and jquery files. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>

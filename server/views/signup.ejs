@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Link to the CSS files. -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/signup.css" rel="stylesheet">
@@ -30,7 +31,6 @@
             <li><a href="about.html">About Us</a></li>
             <li class="active"><a href="howitworks.html">How it Works</a></li>         
           </ul>
-
         </div>
       </div>
     </nav>
@@ -83,18 +83,13 @@
           <p>
             Thanks for considering creating an account with CarNex! The registration process shouldn't take you too long. We'll need some basic information for your account to get started.
           </p>
-
           <h2>Account Information</h2>
-
           <form role="form" action="/signup" method="post">
             <div class="inline-center">
               <div class="form-group inline-group">
                 <label for="field-new-name" class="control-label"> Name </label>
                 <input name ="name" type="text" value="" class="form-control" id="field-new-name" placeholder="Jane Doe" required>
               </div>
-
-             
-
               <p class="help-block">
                 Your name won't be shared with anyone unless you allow it.
               </p>
@@ -103,7 +98,6 @@
             <div class="form-group">
               <label for="field-new-email">Email</label>
               <input name="email" type="email" value ="" class="form-control" id="field-new-email" placeholder="Email address: xxx@xx.com" required>
-
               <p class="help-block">
                 No one but you will be able to see your email address unless you choose otherwise.
               </p>
@@ -189,14 +183,12 @@
           <h2>Done!</h2>
 
           <p>Thanks for registering, janedoe! You're now ready to log in and start using CarNex.</p>
-
           <a href="index.html" class="btn btn-primary">Take me there!</a>
-        
-
         </div>
       </div>
     </div>
 
+    <!-- This makes the footer page of this web page. -->
     <footer>
       <div class="row visible-xs">
         <div class="col-xs-6">
@@ -222,6 +214,7 @@
       <p>Copyright &copy; 2014 CarNex, Inc.</p>
     </footer>
 
+    <!-- Link to the javaScripts and jquery files. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>
@@ -244,7 +237,5 @@
         enableAutocomplete: true,
         });
     </script>
-
-
   </body>
 </html>
