@@ -28,11 +28,11 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav" id="nav-main">
             <li><a href="about.html">About Us</a></li>
-            <li><a href="howitworks.html">How it Works</a></li>
+            <li class="active" ><a href="howitworks.html">How it Works</a></li>
           
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
+           <ul class="nav navbar-nav navbar-right" id="popover-container">
             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
@@ -46,11 +46,10 @@
     <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
       <div class="container">
         <div class="navbar-collapse">
-          <ul class="nav navbar-nav nav-right" id="subnav-account">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="privacy.html">Privacy</a></li>
-            <li><a href="trips.html">My Trips</a></li>
+          <ul class="nav navbar-nav nav-right" id="subnav-how">
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
           </ul>
         </div>
       </div>
@@ -59,7 +58,7 @@
     <div class="jumbotron">
       <div class="container">
         <h1>Ready to travel?</h1>
-        <p>Create a post so others can join your carpool!</p>
+        <p>Create a post</p>
       </div>
     </div>
 
@@ -114,8 +113,8 @@
               <div class="panel-body">
                 <div class="input-group">
                     <label for="sLoc-address" class="input-group-addon control-label">Depart</label>
-                    <input id="sLoc-address" type="text" class="form-control" />
-                    <div id="sLoc" style="width: 500px; height: 400px;"></div>
+                    <input id="sLoc-address" type="text" style="width: 600px" class="form-control" />
+                    <div id="sLoc" class = "map_size" style="width: 600px; height: 400px;"></div>
                     <input type="hidden" id="sLoc-radius"/>
                     <input name = "sLoc_lat" type="hidden" id="sLoc-lat"/>
                     <input name = "sLoc_lon" type="hidden" id="sLoc-lon"/>
@@ -134,8 +133,8 @@
               <div class="panel-body">
                 <div class="input-group">
                     <label for="dest-address" class="input-group-addon control-label">Arrive</label>
-                    <input id="dest-address" type="text" class="form-control" />
-                    <div id="dest" style="width: 500px; height: 400px;"></div>
+                    <input id="dest-address" type="text" style="width: 600px" class="form-control" />
+                    <div id="dest" class = "map_size" style="width: 600px; height: 400px;"></div>
                     <input type="hidden" id="dest-radius"/>
                     <input name = "dest_lat" type="hidden" id="dest-lat"/>
                     <input name = "dest_lon" type="hidden" id="dest-lon"/>
@@ -150,11 +149,9 @@
             <span class="glyphicon glyphicon-plus"></span>
             Create Post
         </button> -->
-    </form>
-        </div> <!-- column -->
-
-        
-      </div> <!-- row -->
+        </div>
+      </form>
+    </div> <!-- column -->
     </div> <!-- main container -->
 
     <footer>

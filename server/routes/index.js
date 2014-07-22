@@ -173,7 +173,10 @@ module.exports = function (flights) {
 			birthdate: req.body.birthdate,     
 			city: req.body.city,
 			lat: req.body.lat,
-			lon: req.body.lon
+			lon: req.body.lon,
+			counts: 0,
+    		rating: 0
+
 		});
 
 			//save the records into the user database
@@ -218,12 +221,15 @@ module.exports = function (flights) {
 		//this is the condition that we have for query: starting point, destination and date
 
 		var current_date = new Date();
+		//search for relevant posts
 		PostsSchema.find({from: req.body.from, to: req.body.to, returndate: { $gt: current_date} })
 		.setOptions({sort: 'startdate'})
 		.exec(function(err, posts) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
-			} else {
+			} 
+			else {
+				//search for current login user
 				UserSchema.find({username: req.session.passport.user})
 				.exec(function(err, user) {
 				if (err) {
@@ -245,22 +251,27 @@ module.exports = function (flights) {
 
 	functions.comment = function(req, res) {
 	//query user to whom the comment should be sent to
-
+		console.log("go to the comments");
 		UserSchema.update({username:req.body.user}, { $addToSet: { comments: {commenter: req.body.name, comment: req.body.comment}}})
 		.exec(function(err, user){
 			if (err) 
 			{
+				console.log("1 failure place");
 				res.status(500).json({status: 'failure'});
-			} else 
+			} 
+			else 
 			{
 
 				UserSchema.find({username: req.body.user})
 				.exec(function(err, user) {
 				if (err) {
+					console.log("2 failure place");
 				res.status(500).json({status: 'failure'});
 				} 
 
 				else {
+					console.log(user[0].lat);
+					console.log("3 failure place");
 					res.render('profile.ejs', {
 					user: user,
 					lat: user[0].lat,
@@ -268,13 +279,12 @@ module.exports = function (flights) {
 
 				  });					
 				}
-				});
+			 });
 			}
 					
 			
-			});
-		
-	};
+			});		
+		};
 
 
 	functions.profile = function(req, res) {
@@ -318,7 +328,7 @@ module.exports = function (flights) {
 			} else 
 			{
 
-				res.redirect('/dashboard');
+				res.redirect('/personalprofile');
 			}		
 			
 		});
@@ -394,6 +404,39 @@ module.exports = function (flights) {
 	};
 
 
+	functions.rating = function(req, res) 
+	{	
+
+		console.log(req.body.username);
+
+		//find the user
+		var query = UserSchema.find({username: req.body.username})
+		.exec(function(err, user1) {
+			if (err) {
+				res.status(500).json({status: 'failure'});
+			}
+			else{
+
+				//total counts 
+				var counts_new = user1[0].counts + 1;
+
+
+				//total ratings
+				var one_rate = parseInt(req.body.rating);
+				var tot_rate = user1[0].rating + one_rate*2;
+				
+
+				//updating the info
+				UserSchema.update({username: req.body.username}, { 	
+					counts: counts_new,
+    				rating: tot_rate
+				}).exec(function(err, user){});
+
+					res.redirect('/dashboard');
+			}		
+
+		});			  
+	};
 
 	return functions;
 };

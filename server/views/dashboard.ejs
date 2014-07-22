@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a href="#" class="navbar-brand">CarNeX</a>
+          <a href="#" class="navbar-brand">CarNex</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -30,7 +30,8 @@
             <li class="active"><a href="howitworks.html">How it Works</a></li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" id="popover-container">
+
             <li>
                <form class="form-inline" role="form" action="/personalprofile" method="get"> 
                 <button type="submit" class="btn btn-primary navbar-btn">View Profile</button>
@@ -126,7 +127,7 @@
         <div class="panel panel-primary posting">
           <div class="panel-heading">
             <p class="pull-right"><strong><%= item.from %></strong> to <strong><%= item.to%></strong></p>
-            <h3 class="panel-title">Posting Title</h3>
+            <h3 class="panel-title">Posting Information</h3>
           </div>
 
           <div class="panel-body">
@@ -134,11 +135,11 @@
             <div class="poster">
               <h4><%= item.username %></h4>
               <span class="poster-rating">
-                (<span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star"></span>
-                <span class="glyphicon glyphicon-star-empty"></span>)
+                     
+              <span style="display: block; width: 65px; height: 13px; background: url(img/star-rating-sprite.png) 0 0;">
+    <span style="display: block; width: 70%; height: 13px; background: url(img/star-rating-sprite.png) 0 -13px;"></span>
+              </span>
+        
               </span>
             </div>
             <h5>Description:</h5>
@@ -155,8 +156,6 @@
            
               <form role="form" class ="form-inline" action="/profile" method="post">
               <input name = "username" type="hidden" value = <%= item.username %>>
-              <input name = "lat" type="hidden" value = <%= item.username %>>
-              <input name = "lon" type="hidden" value = <%= item.username %>>
                 <button class="btn btn-info" title="Profile" type="submit" >
                   <span class="glyphicon glyphicon-user"></span>
                   <span class="hidden-xs">Profile</span>
@@ -198,6 +197,7 @@
                 <span class="hidden-xs">Save</span>
               </button>
 	          </form>
+
             <form role="form" class ="form-inline">
               <button class="btn btn-danger" title="Report">
                 <span class="glyphicon glyphicon-ban-circle"></span>
