@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Link to the CSS files. -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/star-rating.min.css" rel="stylesheet">
-
   </head>
 
   <body>
@@ -31,10 +31,7 @@
             <li><a href="about.html">About Us</a></li>
             <li class="active"><a href="howitworks.html">How it Works</a></li>
           </ul>
-
-
           <ul class="nav navbar-nav navbar-right" id="popover-container">
-
             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
@@ -64,8 +61,6 @@
      
 	 <% user.forEach(function(item) { %>
           <h2><%=item.username %></h2>
-
-
           <p>
             <form role="form" action="/rating" method="post">
               <input id="input-21f"  name = "rating" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size= "sm" >
@@ -76,10 +71,9 @@
               </div>
             </form>
           </p>
-
-              <p><strong>Email</strong>: <%= item.email %></p>
-              <p><strong>Phone</strong>:  <%= item.phone %></p>
-              <p><strong>Usually commutes from around</strong>: <%= item.city %></p>
+          <p><strong>Email</strong>: <%= item.email %></p>
+          <p><strong>Phone</strong>:  <%= item.phone %></p>
+          <p><strong>Usually commutes from around</strong>: <%= item.city %></p>
         </div>
 
           <div class="col-sm-3">
@@ -183,6 +177,7 @@
       </div>
     </div>
 
+    <!-- This makes the pooter page of this web page. -->
     <footer>
       <div class="row visible-xs">
         <div class="col-xs-6">
@@ -208,6 +203,7 @@
       <p>Copyright &copy; 2014 CarNex, Inc.</p>
     </footer>
 
+    <!-- Link to the javaScripts and jquery files. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="js/other.js"></script>
@@ -221,9 +217,7 @@
         });
     </script>
 
-
     <script>
-
     $('#sLoc').locationpicker({
         location: {latitude:  <%= lat %> , longitude: <%= lon %> },   
         radius: 3000,
@@ -239,10 +233,7 @@
         enableAutocomplete: true,
         
       });
-
-
     </script>
-  
   </body>
 </html>
 
