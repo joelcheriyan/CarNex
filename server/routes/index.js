@@ -141,6 +141,9 @@ module.exports = function (flights) {
 			returndate: req.body.returndate,
 			description: req.body.descript,
 			username: req.session.passport.user,
+			counts: Number,
+    		rating: Number,
+    		result: "",
 			sLoc_lat: req.body.sLoc_lat,
 			sLoc_lon: req.body.sLoc_lon,
 			dest_lat: req.body.dest_lat,
@@ -239,7 +242,6 @@ module.exports = function (flights) {
 					res.render('dashboard.ejs', {
 					posts:posts,
 					user: user
-					
 					});					
 				}
 				});
@@ -423,18 +425,27 @@ module.exports = function (flights) {
 
 				//total ratings
 				var one_rate = parseInt(req.body.rating);
-				var tot_rate = user1[0].rating + one_rate*2;
+				var tot_rate = user1[0].rating + one_rate;
 				
 
+				//((tot_rate/counts_new) / 5) * 100 to transfer to percentage)
+				var final = Math.round((tot_rate/counts_new)*20);
+				var result = final + "%";
+				console.log(result);
 				//updating the info
 				UserSchema.update({username: req.body.username}, { 	
 					counts: counts_new,
     				rating: tot_rate
 				}).exec(function(err, user){});
 
+
+
+				PostsSchema.update({username: req.body.username}, { 	
+					result: result
+				}).exec(function(err, user){});
+
 					res.redirect('/dashboard');
 			}		
-
 		});			  
 	};
 
