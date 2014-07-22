@@ -113,6 +113,7 @@ module.exports = function (flights, db) {
 	app.post('/update', routes.update);
 
 
+	app.post('/rating', routes.rating);
 	
 
 	return app;

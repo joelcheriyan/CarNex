@@ -88,7 +88,7 @@
 
 <!-- need to be updated -->      
       <div class="profile-buttons">
-          <form class="form-inline" role="form" action="/postsearch" method="post">
+          <form class="form-inline" role="form" action="/settings" method="get">
              <button type="submit" class="btn btn-success" >
              <span class="glyphicon glyphicon-floppy-open"></span>
              <span class="hidden-xxs">update setting</span>
@@ -201,7 +201,7 @@
     <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
     <script>
     $('#sLoc').locationpicker({
-        location: {latitude: <%= lat %>, longitude: <%= lon %>},   
+        location: {latitude: <%= user[0].lat %>, longitude: <%= user[0].lon %>},   
         radius: 3000,
         zoom: 10,
         scrollwheel: true,

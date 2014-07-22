@@ -12,7 +12,8 @@ module.exports = mongoose.model('user', {
 	city: String,
 	lat: Number,
     lon: Number,
-
+    counts: Number,
+    rating: Number,
 
 	comments: [{
 			commenter: String,
