@@ -138,13 +138,13 @@
               <!-- rating -->
               <span class="poster-rating">    
 
-             <% if (item.result != "") {%> 
+             <% if (item.result != undefined) {%> 
                 <span style="display: block; width: 65px; height: 13px; background: url(img/star-rating-sprite.png) 0 0;">
                 <span style="display: block; width: <%= item.result %>; height: 13px; background: url(img/star-rating-sprite.png) 0 -13px;"></span>
                 </span>
               <% }%>
 
-              <% if (item.result === "") {%>
+              <% if (item.result === undefined) {%>
                 <p>No ratings, yet</p>
               <% }%>
 
