@@ -119,12 +119,12 @@
         <div class="col-sm-6">
           <div class="panel panel-primary">
             <div class="panel-heading">
-              <h3 class="panel-title">Basic Information</h3>
+              <h3 class="panel-title">Submit Feedback</h3>
             </div>
 
             <div class="panel-body">
 		
-              <h3><center>Submit feedback</center></h3>
+             
               <form role="form" action="/comment" method="post">
                     <div class="input-group">
                       <label for="name" class="input-group-addon control-label">Name</label>
@@ -146,14 +146,16 @@
         </div>
 
         <div class="col-sm-6">
-          <div class="panel panel-primary">
+          <div class="panel panel-primary settings-panel-heading">
             <div class="panel-heading">
+			<a href="#collapsePersonal1" data-toggle="collapse" class="pull-right"></a>
               <h3 class="panel-title">Recent Feedback</h3>
             </div>
-
+	<div id="collapsePersonal1" class="panel-collapse collapse in"> 
+             <div class="panel-body">
             <% user.forEach(function(item) { %>
             <% for(var i=0; i<item.comments.length; i++) { %>         
-            <div class="panel-body">
+           
               <div class="review">
                 <h3><%=item.comments[i].commenter %></h3>
                 <span>
@@ -165,13 +167,10 @@
                 </span>
                 <p><%=item.comments[i].comment %> </p>
               </div>              
-            </div>
+           
             <% }});%>
-
-
-            <div class="panel-footer">
-              <p><a href="#">View older feedback...</a></p>
-            </div>
+	      </div>
+	     </div>
           </div>
         </div>
       </div>

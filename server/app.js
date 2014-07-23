@@ -111,7 +111,8 @@ module.exports = function (flights, db) {
 
 	app.get('/personalprofile', routes.personalprofile); 
 
-	app.post('/save', routes.save);	
+	app.post('/save', routes.save);
+	app.post('/unsave', routes.unsave);	
 
 	app.post('/map', routes.map);
 
@@ -119,6 +120,7 @@ module.exports = function (flights, db) {
 	app.get('/settings', routes.settings);
 	app.post('/update', routes.update);
 
+	app.post('/delete', routes.deletepost);
 
 	app.post('/rating', routes.rating);
 	

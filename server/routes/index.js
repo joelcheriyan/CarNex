@@ -3,6 +3,7 @@
  * GET home page.
  */
 
+
 var FlightSchema = require('../schemas/flight');
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
@@ -19,8 +20,11 @@ SignSchema.plugin(uniqueValidator);
 
 
 module.exports = function (flights) {
-	var flight = require('../flight');
 
+	
+
+	var flight = require('../flight');
+	
 	for(var number in flights) {
 		flights[number] = flight(flights[number]);
 	}
@@ -133,14 +137,14 @@ module.exports = function (flights) {
 	//create a post page
 	functions.createpost = function(req, res) {
 
-	UserSchema.update({username:req.session.passport.user}, { $addToSet: {my_posts :{
+	UserSchema.update({username:req.session.passport.user}, { $push: {my_posts :{
 			from: req.body.from,
 			to: req.body.to,
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
 			description: req.body.descript, 
 			poster: req.session.passport.user
-		}}}).exec(function(err){})
+		}}}).exec(function(err){});
   
 
   		var record = new PostsSchema({
@@ -150,8 +154,8 @@ module.exports = function (flights) {
 			returndate: req.body.returndate,
 			description: req.body.descript,
 			username: req.session.passport.user,
-			counts: Number,
-    		rating: Number,
+			counts: 0,
+    		rating: 0,
     		result: "",
 			sLoc_lat: req.body.sLoc_lat,
 			sLoc_lon: req.body.sLoc_lon,
@@ -170,13 +174,14 @@ module.exports = function (flights) {
 				} 
 			});
 		
-};
+	};
 
 
 	//signup page 
 	functions.signup = function(req, res) 
 	{
 
+<<<<<<< HEAD
 		var user = new SignSchema({ username:  req.body.username});
 		user.save(function(err){
 
@@ -184,6 +189,9 @@ module.exports = function (flights) {
 		});
 
 
+=======
+		
+>>>>>>> 36452fd0cceca27e5e6336f6a3859865d59cf9de
 		var record = new UserSchema({
 			name: req.body.name, 
 			email: req.body.email,
@@ -195,7 +203,7 @@ module.exports = function (flights) {
 			lat: req.body.lat,
 			lon: req.body.lon,
 			counts: 0,
-    		rating: 0
+    			rating: 0
 
 		});
 		
@@ -412,6 +420,53 @@ module.exports = function (flights) {
 		
 	};
 
+	functions.deletepost = function(req, res) {
+	//query user to whom the comment should be sent to
+		
+		UserSchema.update({username:req.session.passport.user}, { $pull: {my_posts :{
+			from: req.body.from,
+			to: req.body.to,
+			description: req.body.descript,
+			poster: req.body.poster
+		}}}).exec(function(err){});
+
+		PostsSchema.remove({from:req.body.from, to:req.body.to, description: req.body.descript, username: req.body.poster}, true)
+		.exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.redirect('/personalprofile');
+			}		
+			
+		});
+
+		
+	};
+	functions.unsave = function(req, res) {
+	//query user to whom the comment should be sent to
+		
+		UserSchema.update({username:req.session.passport.user}, { $pull: {saved_posts :{
+			from: req.body.from,
+			to: req.body.to,
+			description: req.body.descript,
+			poster: req.body.poster
+		}}}).exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.redirect('/personalprofile');
+			}		
+			
+		});
+
+		
+	};
 
 
 
