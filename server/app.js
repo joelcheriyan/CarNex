@@ -3,14 +3,16 @@
  * Module dependencies.
  */
 
-module.exports = function (flights, db) {
+module.exports = function (flights, db, uniqueValidator) {
 	var express = require('express');
 	var MongoStore = require('connect-mongo')(express);
 	var passport = require('./auth');
+	var uniqueValidator= require('mongoose-unique-validator');
 	var routes = require('./routes')(flights);
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
+	
 
 
 	// all environments
@@ -112,6 +114,7 @@ module.exports = function (flights, db) {
 	app.get('/settings', routes.settings);
 	app.post('/update', routes.update);
 
+	app.post('/delete', routes.deletepost);
 
 	app.post('/rating', routes.rating);
 	

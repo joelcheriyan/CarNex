@@ -3,6 +3,7 @@
  * GET home page.
  */
 
+
 var FlightSchema = require('../schemas/flight');
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
@@ -10,6 +11,9 @@ var PostsSchema = require('../schemas/posts');
 
 
 module.exports = function (flights) {
+
+	
+
 	var flight = require('../flight');
 
 	for(var number in flights) {
@@ -124,14 +128,14 @@ module.exports = function (flights) {
 	//create a post page
 	functions.createpost = function(req, res) {
 
-	UserSchema.update({username:req.session.passport.user}, { $addToSet: {my_posts :{
+	UserSchema.update({username:req.session.passport.user}, { $push: {my_posts :{
 			from: req.body.from,
 			to: req.body.to,
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
 			description: req.body.descript, 
 			poster: req.session.passport.user
-		}}}).exec(function(err){})
+		}}}).exec(function(err){});
   
 
   		var record = new PostsSchema({
@@ -141,8 +145,8 @@ module.exports = function (flights) {
 			returndate: req.body.returndate,
 			description: req.body.descript,
 			username: req.session.passport.user,
-			counts: Number,
-    		rating: Number,
+			counts: 0,
+    		rating: 0,
     		result: "",
 			sLoc_lat: req.body.sLoc_lat,
 			sLoc_lon: req.body.sLoc_lon,
@@ -161,7 +165,7 @@ module.exports = function (flights) {
 				} 
 			});
 		
-};
+	};
 
 
 	//signup page 
@@ -393,7 +397,30 @@ module.exports = function (flights) {
 		
 	};
 
+	functions.deletepost = function(req, res) {
+	//query user to whom the comment should be sent to
+		
+		UserSchema.update({username:req.session.passport.user}, { $pull: {my_posts :{
+			from: req.body.from,
+			to: req.body.to,
+			poster: req.body.poster
+		}}}).exec(function(err){});
 
+		PostsSchema.remove({from:req.body.from, to:req.body.to, username: req.body.poster}, true)
+		.exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.redirect('/dashboard');
+			}		
+			
+		});
+
+		
+	};
 
 
 	functions.map = function(req, res) {
