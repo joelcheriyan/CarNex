@@ -6,41 +6,16 @@
 var FlightSchema = require('../schemas/flight');
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
+
+
+
 var mongoose = require('mongoose');
-// var uniqueValidator = require('../node_modules/mongoose-unique-validator');
-// var plugin = require('plugin');
+var uniqueValidator = require('mongoose-unique-validator');
+var SignSchema = mongoose.Schema({
+	username: { type: String, required: true, unique: true }
+});
 
-// exports.plugin = function() {
-// 	return "plugin";
-// }
-
-//	UserSchema.plugin(uniqueValidator);
-
-
-// var userSchema = mongoose.Schema({
-//     username: { type: String, required: true, unique: true },
-//     email: { type: String, unique: true, required: true },
-//     password: { type: String, required: true }
-// });
-
-
-// UserSchema.plugin(uniqueValidator);
-
-
-// var uniqueValidator = require('mongoose-unique-validator');
-
-
-
-
-// var UserSchema = mongoose.Schema({
-//     username: { type: String, required: true, unique: true },
-//     email: { type: String, unique: true, required: true },
-//     password: { type: String, required: true }
-// });
-
-
-// UserSchema.plugin(uniqueValidator);
-
+SignSchema.plugin(uniqueValidator);
 
 
 module.exports = function (flights) {
@@ -201,6 +176,14 @@ module.exports = function (flights) {
 	//signup page 
 	functions.signup = function(req, res) 
 	{
+
+		var user = new SignSchema({ username:  req.body.username});
+		user.save(function(err){
+
+    		console.log(err);
+		});
+
+
 		var record = new UserSchema({
 			name: req.body.name, 
 			email: req.body.email,
@@ -237,7 +220,7 @@ module.exports = function (flights) {
 		 	res.redirect('/login');
 		} 
 		else{
-		var query = UserSchema.find({username: req.session.passport.user})
+		UserSchema.find({username: req.session.passport.user})
 		.exec(function(err, user) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
@@ -376,7 +359,7 @@ module.exports = function (flights) {
 
 	functions.personalprofile = function(req, res) {
 		//this is the condition that we have for query: starting point, destination and date
-		var query = UserSchema.find({username: req.session.passport.user})
+		UserSchema.find({username: req.session.passport.user})
 		.exec(function(err, user) {
 			if (err) {
 				res.status(500).json({status: 'failure'});
@@ -448,7 +431,8 @@ module.exports = function (flights) {
 		console.log(req.body.username);
 
 		//find the user
-		var query = UserSchema.find({username: req.body.username})
+		
+		UserSchema.find({username: req.body.username})
 		.exec(function(err, user1) {
 			if (err) {
 				res.status(500).json({status: 'failure'});

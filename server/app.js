@@ -11,7 +11,6 @@ module.exports = function (flights, db) {
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
-	
 
 
 	// all environments

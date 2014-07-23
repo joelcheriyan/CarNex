@@ -13,6 +13,7 @@
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
     "connect": "1.9.2",
+    "socket.io": "0.9.6",
      "ejs": "0.7.2"
   },
   "devDependencies": {

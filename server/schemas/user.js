@@ -3,10 +3,7 @@
 var mongoose = require('mongoose');
 //var ObjectId = mongoose.Schema.Types.ObjectId;
 
-
-// var uniqueValidator = require('mongoose-unique-validator');
-// var plugin = require('plugin');
-
+var uniqueValidator = require('mongoose-unique-validator');
 
 
 // var UserSchema = mongoose.Schema({
@@ -16,14 +13,14 @@ var mongoose = require('mongoose');
 // });
 
 
-// UserSchema.plugin(uniqueValidator);
+
 
 
 
 module.exports = mongoose.model('user', {
 	name: String,
 	email: String,
-	username: String,
+	username: { type: String, required: true, unique: true },
 	password: String,
 	phone: String,
 	birthdate: Date,    
@@ -54,8 +51,6 @@ module.exports = mongoose.model('user', {
 			description: String, 
 			poster: String
 		}],
-	
-			
 
 });
 
