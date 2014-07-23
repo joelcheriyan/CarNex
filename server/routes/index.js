@@ -15,7 +15,7 @@ module.exports = function (flights) {
 	
 
 	var flight = require('../flight');
-
+	
 	for(var number in flights) {
 		flights[number] = flight(flights[number]);
 	}
@@ -171,6 +171,8 @@ module.exports = function (flights) {
 	//signup page 
 	functions.signup = function(req, res) 
 	{
+
+		
 		var record = new UserSchema({
 			name: req.body.name, 
 			email: req.body.email,
@@ -182,9 +184,10 @@ module.exports = function (flights) {
 			lat: req.body.lat,
 			lon: req.body.lon,
 			counts: 0,
-    		rating: 0
+    			rating: 0
 
 		});
+		
 
 			//save the records into the user database
 			record.save(function(err) {
@@ -403,10 +406,11 @@ module.exports = function (flights) {
 		UserSchema.update({username:req.session.passport.user}, { $pull: {my_posts :{
 			from: req.body.from,
 			to: req.body.to,
+			description: req.body.descript,
 			poster: req.body.poster
 		}}}).exec(function(err){});
 
-		PostsSchema.remove({from:req.body.from, to:req.body.to, username: req.body.poster}, true)
+		PostsSchema.remove({from:req.body.from, to:req.body.to, description: req.body.descript, username: req.body.poster}, true)
 		.exec(function(err, user){
 			if (err) 
 			{
@@ -414,13 +418,36 @@ module.exports = function (flights) {
 			} else 
 			{
 
-				res.redirect('/dashboard');
+				res.redirect('/personalprofile');
 			}		
 			
 		});
 
 		
 	};
+	functions.unsave = function(req, res) {
+	//query user to whom the comment should be sent to
+		
+		UserSchema.update({username:req.session.passport.user}, { $pull: {saved_posts :{
+			from: req.body.from,
+			to: req.body.to,
+			description: req.body.descript,
+			poster: req.body.poster
+		}}}).exec(function(err, user){
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			} else 
+			{
+
+				res.redirect('/personalprofile');
+			}		
+			
+		});
+
+		
+	};
+
 
 
 	functions.map = function(req, res) {
