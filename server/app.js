@@ -11,6 +11,7 @@ module.exports = function (flights, db) {
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
+	
 
 
 	// all environments
@@ -35,8 +36,15 @@ module.exports = function (flights, db) {
 		res.set('X-Powered-By', 'Flight Tracker');
 		next();
 	});
-	app.use(app.router);
-	app.use(express.static(path.join(__dirname, 'public')));
+	// app.use(app.router);
+	// app.use(express.static(path.join(__dirname, 'public')));
+
+
+	//errors for invaild URL
+	app.configure(function () {
+    app.use(express.static(__dirname + '/public'));
+    app.use(app.router);
+});
 
 	// development only
 	if ('development' == app.get('env')) {
@@ -115,6 +123,9 @@ module.exports = function (flights, db) {
 
 	app.post('/rating', routes.rating);
 	
+
+
+	app.get('/*', routes.error);
 
 	return app;
 }

@@ -1,5 +1,23 @@
+
+
 var mongoose = require('mongoose');
-var ObjectId = mongoose.Schema.Types.ObjectId;
+//var ObjectId = mongoose.Schema.Types.ObjectId;
+
+
+// var uniqueValidator = require('mongoose-unique-validator');
+// var plugin = require('plugin');
+
+
+
+// var UserSchema = mongoose.Schema({
+//     username: { type: String, required: true, unique: true },
+//     email: { type: String, unique: true, required: true },
+//     password: { type: String, required: true }
+// });
+
+
+// UserSchema.plugin(uniqueValidator);
+
 
 
 module.exports = mongoose.model('user', {

@@ -6,6 +6,40 @@
 var FlightSchema = require('../schemas/flight');
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
+var mongoose = require('mongoose');
+// var uniqueValidator = require('../node_modules/mongoose-unique-validator');
+// var plugin = require('plugin');
+
+// exports.plugin = function() {
+// 	return "plugin";
+// }
+
+//	UserSchema.plugin(uniqueValidator);
+
+
+// var userSchema = mongoose.Schema({
+//     username: { type: String, required: true, unique: true },
+//     email: { type: String, unique: true, required: true },
+//     password: { type: String, required: true }
+// });
+
+
+// UserSchema.plugin(uniqueValidator);
+
+
+// var uniqueValidator = require('mongoose-unique-validator');
+
+
+
+
+// var UserSchema = mongoose.Schema({
+//     username: { type: String, required: true, unique: true },
+//     email: { type: String, unique: true, required: true },
+//     password: { type: String, required: true }
+// });
+
+
+// UserSchema.plugin(uniqueValidator);
 
 
 
@@ -181,6 +215,7 @@ module.exports = function (flights) {
     		rating: 0
 
 		});
+		
 
 			//save the records into the user database
 			record.save(function(err) {
@@ -254,8 +289,9 @@ module.exports = function (flights) {
 	functions.comment = function(req, res) {
 	//query user to whom the comment should be sent to
 		console.log("go to the comments");
-		UserSchema.update({username:req.body.user}, { $addToSet: { comments: {commenter: req.body.name, comment: req.body.comment}}})
+		UserSchema.update({username:req.body.username}, { $addToSet: { comments: {commenter: req.body.name, comment: req.body.comment}}})
 		.exec(function(err, user){
+			console.log("4 failure place");
 			if (err) 
 			{
 				console.log("1 failure place");
@@ -263,8 +299,8 @@ module.exports = function (flights) {
 			} 
 			else 
 			{
-
-				UserSchema.find({username: req.body.user})
+				console.log("5 failure place");
+				UserSchema.find({username: req.body.username})
 				.exec(function(err, user) {
 				if (err) {
 					console.log("2 failure place");
@@ -283,8 +319,8 @@ module.exports = function (flights) {
 				}
 			 });
 			}
-					
-			
+				
+			console.log("6 failure place");
 			});		
 		};
 
@@ -448,6 +484,14 @@ module.exports = function (flights) {
 			}		
 		});			  
 	};
+
+
+
+	functions.error = function(req, res)
+	{
+		res.render('error.ejs');
+	};
+
 
 	return functions;
 };
