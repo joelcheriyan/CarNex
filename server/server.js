@@ -15,12 +15,14 @@ var server = http.createServer(app);
 var chat_room = io.listen(server);
 chatter.set_sockets(chat_room.sockets);
 
+
+console.log(app.get('username'));
 chat_room.sockets.on('connection', function (socket) 
 {
   	chatter.connect_chatter
   	({
     socket: socket,
-    username: socket.id
+    username: app.get('username')
   	});
 });
 

@@ -11,10 +11,14 @@ module.exports = function (flights, db) {
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
-
+	var client = "";
+	var UserSchema = require('./schemas/user');
 
 
 	// all environments
+
+
+
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
 	//app.set('view engine', 'jade');
@@ -66,7 +70,10 @@ module.exports = function (flights, db) {
 
 
 
-	app.get('/login', routes.login);
+	app.get('/login', function(req, res) {
+	  	res.render('index.ejs');
+	});
+
 	app.post('/login', passport.authenticate('local', {
 		failureRedirect: '/login',
 		successRedirect: '/dashboard'
@@ -91,6 +98,8 @@ module.exports = function (flights, db) {
 
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
+
+		console.log('sign up ' + req.session.passport.user);
   		res.render('signup.ejs');
 	});
    	// stores in database. Post is sent from signup.ejs form
@@ -100,7 +109,41 @@ module.exports = function (flights, db) {
 
 //eq.session.passport.user === undefined
  	// retrieve data from posts database
-	app.get('/dashboard', routes.dashboard);
+
+
+ 	//functions.dashboard = function(req, res) {
+	//this is the condition that we have for query: starting point, destination and date
+	app.get('/dashboard', function(req, res) 
+	{
+		client = req.session.passport.user;
+		app.set('username', client);
+  			if (req.session.passport.user === undefined){
+		 		res.redirect('/login');
+			} 
+			else{
+			UserSchema.find({username: req.session.passport.user})
+			.exec(function(err, user) {
+			if (err) 
+			{
+				res.status(500).json({status: 'failure'});
+			}
+			else
+			{
+				 res.render('dashboard.ejs',
+				 {
+					posts: undefined,
+					user:user
+				});
+			}		
+		 });
+		}					
+	}	
+	);
+
+
+
+
+	
 	
 
 	app.post('/postsearch',routes.postsearch);

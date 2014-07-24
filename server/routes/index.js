@@ -89,28 +89,8 @@ module.exports = function (flights) {
 			}
 		});
 	};
-	var i = 0;
-	//the login function
-	functions.login = function(req, res) 
-	{
-	
-			
-		if(i > 0)
-		{
-			res.render('index.ejs', {error: 'error'
-			});
-			console.log(i);
-		}
-		else
-		{	
-			res.render('index.ejs', {
-			error: 'Strat it now'
-			});
-			console.log(i);	
-		}
-		i++;
-	};
 
+	//the logout function
 
 	functions.logout = function(req, res) 
 	{
@@ -217,29 +197,7 @@ module.exports = function (flights) {
 
 	//dashboard page
 
-	functions.dashboard = function(req, res) {
-		//this is the condition that we have for query: starting point, destination and date
-
-		if (req.session.passport.user === undefined) {
-		 	res.redirect('/login');
-		} 
-		else{
-		UserSchema.find({username: req.session.passport.user})
-		.exec(function(err, user) {
-			if (err) {
-				res.status(500).json({status: 'failure'});
-			}
-			else{
-				 res.render('dashboard.ejs',{
-					posts: undefined,
-					user:user
-				});
-			}		
-
-		});
-		}				
-		
-	};
+	
 
 
 	functions.postsearch = function(req, res) {
