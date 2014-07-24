@@ -1,7 +1,6 @@
 var http = require('http'),
-	flights = require('./data'),
 	db = require('./db'),
-	app = require('./app')(flights, db);
+	app = require('./app')(db);
 var connect = require('connect');
 var io = require('socket.io');
 var chatter = require('chatter');

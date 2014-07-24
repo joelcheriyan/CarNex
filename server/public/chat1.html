@@ -27,6 +27,7 @@ jQuery(document).ready(function () {
 	});
 
 	socket.on('chat', function  (data) {
+		<!--log_chat_message(data.message, 'normal'); -->
 		log_chat_message(data.message, 'normal');
 	});
 
@@ -36,8 +37,9 @@ jQuery(document).ready(function () {
 
 	jQuery('#chat_box').keypress(function (event) {
 		if (event.which == 13) {
-			socket.emit('chat', {message: jQuery('#chat_box').val()});
+			socket.emit('chat', {message: jQuery('#chat_box').val() });
 			jQuery('#chat_box').val('');
+			<!--jQuery('#to_user').val(''); to: jQuery('#to_user').val() -->
 		}
 	});
 });
@@ -73,6 +75,8 @@ jQuery(document).ready(function () {
 	</div>
 
 	<input type="text" name="chat_box" value="" id="chat_box" placeholder="type to chat..." />
+
+	<!--<input type="hidden" name="to_user" value="" id="to_user"/> find a way to pass username of receiver-->
 
 </body>
 </html>

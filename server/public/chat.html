@@ -9,6 +9,8 @@
     <!-- <link href="css/chat.css" rel="stylesheet"> -->
 <script src="http://localhost:3000/socket.io/socket.io.js"></script>
 <script src="js/jquery-1.7.2.min.js"></script>
+
+
 <script type="text/javascript" charset="utf-8">
 jQuery(document).ready(function () {
   var log_chat_message = function  (message, type) {
@@ -49,16 +51,17 @@ jQuery(document).ready(function () {
   });
 });
 
+
 </script>
 <style type="text/css" media="screen">
   div#chatroom {
     display: block;
-    height: 600px;
-    border: 1px solid #999;
-    overflow: auto;
+    height: 670px;
+    border: 3px solid #3276b1;  
     width: 100%;
     margin-bottom: 10px;
     position: relative;
+    overflow-y:scroll;
   }
 
   ul#chat_log {
@@ -68,12 +71,15 @@ jQuery(document).ready(function () {
   }
 
   input#chat_box {
-    width: 99%;
-    height: 5%
+    width: 100%;
+    height: 40px;
+    border: 3px solid #3276b1;
+    overflow-y:scroll;
   }
 </style>
 </head>
 <body>
+
 
   <div id="chatroom">
     <ul id="chat_log">

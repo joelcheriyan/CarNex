@@ -3,11 +3,11 @@
  * Module dependencies.
  */
 
-module.exports = function (flights, db) {
+module.exports = function (db) {
 	var express = require('express');
 	var MongoStore = require('connect-mongo')(express);
 	var passport = require('./auth');
-	var routes = require('./routes')(flights);
+	var routes = require('./routes')();
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
@@ -36,6 +36,7 @@ module.exports = function (flights, db) {
 		res.set('X-Powered-By', 'Flight Tracker');
 		next();
 	});
+	
 
 
 
@@ -52,16 +53,6 @@ module.exports = function (flights, db) {
 	
 	//some inner testing work
 	app.use(connect.bodyParser());
-
-	
-
-
-
-
-	app.get('/flight/:number', routes.flight);
-	app.put('/flight/:number/arrived', routes.arrived);
-	app.get('/list', routes.list);
-	app.get('/arrivals', routes.arrivals);
 
 
 
