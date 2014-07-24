@@ -6,121 +6,81 @@
     <meta charset="utf-8">
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
-    <link href="css/chat.css" rel="stylesheet">
-  </head>
+    <!-- <link href="css/chat.css" rel="stylesheet"> -->
+<script src="http://localhost:3000/socket.io/socket.io.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+jQuery(document).ready(function () {
+  var log_chat_message = function  (message, type) {
+    var li = jQuery('<li />').text(message);
+    
+    if (type === 'system') {
+      li.css({'font-weight': 'bold'});
+    } else if (type === 'leave' || type === 'error') {
+      li.css({'font-weight': 'bold', 'color': '#F00'});
+    }
+        
+    jQuery('#chat_log').append(li);
+  };
 
-  <body>
-    <div class="container-no-padding">
-      <div id="friends-container">
-        <h1>Friends</h1>
+  var socket = io.connect('http://localhost:3000');
 
-        <div class="list-group">
-          <a class="list-group-item media">
-            <div class="pull-right dot-status dot-status-online">
-              <span class="sr-only">online</span>
-            </div>
+  socket.on('entrance', function  (data) {
+    log_chat_message(data.message, 'system');
+  });
 
-            <div class="pull-left img-chat"></div>
-            <div class="chat-name">Jane Doe</div>
-          </a>
+  socket.on('exit', function  (data) {
+    log_chat_message(data.message, 'leave');
+  });
 
-          <a class="list-group-item media">
-            <div class="pull-right dot-status dot-status-unknown">
-              <span class="sr-only">unknown</span>
-            </div>
+  socket.on('chat', function  (data) {
+    log_chat_message(data.message, 'normal');
+  });
 
-            <div class="pull-left img-chat"></div>
-            <div class="chat-name">John Smith</div>
-          </a>
+  socket.on('error', function  (data) {
+    log_chat_message(data.message, 'error');
+  });
 
-          <a class="list-group-item media active">
-            <div class="pull-right dot-status dot-status-offline">
-              <span class="sr-only">offline</span>
-            </div>
+  jQuery('#chat_box').keypress(function (event) {
+    if (event.which == 13) {
+      socket.emit('chat', {message: jQuery('#chat_box').val()});
+      jQuery('#chat_box').val('');
+    }
+  });
+});
 
-            <div class="pull-left img-chat"></div>
-            <div class="chat-name">Tom Jones</div>
-          </a>
+</script>
+<style type="text/css" media="screen">
+  div#chatroom {
+    display: block;
+    height: 600px;
+    border: 1px solid #999;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+  }
 
-          <a class="list-group-item media">
-            <div class="pull-right dot-status dot-status-offline">
-              <span class="sr-only">offline</span>
-            </div>
+  ul#chat_log {
+    list-style: none;
+    position: absolute;
+    bottom: 0px;
+  }
 
-            <div class="pull-left img-chat"></div>
-            <div class="chat-name">Taylor Williams</div>
-          </a>
+  input#chat_box {
+    width: 99%;
+    height: 5%
+  }
+</style>
+</head>
+<body>
 
-          <a class="list-group-item media">
-            <div class="pull-right dot-status dot-status-offline">
-              <span class="sr-only">offline</span>
-            </div>
+  <div id="chatroom">
+    <ul id="chat_log">
+    </ul>
+  </div>
 
-            <div class="pull-left img-chat"></div>
-            <div class="chat-name">David Miller</div>
-          </a>
-        </div>
-      </div>
-
-      <div id="chat-container">
-        <div id="chat-info">
-          <div class="pull-right dot-status dot-status-offline"></div>
-          <h1>Chat: <a href="profile.html" target="_parent">Tom Jones</a></h1>
-        </div>
-
-        <div id="chat-box">
-          <div id="chat-box-content">
-            <div class="chat-msg chat-msg-other">
-              <div class="sender">
-                <div class="img-chat"></div>
-
-                <div class="msg-info">Tom</div>
-              </div>
-
-              <p class="msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-
-            <div class="chat-msg chat-msg-self">
-              <div class="sender">
-                <div class="img-chat"></div>
-
-                <div class="msg-info">You</div>
-              </div>
-
-              <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-
-            <div class="chat-msg chat-msg-self">
-              <div class="sender">
-                <div class="img-chat"></div>
-
-                <div class="msg-info">You</div>
-              </div>
-
-              <p class="msg">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            </div>
-
-            <div class="chat-msg chat-msg-other">
-              <div class="sender">
-                <div class="img-chat"></div>
-
-                <div class="msg-info">Tom</div>
-              </div>
-
-              <p class="msg">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-          </div>
-        </div>
-
-        <form id="chat-form" role="form">
-            <button type="submit" class="btn btn-primary pull-right">Send</button>
-
-            <div class="form-group">
-              <label for="chat-text" class="control-label sr-only">Message</label>
-              <input type="text" class="form-control" id="chat-text" placeholder="Type a message...">
-            </div>
-          </form>
-        </div>
-    </div>
-  </body>
+  <input type="text" name="chat_box" value="" id="chat_box" placeholder="type to chat..." />
+  
+</body>
 </html>

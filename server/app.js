@@ -13,6 +13,7 @@ module.exports = function (flights, db) {
 	var connect = require('connect');
 
 
+
 	// all environments
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
@@ -35,8 +36,7 @@ module.exports = function (flights, db) {
 		res.set('X-Powered-By', 'Flight Tracker');
 		next();
 	});
-	// app.use(app.router);
-	// app.use(express.static(path.join(__dirname, 'public')));
+
 
 
 	//errors for invaild URL

@@ -151,7 +151,7 @@ body
 #chat-container
 {
     border-top: 3px solid #3276b1;
-    height: 60%;
+    height: 100%;
     min-height: 60%;
     position: relative;
     padding: 0px;

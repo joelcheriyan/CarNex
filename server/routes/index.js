@@ -181,17 +181,13 @@ module.exports = function (flights) {
 	functions.signup = function(req, res) 
 	{
 
-<<<<<<< HEAD
-		var user = new SignSchema({ username:  req.body.username});
-		user.save(function(err){
 
-    		console.log(err);
-		});
+		// var user = new SignSchema({ username:  req.body.username});
+		// user.save(function(err){
 
+  		//  console.log(err);
+		// });
 
-=======
-		
->>>>>>> 36452fd0cceca27e5e6336f6a3859865d59cf9de
 		var record = new UserSchema({
 			name: req.body.name, 
 			email: req.body.email,
