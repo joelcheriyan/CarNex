@@ -701,14 +701,6 @@ margin-top: 0em;
 
 
 
-@media only screen 
-and (min-device-width : 321px) 
-and (max-device-width : 800px){
-		.map_size{
-			height: 300px;
-			width: 300px;
-		}
-}
 
 
 
@@ -716,18 +708,50 @@ and (max-device-width : 800px){
 	.map_screen{
 		width: 400px;
 	}
+	
+	.map_size{
+			width: 600px;
+	}
+	
+	
+	.map_input_size
+	{
+		width: 600px;
+	}
 }
 
 @media (min-width: 1000px) and (max-width: 1100px) { 
 	.map_screen{
 		width: 370px;
 	}
+	
+	
+	.map_size{
+		width: 500px;
+	}
+	
+	
+	.map_input_size
+	{
+		width: 500px;
+	}
+	
+	
 }
 
 @media (min-width: 500px) and (max-width: 1000px) { 
   .map_screen{
 		width: 350px;
 	}
+	.map_size{
+		width: 350px;
+	}
+	
+	
+	.map_input_size
+	{
+		width: 350px;
+	}	
 }
 
 
@@ -737,7 +761,19 @@ and (max-device-width : 800px){
    .map_screen{
 		width: 300px;
 	}
+	
+	.map_size{
+		width: 200px;
+	}
+	
+	
+	.map_input_size
+	{
+		width: 200px;
+	}
 }
+
+
 
 
 

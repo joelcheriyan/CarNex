@@ -56,8 +56,8 @@
 
     <div class="profile-header">
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <div class="img-bio img-profile"></div>
+        <div class= "col-sm-12" >
+     
      
 	 <% user.forEach(function(item) { %>
           <h2><%=item.username %></h2>
@@ -76,30 +76,17 @@
           <p><strong>Usually commutes from around</strong>: <%= item.city %></p>
         </div>
 
-          <div class="col-sm-3">
-           <div class="img-map-container">
-            <div class="input-group">      
-                    <input id="sLoc-address" type="hidden" class="form-control" value = "" />
-                    <div id="sLoc" style="width: 300px; height: 200px;"></div>
+        <div class="col-sm-4 col-sm-offset-4">
+              <div class="input-group">      
+                    <input id="sLoc-address" type="hidden" class="form-control" />
+                    <div id="sLoc" class = "map_screen" style=" height: 200px;"></div>
                     <input type="hidden" id="sLoc-radius"/>
-                    <input type="hidden" id="sLoc-lat"  value = ""/>
-                    <input type="hidden" id="sLoc-lon"  value = ""/>
+                    <input type="hidden" id="sLoc-lat"/>
+                    <input type="hidden" id="sLoc-lon"/>
               </div>
-          </div>
         </div>
+        
       </div>
-
-      <div class="profile-buttons">
-        <button class="btn btn-success" title="Add Contact">
-          <span class="glyphicon glyphicon-plus"></span>
-          <span class="hidden-xxs">Add Contact</span>
-        </button>
-
-        <button class="btn btn-other" title="Chat">
-          <span class="glyphicon glyphicon-envelope"></span>
-          <span class="hidden-xxs">Chat</span>
-        </button>
-
         <button class="btn btn-danger" title="Report">
           <span class="glyphicon glyphicon-ban-circle"></span>
           <span class="hidden-xxs">Report</span>
