@@ -3,18 +3,25 @@
  * Module dependencies.
  */
 
-	var http = require('http');
+ 	var http = require('http');
+	var db = require('./db');
+	var io = require('socket.io');
+	var chatter = require('chatter');
+
 	var express = require('express');
 	var MongoStore = require('connect-mongo')(express);
 	var passport = require('./auth');
-	var routes = require('./routes');
+	var routes = require('./routes')(app);
+	var io = require("socket.io");
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
 	var client = "";
 	var UserSchema = require('./schemas/user');
 	var db = require('./db');
-	var io = require('socket.io');
+	//var io = require('socket.io')(app);
+
+	
 	var chatter = require('chatter');
 	// all environments
 
@@ -41,6 +48,7 @@
 		res.set('X-Powered-By', 'Flight Tracker');
 		next();
 	});
+	
 
 
 
@@ -57,11 +65,6 @@
 	
 	//some inner testing work
 	app.use(connect.bodyParser());
-
-	
-
-
-
 
 
 
@@ -110,9 +113,61 @@
 
  	//functions.dashboard = function(req, res) {
 	//this is the condition that we have for query: starting point, destination and date
+
+
+
+
+
+	var users = [];
+	var i = -1;
+	var now = 0;
+
 	app.get('/dashboard', function(req, res) 
 	{
-		client = req.session.passport.user;
+		
+		var flag = 1;
+
+		console.log("in the dashboard");
+		for(var checking = 0; checking < users.length; checking++)
+		{
+			console.log("ok" + users[checking]);
+			if(users[checking] == req.session.passport.user)
+			{
+				flag = 0;
+				console.log("die");
+			}
+    	
+		}
+
+
+		//get the session array
+		if(flag == 1)
+		{
+			users.push(req.session.passport.user);
+    		console.log("inside the loop" + users[i]);
+    		i++;
+    		console.log("the i value is " + i);
+		}
+
+		console.log("all the thing " + users + " the index is " + i);
+			
+
+
+		//get the index of users
+		for(var checking1 = 0; checking1 < users.length; checking1++)
+		{
+			
+			if(users[checking1] == req.session.passport.user)
+			{
+				//set the index
+				console.log("the index value is " + checking1);
+				now = checking1;
+			}
+    	
+		}
+
+  		
+
 		app.set('username', client);
   			if (req.session.passport.user === undefined){
 		 		res.redirect('/login');
@@ -129,7 +184,7 @@
 				 res.render('dashboard.ejs',
 				 {
 					posts: undefined,
-					user:user
+					user: user
 				});
 			}		
 		 });
@@ -163,34 +218,38 @@
 	app.post('/delete', routes.deletepost);
 
 	app.post('/rating', routes.rating);
-	
-
 
 	app.get('/*', routes.error);
 
 
 
-var server = http.createServer(app);
-var chat_room = io.listen(server);
-chatter.set_sockets(chat_room.sockets);
 
 
-onsole.log(app.get('username'));
-chat_room.sockets.on('connection', function (socket) 
-{
-  	chatter.connect_chatter
-  	({
-    socket: socket,
-    username: app.get('username')
-  	});
-});
+	var server = http.createServer(app);
+	var chat_room = io.listen(server);
+	chatter.set_sockets(chat_room.sockets);
 
+
+
+	
+
+	
+	chat_room.sockets.on('connection', function (socket) 
+	{
+	
+		//this is the socket username
+
+  		chatter.connect_chatter
+  		({
+    		socket: socket,
+    		username: users[now]
+  		});
+	});
 
 
 server.listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
-
 
 
 

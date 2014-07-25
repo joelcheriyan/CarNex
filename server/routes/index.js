@@ -4,7 +4,7 @@
  */
 
 
-var FlightSchema = require('../schemas/flight');
+
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
 
@@ -19,75 +19,36 @@ var SignSchema = mongoose.Schema({
 SignSchema.plugin(uniqueValidator);
 
 
-module.exports = function (flights) {
+module.exports = function(){
 
-	
-
-	var flight = require('../flight');
-	
-	for(var number in flights) {
-		flights[number] = flight(flights[number]);
-	}
 
 	var functions = {};//this cannot be removed
 
-	functions.flight = function(req, res){
-		var number = req.param('number');
 
-		req.session.lastNumber = number;//the login function
-
-		if (typeof flights[number] === 'undefined') {
-			res.status(404).json({status: 'error'});
-		} else {
-			res.json(flights[number].getInformation());
-		}
-	};
-
-	functions.arrived = function (req, res) {
-		var number = req.param('number');
-
-		if (typeof flights[number] === 'undefined') {
-			res.status(404).json({status: 'error'});
-		} else {
-			flights[number].triggerArrive();
-
-			var record = new FlightSchema(
-				flights[number].getInformation()
-			);
-
-			record.save(function(err) {
-				if (err) {
-					console.log(err);
-					res.status(500).json({status: 'failure'});
-				} else {
-					res.json({status: 'success'});
-				}
+	
+	
+	
+	
+	var i = 0;
+	//the login function
+	functions.login = function(req, res) 
+	{
+	
+			
+		if(i > 0)
+		{
+			res.render('index.ejs', {error: 'error'
 			});
-
-			res.json({status: 'done'});
+			console.log(i);
 		}
-	};
-
-	functions.list = function (req, res) {
-		res.render('list', {
-			title: 'All Flights', 
-			flights: flights});
-	};
-
-	functions.arrivals = function(req, res) {
-		FlightSchema.find()
-		.setOptions({sort: 'actualArrive'})
-		.exec(function(err, arrivals) {
-			if (err) {
-				res.status(500).json({status: 'failure'});
-			} else {
-				res.render('arrivals', {
-					title: 'Arrivals',
-					arrivals: arrivals,
-					lastNumber: req.session.lastNumber//the login function
-				});
-			}
-		});
+		else
+		{	
+			res.render('index.ejs', {
+			error: 'Strat it now'
+			});
+			console.log(i);	
+		}
+		i++;
 	};
 
 	//the logout function
