@@ -175,18 +175,13 @@
             <input name = "sLoc_lon" type="hidden" value = <%= item.sLoc_lon %>>
             <input name = "dest_lat" type="hidden" value = <%= item.dest_lat %>>
             <input name = "dest_lon" type="hidden" value = <%= item.dest_lon %>>
-              <button class="btn btn-primary" title="Map">
+             
+	 <button class="btn btn-success" title="Map">
                 <span class="glyphicon glyphicon-globe"></span>
                 <span class="hidden-xs">Map</span>
               </button>
             </form>
 
-             <form role="form" class ="form-inline">
-              <button class="btn btn-success" title="Respond">
-                <span class="glyphicon glyphicon-comment"></span>
-                <span class="hidden-xs">Respond</span>
-              </button>
-              </form>
 
 	          <form role="form" class ="form-inline" action="/save" method="post">
           	  <input name = "from" type="hidden" value = <%= item.from %>>
