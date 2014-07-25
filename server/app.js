@@ -3,11 +3,12 @@
  * Module dependencies.
  */
 
+
+ 	//This is the main module for the server side
  	var http = require('http');
 	var db = require('./db');
 	var io = require('socket.io');
 	var chatter = require('chatter');
-
 	var express = require('express');
 	var MongoStore = require('connect-mongo')(express);
 	var passport = require('./auth');
@@ -19,17 +20,13 @@
 	var client = "";
 	var UserSchema = require('./schemas/user');
 	var db = require('./db');
-	//var io = require('socket.io')(app);
-
-	
 	var chatter = require('chatter');
+
+
+
 	// all environments
-
-
-
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
-	//app.set('view engine', 'jade');
 	app.set('view engine', 'ejs');
 	app.use(express.favicon());
 	app.use(express.logger('dev'));
@@ -45,18 +42,16 @@
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
 	app.use(function (req, res, next) {
-		res.set('X-Powered-By', 'Flight Tracker');
+		res.set('carnex', 'carnex');
 		next();
 	});
 	
-
-
-
 	//errors for invaild URL
 	app.configure(function () {
     app.use(express.static(__dirname + '/public'));
     app.use(app.router);
-});
+	});
+
 
 	// development only
 	if ('development' == app.get('env')) {
@@ -70,6 +65,9 @@
 
 
 
+
+
+	//detailed functions implementation starts here
 	app.get('/login', function(req, res) {
 	  	res.render('index.ejs');
 	});
@@ -82,12 +80,7 @@
 	app.get('/logout',routes.logout);
 
 	
-	//app.get('/user', routes.user);
 
-
-
-
-	//our work below 
 	//create a post to posts database
 	app.get('/createpost', function(req, res) {
   	res.render('create_post.ejs');
@@ -107,17 +100,8 @@
 
 
 
-//eq.session.passport.user === undefined
- 	// retrieve data from posts database
 
-
- 	//functions.dashboard = function(req, res) {
-	//this is the condition that we have for query: starting point, destination and date
-
-
-
-
-
+	//Those are global variables for identifing the socket.io username
 	var users = [];
 	var i = -1;
 	var now = 0;
@@ -125,9 +109,7 @@
 	app.get('/dashboard', function(req, res) 
 	{
 		
-		var flag = 1;
-
-		console.log("in the dashboard");
+		var flag = 1;//this is for checking the duplicated input username
 		for(var checking = 0; checking < users.length; checking++)
 		{
 			console.log("ok" + users[checking]);
@@ -144,12 +126,10 @@
 		if(flag == 1)
 		{
 			users.push(req.session.passport.user);
-    		console.log("inside the loop" + users[i]);
     		i++;
-    		console.log("the i value is " + i);
+    	
 		}
 
-		console.log("all the thing " + users + " the index is " + i);
 			
 
 
@@ -160,7 +140,6 @@
 			if(users[checking1] == req.session.passport.user)
 			{
 				//set the index
-				console.log("the index value is " + checking1);
 				now = checking1;
 			}
     	
@@ -194,31 +173,35 @@
 
 
 
-
-	
-	
-
+	//display the searching results
 	app.post('/postsearch',routes.postsearch);
+
+	//the comments used as user feedbacks 
 	app.post('/comment',routes.comment);
 	
+	//for public viewers
 	app.post('/profile',routes.profile);
 
-
+	//for user themselves
 	app.get('/personalprofile', routes.personalprofile); 
 
 	app.post('/save', routes.save);
 	app.post('/unsave', routes.unsave);	
 
+	//for detailed route information
 	app.post('/map', routes.map);
 
-	
+	//for updating the user information
 	app.get('/settings', routes.settings);
 	app.post('/update', routes.update);
 
+	//for delete the saved posts
 	app.post('/delete', routes.deletepost);
 
+	//for the rating system
 	app.post('/rating', routes.rating);
 
+	//for not found URL
 	app.get('/*', routes.error);
 
 
@@ -226,18 +209,15 @@
 
 
 	var server = http.createServer(app);
+	//socket.io connection
 	var chat_room = io.listen(server);
 	chatter.set_sockets(chat_room.sockets);
 
 
-
-	
-
-	
 	chat_room.sockets.on('connection', function (socket) 
 	{
 	
-		//this is the socket username
+		//indicating the specific socket add into the chat room
 
   		chatter.connect_chatter
   		({

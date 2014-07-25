@@ -332,11 +332,11 @@ module.exports = function(){
 	
 		// removes the post from the users saved_posts array that corresponds to the specified fields 		
 		UserSchema.update({username:req.session.passport.user}, { $pull: {saved_posts :{
-												from: req.body.from,
-												to: req.body.to,
-												description: req.body.descript,
-												poster: req.body.poster
-									}}
+			from: req.body.from,
+			to: req.body.to,
+			description: req.body.descript,
+			poster: req.body.poster
+			}}
 		}).exec(function(err, user){
 			if (err) 
 			{
