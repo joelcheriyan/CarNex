@@ -66,7 +66,7 @@
     <div class="jumbotron">
       <div class="container">
 	<%user.forEach(function(item){%>
-        <h1>Welcome, <%=item.name%></h1>
+        <h1>Welcome, <%=item.username%></h1>
         <p>Here's your account information.</p>
       </div>
     </div>
@@ -77,7 +77,7 @@
       <div class="row" id="userInfo">
 
         <!-- column 1: User Info -->
-        <div class="col-sm-8">
+        <div class="col-sm-12">
           <div class="panel panel-primary posting">
             <div class="panel-heading settings-panel-heading" id="changeUserInfo">
               <a href="#collapsePersonal" data-toggle="collapse" class="pull-right"></a>
@@ -125,39 +125,7 @@
           </div>
         </div> <!-- column 1: User Info -->
 <%});%>
-        <!-- column 2: Photo -->
-        <div class="col-sm-4" id="userPhoto">
-          <div class="panel panel-primary posting">
-            <div class="panel-heading">
-              <h3 class="panel-title">Your Profile Picture</h3>
-            </div>
-
-            <div class="panel-body">
-              <p>Your photo is always viewable to other users.</p>
-
-              <div class="img-bio img-profile"></div>
-
-              <form role="form" id="photoUpload" action="/upload" metho="post">
-                <div class="input-group">
-                  <span class="input-group-btn">
-                    <span class="btn btn-primary btn-file">
-                      Browse&hellip;
-                      <input name="image"type="file" form="photoUpload">
-                    </span>
-                  </span>
-
-                  <input type="text" class="form-control" readonly>
-                </div>
-              </div>
-  	     <div class="panel-footer">
-              <button class="btn btn-info pull-left" title="Photo" form="photoUpload">
-                <span class="glyphicon glyphicon-camera"></span>
-                Update Photo
-              </button>
-            </div>
-            </form>    
-          </div>
-        </div> <!-- column 2: Photo -->
+        
       </div> <!-- row -->
     </div> <!-- main container -->
 
