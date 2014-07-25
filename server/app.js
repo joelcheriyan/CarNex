@@ -3,16 +3,8 @@
  * Module dependencies.
  */
 
-<<<<<<< HEAD
-//module.exports = function (db) {
-=======
-
  	//This is the main module for the server side
- 	var http = require('http');
-	var db = require('./db');
-	var io = require('socket.io');
-	var chatter = require('chatter');
->>>>>>> 6925e21880c39208e3d6a956149b93b6eec500ae
+
 	var express = require('express');
 	var http = require('http');
 	var db = require('./db');
@@ -23,11 +15,11 @@
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
-<<<<<<< HEAD
+
 	var io = require('socket.io');
 	var chatter = require('chatter');
 	
-=======
+
 	var client = "";
 	var UserSchema = require('./schemas/user');
 	var db = require('./db');
