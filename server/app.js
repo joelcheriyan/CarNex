@@ -3,15 +3,19 @@
  * Module dependencies.
  */
 
-module.exports = function (db) {
+//module.exports = function (db) {
 	var express = require('express');
+	var http = require('http');
+	var db = require('./db');
 	var MongoStore = require('connect-mongo')(express);
 	var passport = require('./auth');
 	var routes = require('./routes')();
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
-
+	var io = require('socket.io');
+	var chatter = require('chatter');
+	
 
 
 	// all environments
@@ -119,7 +123,39 @@ module.exports = function (db) {
 
 	app.get('/*', routes.error);
 
-	return app;
-}
+//	return app;}
+
+
+
+
+
+
+var server = http.createServer(app);
+//io = io.listen(server);
+
+//var  app2 = connect().use(connect.static('public')).listen(server);
+var chat_room = io.listen(server);
+chatter.set_sockets(chat_room.sockets);
+
+chat_room.sockets.on('connection', function (socket, req) 
+{
+	var client = req.session.passport.user;
+  	chatter.connect_chatter
+  	({
+    socket: socket,
+    username: client
+  	});
+});
+
+
+
+server.listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
+});
+
+
+
+
+
 
 

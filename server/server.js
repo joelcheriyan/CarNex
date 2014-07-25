@@ -19,7 +19,7 @@ chat_room.sockets.on('connection', function (socket)
   	chatter.connect_chatter
   	({
     socket: socket,
-    username: socket.id
+    username: req.session.passport.user
   	});
 });
 
