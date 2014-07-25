@@ -95,13 +95,13 @@ module.exports = function(){
 
 		// updates the information from the post to the user's saved_posts array in the database 
 		UserSchema.update({username:req.session.passport.user}, { $addToSet: {saved_posts :{
-													from: req.body.from,
-													to: req.body.to,
-													startdate: req.body.startdate,
-													returndate: req.body.returndate,
-													description: req.body.descript, 
-													poster: req.body.poster
-											}}
+			from: req.body.from,
+			to: req.body.to,
+			startdate: req.body.startdate,
+			returndate: req.body.returndate,
+			description: req.body.descript, 
+			poster: req.body.poster
+			}}
 		}).exec(function(err, user){
 			if (err) {
 				res.status(500).json({status: 'failure'});

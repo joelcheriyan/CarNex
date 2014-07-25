@@ -209,6 +209,7 @@
 
 
 	var server = http.createServer(app);
+	
 	//socket.io connection
 	var chat_room = io.listen(server);
 	chatter.set_sockets(chat_room.sockets);
