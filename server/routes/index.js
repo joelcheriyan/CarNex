@@ -238,7 +238,7 @@ module.exports = function(){
 	//this function adds a comment about a specific user
 
 		// update a specific user's comments array in the database 
-		UserSchema.update({username:req.body.username}, { $addToSet: { comments: {commenter: req.body.name, comment:req.body.comment}})
+		UserSchema.update({username:req.body.username}, { $addToSet: { comments: {commenter: req.body.name, comment:req.body.comment}}})
 		.exec(function(err, user){
 			
 			if (err) {
