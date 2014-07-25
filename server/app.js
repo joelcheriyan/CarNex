@@ -87,7 +87,7 @@
 
 	//create a post to posts database
 	app.get('/createpost', function(req, res) {
-  	res.render('create_post.ejs');
+  		res.render('create_post.ejs');
 
 	});
 	app.post('/createpost', routes.createpost);
@@ -204,9 +204,19 @@
 
 	//for the rating system
 	app.post('/rating', routes.rating);
+	
+	
+	//to contact the CarNex team
+	app.get('/contact', function(req, res) {
+	  	res.render('contact.ejs');
+	});
+	app.post('/contact', routes.contact);
+	
 
 	//for not found URL
 	app.get('/*', routes.error);
+	
+
 
 
 

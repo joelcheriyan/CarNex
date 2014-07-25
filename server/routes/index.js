@@ -2,6 +2,7 @@
 /* Function routes called by the app.js */
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
+var ContactSchema = require('../schemas/contact');
 
 
 
@@ -131,8 +132,8 @@ module.exports = function(){
 			description: req.body.descript,
 			username: req.session.passport.user,
 			counts: 0,
-    		rating: 0,
-    		result: "",
+    			rating: 0,
+    			result: "",
 			sLoc_lat: req.body.sLoc_lat,
 			sLoc_lon: req.body.sLoc_lon,
 			dest_lat: req.body.dest_lat,
@@ -398,6 +399,30 @@ module.exports = function(){
 
 				res.redirect('/logout');
 		
+	};
+
+
+
+//contact us page
+
+	functions.contact = function(req, res) {
+	//this function updates a change to a user's settings
+
+		// update the database entry for the current user's information
+		var record = new ContactSchema({
+						name: req.body.name,
+						email: req.body.email,
+						message: req.body.message 
+									});
+		record.save(function(err) {
+				if (err) {
+					console.log(err);
+					res.status(500).json({status: 'failure'});
+				}
+				else {
+					res.redirect('/dashboard');
+				} 
+		});		
 	};
 
 	
