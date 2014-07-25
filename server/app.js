@@ -13,6 +13,10 @@ module.exports = function (db) {
 	var connect = require('connect');
 
 
+	//var getName = function() {
+	//	var client;
+	//	return client;
+	//}
 
 	// all environments
 	app.set('port', process.env.PORT || 3000);
@@ -93,6 +97,7 @@ module.exports = function (db) {
  	// retrieve data from posts database
 	app.get('/dashboard', routes.dashboard);
 	
+	//client = req.session.passport.user;
 
 	app.post('/postsearch',routes.postsearch);
 	app.post('/comment',routes.comment);
@@ -121,5 +126,3 @@ module.exports = function (db) {
 
 	return app;
 }
-
-
