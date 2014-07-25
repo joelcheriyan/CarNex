@@ -49,25 +49,30 @@ jQuery(document).ready(function () {
       jQuery('#chat_box').val('');
     }
   });
-});
 
+  jQuery("#chatroom").height(jQuery(window).height() - 45);
+
+});
 
 </script>
 <style type="text/css" media="screen">
   div#chatroom {
     display: block;
-    height: 670px;
+    /*height: 670px;*/
+    /*min-height: 100%;*/
     border: 3px solid #3276b1;  
     width: 100%;
     margin-bottom: 10px;
-    position: relative;
     overflow-y:scroll;
+    position: relative;
+  
   }
 
   ul#chat_log {
     list-style: none;
-    position: absolute;
+    /*position: absolute;*/
     bottom: 0px;
+      
   }
 
   input#chat_box {

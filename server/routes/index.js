@@ -10,16 +10,7 @@ module.exports = function(){
 	var functions = {};//contains the functions to be exported
 	
 
-//the login/logout functions
-
-
-	functions.login = function(req, res) {
-	//this function simply renders the homepage, where the 'Log In' button leads to the the login.js file
-
-		res.render('index.ejs');
-	
-	};
-
+	//the logout function
 
 	functions.logout = function(req, res) {
 	//this function simply removes the login session and renders the homepage
@@ -66,36 +57,6 @@ module.exports = function(){
 
 
 
-//dashboard page
-
-
-	functions.dashboard = function(req, res) {
-	//this function renders the current user's dashboard page
-	
-		//checks if a user is trying to go to the dashboard without being logged in
-		if (req.session.passport.user === undefined) {    
-		 	res.redirect('/login');
-		} 
-		
-		//if the user is logged in, we query the database for the user's information 
-		else{		
-		UserSchema.find({username: req.session.passport.user}) 
-		.exec(function(err, user) {
-			if (err) {
-				res.status(500).json({status: 'failure'});
-			}
-			else{
-				//then render the user's dashboard page
-				 res.render('dashboard.ejs',{
-					posts: undefined,
-					user:user
-				});
-			}	
-		});
-		}					
-	};
-
-
 	functions.postsearch = function(req, res) {
 	//this function allows users to search for posts by starting point and destination 
 
@@ -134,13 +95,13 @@ module.exports = function(){
 
 		// updates the information from the post to the user's saved_posts array in the database 
 		UserSchema.update({username:req.session.passport.user}, { $addToSet: {saved_posts :{
-													from: req.body.from,
-													to: req.body.to,
-													startdate: req.body.startdate,
-													returndate: req.body.returndate,
-													description: req.body.descript, 
-													poster: req.body.poster
-											}}
+			from: req.body.from,
+			to: req.body.to,
+			startdate: req.body.startdate,
+			returndate: req.body.returndate,
+			description: req.body.descript, 
+			poster: req.body.poster
+			}}
 		}).exec(function(err, user){
 			if (err) {
 				res.status(500).json({status: 'failure'});
@@ -371,11 +332,11 @@ module.exports = function(){
 	
 		// removes the post from the users saved_posts array that corresponds to the specified fields 		
 		UserSchema.update({username:req.session.passport.user}, { $pull: {saved_posts :{
-												from: req.body.from,
-												to: req.body.to,
-												description: req.body.descript,
-												poster: req.body.poster
-									}}
+			from: req.body.from,
+			to: req.body.to,
+			description: req.body.descript,
+			poster: req.body.poster
+			}}
 		}).exec(function(err, user){
 			if (err) 
 			{
