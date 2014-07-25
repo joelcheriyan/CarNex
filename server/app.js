@@ -26,6 +26,10 @@
 	var chatter = require('chatter');
 
 
+	//var getName = function() {
+	//	var client;
+	//	return client;
+	//}
 
 
 	// all environments
@@ -257,3 +261,14 @@ server.listen(app.get('port'), function(){
 
 
 
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+	return app;
+}
+=======
+
+
+>>>>>>> 6925e21880c39208e3d6a956149b93b6eec500ae
+>>>>>>> 13ef639fa4467687a40d95e7fce9bff305514fd3
