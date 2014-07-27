@@ -15,21 +15,14 @@
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
-
-	var io = require('socket.io');
 	var chatter = require('chatter');
 	
 
-	var client = "";
+	
 	var UserSchema = require('./schemas/user');
 	var db = require('./db');
 	var chatter = require('chatter');
 
-
-	//var getName = function() {
-	//	var client;
-	//	return client;
-	//}
 
 
 	// all environments
@@ -109,75 +102,36 @@
 
 
 
-	//Those are global variables for identifing the socket.io username
-	var users = [];
-	var i = -1;
-	var now = 0;
+	
 
 	app.get('/dashboard', function(req, res) 
 	{
-		
-		var flag = 1;//this is for checking the duplicated input username
-		for(var checking = 0; checking < users.length; checking++)
-		{
-			console.log("ok" + users[checking]);
-			if(users[checking] == req.session.passport.user)
-			{
-				flag = 0;
-				console.log("die");
-			}
-    	
-		}
-
-
-		//get the session array
-		if(flag == 1)
-		{
-			users.push(req.session.passport.user);
-    		i++;
-    	
-		}
-
-			
-
-
-		//get the index of users
-		for(var checking1 = 0; checking1 < users.length; checking1++)
-		{
-			
-			if(users[checking1] == req.session.passport.user)
-			{
-				//set the index
-				now = checking1;
-			}
-    	
-		}
-
   		
 
-		app.set('username', client);
-  			if (req.session.passport.user === undefined){
+		
+		
+  		if (req.session.passport.user === undefined){
 		 		res.redirect('/login');
-			} 
-			else{
-			UserSchema.find({username: req.session.passport.user})
-			.exec(function(err, user) {
-			if (err) 
-			{
-				res.status(500).json({status: 'failure'});
-			}
-			else
-			{
-				 res.render('dashboard.ejs',
-				 {
-					posts: undefined,
-					user: user
+		} 
+		else{
+			
+				
+				
+				
+				UserSchema.find({username: req.session.passport.user})
+				.exec(function(err, user) {
+					if (err) {
+						res.status(500).json({status: 'failure'});
+					}
+					else{
+						res.render('dashboard.ejs',{
+						posts: undefined,
+						user: user
+						});
+					}		
 				});
-			}		
-		 });
 		}					
-	}	
-	);
+	});
 
 
 
@@ -216,10 +170,21 @@
 	});
 	app.post('/contact', routes.contact);
 	
+	
+	app.get('/chat',function(req, res){
+		app.set('client', req.session.passport.user);
+		app.set('recipient', req.body.chat_user);
+		console.log(app.get('client'));
+		res.render('chat.ejs');
+	});
+	
 
 	//for not found URL
 	app.get('/*', routes.error);
 	
+	
+	
+
 
 
 
@@ -229,21 +194,33 @@
 	var server = http.createServer(app);
 	
 	//socket.io connection
-	var chat_room = io.listen(server);
-	chatter.set_sockets(chat_room.sockets);
+	var online = io.listen(server);
+	chatter.set_sockets(online.sockets);
+	
 
-
-	chat_room.sockets.on('connection', function (socket) 
-	{
+	online.sockets.on('connection', function (socket) {
+		
 	
 		//indicating the specific socket add into the chat room
-
-  		chatter.connect_chatter
+		console.log('connected');
+		socket.username = app.get('client');
+		console.log('ok' + socket.username);
+		
+		
+		chatter.connect_chatter
   		({
     		socket: socket,
-    		username: users[now]
+    		username: socket.username
   		});
+		
+		
+		
 	});
+	
+	
+
+  	
+	
 
 
 server.listen(app.get('port'), function(){

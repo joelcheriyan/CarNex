@@ -50,9 +50,11 @@ $(document).ready(function ()
     {
         // To be replaced with actual logged-in checking.
         var loggedIn = true;
+        
 
         if (loggedIn)
         {
+			
             $("body").prepend(
                 '<div id="open-chat"> \
                   <button class="btn btn-primary pageslide-open"> \
@@ -63,8 +65,9 @@ $(document).ready(function ()
             $("#open-chat button.pageslide-open").pageslide(
                 {
                     direction: "left",
-                    href: "chat.html",
+                    href: "chat",
                     modal: true
                 });
+            
         }
 })
