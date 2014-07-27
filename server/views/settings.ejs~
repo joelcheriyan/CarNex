@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CarNex</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link to the CSS files. -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" id="top-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a href="#" class="navbar-brand">CarNex</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav" id="nav-main">
+            <li><a href="about.html">About Us</a></li>
+            <li class="active"><a href="howitworks.html">How it Works</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" id="popover-container"> 
+             <li>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
+            <li>
+               <div class="divider"/>
+               </div>
+            </li>
+            <li>
+              <form class="form-inline" role="form" action="/postsearch" method="post"> 
+                <button type="submit" class="btn btn-primary navbar-btn">back to dashboard</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+   <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-collapse">
+          <ul class="nav navbar-nav nav-right" id="subnav-how">
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="jumbotron">
+      <div class="container">
+	<%user.forEach(function(item){%>
+        <h1>Welcome, <%=item.username%></h1>
+        <p>Here's your account information.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>Your Personal Information</h2>
+
+      <div class="row" id="userInfo">
+
+        <!-- column 1: User Info -->
+        <div class="col-sm-12">
+          <div class="panel panel-primary posting">
+            <div class="panel-heading settings-panel-heading" id="changeUserInfo">
+              <a href="#collapsePersonal" data-toggle="collapse" class="pull-right"></a>
+              <h3 class="panel-title">Update Your Information</h3>
+            </div>
+
+            <div id="collapsePersonal" class="panel-collapse collapse in">
+              <div class="panel-body">
+                <!-- Should autofill this info from backend db -->
+                <form class="form" role="form" id="userInfo" action = "/update" method ="post">
+                  <div class="input-group">
+                    <label for="name" class="input-group-addon control-label">Name</label>
+                    <input name = "name" type="text" class="form-control" value=<%=item.name%> id="name" >
+                  </div>
+
+                  <div class="input-group">
+                    <label for="username" class="input-group-addon control-label">Username</label>
+                    <input name= "username" type="text" class="form-control" value=<%=item.username%>  id="username" >
+                  </div>
+		              
+                  <div class="input-group">
+                    <label for="password" class="input-group-addon control-label">Password</label>
+                    <input name= "password" type="text" class="form-control"value= <%=item.password%> id="password" >
+                  </div>
+
+                  <div class="input-group">
+                    <label for="email" class="input-group-addon control-label">Email</label>
+                    <input name = "email" type="email" class="form-control" value=<%=item.email%> id="email" >
+                  </div>
+
+                  <div class="input-group">
+                    <label for="phone" class="input-group-addon control-label">Phone</label>
+                    <input name= "phone" type="text" class="form-control" value=<%=item.phone%> id="phone" >
+                  </div>
+
+		              <div class="panel-footer">
+                  	<button class="btn btn-info pull-left"  type="submit" >
+                  	 <span class="glyphicon glyphicon-cog"></span>
+                 	   Update Information / Log out
+                	  </button>
+                  </div>
+                </form>
+              </div>   
+            </div> 
+          </div>
+        </div> <!-- column 1: User Info -->
+<%});%>
+        
+      </div> <!-- row -->
+    </div> <!-- main container -->
+
+     <!-- This makes the pooter page of this web page. -->
+    <footer>
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="about.html">About Us</a></li>
+            <li><a href="about.html#mission">Our Mission</a></li>
+            <li><a href="about.html#bio">Founders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="howitworks.html">How it Works</a></li>
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
+      <p>Copyright &copy; 2014 Someone or Other</p>
+    </footer>
+
+    <!-- Link to the javaScripts and jquery files. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/fileinput.js"></script>
+  </body>
+</html>

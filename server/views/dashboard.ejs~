@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CarNex</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link to the CSS files. -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" id="top-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a href="#" class="navbar-brand">CarNex</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav" id="nav-main">
+            <li><a href="about.html">About Us</a></li>
+            <li class="active"><a href="howitworks.html">How it Works</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" id="popover-container">
+
+            <li>
+               <form class="form-inline" role="form" action="/personalprofile" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">View Profile</button>
+              </form>   
+            </li>
+
+            <li>
+             <div class="divider"/>
+             </div>
+            </li>
+
+            <li>
+                <form class="form-inline" role="form" action="/createpost" method="get">
+                <button type="submit" class="btn btn-primary navbar-btn" >Create a Post</button>
+                </form>
+            </li>
+
+            <li>
+             <div class="divider"/>
+             </div>
+            </li>
+
+            <li>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-collapse">
+          <ul class="nav navbar-nav nav-right" id="subnav-how">
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  <div class="jumbotron">
+      <div class="container">
+	<%user.forEach(function(item){%>
+        <h1>Welcome, <%= item.username %></h1>
+        <p>Search for a trip?</p>
+	<%});%>
+        <form class="form-inline" role="form" action="/postsearch" method="post">
+          <div class="form-group">
+            <label class="sr-only" for="field-from">Leaving From</label>
+            <input name="from" type="text" id="field-from" value="" class="form-control" placeholder="Leaving From">
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="field-to">Traveling To</label>
+            <input name="to" type="text" id="field-to" value="" class="form-control" placeholder="Traveling To">
+          </div>
+
+          <button type="submit" class="btn btn-default">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  
+
+    <div class="container">
+      <noscript>
+        <p class="pull-right"><a href="chat.html" class="btn btn-primary">
+            <span class="glyphicon glyphicon-comment"></span>
+            Chat
+        </a></p>
+      </noscript>
+
+    <!--   <h2 class="postings-header">Postings Since Your Last Login
+        <button class="btn btn-info pull-right" title="createPost" onClick="location.href='create_post.html'">
+            <span class="glyphicon glyphicon-plus"></span>
+            Create Post
+        </button></h2> -->
+
+      <div class="container-fluid">
+<!-- posting results from query-->
+	
+ 	
+	
+	<ul>
+	<% if (posts != undefined){posts.forEach(function(item) { %>
+
+        <div class="panel panel-primary posting">
+          <div class="panel-heading">
+            <p class="pull-right"><strong><%= item.from %></strong> to <strong><%= item.to%></strong></p>
+            <h3 class="panel-title">Posting Information</h3>
+          </div>
+
+          <div class="panel-body">
+            <div class="poster">
+              <h4><%= item.username %></h4>
+
+              <!-- rating -->
+              <span class="poster-rating">    
+
+             <% if (item.result != undefined) {%> 
+                <span style="display: block; width: 65px; height: 13px; background: url(img/star-rating-sprite.png) 0 0;">
+                <span style="display: block; width: <%= item.result %>; height: 13px; background: url(img/star-rating-sprite.png) 0 -13px;"></span>
+                </span>
+              <% }%>
+
+              <% if (item.result === undefined) {%>
+                <p>No ratings, yet</p>
+              <% }%>
+
+
+              </span>
+            </div>
+
+            <h5>Description:</h5>
+            <p class="content"><%= item.description %>.</p>
+            <ul>
+              <li><strong>Trip Date</strong>: <%=item.startdate %></li>
+              <li><strong>Return Trip</strong>:<%= item.returndate %></li>
+            </ul>
+          </div>
+
+          <div class="panel-footer">
+            <p class="pull-left">
+              <form role="form" class ="form-inline" action="/profile" method="post">
+              <input name = "username" type="hidden" value = <%= item.username %>>
+                <button class="btn btn-info" title="Profile" type="submit" >
+                  <span class="glyphicon glyphicon-user"></span>
+                  <span class="hidden-xs">Profile</span>
+                </button>
+              </form>
+          
+            <form role="form" class ="form-inline" action="/map" method="post">
+            <input name = "sLoc_lat" type="hidden" value = <%= item.sLoc_lat %>>
+            <input name = "sLoc_lon" type="hidden" value = <%= item.sLoc_lon %>>
+            <input name = "dest_lat" type="hidden" value = <%= item.dest_lat %>>
+            <input name = "dest_lon" type="hidden" value = <%= item.dest_lon %>>
+             
+	 <button class="btn btn-success" title="Map">
+                <span class="glyphicon glyphicon-globe"></span>
+                <span class="hidden-xs">Map</span>
+              </button>
+            </form>
+
+
+	          <form role="form" class ="form-inline" action="/save" method="post">
+          	  <input name = "from" type="hidden" value = <%= item.from %>>
+	 	          <input name = "to" type="hidden" value = <%= item.to %>>
+		          <input name = "descript" type="hidden" value = <%= item.description %>>
+		          <input name = "startdate" type="hidden" value = <%= item.startdate %>>
+		          <input name = "returndate" type="hidden" value = <%= item.returndate %>>
+		          <input name = "poster" type="hidden" value = <%= item.username %>>
+
+              <button class="btn btn-primary" title="Save">
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+                <span class="hidden-xs">Save</span>
+              </button>
+	          </form>
+
+            <form role="form" class ="form-inline">
+              <button class="btn btn-danger" title="Report">
+                <span class="glyphicon glyphicon-ban-circle"></span>
+                <span class="hidden-xs">Report</span>
+              </button>
+            </form>
+            </p>
+          </div>
+        </div> <!-- posting -->
+	<% });} %>
+	</ul>
+      
+      </div> <!-- postings container -->
+    </div> <!-- main container -->
+
+    <!-- Making the footer part of the page. -->
+    <footer>
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="about.html">About Us</a></li>
+            <li><a href="about.html#mission">Our Mission</a></li>
+            <li><a href="about.html#bio">Founders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="howitworks.html">How it Works</a></li>
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
+      <p>Copyright &copy 2014 CarNex, Inc.</p>
+    </footer>
+
+    <!-- Link to the javaScripts and jquery files. -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7"></script>
+    <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/other.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CarNex - About</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Links to our css files. -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" id="top-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <!-- Click and returns you to the home page. -->
+          <a href="#" class="navbar-brand">CarNex</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav" id="nav-main">
+            <li class="active"><a href="about.html">About Us</a></li>
+            <li><a href="howitworks.html">How it Works</a></li>
+          </ul>
+
+          <!-- This is where the user puts in login or sign-up information. -->
+          <ul class="nav navbar-nav navbar-right" id="popover-container">
+            <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
+            <li>
+              <form class="form-inline" role="form" action="/signup" method="get">
+                <button type="submit" class="btn btn-primary navbar-btn" >Sign Up</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
+	<form id = "my_form" class="form-inline" role="form" action="/contact" method="get">
+      <div class="container">
+        <div class="navbar-collapse">
+          <ul class="nav navbar-nav nav-right" id="subnav-about">
+            <li><a href="#mission">Our Mission</a></li>
+            <li><a href="#bio">Founders</a></li>
+            <li>
+	    <a href="javascript:{}" onclick="document.getElementById('my_form').submit(); return false;"".>Contact</a>
+		</li>
+          </ul>
+        </div>
+      </div>
+</form>
+    </nav>
+
+    <div class="jumbotron">
+      <div class="container">
+       <h1>CarNex</h1>
+       <p>About Us</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <h2 class="container-header" id="mission">Our Mission</h2>
+
+      <div class="media">
+        <div class="pull-left img-crop-container">
+          <img src="./img/aboutus1.jpg" alt="Our Mission" class="media-object img-media">
+        </div>
+
+        <div class="media-body">
+          <h3>Our story</h3>
+          <p>The team behind CarNex has a dream of improving the lives of commuters and car owners in Canada. It was launched on May 31, 2014 by five young entrepreneurs who wished to contribute to an environmental cause by providing an efficient solution to facilitate carpooling between citizens. CarNex is strongly devoted to promoting carpooling as an alternate mode of transportation to driving alone, taking a taxi, or using public transit systems.</p>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="pull-right img-crop-container">
+          <img src="./img/aboutus2.jpg" alt="Overview" class="media-object img-media">
+        </div>
+
+        <div class="media-body">
+          <h3>Overview</h3>
+          <p>Our website is primarily built to connect people wishing to commute to a common destination. It acts as an intermediary between registered members and does not provide transportation for people. CarNex has many objectives such as reducing money and time spent by individuals driving alone, reducing the number of vehicles on the roads, helping ease traffic congestion and lowering emissions of greenhouse gases. In addition, we aim to collaborate with some transit agencies to offer a complementary mode of transportation to their existing network.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Names and little biographies of all the team members. -->
+    <div class="container bios">
+      <h2 class="container-header" id="bio">The CarNex Team</h2>
+
+      <div class="media">
+        <div class="img-bio pull-left" id="chidi"></div>
+
+        <div class="media-body">
+          <h3>Chidinma Nwaka (g3nwakac)</h3>
+
+          <p>Hi, my name is Chidinma Nwaka. I'm a computer science student at the University of Toronto. I just started a hobby which is programming on the web and I love it. My dream is to become a Sunday school teacher, successful entrepreneur and philanthropist. Aside from computer science, I enjoy learning about how businesses start up and operate. My love for junk food will never allow me to become a vegetarian.</p>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="img-bio pull-right" id="aliya"></div>
+
+        <div class="media-body">
+          <h3>Aliya Hameer (c2hameer)</h3>
+
+          <p>I'm Aliya Hameer, an innocent victim. As a computer science student at the University of Toronto, I love solitary pursuits such as programming in dark rooms and watching people argue over tiny semantics at 3 AM. I hope to go on to become a crusty old academic and lecturer, specializing in theory of computation, that field of computer science that everybody complains about.</p>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="img-bio pull-left" id="joel"></div>
+
+        <div class="media-body">
+          <h3>Joel Cheriyan (c4cheriy)</h3>
+
+          <p>My name is Joel Cheriyan. I'm currently a student in the Engineering Science program at the University of Toronto. I'm very passionate about technology and I'm always excited by new gadgets and ideas.</p>
+        </div>
+      </div>
+
+      <div class="media">
+        <div class="img-bio pull-right" id="richard"></div>
+
+        <div class="media-body">
+          <h3>Chuanrui Li (c4lichua)</h3>
+
+          <p>Hello, my name is Chuanrui Li. As an electrical and computer engineering student, I have long been interested in both software and hardware development industry and have several years’ experience of programming and project design.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Making the footer part of the page. -->
+    <footer>
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="about.html">About Us</a></li>
+            <li><a href="about.html#mission">Our Mission</a></li>
+            <li><a href="about.html#bio">Founders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="howitworks.html">How it Works</a></li>
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
+      <p>Copyright &copy; 2014 CarNex, Inc.</p>
+    </footer>
+
+    <!-- Links to our Javascript files. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
