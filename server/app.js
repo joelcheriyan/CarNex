@@ -17,6 +17,7 @@
 	var connect = require('connect');
 	var chatter = require('chatter');
 	
+	
 
 	
 	var UserSchema = require('./schemas/user');
@@ -93,7 +94,7 @@
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
 
-		console.log('sign up ' + req.session.passport.user);
+		
   		res.render('signup.ejs');
 	});
    	// stores in database. Post is sent from signup.ejs form
