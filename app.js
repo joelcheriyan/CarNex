@@ -17,6 +17,8 @@
 	var connect = require('connect');
 
 	var io = require('socket.io');
+	io.set('transports', ['xhr-polling']);
+	io.set('polling duration', 10);
 	var chatter = require('chatter');
 	
 
