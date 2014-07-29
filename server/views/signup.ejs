@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CarNex - Sign Up</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link to the CSS files. -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/signup.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" id="top-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a href="index.html" class="navbar-brand">CarNex</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav" id="nav-main">
+            <li><a href="about.html">About Us</a></li>
+            <li class="active"><a href="howitworks.html">How it Works</a></li>         
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-collapse">
+          <ul class="nav navbar-nav nav-right" id="subnav-how">
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid signup">
+      <div class="row bs-wizard">
+        <div class="col-xs-3 bs-wizard-step active" id="step1-prog">
+          <div class="text-center bs-wizard-stepnum">Step 1</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <span class="bs-wizard-dot"></span>
+          <div class="bs-wizard-info text-center">Personal Information</div>
+        </div>
+
+        <div class="col-xs-3 bs-wizard-step disabled" id="step2-prog">
+          <div class="text-center bs-wizard-stepnum">Step 2</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <span class="bs-wizard-dot"></span>
+          <div class="bs-wizard-info text-center">Account Information</div>
+        </div>
+
+        <div class="col-xs-3 bs-wizard-step disabled" id="step3-prog">
+          <div class="text-center bs-wizard-stepnum">Step 3</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <span class="bs-wizard-dot"></span>
+          <div class="bs-wizard-info text-center">Verify Phone Number</div>
+        </div>
+
+        <div class="col-xs-3 bs-wizard-step disabled" id="step4-prog">
+          <div class="text-center bs-wizard-stepnum">Step 4</div>
+          <div class="progress"><div class="progress-bar"></div></div>
+          <span class="bs-wizard-dot"></span>
+          <div class="bs-wizard-info text-center">Done!</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="step1">
+          <p>
+            Thanks for considering creating an account with CarNex! The registration process shouldn't take you too long. We'll need some basic information for your account to get started.
+          </p>
+          <h2>Personal Information</h2>
+          <form role="form" action="/signup" method="post">
+            <div class="inline-center">
+              <div class="form-group inline-group">
+                <label for="field-new-name" class="control-label"> Name </label>
+                <input name ="name" type="text" value="" class="form-control" id="field-new-name" placeholder="Jane Doe" required>
+              </div>
+              <p class="help-block">
+                Your name won't be shared with anyone unless you allow it.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="field-new-email">Email</label>
+              <input name="email" type="email" value ="" class="form-control" id="field-new-email" placeholder="Email address: xxx@xx.com" required>
+              <p class="help-block">
+                No one but you will be able to see your email address unless you choose otherwise.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="field-new-phone">Phone Number</label>
+              <input name ="phone" type="tel" value = "" class="form-control" id="field-new-phone" placeholder="(123) 456-7890" required>
+
+              <p class="help-block">
+                For the security of all our users, we'll need this to verify your identity in the next step.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="field-new-dob">Date of Birth</label>
+              <input name = "birthdate" type="date" value = "" class="form-control" id="field-new-dob" required>
+
+              <p class="help-block">
+                You need to be at least 18 years of age to use our service. Be sure to enter your date of birth accurately, as you won't be able to change this later.
+              </p>
+            </div>
+
+            <div class="form-group">
+              <label for="field-new-from">City</label>
+              <input name ="city" id="sLoc-address"  type="text" value = "" class="form-control" id="field-new-from" placeholder="Where do you usually commute from?" required>
+              <div id="sLoc"  style="width: 0px; height: 0px;"></div>
+              <input type="hidden" id="sLoc-radius"/>
+              <input name = "lat" type="hidden" id="sLoc-lat"/>
+              <input name = "lon" type="hidden" id="sLoc-lon"/>
+            </div>
+
+                      <!-- <input type ="submit" value ="Submit"> -->
+
+            <button type="button" class="btn btn-primary" onclick="stepTwo();">Continue &raquo;</button>
+          <!-- </form> -->
+        </div>
+
+        <div id="step2">
+          <p>
+            Awesome! Now we'll need a bit more personal information to get you going with CarNex.
+          </p>
+
+          <h2>Account Information</h2>
+
+          <!-- <form role="form"> -->
+
+            <div class="form-group">
+              <label for="field-new-username">Username</label>
+              <input name="username" type="text" value ="" class="form-control" id="field-new-username" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+              <label for="field-new-password">Password</label>
+              <input name ="password" type="password" value ="" class="form-control" id="field-new-password" placeholder="Password" required>
+
+              <p class="help-block">
+                We won't place any restrictions on your password, but for best security we recommend that your password be at least eight characters long, not contain any information that somebody who knows you could figure out (first name, birth date, etc.), and contain a combination of uppercase and lowercase letters, numbers, and symbols.
+              </p>
+            </div>
+
+            <button type="button" class="btn btn-default" onclick="stepOne();">&laquo; Back</button>
+            <button type="submit" class="btn btn-primary" onclick="stepThree();">Continue &raquo;</button>
+          </form>
+        </div>
+
+        <div id="step3">
+          <h2>Verify Phone Number</h2>
+
+          <p>A text has been sent to the phone number you provided in step 2 with a 6-digit activation code. Please enter that code below to continue:</p>
+
+          <form role="form">
+            <div class="form-group">
+              <label for="field-new-verify">Activation Code</label>
+              <input type="number" class="form-control" id="field-new-verify" required>
+            </div>
+
+            <button type="button" class="btn btn-default" onclick="stepTwo();">&laquo; Back</button>
+            <button type="button" class="btn btn-primary">Resend Activation Code</button>
+            <button type="button" class="btn btn-success" onclick="stepFour();">Verify!</button>
+          </form>
+        </div>
+
+        <div id="step4">
+          <h2>Done!</h2>
+
+          <p>Thanks for registering, janedoe! You're now ready to log in and start using CarNex.</p>
+          <a href="index.html" class="btn btn-primary">Take me there!</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- This makes the footer page of this web page. -->
+    <footer>
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="about.html">About Us</a></li>
+            <li><a href="about.html#mission">Our Mission</a></li>
+            <li><a href="about.html#bio">Founders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="howitworks.html">How it Works</a></li>
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
+      <p>Copyright &copy; 2014 CarNex, Inc.</p>
+    </footer>
+
+    <!-- Link to the javaScripts and jquery files. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/signup.js"></script>
+    <script type="text/javascript" src='http://maps.google.com/maps/api/js?sensor=false&libraries=places'></script>
+    <script src="js/jquery-locationpicker/locationpicker.jquery.js"></script>
+       <script>
+    $('#sLoc').locationpicker({
+        location: {latitude: 0, longitude: 0},   
+        radius: 3000,
+        zoom: 10,
+        scrollwheel: true,
+        inputBinding: {
+            latitudeInput: $('#sLoc-lat'),
+            longitudeInput: $('#sLoc-lon'),
+            radiusInput: $('#sLoc-radius'),
+            locationNameInput: $('#sLoc-address')
+        },
+        enableAutocomplete: true,
+        });
+    </script>
+
+
+  </body>
+</html>

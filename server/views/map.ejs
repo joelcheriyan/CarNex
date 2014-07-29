@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>CarNex</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Links to the CSS files. -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="http://github-proxy.kodono.info/?q=https://raw.github.com/Aymkdn/Datepicker-for-Bootstrap/master/datepicker.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-default" id="top-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a href="#" class="navbar-brand">CarNex</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav" id="nav-main">
+            <li><a href="about.html">About Us</a></li>
+            <li class = "active" ><a href="howitworks.html">How it Works</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right" id="popover-container">
+            <li>
+              <form class="form-inline" role="form" action="/dashboard" method="get">
+                <button type="submit" class="btn btn-primary navbar-btn" > Back to Dashboard
+                </button>
+              </form>
+            </li>
+
+            <li>
+               <div class="divider"/>
+               </div>
+            </li>
+
+            <li>
+              <form class="form-inline" role="form" action="/logout" method="get"> 
+                <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
+      <div class="container">
+        <div class="navbar-collapse">
+          <ul class="nav navbar-nav nav-right" id="subnav-how">
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h2>Detailed Route Information</h2>
+        <h4>Enjoy your trip</h4>
+
+        <hr/>
+
+          <div class="modal-body">
+            <h2>Route <strong id="km"></strong></h2>
+            <div id="gmap-route"></div>
+            <div id="route"></div>
+          </div>
+    </div> <!-- main container -->
+
+    <!-- Making the footer part of the page. -->
+    <footer>
+      <div class="row visible-xs">
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="about.html">About Us</a></li>
+            <li><a href="about.html#mission">Our Mission</a></li>
+            <li><a href="about.html#bio">Founders</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-xs-6">
+          <ul class="footer-nav">
+            <li class="nav-title"><a href="howitworks.html">How it Works</a></li>
+            <li><a href="start.html">Getting Started</a></li>
+            <li><a href="safety.html">Safety</a></li>
+            <li><a href="faq.html">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="pull-right"><a href="#">Back to Top <span class="glyphicon glyphicon-arrow-up"></span></a></p>
+      <p>Copyright &copy; 2014 Someone or Other</p>
+    </footer>
+
+    <!-- Link to the javaScripts and jquery files. -->
+    <script src="http://maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7"></script>
+    <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <script src="http://maplacejs.com/src/maplace-0.1.3.min.js"></script>
+    <script>
+      $(function() {
+          new Maplace({
+          locations: [{ lat: <%= sLoc_lat %>, lon: <%= sLoc_lon %>, zoom: 8}, {lat: <%= dest_lat %>, lon: <%= dest_lon %>,}],
+          map_div: '#gmap-route',
+          generate_controls: false,
+          show_markers: false,
+          type: 'directions',
+          draggable: true,
+          directions_panel: '#route',
+          afterRoute: function(distance)
+          {
+            $('#km').text(': '+(distance/1000)+'km');
+          }
+          }).Load(); 
+          });
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>  
+  </body>
+</html>
