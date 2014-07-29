@@ -12,13 +12,17 @@
 	var passport = require('./auth');
 	var routes = require('./routes')(app);
 	var io = require("socket.io");
+	
+	io.configure(function () { 
+	  io.set("transports", ["xhr-polling"]); 
+	  io.set("polling duration", 10); 
+	});
+	
 	var path = require('path');
 	var app = express();
 	var connect = require('connect');
 
 	var io = require('socket.io');
-	io.set('transports', ['xhr-polling']);
-	io.set('polling duration', 10);
 	var chatter = require('chatter');
 	
 
@@ -232,6 +236,8 @@
 	
 	//socket.io connection
 	var chat_room = io.listen(server);
+	
+
 	chatter.set_sockets(chat_room.sockets);
 
 
