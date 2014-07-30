@@ -13,10 +13,7 @@
 	var routes = require('./routes')(app);
 	var io = require("socket.io");
 	
-	io.configure(function () { 
-	  io.set("transports", ["xhr-polling"]); 
-	  io.set("polling duration", 10); 
-	});
+
 	
 	var path = require('path');
 	var app = express();
