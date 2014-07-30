@@ -3,7 +3,7 @@
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
 var ContactSchema = require('../schemas/contact');
-
+var bcrypt = require('bcrypt');
 
 
 module.exports = function(){
@@ -29,30 +29,38 @@ module.exports = function(){
 
 	functions.signup = function(req, res) {
 	//this function creates a new user entry in the database
+		
 	
-		// create a record with the submitted information accroding to the schema of the user entry in the database	
-		var record = new UserSchema({
+		bcrypt.hash(req.body.password, null, null, function(err, hash){
+	
+			// create a record with the submitted information accroding to the schema of the user entry in the database	
+			var record = new UserSchema({
 			name: req.body.name, 
 			email: req.body.email,
 			username: req.body.username,
-			password: req.body.password,
+			password: hash,
 			phone: req.body.phone,
 			birthdate: req.body.birthdate,     
 			city: req.body.city,
 			lat: req.body.lat,
 			lon: req.body.lon,
 			counts: 0,
-    			rating: 0
+    		rating: 0
 
-		});
-
-		//save the records into the database
-		record.save(function(err) {
+			});
+			
+			record.save(function(err) {
 				if (err) {
 					console.log(err);
 					res.status(500).json({status: 'failure'}); // if an error occurs report a failure
 				} 
+			});
 		});
+		
+		//save the records into the database
+
+
+		
 	};
 
 

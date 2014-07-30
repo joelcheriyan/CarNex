@@ -197,7 +197,7 @@ body
 #chat-box-content
 {
     height: 100%;
-    overflow: auto;
+	
 }
 
 .chat-msg
