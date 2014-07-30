@@ -7,7 +7,7 @@
 
   <body>
     <h1>CarNex - Readme</h1>
-
+    <h2>https://github.com/lichuanr/CarNex/tree/master</h2>
     <p>How to view our site.<br>
       <ul>
         <li>Change directory to server directory.
@@ -37,7 +37,7 @@
   </p>
   <p><strong>Search:</strong> From the dashboard page, the user can search for postings of the route they intend to travel  by putting in an origin and a destination. This lists all the different posts for that specific route and the user can browse the results. The user has several possible actions related to each post. <br><br>
   1).  Profile: This button navigates to the public profile of the user who created the post. The user can view the poster&#39;s basic information, average ratings and comments left by other users. As well, a map displays the poster&#39;s home city. From this page the user should also be able to use CarNex&#39;s builtin chat function to  chat with the poster if they are online, to arrange the details of the trip.<br><br>
-  2). Map: Using Google mapping API, this function plots the possible route to take for the trip.<br><br>
+  2). Map: Using Google mapping API, this function plots the possible route to take for the trip. The map also shows the <strong>street view</strong> which is to those who are curious to know the neighbourhood they are going to.</p>
   3). Save: This function helps the user save different postings that they are interested in for future reference. The saved posting are viewable from the user&#39;s own personal profile page. Any user who saves a post can later unsave it whenever they want.<br><br>
   4). Report: This function when clicked, sends a message to the CarNex website administrator that the posting is improper and should be taking down.<br>
   </p>
@@ -86,7 +86,7 @@
 <p><h2><strong>Design:</strong></h2></p>
 <p>The CarNex web service has several key design decisions that emphasise its usefulness and effectiveness as a tool for carpoolers. It can be used with ease on mobile devices because it is very responsive and may change its layout with respect to the browsers size adjustment. In order to integrate our front end design with the back end we coded our pages in an embedded java script format (ejs). This allows us to use the html documents created for the first milestone and add in the javacript components needed to integrate dynamic web pages into the site. The backend of the CarNex site is built using Node.js and Express.js frameworks and stores its database in MongoLab, a MongoDB cloud hosting service. The database collections are described in detail below as well as a brief outline of several design decisions that we made.
 </p>
-<p><strong>Database:</strong> The database is comprised of 2 collections one describing the data from the posts and another describing the the information associated with each user. Each user entry has an array containing the posts that they created and an array with posts they have saved. 
+<p><strong>Database(<a href="https://mongolab.com">https://mongolab.com</a>/):</strong> The database is comprised of 2 collections one describing the data from the posts and another describing the the information associated with each user. Each user entry has an array containing the posts that they created and an array with posts they have saved. 
 </p>
 
 <img src="./public/img/roadmap2.png" height="720" width="55%" alt="Null" align="middle">
@@ -358,14 +358,16 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
     <td>July 17</td>
       </tr>
 
+
+
       <tr>
-        <td>Admin moderation of posts</td>
-        <td>2</td>
-    <td>*moved to sprint 3</td>
-        <td>-</td>
-    <td>-</td>
-        <td>-</td>
-    <td>-</td>
+        <td>final editing for font-end and back-end</td>
+        <td>9</td>
+    <td>Richard</td>
+        <td>July 20</td>
+    <td>10</td>
+        <td>Richard</td>
+    <td>July 20</td>
       </tr>
 
       <tr>
@@ -416,7 +418,7 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
       </tr>
 
       <tr>
-        <td>Allow users to contact each other</td>
+        <td>users can contact each other(chat room)</td>
         <td>5</td>
     <td>Richard</td>
         <td>July 21</td>
@@ -426,7 +428,7 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
       </tr>
 
       <tr>
-        <td>Allow users to submit ratings and reviews</td>
+        <td>Allow users to submit reviews</td>
         <td>5</td>
     <td>Joel and Richard</td>
         <td>July 17</td>
@@ -436,19 +438,19 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
       </tr>
 
       <tr>
-        <td>Viewing ratings and reviews</td>
-        <td>2</td>
+        <td>rating system for users</td>
+        <td>10</td>
     <td>Chidi</td>
         <td>July 17</td>
-    <td>2</td>
-        <td>Chidi</td>
+    <td>9</td>
+        <td>Richard and Chidi</td>
     <td>July 21</td>
       </tr>
 
       <tr>
         <td>Readme</td>
         <td>1</td>
-    <td>-</td>
+    <td>Chidi</td>
         <td>July 25</td>
     <td>3</td>
         <td>Chidi</td>
@@ -456,14 +458,26 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
       </tr>
     
    <tr>
-        <td>Improvements</td>
-        <td>-</td>
-    <td>-</td>
+        <td>A1 Improvements</td>
+        <td>4</td>
+    <td>Chidi</td>
         <td>July 14</td>
-    <td>3</td>
+    <td>5</td>
         <td>Chidi</td>
     <td>July 14</td>
-      </tr>
+    </tr>
+
+    <tr>
+        <td>Mutiple users socket.io connection</td>
+        <td>5</td>
+    <td>Richard</td>
+        <td>July 23</td>
+    <td>7</td>
+        <td>Richard</td>
+    <td>July 25</td>
+    </tr>
+
+
     </table>
 
     <h4>Sprint 3: Security and Scaling</h4>
