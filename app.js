@@ -54,21 +54,21 @@
     app.use(app.router);
 	});
 
-	//some inner testing work
-	app.use(connect.bodyParser());
-
-
-	app.use(function(req, res, next){
-    	res.locals.token = req.session._csrf;
-    	next();
-  	});
 
 	// development only
 	if ('development' == app.get('env')) {
 	  app.use(express.errorHandler());
 	}
 	
-	
+	//some inner testing work
+	app.use(connect.bodyParser());
+
+
+
+
+
+
+
 	//detailed functions implementation starts here
 	app.get('/login', function(req, res) {
 	  	res.render('index.ejs');
