@@ -107,18 +107,10 @@
 
 	app.get('/dashboard', function(req, res) 
 	{
-  		
-
-		
-		
   		if (req.session.passport.user === undefined){
 		 		res.redirect('/login');
 		} 
 		else{
-			
-				
-				
-				
 				UserSchema.find({username: req.session.passport.user})
 				.exec(function(err, user) {
 					if (err) {
