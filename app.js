@@ -48,25 +48,34 @@
 		next();
 	});
 	
+	
+
+
+	
+	
+	//some inner testing work
+	app.use(connect.bodyParser());
+	//for form submittion security
+	app.use(express.csrf());
+
+	app.use(function(req, res, next){
+		console.log(req.csrfToken());
+    	res.locals.token = req.csrfToken();
+    	next();
+  	});
+
+
+
 	//errors for invaild URL
 	app.configure(function () {
     app.use(express.static(__dirname + '/public'));
     app.use(app.router);
 	});
 
-
 	// development only
 	if ('development' == app.get('env')) {
 	  app.use(express.errorHandler());
 	}
-	
-	//some inner testing work
-	app.use(connect.bodyParser());
-
-
-
-
-
 
 
 	//detailed functions implementation starts here
@@ -93,18 +102,15 @@
 
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
-
 		
-  		res.render('signup.ejs');
+  		res.render('signup.ejs', {token: req.session._csrf});
 	});
+
+
    	// stores in database. Post is sent from signup.ejs form
+
 	app.post('/signup', routes.signup);
-
-
-
-
 	
-
 	app.get('/dashboard', function(req, res) 
 	{
   		if (req.session.passport.user === undefined){

@@ -228,7 +228,6 @@ module.exports = function(){
 					user: user,
 					lat: user[0].lat,
 					lon: user[0].lon
-
 				  });					
 				}
 			 });

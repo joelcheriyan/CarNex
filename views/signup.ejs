@@ -85,6 +85,7 @@
           </p>
           <h2>Personal Information</h2>
           <form role="form" action="/signup" method="post">
+            <input type="hidden", name="_csrf", value= <%= token%> >
             <div class="inline-center">
               <div class="form-group inline-group">
                 <label for="field-new-name" class="control-label"> Name </label>
