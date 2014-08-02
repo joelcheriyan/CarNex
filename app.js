@@ -16,13 +16,12 @@
 	var app = express();
 	var connect = require('connect');
 	var chatter = require('chatter');
-	
+	var xss = require('node-xss').clean;
 	
 
 	
 	var UserSchema = require('./schemas/user');
-	var db = require('./db');
-	var chatter = require('chatter');
+
 
 
 
@@ -48,13 +47,7 @@
 		next();
 	});
 	
-	
 
-
-	
-	
-	//some inner testing work
-	app.use(connect.bodyParser());
 	//for form submittion security
 	//app.use(express.csrf());
 
@@ -72,10 +65,19 @@
     app.use(app.router);
 	});
 
+
 	// development only
 	if ('development' == app.get('env')) {
 	  app.use(express.errorHandler());
 	}
+	
+	//some inner testing work
+	app.use(connect.bodyParser());
+
+
+
+
+
 
 
 	//detailed functions implementation starts here
@@ -102,15 +104,18 @@
 
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
+
 		
   		res.render('signup.ejs');
 	});
-
-
    	// stores in database. Post is sent from signup.ejs form
-
 	app.post('/signup', routes.signup);
+
+
+
+
 	
+
 	app.get('/dashboard', function(req, res) 
 	{
   		if (req.session.passport.user === undefined){
