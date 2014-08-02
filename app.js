@@ -16,13 +16,12 @@
 	var app = express();
 	var connect = require('connect');
 	var chatter = require('chatter');
-	
+	var xss = require('node-xss').clean;
 	
 
 	
 	var UserSchema = require('./schemas/user');
-	var db = require('./db');
-	var chatter = require('chatter');
+
 
 
 
