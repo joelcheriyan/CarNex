@@ -56,14 +56,14 @@
 	//some inner testing work
 	app.use(connect.bodyParser());
 	//for form submittion security
-	app.use(express.csrf());
+	//app.use(express.csrf());
 
-	app.use(function(req, res, next){
-		console.log(req.csrfToken());
-    	res.locals.token = req.csrfToken();
-    	next();
-  	});
-
+	// app.use(function(req, res, next){
+	// 	console.log(req.session._csrf);
+ //    	res.locals.token = req.session._csrf;
+ //    	next();
+ //  	});
+ //<input type="hidden", name="_csrf", value= <%= token%> >
 
 
 	//errors for invaild URL
@@ -103,7 +103,7 @@
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
 		
-  		res.render('signup.ejs', {token: req.session._csrf});
+  		res.render('signup.ejs');
 	});
 
 
