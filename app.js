@@ -27,6 +27,9 @@
 
 	// all environments
 	app.set('port', process.env.PORT || 3000);
+	//for compressing the files 
+	app.use(express.compress());
+
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'ejs');
 	app.use(express.favicon());
@@ -46,7 +49,6 @@
 		res.set('carnex', 'carnex');
 		next();
 	});
-	
 
 	//for form submittion security
 	app.use(express.csrf());
@@ -195,16 +197,13 @@
 		console.log('connected');
 		socket.username = app.get('client');
 		console.log('ok' + socket.username);
-		
-		
+	
 		chatter.connect_chatter
   		({
     		socket: socket,
     		username: socket.username
   		});
-		
-		
-		
+
 	});
 	
 	
