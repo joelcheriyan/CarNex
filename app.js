@@ -49,17 +49,16 @@
 	
 
 	//for form submittion security
-	//app.use(express.csrf());
+	app.use(express.csrf());
 
-	// app.use(function(req, res, next){
-	// 	console.log(req.session._csrf);
- //    	res.locals.token = req.session._csrf;
- //    	next();
- //  	});
- //<input type="hidden", name="_csrf", value= <%= token%> >
+	app.use(function(req, res, next){
+    	res.locals.token = req.csrfToken();
+    	next();
+  	});
 
 
-	//errors for invaild URL
+
+
 	app.configure(function () {
     app.use(express.static(__dirname + '/public'));
     app.use(app.router);
@@ -71,12 +70,6 @@
 	  app.use(express.errorHandler());
 	}
 	
-	//some inner testing work
-	app.use(connect.bodyParser());
-
-
-
-
 
 
 
@@ -187,13 +180,6 @@
 	app.get('/*', routes.error);
 	
 	
-	
-
-
-
-
-
-
 
 	var server = http.createServer(app);
 	

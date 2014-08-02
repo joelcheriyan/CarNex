@@ -72,6 +72,7 @@
 
       <!-- This part is a form which the user fills in other to contact CarNex's administrators. -->
       <form role="form" id="contact-form"action="/contact" method="post">
+        <input type= "hidden", name= "_csrf", value= <%= token %>>
         <div class="form-group">
           <label for="field-name" class="control-label">Name</label>
 

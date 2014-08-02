@@ -38,6 +38,7 @@
 
             <li>
                <form class="form-inline" role="form" action="/personalprofile" method="get"> 
+                 <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn">View Profile</button>
               </form>   
             </li>
@@ -49,6 +50,7 @@
 
             <li>
                 <form class="form-inline" role="form" action="/createpost" method="get">
+                 <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn" >Create a Post</button>
                 </form>
             </li>
@@ -60,6 +62,7 @@
 
             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
+                 <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
               </form>
             </li>
@@ -88,6 +91,7 @@
         <p>Search for a trip?</p>
 	<%});%>
         <form class="form-inline" role="form" action="/postsearch" method="post">
+           <input type= "hidden", name= "_csrf", value= <%= token %>>
           <div class="form-group">
             <label class="sr-only" for="field-from">Leaving From</label>
             <input name="from" type="text" id="field-from" value="" class="form-control" placeholder="Leaving From">
@@ -166,6 +170,7 @@
           <div class="panel-footer">
             <p class="pull-left">
               <form role="form" class ="form-inline" action="/profile" method="post">
+              <input type= "hidden", name= "_csrf", value= <%= token %>>
               <input name = "username" type="hidden" value = <%= item.username %>>
                 <button class="btn btn-info" title="Profile" type="submit" >
                   <span class="glyphicon glyphicon-user"></span>
@@ -174,12 +179,13 @@
               </form>
           
             <form role="form" class ="form-inline" action="/map" method="post">
+            <input type= "hidden", name= "_csrf", value= <%= token %>>
             <input name = "sLoc_lat" type="hidden" value = <%= item.sLoc_lat %>>
             <input name = "sLoc_lon" type="hidden" value = <%= item.sLoc_lon %>>
             <input name = "dest_lat" type="hidden" value = <%= item.dest_lat %>>
             <input name = "dest_lon" type="hidden" value = <%= item.dest_lon %>>
              
-	 <button class="btn btn-success" title="Map">
+	          <button class="btn btn-success" title="Map">
                 <span class="glyphicon glyphicon-globe"></span>
                 <span class="hidden-xs">Map</span>
               </button>
@@ -187,6 +193,7 @@
 
 
 	          <form role="form" class ="form-inline" action="/save" method="post">
+              <input type= "hidden", name= "_csrf", value= <%= token %>>
           	  <input name = "from" type="hidden" value = <%= item.from %>>
 	 	          <input name = "to" type="hidden" value = <%= item.to %>>
 		          <input name = "descript" type="hidden" value = <%= item.description %>>
@@ -201,6 +208,7 @@
 	          </form>
 
             <form role="form" class ="form-inline">
+             <input type= "hidden", name= "_csrf", value= <%= token %>>
               <button class="btn btn-danger" title="Report">
                 <span class="glyphicon glyphicon-ban-circle"></span>
                 <span class="hidden-xs">Report</span>

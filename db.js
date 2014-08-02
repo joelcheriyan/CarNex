@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://lichuanr:Richard6@ds061199.mongolab.com:61199/carnex');
 
-mongoose.connect('mongodb://Jason:123@ds053439.mongolab.com:53439/carnex');
 
 module.exports = mongoose.connection;

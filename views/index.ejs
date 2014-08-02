@@ -40,6 +40,7 @@
 
             <li>
               <form class="form-inline" role="form" action="/signup" method="get">
+                 <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn" >Sign Up</button>
               </form>
             </li>
@@ -51,6 +52,7 @@
 
             <li>
               <form class="form-inline" role="form" action="/dashboard" method="get">
+                 <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn" > Dashboard(after login)
                 </button>
               </form>
