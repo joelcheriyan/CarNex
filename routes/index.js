@@ -33,8 +33,6 @@ module.exports = function(){
 	
 		bcrypt.hash(req.body.password, null, null, function(err, hash){
 			
-			
-			
 	
 			// create a record with the submitted information accroding to the schema of the user entry in the database	
 			var record = new UserSchema({
@@ -67,6 +65,8 @@ module.exports = function(){
 	};
 
 
+
+//dashboard page
 
 
 	functions.postsearch = function(req, res) {

@@ -19,10 +19,10 @@
 	var xss = require('node-xss').clean;
 	
 
-	
+	//var uniqueValidator = require('mongoose-unique-validator');
 	var UserSchema = require('./schemas/user');
 
-
+	
 
 
 	// all environments
