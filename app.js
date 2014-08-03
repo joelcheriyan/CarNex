@@ -54,8 +54,8 @@
 	app.use(express.csrf());
 
 	app.use(function(req, res, next){
-    	res.locals.token = req.csrfToken();
-    	next();
+    		res.locals.token = req.csrfToken();
+    		next();
   	});
 
 
@@ -76,6 +76,7 @@
 
 
 	//detailed functions implementation starts here
+	
 	app.get('/login', function(req, res) {
 	  	res.render('index.ejs');
 	});
