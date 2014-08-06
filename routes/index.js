@@ -3,6 +3,7 @@
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
 var ContactSchema = require('../schemas/contact');
+var ReportSchema = require('../schemas/report');
 var bcrypt = require('bcrypt');
 var xss = require('node-xss').clean;
 var twilio = require('twilio');
@@ -120,7 +121,7 @@ module.exports = function(){
 				// render the current user's dashboard page with the post results 
 				else {
 					res.render('dashboard.ejs', {
-					posts:posts,
+					posts: posts,
 					user: user
 					});					
 				}
@@ -442,24 +443,23 @@ module.exports = function(){
 
 
 
-//contact us page
-
+	//contact us page
 	functions.contact = function(req, res) {
 	//this function updates a change to a user's settings
 
 		// update the database entry for the current user's information
 		var record = new ContactSchema({
-						name: req.body.name,
-						email: req.body.email,
-						message: req.body.message 
-									});
+			name: req.body.name,
+			email: req.body.email,
+			message: req.body.message 
+		});
 		record.save(function(err) {
 				if (err) {
 					console.log(err);
 					res.status(500).json({status: 'failure'});
 				}
 				else {
-					res.redirect('/dashboard');
+					res.redirect('/login');
 				} 
 		});		
 	};
@@ -479,6 +479,62 @@ module.exports = function(){
 		});
 	};
 
+//report user
+	functions.report = function(req, res)
+	{
+		var record = new ReportSchema({
+			username: req.session.passport.user,
+			reporting_name: req.body.username
+		});
+		record.save(function(err) {
+		if (err) {
+				console.log(err);
+				res.status(500).json({status: 'failure'});
+		}
+		else {
+				res.redirect('/dashboard');
+		} 
+		});		
+	};
+
+	functions.report2 = function(req, res) {
+	//this function queries for a user's information and renders the public profile	page
+	
+		var record = new ReportSchema({
+			username: req.session.passport.user,
+			reporting_name: req.body.username
+		});
+		record.save(function(err) {
+		if (err) {
+				console.log(err);
+				res.status(500).json({status: 'failure'});
+		}
+		else {
+			if(req.body.username != undefined) {
+
+			//query for the user whose page we would like to view
+			UserSchema.find({username: req.body.username})
+			.exec(function(err, user) {
+				if (err) {
+				res.status(500).json({status: 'failure'});
+				} 
+				else {
+
+					console.log(user[0].lat);
+					res.render('profile.ejs', {
+					user: user,
+					lat: user[0].lat,
+					lon: user[0].lon
+					});					
+				}
+		
+				});
+			}
+		} 
+		});	
+
+		
+	};
 
 
 

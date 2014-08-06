@@ -181,6 +181,10 @@
 	});
 	
 
+	//for reporting other user
+	app.post('/report', routes.report);
+
+	app.post('/report2', routes.report2);
 	//for not found URL
 	app.get('/*', routes.error);
 	
