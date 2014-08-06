@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-  
   	<title>CarNex readme</title>
     <meta charset="utf-8">
    
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+	    <link href="public/css/custom.css" rel="stylesheet">
+	    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -89,241 +90,261 @@
     </script>
     
     <script type="text/javascript">
-  google.load("visualization", "1", {packages:["corechart"]});
-  google.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Year', 'Previous (A2)', 'Improved (A3)'], 
-      ['5 sec',  100,      100],
-      ['10 sec',  200,      115],
-      ['15 sec',  300,       140],
-      ['20 sec',  400,      160],
-      ['25 sec',  500,      145],
-      ['30 sec',  600,      180],
-      ['35 sec',  700,      240],
-      ['40 sec',  800,      199],
-      ['45 sec',  900,      280],
-      ['50 sec',  1000,     259],
-      ['55 sec',  1100,     310],
-      ['1.0 min', 1200,      295]
-    ]);
-
-    var options = {
-      title: 'Testing',
-/*           curveType: 'function', */
-    };
-
-    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-    chart.draw(data);
-  }
-</script>
+	  google.load("visualization", "1", {packages:["corechart"]});
+	  google.setOnLoadCallback(drawChart);
+	  function drawChart() {
+	    var data = google.visualization.arrayToDataTable([
+	      ['Year', 'Previous (A2)', 'Improved (A3)'], 
+	      ['5 sec',  100,      100],
+	      ['10 sec',  200,      115],
+	      ['15 sec',  300,       140],
+	      ['20 sec',  400,      160],
+	      ['25 sec',  500,      145],
+	      ['30 sec',  600,      180],
+	      ['35 sec',  700,      240],
+	      ['40 sec',  800,      199],
+	      ['45 sec',  900,      280],
+	      ['50 sec',  1000,     259],
+	      ['55 sec',  1100,     310],
+	      ['1.0 min', 1200,      295]
+	    ]);
+	
+	    var options = {
+	      title: 'Testing',
+	    };
+	
+	    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+	    chart.draw(data);
+	  }
+	</script>
 
   </head>
 
-
   <body>
+  
     <h1>CSC 309 A3 Report</h1>
-<h4>1, Introduction</h4>
-<p>As the demand for timely and cost-effective transportation increases over the years, more and more people are willing to carpool. Carpooling service is becoming very popular among individuals and there is a huge market for it.</p>
-<p>
+    <h3>1, Introduction</h3>
+	<p>As the demand for timely and cost-effective transportation increases over the years, more and more people are willing to carpool. Carpooling service is becoming very popular among individuals and there is a huge market for it.</p>
+	<p>
+	Our objective is to build a convenient, standardized and systematic carpooling network in Canada to help Canadians find accessible, affordable alternatives to their daily transportation methods.
+	</p>
+	<p>
+	We strongly believe that some of the advantages of using CarNex includes:
+	<ul>
+		<li>Reduced traveling expenses</li>
+		<li>More efficient, less time-consuming transportation</li>
+		<li>Reduced energy consumption</li>
+		<li>It is friendliness to the environment</li>
+	</ul>
+	
+	<h3>2, Team Description</h3>
+	
+	<!-- Richard's information. -->
+	<p>2.1 <strong>Chuanrui Li</strong> is responsible for organizing the team to detailed development plan and deadlines for each task. Furthermore, he also focus on both front-end and  back-end development. For A3, he works on both security measures and performance improvement.
+	</p>
+	<p>Bio:</p>
+	        <div class="img-bio pull-right" id="richard"></div>
+	
+	          <p>Hello, my name is Chuanrui Li. As an electrical and computer engineering student, I have long been interested in both software and hardware development industry and have several years’ experience of programming and project design.</p>
+	      </div>
+	<p>What I have learned:</p>
+	<p>I learned how to use effective strategies to deal with a difficult situation, one member drop course and one member left in our team. By creating a standard and detailed roadmap, all the team members will have a clear plan for next step and increase our website development speed. Meanwhile, our team applied social computing skills to solve the hardest problems together and share individual progress efficiently.
+	</p>
+	
+	<!-- Joel's information. -->
+	<p>2.2 <strong>Joel Cheriyan</strong> is primarily focusing on back-end development and database management. For A3, he works on security measures and A2 server side improvement.
+	</p>
+	<p>Bio:</p>
+    <div class="img-bio pull-left" id="joel"></div>
 
-Our objective is to build a convenient, standardized and systematic carpooling network in Canada to help Canadians find accessible, affordable alternatives to their daily transportation methods.
-</p>
-<p>
-We strongly believe that some of the advantages of using CarNex includes:
-<ul>
-<li>Reduced traveling expenses</li>
-<li>More efficient, less time-consuming transportation</li>
-<li>Reduced energy consumption</li>
-<li>It is friendliness to the environment</li>
-</ul>
-
-<p><strong>2, Team Description</strong></p>
-<p>2.1 <strong>Chuanrui Li</strong> is responsible for organizing the team to detailed development plan and deadlines for each task. Furthermore, he also focus on both front-end and  back-end development. For A3, he works on both security measures and performance improvement.
-</p>
-<p>What I have learned:</p>
-<p>I learned how to use effective strategies to deal with a difficult situation, one member drop course and one member left in our team. By creating a standard and detailed roadmap, all the team members will have a clear plan for next step and increase our website development speed. Meanwhile, our team applied social computing skills to solve the hardest problems together and share individual progress efficiently.
-</p>
-<p>
-2.2 <strong>Joel</strong> is primarily focusing on back-end development and database management. For A3, he works on security measures and A2 server side improvement.
-</p>
-<p>
-2.3 <strong>Chidinma Nwaka</strong> is working on the initial design and research about different APIs. For A3, he works on the chart.js and provides accurate diagrams for load testing 
-</p>
-<p>What I have learned:</p>
-<p>I've learnt </p>
-
-
-
-
-
- <h4>3, Project Development Roadmap </h4>
-
-    <table border="1">
-      <tr>
-         <th>Task</th>
-    <th>Hours Planned</th>
-    <th>Team Member Assigned</th>
-    <th>Deadline Date</th>
-        <th>Hours Taken</th>
-    <th>Team Member Completed</th>
-    <th>Completed date</th>
-      </tr>
-
-      <tr>
-        <td>Security password encryption</td>
-        <td>-</td>
-    <td>Joel</td>
-        <td>July 29</td>
-    <td>5</td>
-        <td>Joel</td>
-    <td>July 29</td>
-      </tr>
-
-      <tr>
-        <td>A2 chatting system improvement</td>
-        <td>-</td>
-    <td>Joel</td>
-        <td>July 30</td>
-    <td>3</td>
-        <td>Joel</td>
-    <td>July 30</td>
-      </tr>
-    <tr>
-        <td>Performance Improvement by using heroku cloud service</td>
-        <td>5</td>
-    <td>Richard</td>
-        <td>July 29</td>
-    <td>6</td>
-        <td>Richard</td>
-    <td>July 29</td>
-      </tr>
-
-      <tr>
-        <td>Performance and security testing</td>
-        <td>3</td>
-    <td>Richard</td>
-        <td>July 30</td>
-    <td>3</td>
-        <td>Joel</td>
-    <td>July 29</td>
-      </tr>
-
-      <tr>
-        <td>Chart.js diagrams</td>
-        <td>6</td>
-    <td>Chidi</td>
-        <td>Aug 2</td>
-    <td></td>
-        <td></td>
-    <td></td>
-      </tr>
-    <tr>
-        <td>XSS security improvement</td>
-        <td>6</td>
-    <td>Joel</td>
-        <td>Aug 1</td>
-    <td>-</td>
-        <td>-</td>
-    <td>-</td>
-      </tr>
-
-
-
-      <tr>
-        <td>CSRF security improvement</td>
-        <td>6</td>
-    <td>Richard</td>
-        <td>Aug 1</td>
-    <td>7</td>
-        <td>Richard</td>
-    <td>Aug 1</td>
-      </tr>
-
-      <tr>
-        <td>GZip performance improvement</td>
-        <td>4</td>
-    <td>Richard</td>
-        <td>Aug 1</td>
-    <td>3</td>
-        <td>Richard</td>
-    <td>Aug 2</td>
-      </tr>
-
-      <tr>
-        <td>js, css file minify and img size reduction</td>
-        <td>1</td>
-    <td>Richard</td>
-        <td>Aug 3</td>
-    <td>2</td>
-        <td>Joel</td>
-    <td>-</td>
-      </tr>
-     <tr>
-        <td>The input validation</td>
-        <td>8</td>
-    <td>Joel</td>
-        <td>Aug 3</td>
-    <td>5</td>
-        <td>Joel</td>
-    <td>-</td>
-      </tr>
-   
-      <tr>
-        <td>report function</td>
-        <td>3</td>
-    <td>Chidi</td>
-        <td>July 14</td>
-    <td>3</td>
-        <td>Joel and Chidi</td>
-    <td>July 25</td>
-      </tr>
-	 <tr>
-	        <td>The final report</td>
-	        <td>6</td>
-	    <td>Chidi, Joel, and Richard</td>
-	        <td>Aug 3</td>
-	    <td>8</td>
-	        <td>Chidi, Joel, and Richard</td>
-	    <td>7</td>
+    <div class="media-body">
+      <p>I'm currently a student in the Engineering Science program at the University of Toronto. I'm very passionate about technology and I'm always excited by new gadgets and ideas.</p>
+    </div>
+	        
+	<p>What I have learned:</p>
+	
+	<!-- Chidi's information -->
+	2.3 <strong>Chidinma Nwaka</strong> is working on the initial design and research about different APIs. For A3, he works on the chart.js and provides accurate diagrams for load testing 
+	</p>
+	<p>Bio:</p>
+	
+    <div class="img-bio pull-right" id="chidi"></div>
+      <p> I just started a hobby which is programming on the web and I love it. My dream is to become a Sunday school teacher, successful entrepreneur and a philanthropist. Aside from computer science, I enjoy learning about how businesses start up and operate.
+      </p>
+    </div>
+	<p>What I have learned:</p>
+	<p>I've studied, learnt and gained experience on how to build a sophisticated modern day web application from the scratch till completion. I learnt lots of new materials which include html5, CSS3, JavaScript, Nodejs, Mongodb,and I've also gained a huge insight of how databases and server side operates. More importantly, I learnt are how to make a web more efficient and scalable to multiply devices. I believe that this course has now made me a better computer scientist and I'm happy I took it.
+	</p>
+	
+	<!-- Table showing the project development. -->
+	 <h3>3, Project Development Roadmap </h3>
+	
+	    <table border="1">
+	      <tr>
+	         <th>Task</th>
+	    <th>Hours Planned</th>
+	    <th>Team Member Assigned</th>
+	    <th>Deadline Date</th>
+	        <th>Hours Taken</th>
+	    <th>Team Member Completed</th>
+	    <th>Completed date</th>
 	      </tr>
-
-    </table>
-
-<h4>4, A3 duties</h4>
-<p>For A3, Chuanrui Li has done the performance and security testing, integrated local git repository with heroku cloud service, implemented CSRL form submission security, inserted GZip into network protocol to minimize the file size during transmission.
-</p>
-<p>Joel modifies existing errors in chatting system from A2, adds user password encryption, inserts XSS to prevent malicious javascript submissions from attackers and implemented username input validation as a firework between backend and database.
-</p>
-<p>Chidi draws pie chart and line chart to indicate the performance improvement between A2 and A3. More importantly, he helps Chuanrui Li to edit final report and readme file.
-</p>
-
-<div class="piechart col-md-9" id="piechart1"></div>
+	
+	      <tr>
+	        <td>Security password encryption</td>
+	        <td>-</td>
+	    <td>Joel</td>
+	        <td>July 29</td>
+	    <td>5</td>
+	        <td>Joel</td>
+	    <td>July 29</td>
+	      </tr>
+	
+	      <tr>
+	        <td>A2 chatting system improvement</td>
+	        <td>-</td>
+	    <td>Joel</td>
+	        <td>July 30</td>
+	    <td>3</td>
+	        <td>Joel</td>
+	    <td>July 30</td>
+	      </tr>
+	    <tr>
+	        <td>Performance Improvement by using heroku cloud service</td>
+	        <td>5</td>
+	    <td>Richard</td>
+	        <td>July 29</td>
+	    <td>6</td>
+	        <td>Richard</td>
+	    <td>July 29</td>
+	      </tr>
+	
+	      <tr>
+	        <td>Performance and security testing</td>
+	        <td>3</td>
+	    <td>Richard</td>
+	        <td>July 30</td>
+	    <td>3</td>
+	        <td>Joel</td>
+	    <td>July 29</td>
+	      </tr>
+	
+	      <tr>
+	        <td>Chart.js diagrams</td>
+	        <td>6</td>
+	    <td>Chidi</td>
+	        <td>Aug 2</td>
+	    <td></td>
+	        <td></td>
+	    <td></td>
+	      </tr>
+	    <tr>
+	        <td>XSS security improvement</td>
+	        <td>6</td>
+	    <td>Joel</td>
+	        <td>Aug 1</td>
+	    <td>-</td>
+	        <td>-</td>
+	    <td>-</td>
+	      </tr>
+	      
+	      <tr>
+	        <td>CSRF security improvement</td>
+	        <td>6</td>
+	    <td>Richard</td>
+	        <td>Aug 1</td>
+	    <td>7</td>
+	        <td>Richard</td>
+	    <td>Aug 1</td>
+	      </tr>
+	
+	      <tr>
+	        <td>GZip performance improvement</td>
+	        <td>4</td>
+	    <td>Richard</td>
+	        <td>Aug 1</td>
+	    <td>3</td>
+	        <td>Richard</td>
+	    <td>Aug 2</td>
+	      </tr>
+	
+	      <tr>
+	        <td>Js, css file minify and img size reduction</td>
+	        <td>1</td>
+	    <td>Richard</td>
+	        <td>Aug 3</td>
+	    <td>2</td>
+	        <td>Joel</td>
+	    <td>-</td>
+	      </tr>
+	     <tr>
+	        <td>The input validation</td>
+	        <td>8</td>
+	    <td>Joel</td>
+	        <td>Aug 3</td>
+	    <td>5</td>
+	        <td>Joel</td>
+	    <td>-</td>
+	      </tr>
+	   
+	      <tr>
+	        <td>Report function</td>
+	        <td>3</td>
+	    <td>Richard</td>
+	        <td>July 14</td>
+	    <td>3</td>
+	        <td>Richard and Chidi</td>
+	    <td>July 25</td>
+	      </tr>
+		 <tr>
+		        <td>The final report</td>
+		        <td>6</td>
+		    <td>Chidi, Joel, and Richard</td>
+		        <td>Aug 3</td>
+		    <td>8</td>
+		        <td>Chidi, Joel, and Richard</td>
+		    <td>7</td>
+		      </tr>
+	
+	    </table>
+	
+	<h3>4, A3 duties</h3>
+	<p>For A3, Chuanrui Li has done the performance and security testing, integrated local git repository with heroku cloud service, implemented CSRL form submission security, inserted GZip into network protocol to minimize the file size during transmission.
+	</p>
+	<p>Joel modifies existing errors in chatting system from A2, adds user password encryption, inserts XSS to prevent malicious javascript submissions from attackers and implemented username input validation as a firework between backend and database.
+	</p>
+	<p>Chidi draws pie chart and line chart to indicate the performance improvement between A2 and A3. More importantly, he helps Chuanrui Li to edit final report and readme file.
+	</p>
+	
+	    
+	<h3>5, Report for the Load/Stress Testing </h3>
+	<p>From the load testing result, the html loading percentage is dramatically increasing because we minify all the css, javascript and image file and their percentage is decreasing. In this case, the loading speed incremented by 30% - 40%. Specially for Google map API, the minified javascript increase get command speed a lot.
+	</p>
+	
+	<!-- The diagrams of the pie chart. -->
+	<div class="piechart col-md-9" id="piechart1"></div>
     <div class="piechart" id="piechart2"></div>
     <div class="piechart" id="piechart3"></div>
     <div class="piechart" id="piechart4"></div>
-    
-
-    
-<h4>5, Report for the Load/Stress Testing </h4>
-<p>From the load testing result, the html loading percentage is dramatically increasing because we minify all the css, javascript and image file and their percentage is decreasing. In this case, the loading speed incremented by 30% - 40%. Specially for Google map API, the minified javascript increase get command speed a lot.
-</p>
-<p>Gzip compresses files between client and server side communication, which saves more than 70% of origin page size.<br>
-Uncompressed Page Size: 5.1 KB<br>
-Compressed Page Size: 1.7 KB<br>
-Savings: 66.1%
-</p>    
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
-<h4>6, Report for the Security Measures</h4>
-<p>6.1 CSRF (Cross-site Request Forgery) security improvement<br>
-The CSRF middleware enables that CSRF token inserted in every single form submission. When the user do the POST request, the CSRF middleware will intercept the request and compare _csrf parameter within the form submission with the value the CSRF middleware generated. If the attacker have invalid  _csrf parameter, the CSRF middleware will return the HTTP 403 Forbidden status.
-</p>
-<p>In this case, the attacker cannot access the user submission or provide some fake data into the database. However, the database will store many sessions for all submissions, which needs a large memory storage when user base increases.
-</p>
-<h4> 6.2 XSS security improvement</h4>
-
-<h4> 6.3 password encryption security improvement</h4>
-
-<p>7, Flows/Limitation and Improvement of Project<br>
-The carpooling is not convenient and fast. People may have different departure date and destinations. It is hard to for passengers to find a matching driver immediately. There are three approaches that we have made to avoid these limitations. First, all the users will have their own commonly commute area. Then people can easily view other people’s profile and find a matching pair. Second, we create a real time chatting room for all the users, once a request has been sent, all the online users can see it and give response to that request at once, which increases opportunities to find a carpooling on time. Third, we also have a search board for users to find relevant trips and check the map for detailed route information.
-</p>
+	    
+	
+	<p>Gzip compresses files between client and server side communication, which saves more than 70% of origin page size.<br>
+	Uncompressed Page Size: 5.1 KB<br>
+	Compressed Page Size: 1.7 KB<br>
+	Savings: 66.1%
+	</p>    
+	<div id="chart_div" style="width: 900px; height: 500px;"></div>
+	<h3>6, Report for the Security Measures</h3>
+	<p>6.1 CSRF (Cross-site Request Forgery) security improvement</p>
+	<p>The CSRF middleware enables that CSRF token inserted in every single form submission. When the user do the POST request, the CSRF middleware will intercept the request and compare _csrf parameter within the form submission with the value the CSRF middleware generated. If the attacker have invalid  _csrf parameter, the CSRF middleware will return the HTTP 403 Forbidden status.
+	</p>
+	<p>In this case, the attacker cannot access the user submission or provide some fake data into the database. However, the database will store many sessions for all submissions, which needs a large memory storage when user base increases.
+	</p>
+	<p> 6.2 XSS security improvement</p>
+	
+	<p> 6.3 password encryption security improvement</p>
+	
+	<h3>7, Flows/Limitation and Improvement of Project</h3>
+	<p>The carpooling is not convenient and fast. People may have different departure date and destinations. It is hard to for passengers to find a matching driver immediately. There are three approaches that we have made to avoid these limitations. First, all the users will have their own commonly commute area. Then people can easily view other people’s profile and find a matching pair. Second, we create a real time chatting room for all the users, once a request has been sent, all the online users can see it and give response to that request at once, which increases opportunities to find a carpooling on time. Third, we also have a search board for users to find relevant trips and check the map for detailed route information.
+	</p>
+</body>
