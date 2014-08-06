@@ -87,37 +87,63 @@
         chart.draw(data4, options2);
       }
     </script>
-    
+     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
     <script type="text/javascript">
-  google.load("visualization", "1", {packages:["corechart"]});
-  google.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Year', 'Previous (A2)', 'Improved (A3)'], 
-      ['5 sec',  100,      100],
-      ['10 sec',  200,      115],
-      ['15 sec',  300,       140],
-      ['20 sec',  400,      160],
-      ['25 sec',  500,      145],
-      ['30 sec',  600,      180],
-      ['35 sec',  700,      240],
-      ['40 sec',  800,      199],
-      ['45 sec',  900,      280],
-      ['50 sec',  1000,     259],
-      ['55 sec',  1100,     310],
-      ['1.0 min', 1200,      295]
-    ]);
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        // var data = google.visualization.arrayToDataTable([
+        //   ['time', 'A3', 'A2'],
+        //   ['5 sec',  50, 160],
+        //   ['10 sec',  100, 170],
+        //   ['20 sec',  110, 200],
+        //   ['30 sec',  90, 250]
+        // ]);
 
-    var options = {
-      title: 'Testing',
-/*           curveType: 'function', */
-    };
+        // var options = {
+        //   title: 'Performance testing',
+        //   legend: { position: 'bottom' },
+        //   //vAxis: { ticks: [{v:32, f:'thirty two'}, {v:64, f:'sixty four'}] },
+        //   vAxis: { ticks: [{v:50, f:'50ms'}, {v:100, f:'100ms'}, {v:150, f:'150ms'}, {v:200, f:'200ms'}, {v:250, f:'250ms'}] },
+        //   series:{2:{targetAxisIndex:1}}, vAxes:{1:{title:'Losses', textStyle:{color: 'red'}, ticks: [{v:50, f:'50ms'}, {v:100, f:'100ms'}, {v:150, f:'150ms'}, {v:200, f:'200ms'}, {v:250, f:'250ms'}]}}
+        // };
+        var data = google.visualization.arrayToDataTable([
+        ['time', 'A2 response time', 'A3 response time', 'users'],
+         [ "5 sec", 20,  21, 0], [ "10 sec", 33, 24, 25],  
+         [ "15 sec", 45, 30, 50], [ "20 sec",  53, 32, 75],  
+         [ "25 sec", 53, 32, 100], [ "30 sec", 70, 42, 125],  
+         [ "35 sec", 152, 39, 150], [ "40 sec", 201, 53, 175],  
+         [ "45 sec", 239, 56, 200], [ "50 sec", 313, 100, 225], 
+         [ "55 sec", 350, 93, 250], [ "60 sec", 297, 78, 275], 
+        ]);
 
-    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
-    chart.draw(data);
-  }
-</script>
 
+        var options = {
+          title: 'The performance testing',
+          hAxis: {showTextEvery: 1},
+          vAxes: {0: {
+                      title: "Responce Time",
+                      ticks: [{v:50, f:'50ms'}, {v:100, f:'100ms'}, {v:150, f:'150ms'}, {v:200, f:'200ms'}, {v:250, f:'250ms'}, {v:300, f:'300ms'}, {v:350, f:'350ms'}],
+                      
+                  },
+                      
+                  1: {
+                      title: "Users",
+                      gridlines: {color: 'transparent'},
+                     },
+                  },
+          series: {0: {targetAxisIndex:0},
+                   1:{targetAxisIndex:0},
+                   2:{targetAxisIndex:1},
+                  },
+          colors: ["red", "green", "black"],
+          chartArea:{left:100,top:100, width:500, height:150},
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+    </script>
   </head>
 
 
@@ -313,7 +339,7 @@ Uncompressed Page Size: 5.1 KB<br>
 Compressed Page Size: 1.7 KB<br>
 Savings: 66.1%
 </p>    
-    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div" style="width: 700px; height: 500px;"></div>
 <h4>6, Report for the Security Measures</h4>
 <p>6.1 CSRF (Cross-site Request Forgery) security improvement<br>
 The CSRF middleware enables that CSRF token inserted in every single form submission. When the user do the POST request, the CSRF middleware will intercept the request and compare _csrf parameter within the form submission with the value the CSRF middleware generated. If the attacker have invalid  _csrf parameter, the CSRF middleware will return the HTTP 403 Forbidden status.
