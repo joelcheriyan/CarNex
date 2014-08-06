@@ -96,6 +96,7 @@
 
 	});
 	app.post('/createpost', routes.createpost);
+	
 
 
 	//registration form to the user database
@@ -106,7 +107,8 @@
 	});
    	// stores in database. Post is sent from signup.ejs form
 	app.post('/signup', routes.signup);
-
+	
+	app.post('/verify', routes.verify);
 
 
 

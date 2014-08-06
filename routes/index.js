@@ -5,6 +5,7 @@ var PostsSchema = require('../schemas/posts');
 var ContactSchema = require('../schemas/contact');
 var bcrypt = require('bcrypt');
 var xss = require('node-xss').clean;
+var twilio = require('twilio');
 
 module.exports = function(){
 
@@ -53,17 +54,44 @@ module.exports = function(){
 			record.save(function(err) {
 				if (err) {
 					console.log(err);
-					res.status(500).json({status: 'failure'}); // if an error occurs report a failure
+					//res.status(500).json({status: 'failure'}); // if an error occurs report a failure
+					res.render('signup2.ejs');
 				} 
 			});
 		});
 		
 		//save the records into the database
+	};
+	
+	functions.verify = function(req, res) {
+		
+		// Load the twilio module
+		
+		// Create a new REST API client to make authenticated requests against the twilio
+		var client = new twilio.RestClient('ACadc16280c49b63e42858d56e6f77c5fe', '90e593855e19bed6034db72ff9008b39');
 
+		client.sms.messages.create({
+			to:'+14162774212',
+			from:'+16475575192',
+			body:'ahoy hoy! Testing Twilio and node.js'
+		}, function(error, message) {
 
+    // The "error" variable will contain error information, if any.
+    // If the request was successful, this value will be "falsy"
+    
+			if (!error) {
+    
+				console.log('Success! The SID for this SMS message is:');
+				console.log(message.sid);
+				console.log('Message sent on:');
+				console.log(message.dateCreated);
+			} 
+			else {
+				console.log('Oops! There was an error.');
+			}
+	});
 		
 	};
-
 
 
 //dashboard page
@@ -143,8 +171,8 @@ module.exports = function(){
 			description: xss(req.body.descript),
 			username: req.session.passport.user,
 			counts: 0,
-    			rating: 0,
-    			result: "",
+    		rating: 0,
+    		result: "",
 			sLoc_lat: req.body.sLoc_lat,
 			sLoc_lon: req.body.sLoc_lon,
 			dest_lat: req.body.dest_lat,
@@ -163,12 +191,12 @@ module.exports = function(){
 		});
 		
 		//update the information of the post to the current user's my_post array in the database
-		UserSchema.update({username:req.session.passport.user}, { $push: {my_posts :{
-			from: req.body.from,
-			to: req.body.to,
+		UserSchema.update({username:req.session.passport.user}, { $addToSet: {my_posts :{
+			from:xss(req.body.from),
+			to: xss(req.body.to),
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
-			description: req.body.descript, 
+			description: xss(req.body.descript), 
 			poster: req.session.passport.user
 		}}}).exec(function(err){});
 	};
@@ -314,14 +342,14 @@ module.exports = function(){
 		UserSchema.update({username:req.session.passport.user}, { $pull: {my_posts :{
 												from: req.body.from,
 												to: req.body.to,
-												description: req.body.descript,
+												//description: req.body.descript,
 												poster: req.body.poster
 									}}
-		}).exec(function(err){});
+		}).exec(function(err){ console.log (req.body.descript);});
 
 		
 		// removes the post from the database that corresponds to the specified fields
-		PostsSchema.remove({from:req.body.from, to:req.body.to, description: req.body.descript, username: req.body.poster}, true)
+		PostsSchema.remove({from: req.body.from, to:req.body.to, username: req.body.poster}, true)
 		.exec(function(err, user){
 			if (err) 
 			{
