@@ -23,7 +23,9 @@
           </button>
 
           <!-- This link sends you to the home page. -->
-          <a href="index.html" class="navbar-brand">CarNex</a>
+          <form role="form" action="/login" method="get">
+                <button type="submit" class="navbar-brand">CarNex</button>
+          </form>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar-collapse">
@@ -34,7 +36,6 @@
 
            <!-- This is where the user puts in login or sign-up information. -->
           <ul class="nav navbar-nav navbar-right" id="popover-container">
-            <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
             <li>
              <form class="form-inline" role="form" action="/signup" method="get">
                 <button type="submit" class="btn btn-primary navbar-btn" >Sign Up</button>
@@ -191,6 +192,5 @@
     <!-- Links to our javaScript files. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/login.js"></script>
   </body>
 </html>

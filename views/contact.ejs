@@ -34,8 +34,6 @@
 
            <!-- This is where the user puts in login or sign-up information. -->
           <ul class="nav navbar-nav navbar-right" id="popover-container">
-            <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
-            <li>
              <form class="form-inline" role="form" action="/signup" method="get">
                 <button type="submit" class="btn btn-primary navbar-btn" >Sign Up</button>
             </form>
@@ -72,6 +70,7 @@
 
       <!-- This part is a form which the user fills in other to contact CarNex's administrators. -->
       <form role="form" id="contact-form"action="/contact" method="post">
+        <input type= "hidden", name= "_csrf", value= <%= token %>>
         <div class="form-group">
           <label for="field-name" class="control-label">Name</label>
 

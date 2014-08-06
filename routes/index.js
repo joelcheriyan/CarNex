@@ -3,8 +3,9 @@
 var UserSchema = require('../schemas/user');
 var PostsSchema = require('../schemas/posts');
 var ContactSchema = require('../schemas/contact');
+var ReportSchema = require('../schemas/report');
 var bcrypt = require('bcrypt');
-
+var xss = require('node-xss').clean;
 
 module.exports = function(){
 
@@ -32,16 +33,17 @@ module.exports = function(){
 		
 	
 		bcrypt.hash(req.body.password, null, null, function(err, hash){
+			
 	
 			// create a record with the submitted information accroding to the schema of the user entry in the database	
 			var record = new UserSchema({
-			name: req.body.name, 
-			email: req.body.email,
-			username: req.body.username,
+			name: xss(req.body.name), 
+			email: xss(req.body.email),
+			username: xss(req.body.username),
 			password: hash,
-			phone: req.body.phone,
+			phone: xss(req.body.phone),
 			birthdate: req.body.birthdate,     
-			city: req.body.city,
+			city: xss(req.body.city),
 			lat: req.body.lat,
 			lon: req.body.lon,
 			counts: 0,
@@ -64,6 +66,8 @@ module.exports = function(){
 	};
 
 
+
+//dashboard page
 
 
 	functions.postsearch = function(req, res) {
@@ -89,7 +93,7 @@ module.exports = function(){
 				// render the current user's dashboard page with the post results 
 				else {
 					res.render('dashboard.ejs', {
-					posts:posts,
+					posts: posts,
 					user: user
 					});					
 				}
@@ -133,11 +137,11 @@ module.exports = function(){
   
 		// create a record with the submitted information accroding to the schema of a post entry in the database
   		var record = new PostsSchema({
-			from: req.body.from,
-			to: req.body.to,
+			from: xss(req.body.from),
+			to: xss(req.body.to),
 			startdate: req.body.startdate,
 			returndate: req.body.returndate,
-			description: req.body.descript,
+			description: xss(req.body.descript),
 			username: req.session.passport.user,
 			counts: 0,
     			rating: 0,
@@ -228,6 +232,7 @@ module.exports = function(){
 					user: user,
 					lat: user[0].lat,
 					lon: user[0].lon
+
 				  });					
 				}
 			 });
@@ -395,11 +400,11 @@ module.exports = function(){
 
 		// update the database entry for the current user's information
 		UserSchema.update({username:req.session.passport.user},  {
-			name: req.body.name,
-			username: req.body.username,
+			name: xss(req.body.name),
+			username: xss(req.body.username),
 			password: req.body.password,
-			email: req.body.email,
-			phone: req.body.phone 
+			email: xss(req.body.email),
+			phone: xss(req.body.phone) 
 									})
 		.exec(function(err, user){});
 		
@@ -410,24 +415,23 @@ module.exports = function(){
 
 
 
-//contact us page
-
+	//contact us page
 	functions.contact = function(req, res) {
 	//this function updates a change to a user's settings
 
 		// update the database entry for the current user's information
 		var record = new ContactSchema({
-						name: req.body.name,
-						email: req.body.email,
-						message: req.body.message 
-									});
+			name: req.body.name,
+			email: req.body.email,
+			message: req.body.message 
+		});
 		record.save(function(err) {
 				if (err) {
 					console.log(err);
 					res.status(500).json({status: 'failure'});
 				}
 				else {
-					res.redirect('/dashboard');
+					res.redirect('/login');
 				} 
 		});		
 	};
@@ -447,6 +451,62 @@ module.exports = function(){
 		});
 	};
 
+//report user
+	functions.report = function(req, res)
+	{
+		var record = new ReportSchema({
+			username: req.session.passport.user,
+			reporting_name: req.body.username
+		});
+		record.save(function(err) {
+		if (err) {
+				console.log(err);
+				res.status(500).json({status: 'failure'});
+		}
+		else {
+				res.redirect('/dashboard');
+		} 
+		});		
+	};
+
+	functions.report2 = function(req, res) {
+	//this function queries for a user's information and renders the public profile	page
+	
+		var record = new ReportSchema({
+			username: req.session.passport.user,
+			reporting_name: req.body.username
+		});
+		record.save(function(err) {
+		if (err) {
+				console.log(err);
+				res.status(500).json({status: 'failure'});
+		}
+		else {
+			if(req.body.username != undefined) {
+
+			//query for the user whose page we would like to view
+			UserSchema.find({username: req.body.username})
+			.exec(function(err, user) {
+				if (err) {
+				res.status(500).json({status: 'failure'});
+				} 
+				else {
+
+					console.log(user[0].lat);
+					res.render('profile.ejs', {
+					user: user,
+					lat: user[0].lat,
+					lon: user[0].lon
+					});					
+				}
+		
+				});
+			}
+		} 
+		});	
+
+		
+	};
 
 
 

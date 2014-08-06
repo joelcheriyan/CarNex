@@ -34,6 +34,7 @@
           <ul class="nav navbar-nav navbar-right" id="popover-container">
             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
+                <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
               </form>
             </li>
@@ -63,6 +64,7 @@
           <h2><%=item.username %></h2>
           <p>
             <form role="form" action="/rating" method="post">
+              <input type= "hidden", name= "_csrf", value= <%= token %>>
               <input id="input-21f"  name = "rating" value="0" type="number" class="rating" min=0 max=5 step=0.5 data-size= "sm" >
               <input name = "username" type="hidden" class="form-control" id="username" value = <%= user[0].username %>>
               <div class="form-group">
@@ -87,11 +89,17 @@
         </div>
         
       </div>
-        <button class="btn btn-danger" title="Report">
-          <span class="glyphicon glyphicon-ban-circle"></span>
-          <span class="hidden-xxs">Report</span>
-        </button>
+
+        <form class="form-inline" role="form" action="/report2" method="post">
+             <input type= "hidden", name= "_csrf", value= <%= token %>>
+             <input name = "username" type="hidden" value = <%= item.username %>>
+             <button type="submit" class="btn btn btn-danger" >
+              <span class="glyphicon glyphicon-ban-circle"></span>
+              <span class="hidden-xxs">Report current user</span>
+             </button>
+        </form>
         <form class="form-inline" role="form" action="/postsearch" method="post">
+             <input type= "hidden", name= "_csrf", value= <%= token %>>
              <button type="submit" class="btn btn-info" >
              <span class="glyphicon glyphicon-circle-arrow-left"></span>
              <span class="hidden-xxs">back to dashboard</span>
@@ -113,6 +121,7 @@
 		
              
               <form role="form" action="/comment" method="post">
+                 <input type= "hidden", name= "_csrf", value= <%= token %>>
                     <div class="input-group">
                       <label for="name" class="input-group-addon control-label">Name</label>
                       <input name = "name" type="text" value ="" class="form-control" id="name" placeholder="Name">

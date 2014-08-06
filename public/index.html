@@ -12,74 +12,14 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default" id="top-nav" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-            <span class="sr-only">Toggle Navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-
-          <!-- Click and returns you to itself (home page). -->
-          <a href="#" class="navbar-brand">CarNex</a>
-        </div>
-
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="nav navbar-nav" id="nav-main">
-            <li><a href="about.html">About Us</a></li>
-            <li class="active"><a href="howitworks.html">How it Works</a></li>
-            
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right" id="popover-container">
-            <li><a href="#" id="log-in" data-toggle="popover">Log In</a></li>
-
-              <li>
-             <div class="divider"/>
-            </div>
-            </li>
-
-            <li>
-              <form class="form-inline" role="form" action="/signup" method="get">
-                <button type="submit" class="btn btn-primary navbar-btn" >Sign Up</button>
-              </form>
-            </li>
-
-          <li>
-        <div class="divider"/>
-        </div>
-           </li>
-
-            <li>
-              <form class="form-inline" role="form" action="/dashboard" method="get">
-                <button type="submit" class="btn btn-primary navbar-btn" > Dashboard(after login)
-                </button>
-              </form>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <nav class="navbar navbar-default hidden-xs" id="sub-nav" role="navigation">
-      <div class="container">
-        <div class="navbar-collapse">
-          <ul class="nav navbar-nav nav-right" id="subnav-how">
-            <li><a href="start.html">Getting Started</a></li>
-            <li><a href="safety.html">Safety</a></li>
-            <li><a href="faq.html">Frequently Asked Questions</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
     <div class="jumbotron">
       <div class="container">
         <h1>CarNex</h1>
         <p>People Moving People.</p>
+        <form class="form-inline" role="form" action="/login" method="get">
+                <button type="submit" class="btn btn-lg btn-primary navbar-btn" > start carpooling
+                </button>
+        </form>
       </div>
     </div>
 
@@ -189,6 +129,5 @@
     <!-- Links to our javaScript files. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/login.js"></script>
   </body>
 </html>

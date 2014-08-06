@@ -16,18 +16,20 @@
 	var app = express();
 	var connect = require('connect');
 	var chatter = require('chatter');
-	
+	var xss = require('node-xss').clean;
 	
 
-	
+	//var uniqueValidator = require('mongoose-unique-validator');
 	var UserSchema = require('./schemas/user');
-	var db = require('./db');
-	var chatter = require('chatter');
 
+	
 
 
 	// all environments
 	app.set('port', process.env.PORT || 3000);
+	//for compressing the files 
+	app.use(express.compress());
+
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'ejs');
 	app.use(express.favicon());
@@ -47,38 +49,34 @@
 		res.set('carnex', 'carnex');
 		next();
 	});
-	
-	
 
-
-	
-	
-	//some inner testing work
-	app.use(connect.bodyParser());
 	//for form submittion security
 	app.use(express.csrf());
 
 	app.use(function(req, res, next){
-		console.log(req.csrfToken());
-    	res.locals.token = req.csrfToken();
-    	next();
+    		res.locals.token = req.csrfToken();
+    		next();
   	});
 
 
 
-	//errors for invaild URL
+
 	app.configure(function () {
     app.use(express.static(__dirname + '/public'));
     app.use(app.router);
 	});
 
+
 	// development only
 	if ('development' == app.get('env')) {
 	  app.use(express.errorHandler());
 	}
+	
+
 
 
 	//detailed functions implementation starts here
+	
 	app.get('/login', function(req, res) {
 	  	res.render('index.ejs');
 	});
@@ -102,15 +100,18 @@
 
 	//registration form to the user database
 	app.get('/signup', function(req, res) {
+
 		
-  		res.render('signup.ejs', {token: req.session._csrf});
+  		res.render('signup.ejs');
 	});
-
-
    	// stores in database. Post is sent from signup.ejs form
-
 	app.post('/signup', routes.signup);
+
+
+
+
 	
+
 	app.get('/dashboard', function(req, res) 
 	{
   		if (req.session.passport.user === undefined){
@@ -178,17 +179,14 @@
 	});
 	
 
+	//for reporting other user
+	app.post('/report', routes.report);
+
+	app.post('/report2', routes.report2);
 	//for not found URL
 	app.get('/*', routes.error);
 	
 	
-	
-
-
-
-
-
-
 
 	var server = http.createServer(app);
 	
@@ -204,16 +202,13 @@
 		console.log('connected');
 		socket.username = app.get('client');
 		console.log('ok' + socket.username);
-		
-		
+	
 		chatter.connect_chatter
   		({
     		socket: socket,
     		username: socket.username
   		});
-		
-		
-		
+
 	});
 	
 	

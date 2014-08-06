@@ -35,6 +35,7 @@
           <ul class="nav navbar-nav navbar-right" id="popover-container">
             <li>
               <form class="form-inline" role="form" action="/dashboard" method="get">
+                <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn" > Back to Dashboard
                 </button>
               </form>
@@ -47,6 +48,7 @@
 
             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
+                <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
               </form>
             </li>

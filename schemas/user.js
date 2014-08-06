@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 
-var uniqueValidator = require('mongoose-unique-validator');
+//var uniqueValidator = require('mongoose-unique-validator');
 
 
 
@@ -12,7 +12,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 module.exports = mongoose.model('user', {
 	name: String,
 	email: String,
-	username:  String,
+	username:  {type: String, index: true, unique: true},
 	password: String,
 	phone: String,
 	birthdate: Date,    

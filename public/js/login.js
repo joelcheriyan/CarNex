@@ -1,5 +1,6 @@
 var popoverContent =
     '<form role="form" action="/login" method="post"> \
+      <input type= "hidden", name= "_csrf", value= "token"> \
       <div class="form-group"> \
         <label for="field-username">Username</label> \
         <input name="username" value ="" type="text" class="form-control" id="field-username" placeholder="Username" required> \

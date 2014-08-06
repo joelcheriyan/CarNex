@@ -34,6 +34,7 @@
            <ul class="nav navbar-nav navbar-right" id="popover-container">
             <li>
               <form class="form-inline" role="form" action="/logout" method="get"> 
+                <input type= "hidden", name= "_csrf", value= <%= token %>>
                 <button type="submit" class="btn btn-primary navbar-btn">Log Out</button>
               </form>
             </li>
@@ -79,18 +80,15 @@
       <!-- need to be updated -->      
       <div class="profile-buttons">
           <form class="form-inline" role="form" action="/settings" method="get">
+             <input type= "hidden", name= "_csrf", value= <%= token %>>
              <button type="submit" class="btn btn-success" >
              <span class="glyphicon glyphicon-floppy-open"></span>
              <span class="hidden-xxs">update setting</span>
              </button>
           </form>
 
-          <button class="btn btn-danger" title="Report">
-            <span class="glyphicon glyphicon-ban-circle"></span>
-            <span class="hidden-xxs">Report</span>
-          </button>
-
           <form class="form-inline" role="form" action="/postsearch" method="post">
+             <input type= "hidden", name= "_csrf", value= <%= token %>>
              <button type="submit" class="btn btn-info" >
              <span class="glyphicon glyphicon-circle-arrow-left"></span>
              <span class="hidden-xxs">back to dashboard</span>
@@ -120,12 +118,12 @@
     		            <p>Posted by: <%=item.saved_posts[i].poster %> </p>        
                     <p><%=item.saved_posts[i].description %> </p>
 
-		<form class="form-inline" role="form" action="/unsave" method="post">
-
-		<input type ="hidden" name ="from" id = "from" value =<%=item.saved_posts[i].from %>> 
-		<input type ="hidden" name ="to" id = "to" value =<%=item.saved_posts[i].to %>>
-		<input type ="hidden" name ="descript" id = "descript" value =<%=item.saved_posts[i].description %>>  
-		<input type ="hidden" name ="poster" id = "poster" value =<%=item.saved_posts[i].poster %>> 
+		        <form class="form-inline" role="form" action="/unsave" method="post">
+            <input type= "hidden", name= "_csrf", value= <%= token %>>
+		        <input type ="hidden" name ="from" id = "from" value =<%=item.saved_posts[i].from %>> 
+		        <input type ="hidden" name ="to" id = "to" value =<%=item.saved_posts[i].to %>>
+		        <input type ="hidden" name ="descript" id = "descript" value =<%=item.saved_posts[i].description %>>  
+		        <input type ="hidden" name ="poster" id = "poster" value =<%=item.saved_posts[i].poster %>> 
                 <button type="submit">Unsave Post</button>
                 </form>	
 		<p><br><br></p>
@@ -156,7 +154,7 @@
           
                 <p><%=item.my_posts[i].description %> </p>
 		<form class="form-inline" role="form" action="/delete" method="post">
-
+    <input type= "hidden", name= "_csrf", value= <%= token %>>
 		<input type ="hidden" name ="from" id = "from" value =<%=item.my_posts[i].from %>> 
 		<input type ="hidden" name ="to" id = "to" value =<%=item.my_posts[i].to %>>
 		<input type ="hidden" name ="descript" id = "descript" value =<%=item.my_posts[i].description %>>  
