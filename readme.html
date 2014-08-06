@@ -1,293 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>CarNex - Readme</title>
-     <meta charset="utf-8">
+  
+  	<title>CarNex readme</title>
+    <meta charset="utf-8">
+   
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+	.piechart{
+    	display: inline-block;
+    	width: 49%;
+    	height: 400px;
+	}
+    </style>
+    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+        
+        var data1 = google.visualization.arrayToDataTable([
+	      ['Employee Name', 'Salary'],
+	      ['text/css',   28],
+          ['image',      28],
+          ['text/html',  16],
+          ['javascript', 28],
+	      ],
+	      false);  // 'false' means that the first row contains labels, not data.
+	      
+         var data2 = google.visualization.arrayToDataTable([
+	      ['Employee Name', 'Salary'],
+	      ['text/css',   17],
+          ['image',      20],
+          ['text/html',  40],
+          ['javascript', 23],
+	      ],
+	      false);
+        
+        var data3 = google.visualization.arrayToDataTable([
+	      ['Employee Name', 'Salary'],
+	      ['text/css',   27],
+          ['image',      48],
+          ['text/html',  10],
+          ['javascript', 15],
+	      ],
+	      false); 
+
+        var data4 = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['text/css',   25],
+          ['image',      20],
+          ['text/html',  30],
+          ['javascript', 25],
+        ]);
+        
+        var options = {
+	      title: 'Initial (A2)',
+          is3D: true
+
+        };
+        
+        var options2 = {
+		  title: 'final (A3)',
+		  //text-align: center;
+          is3D: true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart.draw(data1, options);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+        chart.draw(data2, options2);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+        chart.draw(data3, options);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+        chart.draw(data4, options2);
+      }
+    </script>
+    
+    <script type="text/javascript">
+  google.load("visualization", "1", {packages:["corechart"]});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Year', 'Previous (A2)', 'Improved (A3)'], 
+      ['5 sec',  100,      100],
+      ['10 sec',  200,      115],
+      ['15 sec',  300,       140],
+      ['20 sec',  400,      160],
+      ['25 sec',  500,      145],
+      ['30 sec',  600,      180],
+      ['35 sec',  700,      240],
+      ['40 sec',  800,      199],
+      ['45 sec',  900,      280],
+      ['50 sec',  1000,     259],
+      ['55 sec',  1100,     310],
+      ['1.0 min', 1200,      295]
+    ]);
+
+    var options = {
+      title: 'Testing',
+/*           curveType: 'function', */
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+    chart.draw(data);
+  }
+</script>
+
   </head>
 
+
   <body>
-    <h1>CarNex - Readme</h1>
-    <h2>https://github.com/lichuanr/CarNex/tree/master</h2>
-    <p>How to view our site.<br>
-      <ul>
-        <li>Change directory to server directory.
-        <li>Run this command: node app
-        <li>In the browser, navigate to localhost:3000
-      </ul>
-      <img src="./public/img/terminal.jpg" alt="Null">
-    </p><br>
-
-
-  <h2>Documentation:</h2>
-
-  <p>CarNex is a unique web service that allows people to connect and facilitate carpooling. Below is a brief description of the site.</p>
-  <!-- Links to the images to describe our website functionality. -->
-  <img src="./public/img/roadmap1.jpg" height="600" width="100%" alt="Null">
-
-  <p><strong>Homepage:</strong> The CarNex home page is the starting point for the user.  From this page the user can learn more about the CarNex program through several links on the home page. The user can also either sign up to set up a CarNex account or can log in to an existing account.
-  </p>
-  <p><strong>Signup page:</strong> A new user can click the sign up button from the homepage and it will navigate them to the signup page. The user then puts in the personal information needed to create an account and can select a username and enter a password. This information is stored in the user collection of the database. After creating an account, the user will be redirected back to the homepage and can log in. 
-  </p>
-  <p><strong>Login function:</strong> From the homepage the user can click the <q>Log In</q> button and put in their username and password then hits go. If the the username and password are authenticate, this action sends the user to their dashboard. This also creates a new session for the user in the database. If the username and password are not authenticated the user will be sent back to the homepage again.
-  </p>
-  <p><strong>Log out function:</strong> Once at the dashboard page, the user can click the <q>Logout</q> button, to logout of their account. This removes the user&#39;s current session from the database. This is the only way to end the current session. Even when a user closes a window without logging out, the session is still active.
-  </p>
-  <p><strong>Dashboard:</strong> The dashboard page is displayed after login, greeting the user by their username. From the dashboard it is possible to Search existing postings, by typing a desired origin/destination.<br>
-  Additionally, the user can View profile which directs them to their own personal profile page. They can also <q>Create a post</q>, create a new posting of their departure/arrival information and a short description for other users to view.
-  </p>
-  <p><strong>Search:</strong> From the dashboard page, the user can search for postings of the route they intend to travel  by putting in an origin and a destination. This lists all the different posts for that specific route and the user can browse the results. The user has several possible actions related to each post. <br><br>
-  1).  Profile: This button navigates to the public profile of the user who created the post. The user can view the poster&#39;s basic information, average ratings and comments left by other users. As well, a map displays the poster&#39;s home city. From this page the user should also be able to use CarNex&#39;s builtin chat function to  chat with the poster if they are online, to arrange the details of the trip.<br><br>
-  2). Map: Using Google mapping API, this function plots the possible route to take for the trip. The map also shows the <strong>street view</strong> which is to those who are curious to know the neighbourhood they are going to.</p>
-  3). Save: This function helps the user save different postings that they are interested in for future reference. The saved posting are viewable from the user&#39;s own personal profile page. Any user who saves a post can later unsave it whenever they want.<br><br>
-  4). Report: This function when clicked, sends a message to the CarNex website administrator that the posting is improper and should be taking down.<br>
-  </p>
-  <p>
-  <strong>Personal profile:</strong> 
-  This enables the user to view their own profile. From this page the user can view saved posts which they are interested in and plan to follow up. They can also unsave posts at any time. This page also displays the user&#39;s own posts and allows the user to delete their own posts at anytime. A user can also view their own overall rating given by other users.
-  </p>
-  <p>
-  <strong>Create a post:</strong>
-  In the create a post page the user will put necessary information that will be beneficial to other users searching for the same route. The information will be stored in the database and can be viewed by all users when they perform a search. After submitting the post it redirects back to the dashboard.
-  </p>
-  <p>
-  <strong>Public profile:</strong>
-  Every user has a public profile which other users can view when they click their post from a search result. Whenever users perform search for a particular location and gets a result, the user can click the profile button on the post and it navigates to the poster&#39;s profile. A user can view the map of the city where poster resides and usually travels from.<br>
-  On the public profile page you have the option to:<br><br>
-
-  1). Chat with poster:<br>
-  Currently the chat function works as a ticker feed chat room to allow users to communicate with each other and receive instant notification of other users seeking to travel.This allows users to communicate directly with each other allowing them to correspond to quickly form travel plans.  As CarNex expands, we&#39;d hope to refine the chat system so that whenever a user visits a poster&#39;s  public profile page there is a chat option which sends the poster a private message. <br><br>
-
-  2). Rate another user: <br>
-  On a public profile page there is a rating option to rate their experience with that user. The option is great because others who visit this user&#39;s public profile will see the average rating of the user.<br><br>
-  3). Comment on another user:<br>
-  Similar to the rating system, on a public profile there is a comment box which the user can leave a feedback(both positive and negative) for other users to see about their experience.<br><br>
-  4). Report the user:<br>
-  On the public profile page, a user can be reported to the CarNex administrators. This is usually done when they see an inappropriate post, or have a very bad experience dealing with this user.<br>
-  </p><br>
-
-  <p><h3>Sample inputs</h3></p>
-
-  <p>Sample users:<br>
-    username: Jason <br>
-    password: 123
-  </p>
-
-  <p> Sample post:<br>
-    origin: Toronto<br>
-    destination: Ottawa
-  </p>
-
-  <p> Sample post:<br>
-    origin: Brantford <br>
-    destination: Montreal
-  </p><br>
-
-
-<p><h2><strong>Design:</strong></h2></p>
-<p>The CarNex web service has several key design decisions that emphasise its usefulness and effectiveness as a tool for carpoolers. It can be used with ease on mobile devices because it is very responsive and may change its layout with respect to the browsers size adjustment. In order to integrate our front end design with the back end we coded our pages in an embedded java script format (ejs). This allows us to use the html documents created for the first milestone and add in the javacript components needed to integrate dynamic web pages into the site. The backend of the CarNex site is built using Node.js and Express.js frameworks and stores its database in MongoLab, a MongoDB cloud hosting service. The database collections are described in detail below as well as a brief outline of several design decisions that we made.
-</p>
-<p><strong>Database(<a href="https://mongolab.com">https://mongolab.com</a>/):</strong> The database is comprised of 2 collections one describing the data from the posts and another describing the the information associated with each user. Each user entry has an array containing the posts that they created and an array with posts they have saved. 
-</p>
-
-<img src="./public/img/roadmap2.png" height="720" width="55%" alt="Null" align="middle">
-
-<p><strong>Dashboard:</strong>
-  <ul> 
-    <li>The most earliest departing post appears at the top of the page when a search is performed so that users can quickly perform a search of where they would like to go.
-    <li>The compact design of the post boxes display allows users to access a lot of features on one single page, streamlining the CarNex experience.
-    <li>The dashboard is the central hub of the user’s experience allowing them to navigate to their own profile, other profiles or to create a post. 
-   </ul>
-</p>
-<p><strong>Index:</strong>
-  <ul>
-    <li>Three easy steps are listed on how a visitor can join CarNex.
-    <li>We choose to have the login and sign up functions on the homepage incase a new visitor becomes interesting in what we do and also for easier access to our existing users.
-    <li>We also have a frequency asked questions page section to answer most questions visitors and users might have from time to time.
-  </ul>
-</p>
-<p><strong>Profile:</strong>
-  <ul>
-    <li>Both the private and public profile are designed in similar ways to emphasise clarity.
-    <li>The profile pages maps the user’s home city. Since the site’s primary function is travel, it’s important that users are able to visualize where they are going.  
-    <li>The private profile lists the saved posts and the user’s post. The page is designed for simplicity and clarity so the user can quickly access their posts side by side. 
-    <li>The public profile allows user’s to submit a rating or a comment. Again simplicity is emphasised by the side by side boxes commenting boxes and a clear display of  both comments and ratings.
-  </ul>
-</p>
-<p><strong>Improvements progress:</strong><br><br>
-We got 4 feedbacks from assignment 1 on some issues and we addressed them in this assignment.
-  <ul>
-    <li>We remove the border lines that were in our Faq page(faq.html).
-    <li>We made more space between the three main points on our index file.
-    <li>We maintained the login session so that no one can assess a dashboard without signing up or logging in to their account.
-    <li>We include much more comments on every page of our assignment.
-  </ul>
-</p>
+    <h1>CSC 309 A3 Report</h1>
+<h4>1, Introduction</h4>
+<p>As the demand for timely and cost-effective transportation increases over the years, more and more people are willing to carpool. Carpooling service is becoming very popular among individuals and there is a huge market for it.</p>
 <p>
 
-    <h2>Who Did What (Milestone 2)</h2>
+Our objective is to build a convenient, standardized and systematic carpooling network in Canada to help Canadians find accessible, affordable alternatives to their daily transportation methods.
+</p>
+<p>
+We strongly believe that some of the advantages of using CarNex includes:
+<ul>
+<li>Reduced traveling expenses</li>
+<li>More efficient, less time-consuming transportation</li>
+<li>Reduced energy consumption</li>
+<li>It is friendliness to the environment</li>
+</ul>
 
-    <ul>
-      
-      <li><strong>Joel Cheriyan</strong>: </li>
-      <li><strong>Chuanrui Li</strong>: </li>
-      <li><strong>Chidinma Nwaka</strong>: </li>
-    <li><strong>Monica Li</strong>: (left team)</li>
-      <li><strong>Aliya Hameer</strong>: (dropped course)</li>
-    </ul>
+<p><strong>2, Team Description</strong></p>
+<p>2.1 <strong>Chuanrui Li</strong> is responsible for organizing the team to detailed development plan and deadlines for each task. Furthermore, he also focus on both front-end and  back-end development. For A3, he works on both security measures and performance improvement.
+</p>
+<p>What I have learned:</p>
+<p>I learned how to use effective strategies to deal with a difficult situation, one member drop course and one member left in our team. By creating a standard and detailed roadmap, all the team members will have a clear plan for next step and increase our website development speed. Meanwhile, our team applied social computing skills to solve the hardest problems together and share individual progress efficiently.
+</p>
+<p>
+2.2 <strong>Joel</strong> is primarily focusing on back-end development and database management. For A3, he works on security measures and A2 server side improvement.
+</p>
+<p>
+2.3 <strong>Chidinma Nwaka</strong> is working on the initial design and research about different APIs. For A3, he works on the chart.js and provides accurate diagrams for load testing 
+</p>
+<p>What I have learned:</p>
+<p>I've learnt </p>
 
-    <h2>Development Roadmap</h2>
 
-    <h3>Product Backlog</h3>
 
-    <table border="1">
-      <tr>
-        <th>User Story</th>
-        <th>Story Points</th>
-      </tr>
 
-      <tr>
-        <td>As a user, I want to be able to easily view announcements about the service.</td>
-        <td>1</td>
-      </tr>
 
-      <tr>
-        <td>As a user, I want to be able to search for a particular route.</td>
-        <td>3</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want to be able to sort results of my search to easily view the postings that are most relevant to my needs.</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want to be able to contact a driver directly to negotiate a price and make arrangements for a trip.</td>
-        <td>2</td>
-      </tr>
-
-      <tr>
-        <td>Moderation of driver ads.</td>
-        <td>3</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want to see other users' ratings and reviews for a particular driver.</td>
-        <td>3</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want to be able to send feedback to the site owners.</td>
-        <td>2</td>
-      </tr>
-
-      <tr>
-        <td>As a driver, I want to be able to post an ad for a particular route I am taking.</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want my safety to be taken seriously.</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want to be able to rate my experience with a particular driver.</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want the website to be easy to navigate.</td>
-        <td>7</td>
-      </tr>
-
-      <tr>
-        <td>As a driver, I want to be able to edit or delete my own posting.</td>
-        <td>3</td>
-      </tr>
-
-      <tr>
-        <td>As a user, I want to be able to chat with other users on the site.</td>
-        <td>5</td>
-      </tr>
-    </table>
-
-    <h3>Sprint Backlog</h3>
-
-    <h4>Sprint 1: UI and UX</h4>
-
-    <table border="1">
-      <tr>
-        <th>Task</th>
-    <th>Hours Planned</th>
-      </tr>
-
-      <tr>
-        <td>Intuitive navigation</td>
-        <td>2</td>
-      </tr>
-
-      <tr>
-        <td> Styling for the entire website</td>
-        <td>3</td>
-      </tr>
-
-      <tr>
-        <td>About Us</td>
-        <td>2</td>
-      </tr>
-
-      <tr>
-        <td>Homepage - clearly communicate project idea</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>How it Works (FAQ)</td>
-        <td>4</td>
-      </tr>
-
-      <tr>
-        <td>Sign up page</td>
-        <td>2</td>
-      </tr>
-
-      <tr>
-        <td>Log in dialog</td>
-        <td>1</td>
-      </tr>
-
-      <tr>
-        <td>Sample postings page</td>
-        <td>4</td>
-      </tr>
-
-      <tr>
-        <td>Contact Us form</td>
-        <td>2</td>
-      </tr>
-
-      <tr>
-        <td>Account settings</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>Compatibility across browsers and devices</td>
-        <td>3</td>
-      </tr>
-
-      <tr>
-        <td>W3 validation</td>
-        <td>1</td>
-      </tr>
-
-      <tr>
-        <td>Readme</td>
-        <td>1</td>
-      </tr>
-    </table>
-
-    <h4>Sprint 2: Backend</h4>
+ <h4>3, Project Development Roadmap </h4>
 
     <table border="1">
       <tr>
@@ -301,114 +171,114 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
       </tr>
 
       <tr>
-        <td>User sign-up</td>
-        <td>2</td>
-    <td>Monica</td>
-        <td>July 14</td>
-    <td>6</td>
-        <td>Joel and Richard</td>
-    <td>July 14</td>
+        <td>Security password encryption</td>
+        <td>-</td>
+    <td>Joel</td>
+        <td>July 29</td>
+    <td>5</td>
+        <td>Joel</td>
+    <td>July 29</td>
       </tr>
 
       <tr>
-        <td>User login</td>
-        <td>1</td>
-    <td>Monica</td>
-        <td>July 16</td>
-    <td>4</td>
-        <td>Joel and Richard</td>
-    <td>July 16</td>
-      </tr>
-    <tr>
-        <td>Change user settings</td>
+        <td>A2 chatting system improvement</td>
         <td>-</td>
-    <td>Monica</td>
-        <td>July 19</td>
+    <td>Joel</td>
+        <td>July 30</td>
     <td>3</td>
         <td>Joel</td>
-    <td>July 19</td>
-      </tr>
-
-      <tr>
-        <td>Posting an ad</td>
-        <td>3</td>
-    <td>Joel</td>
-        <td>July 15</td>
-    <td>4</td>
-        <td>Joel</td>
-    <td>July 15</td>
-      </tr>
-
-      <tr>
-        <td>Deleting/Unsaving ads</td>
-        <td>2</td>
-    <td>Joel</td>
-        <td>July 17</td>
-    <td>6</td>
-        <td>Joel</td>
-    <td>July 17</td>
+    <td>July 30</td>
       </tr>
     <tr>
-        <td>Saving ads</td>
-        <td>-</td>
-    <td>Joel</td>
-        <td>July 7</td>
-    <td>4</td>
-        <td>Joel </td>
-    <td>July 17</td>
-      </tr>
-
-
-
-      <tr>
-        <td>final editing for font-end and back-end</td>
-        <td>9</td>
+        <td>Performance Improvement by using heroku cloud service</td>
+        <td>5</td>
     <td>Richard</td>
-        <td>July 20</td>
-    <td>10</td>
+        <td>July 29</td>
+    <td>6</td>
         <td>Richard</td>
-    <td>July 20</td>
+    <td>July 29</td>
       </tr>
 
       <tr>
-        <td>Searching posts for a particular route</td>
-        <td>4</td>
-    <td>Joel and Richard</td>
-        <td>July 15</td>
-    <td>8</td>
-        <td>Joel and Richard</td>
-    <td>July 15</td>
-      </tr>
-
-      <tr>
-        <td>Sorting of search results</td>
+        <td>Performance and security testing</td>
         <td>3</td>
-    <td>Joel and Richard</td>
-        <td>July 15</td>
+    <td>Richard</td>
+        <td>July 30</td>
+    <td>3</td>
+        <td>Joel</td>
+    <td>July 29</td>
+      </tr>
+
+      <tr>
+        <td>Chart.js diagrams</td>
+        <td>6</td>
+    <td>Chidi</td>
+        <td>Aug 2</td>
+    <td></td>
+        <td></td>
+    <td></td>
+      </tr>
+    <tr>
+        <td>XSS security improvement</td>
+        <td>6</td>
+    <td>Joel</td>
+        <td>Aug 1</td>
+    <td>-</td>
+        <td>-</td>
+    <td>-</td>
+      </tr>
+
+
+
+      <tr>
+        <td>CSRF security improvement</td>
+        <td>6</td>
+    <td>Richard</td>
+        <td>Aug 1</td>
+    <td>7</td>
+        <td>Richard</td>
+    <td>Aug 1</td>
+      </tr>
+
+      <tr>
+        <td>GZip performance improvement</td>
+        <td>4</td>
+    <td>Richard</td>
+        <td>Aug 1</td>
+    <td>3</td>
+        <td>Richard</td>
+    <td>Aug 2</td>
+      </tr>
+
+      <tr>
+        <td>js, css file minify and img size reduction</td>
+        <td>1</td>
+    <td>Richard</td>
+        <td>Aug 3</td>
     <td>2</td>
-        <td>Joel and Richard</td>
-    <td>July 15</td>
+        <td>Joel</td>
+    <td>-</td>
       </tr>
      <tr>
-        <td>View profile</td>
-        <td> - </td>
-    <td>Joel and Richard</td>
-        <td>July 17</td>
+        <td>The input validation</td>
+        <td>8</td>
+    <td>Joel</td>
+        <td>Aug 3</td>
     <td>5</td>
-        <td>Joel and Richard</td>
-    <td>July 17</td>
+        <td>Joel</td>
+    <td>-</td>
       </tr>
     <tr>
-        <td>Mapping routes</td>
-        <td> - </td>
-    <td>Monica</td>
-        <td>July 18</td>
+        <td>The final report</td>
+        <td>6</td>
+    <td>Chidi and Richard</td>
+        <td>Aug 3</td>
     <td>8</td>
-        <td>Richard</td>
-    <td>July 18</td>
+        <td>-</td>
+    <td>-</td>
       </tr>
       <tr>
-        <td>Implement the Contact Us form</td>
+        <td>report function</td>
         <td>3</td>
     <td>Chidi</td>
         <td>July 14</td>
@@ -417,119 +287,43 @@ We got 4 feedbacks from assignment 1 on some issues and we addressed them in thi
     <td>July 25</td>
       </tr>
 
-      <tr>
-        <td>users can contact each other(chat room)</td>
-        <td>5</td>
-    <td>Richard</td>
-        <td>July 21</td>
-    <td>10</td>
-        <td>Richard</td>
-    <td>July 24</td>
-      </tr>
-
-      <tr>
-        <td>Allow users to submit reviews</td>
-        <td>5</td>
-    <td>Joel and Richard</td>
-        <td>July 17</td>
-    <td>8</td>
-        <td>Joel and Richard</td>
-    <td>July 21</td>
-      </tr>
-
-      <tr>
-        <td>rating system for users</td>
-        <td>10</td>
-    <td>Chidi</td>
-        <td>July 17</td>
-    <td>9</td>
-        <td>Richard and Chidi</td>
-    <td>July 21</td>
-      </tr>
-
-      <tr>
-        <td>Readme</td>
-        <td>1</td>
-    <td>Chidi</td>
-        <td>July 25</td>
-    <td>3</td>
-        <td>Chidi</td>
-    <td>July 25</td>
-      </tr>
-    
-   <tr>
-        <td>A1 Improvements</td>
-        <td>4</td>
-    <td>Chidi</td>
-        <td>July 14</td>
-    <td>5</td>
-        <td>Chidi</td>
-    <td>July 14</td>
-    </tr>
-
-    <tr>
-        <td>Mutiple users socket.io connection</td>
-        <td>5</td>
-    <td>Richard</td>
-        <td>July 23</td>
-    <td>7</td>
-        <td>Richard</td>
-    <td>July 25</td>
-    </tr>
-
 
     </table>
 
-    <h4>Sprint 3: Security and Scaling</h4>
-
-    <table border="1">
-      <tr>
-        <th>Task</th>
-        <th>Hours</th>
-      </tr>
-
-      <tr>
-        <td>Patch security vulnerabilities</td>
-        <td>10</td>
-      </tr>
-
-      <tr>
-        <td>Load/stress testing and improvement</td>
-        <td>10</td>
-      </tr>
-
-      <tr>
-        <td>Report on security/scaling</td>
-        <td>5</td>
-      </tr>
-
-      <tr>
-        <td>Readme</td>
-        <td>1</td>
-      </tr>
-    </table>
+<h4>4, A3 duties</h4>
+<p>For A3, Chuanrui Li has done the performance and security testing, integrated local git repository with heroku cloud service, implemented CSRL form submission security, inserted GZip into network protocol to minimize the file size during transmission.
+</p>
+<p>Joel modifies existing errors in chatting system from A2, adds user password encryption, inserts XSS to prevent malicious javascript submissions from attackers and implemented username input validation as a firework between backend and database.
+</p>
+<p>Chidi draws pie chart and line chart to indicate the performance improvement between A2 and A3. More importantly, he helps Chuanrui Li to edit final report and readme file.
 </p>
 
+<div class="piechart col-md-9" id="piechart1"></div>
+    <div class="piechart" id="piechart2"></div>
+    <div class="piechart" id="piechart3"></div>
+    <div class="piechart" id="piechart4"></div>
+    
 
-    <p><strong>Some things that is left for A3:</strong>
-      <ul>
-        <li>The report button a user sees on another user&#39;s public profile will be implemented in A3 because it has to do with security.
-      </ul>
-    </p>
+    
+<h4>5, Report for the Load/Stress Testing </h4>
+<p>From the load testing result, the html loading percentage is dramatically increasing because we minify all the css, javascript and image file and their percentage is decreasing. In this case, the loading speed incremented by 30% - 40%. Specially for Google map API, the minified javascript increase get command speed a lot.
+</p>
+<p>Gzip compresses files between client and server side communication, which saves more than 70% of origin page size.<br>
+Uncompressed Page Size: 5.1 KB<br>
+Compressed Page Size: 1.7 KB<br>
+Savings: 66.1%
+</p>    
+    <div id="chart_div" style="width: 900px; height: 500px;"></div>
+<h4>6, Report for the Security Measures</h4>
+<p>6.1 CSRF (Cross-site Request Forgery) security improvement<br>
+The CSRF middleware enables that CSRF token inserted in every single form submission. When the user do the POST request, the CSRF middleware will intercept the request and compare _csrf parameter within the form submission with the value the CSRF middleware generated. If the attacker have invalid  _csrf parameter, the CSRF middleware will return the HTTP 403 Forbidden status.
+</p>
+<p>In this case, the attacker cannot access the user submission or provide some fake data into the database. However, the database will store many sessions for all submissions, which needs a large memory storage when user base increases.
+</p>
+<h4> 6.2 XSS security improvement</h4>
 
-        <p><strong>Reference:</strong>
-        <ul>
-          <li><a href="http://www.getbootstrap.com">http://www.getbootstrap.com</a>
-          <li><a href="http://expressjs.com">http://expressjs.com</a>
-          <li><a href="http://nodejs.org">http://nodejs.org</a>
-          <li><a href="http://socket.io">ttp://socket.io</a>
-          <li><a href="http://www.mongodb.org">http://www.mongodb.org</a>
-          <li><a href="http://www.lynda.com">http://www.lynda.com</a>
-          <li><a href="http://www.jqueryrain.com/example/jquery-map">http://www.jqueryrain.com/example/jquery-map</a>
-          <li><a href="http://www.embeddedjs.com/">http://www.embeddedjs.com/</a>
+<h4> 6.3 password encryption security improvement</h4>
 
-        </ul>
-    </p>
-  </body>
-
-</html>
+<p>7, Flows/Limitation and Improvement of Project<br>
+The carpooling is not convenient and fast. People may have different departure date and destinations. It is hard to for passengers to find a matching driver immediately. There are three approaches that we have made to avoid these limitations. First, all the users will have their own commonly commute area. Then people can easily view other people’s profile and find a matching pair. Second, we create a real time chatting room for all the users, once a request has been sent, all the online users can see it and give response to that request at once, which increases opportunities to find a carpooling on time. Third, we also have a search board for users to find relevant trips and check the map for detailed route information.
+</p>
