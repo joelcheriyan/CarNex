@@ -150,6 +150,7 @@
 		}
 		else{
 			res.render('signup_error2.ejs');
+			
 		}	
 	});
 	
