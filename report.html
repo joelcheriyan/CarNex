@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  	<title>CarNex readme</title>
+    <meta charset="utf-8">
+   
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+	    <link href="public/css/custom.css" rel="stylesheet">
+	    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+	.piechart{
+    	display: inline-block;
+    	width: 49%;
+    	height: 400px;
+	}
+    </style>
+    
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+        
+        var data1 = google.visualization.arrayToDataTable([
+	      ['Employee Name', 'Salary'],
+	      ['text/css',   28],
+          ['image',      28],
+          ['text/html',  16],
+          ['javascript', 28],
+	      ],
+	      false);  // 'false' means that the first row contains labels, not data.
+	      
+         var data2 = google.visualization.arrayToDataTable([
+	      ['Employee Name', 'Salary'],
+	      ['text/css',   17],
+          ['image',      20],
+          ['text/html',  40],
+          ['javascript', 23],
+	      ],
+	      false);
+        
+        var data3 = google.visualization.arrayToDataTable([
+	      ['Employee Name', 'Salary'],
+	      ['text/css',   17],
+          ['image',      48],
+          ['text/html',  10],
+          ['javascript', 35],
+	      ],
+	      false); 
+
+        var data4 = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ['text/css',   29],
+          ['image',      26],
+          ['text/html',  33],
+          ['javascript', 20],
+        ]);
+        
+        var options = {
+	      title: 'Initial (A2)',
+          is3D: true
+
+        };
+        
+        var options2 = {
+		  title: 'final (A3)',
+		  //text-align: center;
+          is3D: true
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart1'));
+        chart.draw(data1, options);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+        chart.draw(data2, options2);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+        chart.draw(data3, options);
+        var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+        chart.draw(data4, options2);
+      }
+    </script>
+     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+        ['time', 'A2 response time', 'A3 response time', 'users'],
+         [ "5 sec", 20,  21, 0], [ "10 sec", 33, 24, 25],  
+         [ "15 sec", 45, 30, 50], [ "20 sec",  53, 32, 75],  
+         [ "25 sec", 53, 32, 100], [ "30 sec", 70, 42, 125],  
+         [ "35 sec", 152, 39, 150], [ "40 sec", 201, 53, 175],  
+         [ "45 sec", 239, 56, 200], [ "50 sec", 313, 100, 225], 
+         [ "55 sec", 350, 93, 250], [ "60 sec", 297, 78, 275], 
+        ]);
+
+        var data2 = google.visualization.arrayToDataTable([
+        ['time', 'A2 response time', 'A3 response time', 'users'],
+         [ "5 sec", 40,  31, 0], [ "10 sec", 39, 23, 25],  
+         [ "15 sec", 43, 35, 50], [ "20 sec",  53, 32, 75],  
+         [ "25 sec", 70, 62, 100], [ "30 sec", 103, 49, 125],  
+         [ "35 sec", 152, 57, 150], [ "40 sec", 250, 53, 175],  
+         [ "45 sec", 267, 56, 200], [ "50 sec", 190, 100, 225], 
+         [ "55 sec", 302, 93, 250], [ "60 sec", 297, 140, 275], 
+        ]);
+
+
+        var data3 = google.visualization.arrayToDataTable([
+        ['time', 'A2 response time', 'A3 response time', 'users'],
+         [ "5 sec", 20,  11, 0], [ "10 sec", 29, 14, 25],  
+         [ "15 sec", 33, 35, 50], [ "20 sec",  52, 27, 75],  
+         [ "25 sec", 70, 32, 100], [ "30 sec", 103, 49, 125],  
+         [ "35 sec", 172, 70, 150], [ "40 sec", 250, 83, 175],  
+         [ "45 sec", 357, 134, 200], [ "50 sec", 290, 100, 225], 
+         [ "55 sec", 302, 133, 250], [ "60 sec", 327, 152, 275], 
+        ]);
+
+
+        var options = {
+          title: 'The performance testing',
+          hAxis: {showTextEvery: 1},
+          vAxes: {0: {
+                      title: "Responce Time",
+                      ticks: [{v:50, f:'50ms'}, {v:100, f:'100ms'}, {v:150, f:'150ms'}, {v:200, f:'200ms'}, {v:250, f:'250ms'}, {v:300, f:'300ms'}, {v:350, f:'350ms'}],
+                      
+                  },
+                      
+                  1: {
+                      title: "Users",
+                      gridlines: {color: 'transparent'},
+                     },
+                  },
+          series: {0: {targetAxisIndex:0},
+                   1:{targetAxisIndex:0},
+                   2:{targetAxisIndex:1},
+                  },
+          colors: ["red", "green", "black"],
+          chartArea:{left:100,top:100, width:500, height:150},
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+        var chart2 = new google.visualization.LineChart(document.getElementById('chart_div2'));
+        chart2.draw(data2, options);
+        var chart3 = new google.visualization.LineChart(document.getElementById('chart_div3'));
+        chart3.draw(data3, options);
+      }
+    </script>
+  </head>
+
+  <body>
+  
+    <h1><center>CSC 309 A3 Report</center></h1>
+    <h2>1 Introduction</h2>
+	<p>As the demand for timely and cost-effective transportation increases over the years, more and more people are willing to carpool. Carpooling service is becoming very popular among individuals and there is a huge market for it.</p>
+	<p>
+	Our objective is to build a convenient, standardized and systematic carpooling network in Canada to help Canadians find accessible, affordable alternatives to their daily transportation methods.
+	</p>
+	<p>
+	We strongly believe that some of the advantages of using CarNex includes:
+	<ul>
+		<li>Reduced traveling expenses</li>
+		<li>More efficient, less time-consuming transportation</li>
+		<li>Reduced energy consumption</li>
+		<li>It is friendliness to the environment</li>
+	</ul>
+	<br>
+	<h2>2 Team Description</h2>
+	
+	<!-- Richard's information. -->
+	<p><h3>2.1 Chuanrui Li</h3>He is responsible for organizing the team to detailed development plan and deadlines for each task. Furthermore, he also focus on both front-end and  back-end development. For A3, he works on both security measures and performance improvement.
+	</p>
+	<p></p>
+	        <div class="img-bio pull-right" id="richard"></div>
+	
+	          <p>Hello, my name is Chuanrui Li. As an electrical and computer engineering student, I have long been interested in both software and hardware development industry and have several years’ experience of programming and project design.</p>
+	      </div>
+	<p><i>What I have learned:</i></p>
+	<p>I learned how to use effective strategies to deal with a difficult team situation. One of our members dropped the course  (Aliya Hameer) and one member left our team (Monica Li). By creating a standard and detailed roadmap, all the team members  have a clear plan for next step and we increased our website development speed. Meanwhile, our team applied social computing skills to solve the hardest problems together and divided easier tasks for efficient progress.
+    </p>
+	
+	<!-- Joel's information. -->
+	<p><h3>2.2 Joel Cheriyan</h3>He is primarily focusing on back-end development and database management. For A3, he works on security measures and A2 server side improvement.
+	</p>
+	<p></p>
+    <div class="img-bio pull-left" id="joel"></div>
+
+    <div class="media-body">
+      <p>I'm currently a student in the Engineering Science program at the University of Toronto. I'm very passionate about technology and I'm always excited by new gadgets and ideas.</p>
+    </div>
+	        
+	<p><i>What I have learned:</i></p>
+	<p>Having started this course with no web development experience I quickly learned a lot of details regarding the server and client side programming. I was amazed at the resources that were available from server frameworks to bootstraps to cloud hosted databases, all of which went a long way to making the project more manageable. I’m looking forward to playing around with these tools more in creating websites. It was a great experience to learn team dynamics and division of labour much as we would in a real work environment. While there were, of course situations with team conflict it was great to see how we had learned to work together by the end.
+	</p>
+	<!-- Chidi's information -->
+	<h3>2.3 Chidinma Nwaka</h3>He is working on the initial design and research about different APIs. For A3, he works on the chart.js and provides accurate diagrams for load testing 
+	</p>
+	<p></p>
+	
+    <div class="img-bio pull-right" id="chidi"></div>
+      <p> I just started a hobby which is programming on the web and I love it. My dream is to become a Sunday school teacher, successful entrepreneur and a philanthropist. Aside from computer science, I enjoy learning about how businesses start up and operate.
+      </p>
+    </div>
+	<p><i>What I have learned:</i></p>
+	<p>I've studied, learnt and gained experience on how to build a sophisticated modern day web application from the scratch till completion. I learnt lots of new materials which include html5, CSS3, JavaScript, Nodejs, Mongodb,and I've also gained a huge insight of how databases and server side operates. More importantly, I learnt are how to make a web more efficient and scalable to multiply devices. I believe that this course has now made me a better computer scientist and I'm happy I took it.
+	</p>
+	<br>
+	<!-- Table showing the project development. -->
+	 <h2>3 Project Development Roadmap </h2>
+		<h3>3.1 A3 development Roadmap</h3>
+	    <table border="1">
+	      <tr>
+	         <th>Task</th>
+	    <th>Hours Planned</th>
+	    <th>Team Member Assigned</th>
+	    <th>Deadline Date</th>
+	        <th>Hours Taken</th>
+	    <th>Team Member Completed</th>
+	    <th>Completed date</th>
+	      </tr>
+	
+	      <tr>
+	        <td>Security password encryption</td>
+	        <td>-</td>
+	    <td>Joel</td>
+	        <td>July 29</td>
+	    <td>5</td>
+	        <td>Joel</td>
+	    <td>July 29</td>
+	      </tr>
+	
+	      <tr>
+	        <td>A2 chatting system improvement</td>
+	        <td>-</td>
+	    <td>Joel</td>
+	        <td>July 30</td>
+	    <td>3</td>
+	        <td>Joel</td>
+	    <td>July 30</td>
+	      </tr>
+	    <tr>
+	        <td>Performance Improvement by using heroku cloud service</td>
+	        <td>5</td>
+	    <td>Richard</td>
+	        <td>July 29</td>
+	    <td>6</td>
+	        <td>Richard</td>
+	    <td>July 29</td>
+	      </tr>
+	
+	      <tr>
+	        <td>Performance and security testing</td>
+	        <td>3</td>
+	    <td>Richard</td>
+	        <td>July 30</td>
+	    <td>3</td>
+	        <td>Richard</td>
+	    <td>July 29</td>
+	      </tr>
+	
+	      <tr>
+	        <td>Google charts</td>
+	        <td>6</td>
+	    <td>Chidi</td>
+	        <td>Aug 4</td>
+	    <td>8</td>
+	        <td>Richard and Chidi</td>
+	    <td>Aug 4</td>
+	      </tr>
+	    <tr>
+	        <td>XSS security improvement</td>
+	        <td>6</td>
+	    <td>Joel</td>
+	        <td>Aug 3</td>
+	    <td>5</td>
+	        <td>Joel</td>
+	    <td>Aug 3</td>
+	      </tr>
+	      
+	      <tr>
+	        <td>CSRF security improvement</td>
+	        <td>6</td>
+	    <td>Richard</td>
+	        <td>Aug 1</td>
+	    <td>7</td>
+	        <td>Richard</td>
+	    <td>Aug 1</td>
+	      </tr>
+	
+	      <tr>
+	        <td>GZip performance improvement</td>
+	        <td>4</td>
+	    <td>Richard</td>
+	        <td>Aug 4</td>
+	    <td>3</td>
+	        <td>Richard</td>
+	    <td>Aug 2</td>
+	      </tr>
+	
+	      <tr>
+	        <td>Js, css file minify and img size reduction</td>
+	        <td>1</td>
+	    <td>Richard</td>
+	        <td>Aug 3</td>
+	    <td>2</td>
+	        <td>Richard</td>
+	    <td>Aug 3</td>
+	      </tr>
+	     <tr>
+	        <td>The user uniqueness validation</td>
+	        <td>8</td>
+	    <td>Joel</td>
+	        <td>Aug 3</td>
+	    <td>5</td>
+	        <td>Joel</td>
+	    <td>Aug 3</td>
+	      </tr>
+	   
+	      <tr>
+	        <td>Report function</td>
+	        <td>3</td>
+	    <td>Richard and Chidi</td>
+	        <td>Aug 5</td>
+	    <td>3</td>
+	        <td>Richard and Chidi</td>
+	    <td>Aug 2</td>
+	      </tr>
+		 <tr>
+		        <td>The final report</td>
+		        <td>6</td>
+		    <td>Chidi, Joel, and Richard</td>
+		        <td>Aug 7</td>
+		    <td>8</td>
+		        <td>Chidi, Joel, and Richard</td>
+		    <td>Aug 7</td>
+		      </tr>
+	
+	    </table>
+	<h3>3.2 A1 and A2 Development Roadmap</h3>
+
+    <h4>Sprint Backlog</h4>
+
+    <h4>Sprint 1: UI and UX</h4>
+
+    <table border="1">
+      <tr>
+        <th>Task</th>
+    <th>Hours Planned</th>
+      </tr>
+
+      <tr>
+        <td>Intuitive navigation</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td> Styling for the entire website</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>About Us</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td>Homepage - clearly communicate project idea</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>How it Works (FAQ)</td>
+        <td>4</td>
+      </tr>
+
+      <tr>
+        <td>Sign up page</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td>Log in dialog</td>
+        <td>1</td>
+      </tr>
+
+      <tr>
+        <td>Sample postings page</td>
+        <td>4</td>
+      </tr>
+
+      <tr>
+        <td>Contact Us form</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td>Account settings</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>Compatibility across browsers and devices</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>W3 validation</td>
+        <td>1</td>
+      </tr>
+
+      <tr>
+        <td>Readme</td>
+        <td>1</td>
+      </tr>
+    </table>
+
+    <h4>Sprint 2: Backend</h4>
+
+    <table border="1">
+      <tr>
+         <th>Task</th>
+    <th>Hours Planned</th>
+    <th>Team Member Assigned</th>
+    <th>Deadline Date</th>
+        <th>Hours Taken</th>
+    <th>Team Member Completed</th>
+    <th>Completed date</th>
+      </tr>
+
+      <tr>
+        <td>User sign-up</td>
+        <td>2</td>
+    <td>Monica</td>
+        <td>July 14</td>
+    <td>6</td>
+        <td>Joel and Richard</td>
+    <td>July 14</td>
+      </tr>
+
+      <tr>
+        <td>User login</td>
+        <td>1</td>
+    <td>Monica</td>
+        <td>July 16</td>
+    <td>4</td>
+        <td>Joel and Richard</td>
+    <td>July 16</td>
+      </tr>
+    <tr>
+        <td>Change user settings</td>
+        <td>-</td>
+    <td>Monica</td>
+        <td>July 19</td>
+    <td>3</td>
+        <td>Joel</td>
+    <td>July 19</td>
+      </tr>
+
+      <tr>
+        <td>Posting an ad</td>
+        <td>3</td>
+    <td>Joel</td>
+        <td>July 15</td>
+    <td>4</td>
+        <td>Joel</td>
+    <td>July 15</td>
+      </tr>
+
+      <tr>
+        <td>Deleting/Unsaving ads</td>
+        <td>2</td>
+    <td>Joel</td>
+        <td>July 17</td>
+    <td>6</td>
+        <td>Joel</td>
+    <td>July 17</td>
+      </tr>
+    <tr>
+        <td>Saving ads</td>
+        <td>-</td>
+    <td>Joel</td>
+        <td>July 7</td>
+    <td>4</td>
+        <td>Joel </td>
+    <td>July 17</td>
+      </tr>
+
+
+
+      <tr>
+        <td>final editing for font-end and back-end</td>
+        <td>9</td>
+    <td>Richard</td>
+        <td>July 20</td>
+    <td>10</td>
+        <td>Richard</td>
+    <td>July 20</td>
+      </tr>
+
+      <tr>
+        <td>Searching posts for a particular route</td>
+        <td>4</td>
+    <td>Joel and Richard</td>
+        <td>July 15</td>
+    <td>8</td>
+        <td>Joel and Richard</td>
+    <td>July 15</td>
+      </tr>
+
+      <tr>
+        <td>Sorting of search results</td>
+        <td>3</td>
+    <td>Joel and Richard</td>
+        <td>July 15</td>
+    <td>2</td>
+        <td>Joel and Richard</td>
+    <td>July 15</td>
+      </tr>
+     <tr>
+        <td>View profile</td>
+        <td> - </td>
+    <td>Joel and Richard</td>
+        <td>July 17</td>
+    <td>5</td>
+        <td>Joel and Richard</td>
+    <td>July 17</td>
+      </tr>
+    <tr>
+        <td>Mapping routes</td>
+        <td> - </td>
+    <td>Monica</td>
+        <td>July 18</td>
+    <td>8</td>
+        <td>Richard</td>
+    <td>July 18</td>
+      </tr>
+      <tr>
+        <td>Implement the Contact Us form</td>
+        <td>3</td>
+    <td>Chidi</td>
+        <td>July 14</td>
+    <td>3</td>
+        <td>Joel and Chidi</td>
+    <td>July 25</td>
+      </tr>
+
+      <tr>
+        <td>users can contact each other(chat room)</td>
+        <td>5</td>
+    <td>Richard</td>
+        <td>July 21</td>
+    <td>10</td>
+        <td>Richard</td>
+    <td>July 24</td>
+      </tr>
+
+      <tr>
+        <td>Allow users to submit reviews</td>
+        <td>5</td>
+    <td>Joel and Richard</td>
+        <td>July 17</td>
+    <td>8</td>
+        <td>Joel and Richard</td>
+    <td>July 21</td>
+      </tr>
+
+      <tr>
+        <td>rating system for users</td>
+        <td>10</td>
+    <td>Chidi</td>
+        <td>July 17</td>
+    <td>9</td>
+        <td>Richard and Chidi</td>
+    <td>July 21</td>
+      </tr>
+
+      <tr>
+        <td>Readme</td>
+        <td>1</td>
+    <td>Chidi</td>
+        <td>July 25</td>
+    <td>3</td>
+        <td>Chidi</td>
+    <td>July 25</td>
+      </tr>
+    
+   <tr>
+        <td>A1 Improvements</td>
+        <td>4</td>
+    <td>Chidi</td>
+        <td>July 14</td>
+    <td>5</td>
+        <td>Chidi</td>
+    <td>July 14</td>
+    </tr>
+
+    <tr>
+        <td>Mutiple users socket.io connection</td>
+        <td>5</td>
+    <td>Richard</td>
+        <td>July 23</td>
+    <td>7</td>
+        <td>Richard</td>
+    <td>July 25</td>
+    </tr>
+
+
+    </table>
+
+    <h4>Sprint 3: Security and Scaling</h4>
+
+    <table border="1">
+      <tr>
+        <th>Task</th>
+        <th>Hours</th>
+      </tr>
+
+      <tr>
+        <td>Patch security vulnerabilities</td>
+        <td>10</td>
+      </tr>
+
+      <tr>
+        <td>Load/stress testing and improvement</td>
+        <td>10</td>
+      </tr>
+
+      <tr>
+        <td>Report on security/scaling</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>Readme</td>
+        <td>1</td>
+      </tr>
+    </table>
+
+    <h4>Product Backlog</h4>
+    <table border="1">
+      <tr>
+        <th>User Story</th>
+        <th>Story Points</th>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to easily view announcements about the service.</td>
+        <td>1</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to search for a particular route.</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to sort results of my search to easily view the postings that are most relevant to my needs.</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to contact a driver directly to negotiate a price and make arrangements for a trip.</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td>Moderation of driver ads.</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to see other users' ratings and reviews for a particular driver.</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to send feedback to the site owners.</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td>As a driver, I want to be able to post an ad for a particular route I am taking.</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want my safety to be taken seriously.</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to rate my experience with a particular driver.</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want the website to be easy to navigate.</td>
+        <td>7</td>
+      </tr>
+
+      <tr>
+        <td>As a driver, I want to be able to edit or delete my own posting.</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>As a user, I want to be able to chat with other users on the site.</td>
+        <td>5</td>
+      </tr>
+    </table>
+</p>
+<br>
+	<h2>4 A3 duties</h2>
+	<p>For A3, Chuanrui Li has done the performance and security testing, integrated local git repository with heroku cloud service, implemented CSRF form submission security, inserted GZip into network protocol to minimize the file size during transmission.
+	</p>
+	<p>Joel modified existing errors in chatting system from A2, added password encryption, inserted XSS prevention to prevent malicious javascript submissions from attackers and implemented username validation as a firework between backend and database, to ensure that usernames were unique.
+	</p>
+	<p>Chidi drew pie chart and line chart to indicate the performance improvement between A2 and A3. More importantly, he helped Chuanrui Li to edit final report and readme file.
+	</p>
+<br>	
+	    
+	<h2>5 Report for the Load/Stress Testing </h2>
+  	<h3>5.1 Content type distribution</h3>
+  <h4>The Content type distribution represents that how much percentage of each type of file takes up total loading content</h4>
+	<p>From the load testing result, the html loading percentage is dramatically increasing because we minify all the css, javascript and image file and their percentage is decreasing. Futhermore, instead of creating several javacript files and linking them in all html or ejs files, putting the script into html files and deleting the redundant javascript links decrease the precentage of javascript content loading. Without changing the quality and size of images, the online image optimizer can save unnecessary loading bytes for each image.
+	</p>
+	
+	<!-- The diagrams of the pie chart. -->
+	<div class="row">
+		<div class="piechart col-md-6" id="piechart1"></div>
+    	<div class="piechart col-md-6" id="piechart2"></div>
+    </div>
+  <h3>5.2 Loading time distribution</h3>
+  <h4>The Loading time distribution represents that how much percentage of each type of file takes up total loading time</h4>
+  <p>The loading speed incremented by 30% - 40%, specially for Google map API and images. The minified javascript and optimized images siginificantly increase get command speed</p>
+  <div class="row">
+    <div class="piechart col-md-6" id="piechart3"></div>
+    <div class="piechart col-md-6" id="piechart4"></div>
+  </div>
+  <h3>5.3 performace test for response time</h3>
+  <h4>The response time of each command for increasing user base in different regions</h4>
+<p>The improvement aimed at file transmission speed: <br>
+Gzip compresses all the data sent between client and server, which saves almost 70% of origin page size.<br>
+Uncompressed Page Size: 5.1 KB<br>
+Compressed Page Size: 1.7 KB<br>
+Savings: 66.1%
+</p> 
+	<p>Region: Virginia, Users: 280, Methods: get, set, post and delete</p>   
+    <div id="chart_div" style="width: 700px; height: 300px;"></div>
+    <p>Region: California, Users: 280, Methods: get, set, post and delete</p>  
+    <div id="chart_div2" style="width: 700px; height: 300px;"></div>
+    <p>Region: Japan, Users: 280, Methods: get, set, post and delete</p>  
+    <div id="chart_div3" style="width: 700px; height: 300px;"></div>
+<p>Summary: </p>
+<h2>6 Security Improvements</h2>
+<h3>6.1 CSRF (Cross-site Request Forgery) </h3>
+<p>The CSRF middleware enables that CSRF token inserted in every single form submission. When the user do the POST request, the CSRF middleware will intercept the request and compare _csrf parameter within the form submission with the value the CSRF middleware generated. If the attacker have invalid  _csrf parameter, the CSRF middleware will return the HTTP 403 Forbidden status.
+</p>
+<p>In this case, the attacker cannot access the user submission or provide some fake data into the database. However, the database will store many sessions for all submissions, which needs a large memory storage when user base increases.
+</p>
+<h3> 6.2 XSS prevention</h3>
+<p>XSS is a security vulnerability that allows an attacker to inject malicious javascript into the database by writing script rather than text in any input form. Data entered to the database was already defined to be as type string to prevent this sort of attack. Further protection was added through the xss module which parses every input and removes html tags before storing in the database. This effectively prevents attackers from storing any type of malicious code in the database, through the input fields.
+</p>
+<h3> 6.3 Password encryption </h3>
+<p>Password encryption is a necessary security feature that protects user accounts from being hacked. Supposing an attacker were to gain access into the database, password encryption ensures that the attacker is unable to view the clear text password. Before every password is stored in the database it is encrypted using a bcrypt module hash function and stored with a randomly generated salt. When a user attempts to login the encrypted password is retrieved and its salt obtained. The attempted password is then hashed and salted and compared to the stored password. This method of password encryption ensures maximum difficulty in obtaining the clear text password. The salting defends against a common dictionary attack and the one way hashing functionality ensures that it is computationally impossible to determine the password. 
+</p>
+<br>
+<h2>7 Flows/Limitation and Improvement of Project</h2>
+<p>
+Arranging a carpool can be time consuming alternative to public transit. It can be hard for passengers to find a matching driver immediately with the same departure date and destination.   There are three approaches that we have made to avoid these limitations. First, all the users will have their own commonly commute area. Then people can easily view other people’s profile and find a matching pair. Second, we create a real time chatting room for all the users, once a request has been sent, all the online users can see it and give response to that request at once, which increases opportunities to find a carpooling on time. Third, we also have a search board for users to find relevant trips and check the map for detailed route information. 
+</p>
+<p>Additionally there is always an inherent risk involved when contacting strangers and meeting them in reality. We have taken several steps to ensure the safety of our customers. On sign up every phone number is verified by an SMS pin. The idea is that in the event of an emergency the mobile number provides a real starting place for police and other law enforcement to begin investigations. Additionally, every user can be reported by their fellow users. This closely monitored system ensures that any suspicious users are dealt with immediately by CarNex administration who will know the user’s history and who reported the user.  
+</p>
+
+</body>
+
