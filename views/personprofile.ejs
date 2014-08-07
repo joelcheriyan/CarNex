@@ -112,7 +112,7 @@
                 <div id="collapsePersonal1" class="panel-collapse collapse in">         
                 <div class="panel-body">
                 <% for(var i=0; i<item.saved_posts.length; i++) { %>
-
+				<p></p>
                   <div class="review">
                     <h3><%=item.saved_posts[i].from %> to <%=item.saved_posts[i].to %></h3>
     		            <p>Posted by: <%=item.saved_posts[i].poster %> </p>        
@@ -128,7 +128,7 @@
 		        <input type ="hidden" name ="poster" id = "poster" value =<%=item.saved_posts[i].poster %>> 
                 <button type="submit">Unsave Post</button>
                 </form>	
-		<p><br><br></p>
+				<br>
                   </div>              
 
     	           <%}%>
@@ -146,38 +146,37 @@
 		<div id="collapsePersonal2" class="panel-collapse collapse in">
 		<div class="panel-body">
 
-            <% for(var i=0; i<item.my_posts.length; i++) { %>         
-             
-               
-	         
-              <div class="review">
-                <h3><%=item.my_posts[i].from %> to <%=item.my_posts[i].to %></h3>
-		             <p>Posted by: <%=item.my_posts[i].poster %> </p>
-          
-                <p><%=item.my_posts[i].description %> </p>
-		<form class="form-inline" role="form" action="/delete" method="post">
-    <input type= "hidden", name= "_csrf", value= <%= token %>>
-		<input type ="hidden" name ="from" id = "from" value =<%=item.my_posts[i].from %>> 
-		<input type ="hidden" name ="to" id = "to" value =<%=item.my_posts[i].to %>>
-		<input type ="hidden" name ="_id" id = "return" value =<%=item.my_posts[i]._id%>>  
-		<input type ="hidden" name ="descript" id = "descript" value =<%=item.my_posts[i].description %>>  
-		<input type ="hidden" name ="poster" id = "poster" value =<%=item.my_posts[i].poster %>> 
+         <% for(var i=0; i<item.my_posts.length; i++) { %>         
+             <p></p>	
+		<div class="review">
+			<h3><%=item.my_posts[i].from %> to <%=item.my_posts[i].to %></h3>
+			<p>Posted by: <%=item.my_posts[i].poster %> </p>
+			<p><%=item.my_posts[i].description %> </p>
+			<form class="form-inline" role="form" action="/delete" method="post">
+				<input type= "hidden", name= "_csrf", value= <%= token %>>
+				<input type ="hidden" name ="from" id = "from" value =<%=item.my_posts[i].from %>> 
+				<input type ="hidden" name ="to" id = "to" value =<%=item.my_posts[i].to %>>
+				<input type ="hidden" name ="_id" id = "return" value =<%=item.my_posts[i]._id%>>  
+				<input type ="hidden" name ="descript" id = "descript" value =<%=item.my_posts[i].description %>>  
+				<input type ="hidden" name ="poster" id = "poster" value =<%=item.my_posts[i].poster %>> 
                 <button type="submit">Delete Post</button>
-                </form>
-	          	
-		<p><br><br></p>	
-          	</div>
+            </form>          	
+			<br>
+        </div>
 
-	       <%}%>
-	              </div>              
-            </div>     
+	     <%}%>
+
+	    </div>              
+        </div>     
         </div>
       </div>
 	
  <% })}; %>
           
+
     </div>
     </div>
+
 
 
     <!-- Making the footer part of the page. -->

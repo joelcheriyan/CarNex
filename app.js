@@ -118,7 +118,7 @@
 		client.sms.messages.create({
 			to:req.body.phone,
 			from:'+16475575192',
-			body:'Thank you for choosing CarNex. The activation code is 12345 '
+			body:'Thank you for choosing CarNex. The activation code is 678321 '
 		}, function(error, message) {
 
 			// The "error" variable will contain error information, if any.
@@ -145,7 +145,7 @@
 
 	app.post('/verify', function(req, res) {
 		console.log(req.body.code);
-		if (req.body.code == 12345){
+		if (req.body.code == 678321){
 			res.render('signup3.ejs');
 		}
 		else{
