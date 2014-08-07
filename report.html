@@ -804,6 +804,9 @@ Savings: 66.1%
 <h3> 6.4 SMS verification </h3>
 <p>SMS verification is an additional security feature that we added to ensure that users are inputting a valid phone number. When a user signs up a pin code is sent in a text message to the phone number provided. This ensures that at least the phone number is verifiable allowing law enforcement to follow up if the user should prove to be suspicious. The SMS is sent using the twilio node module from a number registered on the twilio site.
 </p>
+<h3> 6.5 Login verification </h3>
+<p>Login fucntionality was completed for A2. This ensures that only a logged in user can access certain pages containing personal information. For the login fucntion the passport middleware was used. Passport authenticates username password combinations stored in the database and allows the user session information to be stored. If false login information is provided the user will be redirected to the homepage and will be unable to acces the profile or dashboard pages. This ensures that user information is secure and only viewable to CarNex users and that personal information is only viewable by the user themselves.
+</p>
 <br>
 <h2>7 Flows/Limitation and Improvement of Project</h2>
 
