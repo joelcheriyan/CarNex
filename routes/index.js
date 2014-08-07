@@ -6,7 +6,7 @@ var ContactSchema = require('../schemas/contact');
 var ReportSchema = require('../schemas/report');
 var bcrypt = require('bcrypt');
 var xss = require('node-xss').clean;
-var twilio = require('twilio');
+
 
 module.exports = function(){
 
@@ -300,16 +300,17 @@ module.exports = function(){
 				//updating the info
 				UserSchema.update({username: req.body.username}, { 	
 					counts: counts_new,
-    				rating: tot_rate
+    				rating: tot_rate,
+    				result: result
 				}).exec(function(err, user){});
 
 
 
 				PostsSchema.update({username: req.body.username}, { 	
 					result: result
-				}).exec(function(err, user){});
+				}, {multi: true}).exec(function(err, user){});
 
-					res.redirect('/dashboard');
+				res.redirect('/dashboard');
 			}		
 		});			  
 	};
@@ -341,11 +342,11 @@ module.exports = function(){
 		
 		// removes the post from the users my_posts array that corresponds to the specified fields
 		UserSchema.update({username:req.session.passport.user}, { $pull: {my_posts :{
-												from: req.body.from,
-												to: req.body.to,
-												//description: req.body.descript,
-												poster: req.body.poster
-									}}
+			from: req.body.from,
+			to: req.body.to,
+			//description: req.body.descript,
+			poster: req.body.poster
+			}}
 		}).exec(function(err){ console.log (req.body.descript);});
 
 		
