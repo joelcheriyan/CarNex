@@ -586,7 +586,7 @@
       </tr>
 
       <tr>
-        <td>rating system for users</td>
+        <td>Rating system for users</td>
         <td>10</td>
     <td>Chidi</td>
         <td>July 17</td>
@@ -742,7 +742,7 @@
 	<h3>5 Load/Stress Testing </h3>
   <strong>5.1 Content type distribution</strong>
   <h4>The Content type distribution represents that how much percentage of each type of file takes up total loading content</h4>
-	<p>From the load testing result, the html loading percentage is dramatically increasing because we minify all the css, javascript and image file and their percentage is decreasing. Futhermore, instead of creating several javacript files and linking them in all html or ejs files, putting the script into html files and deleting the redundant javascript links decrease the precentage of javascript content loading. Additionally, the online image optimizer can save unnecessary loading bytes for each image without changing the quality or size of the image.
+	<p>From the load testing result, the html loading percentage is dramatically increased because we minified all the css, javascript and image file and their percentage is decreasing. Futhermore, instead of creating several javacript files and linking them in all html or ejs files, putting the script into html files and deleting the redundant javascript links decrease the precentage of javascript content loading. Additionally, the online image optimizer can save unnecessary loading bytes for each image without changing the quality or size of the image.
 	</p>
 	
 	<!-- The diagrams of the pie chart. -->
@@ -759,6 +759,7 @@
   </div>
   <strong>5.3 performace test for response time</strong>
   <h4>The response time of each command for increasing user base in different regions</h4>
+  <p>The site was streamlined to ensure that the DOM depth was reduced. The large expesive DOM structure that we used in A2 was reduced for A3. </p>
 <p>The improvement aimed at file transmission speed: <br>
 Gzip compresses all the data sent between client and server, which saves almost 70% of origin page size.<br>
 Uncompressed Page Size: 5.1 KB<br>
@@ -785,7 +786,7 @@ Savings: 66.1%
 <p>Password encryption is a necessary security feature that protects user accounts from being hacked. Supposing an attacker were to gain access into the database, password encryption ensures that the attacker is unable to view the clear text password. Before every password is stored in the database it is encrypted using a bcrypt module hash function and stored with a randomly generated salt. When a user attempts to login the encrypted password is retrieved and its salt obtained. The attempted password is then hashed and salted and compared to the stored password. This method of password encryption ensures maximum difficulty in obtaining the clear text password. The salting defends against a common dictionary attack and the one way hashing functionality ensures that it is computationally impossible to determine the password. 
 </p>
 <strong> 6.4 SMS verification </strong>
-<p>SMS verification is an additional security feature that we added to ensure that users are inputting a valid phone number. When a user signs up a pin code is sent in a text message to the phone number provided. This ensures that at least the phone number is verifiable allowing law enforcement to follow up if the user should prove to be suspicious.
+<p>SMS verification is an additional security feature that we added to ensure that users are inputting a valid phone number. When a user signs up a pin code is sent in a text message to the phone number provided. This ensures that at least the phone number is verifiable allowing law enforcement to follow up if the user should prove to be suspicious. The SMS is sent using the twilio node module from a number registered on the twilio site.
 </p>
 
 <h3>7 Flows/Limitation and Improvement of Project</h3>
@@ -794,6 +795,21 @@ Arranging a carpool can be time consuming alternative to public transit. It can 
 </p>
 <p>Additionally there is always an inherent risk involved when contacting strangers and meeting them in reality. We have taken several steps to ensure the safety of our customers. On sign up every phone number is verified by an SMS pin. The idea is that in the event of an emergency the mobile number provides a real starting place for police and other law enforcement to begin investigations. Additionally, every user can be reported by their fellow users. This closely monitored system ensures that any suspicious users are dealt with immediately by CarNex administration who will know the user’s history and who reported the user.  
 </p>
+
+<h3>8 References</h3>
+        <ul>
+          <li><a href="http://www.getbootstrap.com">http://www.getbootstrap.com</a>
+          <li><a href="http://expressjs.com">http://expressjs.com</a>
+          <li><a href="http://nodejs.org">http://nodejs.org</a>
+          <li><a href="http://socket.io">ttp://socket.io</a>
+          <li><a href="http://www.mongodb.org">http://www.mongodb.org</a>
+          <li><a href="http://www.lynda.com">http://www.lynda.com</a>
+          <li><a href="http://www.jqueryrain.com/example/jquery-map">http://www.jqueryrain.com/example/jquery-map</a>
+          <li><a href="http://www.embeddedjs.com/">http://www.embeddedjs.com/</a>
+          <li><a href="https://www.twilio.com/">https://www.twilio.com/</a>
+
+
+        </ul>
 
 </body>
 
