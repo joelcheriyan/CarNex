@@ -152,9 +152,9 @@
   
     <h1>CSC 309 A3 Report</h1>
     <h3>1 Introduction</h3>
-	<p>As the demand for timely and cost-effective transportation increases over the years, more and more people are willing to carpool. Carpooling service is becoming very popular among individuals and there is a huge market for it.</p>
-	<p>
-	Our objective is to build a convenient, standardized and systematic carpooling network in Canada to help Canadians find accessible, affordable alternatives to their daily transportation methods.
+	<p>In recent years the demand for timely and cost-effective transportation has been increasing. Simultaneously the cost of transportation continues to rise as petrol becomes more and more expensive. These factors have lead to  more and more people who are willing to carpool. Carpooling services are becoming very popular and as transport costs continue to rise, there is a huge market for such a service.
+	</p>
+	<p>Our project CarNex, is a carpooling web service that helps to connect users together to facilitate carpooling. The site serves primarily as a place where users can post their travel plans and browse through other users’ posts on the website. In this way users can find people travelling to the same route and organize to share the cost of the trip. The CarNex service helps to facilitate this through various features such as chat and user profiles and tries to minimize the risk associated with arranging a carpool. 
 	</p>
 	<p>
 	We strongly believe that some of the advantages of using CarNex includes:
@@ -373,6 +373,9 @@ Savings: 66.1%
 </p>
 <strong> 6.3 Password encryption </strong>
 <p>Password encryption is a necessary security feature that protects user accounts from being hacked. Supposing an attacker were to gain access into the database, password encryption ensures that the attacker is unable to view the clear text password. Before every password is stored in the database it is encrypted using a bcrypt module hash function and stored with a randomly generated salt. When a user attempts to login the encrypted password is retrieved and its salt obtained. The attempted password is then hashed and salted and compared to the stored password. This method of password encryption ensures maximum difficulty in obtaining the clear text password. The salting defends against a common dictionary attack and the one way hashing functionality ensures that it is computationally impossible to determine the password. 
+</p>
+<strong> 6.4 SMS verification </strong>
+<p>SMS verification is an additional security feature that we added to ensure that users are inputting a valid phone number. When a user signs up a pin code is sent in a text message to the phone number provided. This ensures that at least the phone number is verifiable allowing law enforcement to follow up if the user should prove to be suspicious.
 </p>
 
 <h4>7 Flows/Limitation and Improvement of Project</h4>
