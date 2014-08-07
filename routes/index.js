@@ -48,8 +48,8 @@ module.exports = function(){
 			lat: req.body.lat,
 			lon: req.body.lon,
 			counts: 0,
-    		rating: 0
-
+    		rating: 0,
+    		result: ""
 			});
 			
 			record.save(function(err) {
@@ -131,36 +131,45 @@ module.exports = function(){
 
 
 	functions.createpost = function(req, res) {
+
 	// this function creates a new post from the currently logged in user
+	UserSchema.find({username:req.session.passport.user})
+		.exec(function(err, user){
+			if (err) {
+				res.status(500).json({status: 'failure'});
+			} else {
+				
+				var record = new PostsSchema({
+				from: xss(req.body.from),
+				to: xss(req.body.to),
+				startdate: req.body.startdate,
+				returndate: req.body.returndate,
+				description: xss(req.body.descript),
+				username: req.session.passport.user,
+				counts: 0,
+    			rating: 0,
+    			result: user[0].result,
+				sLoc_lat: req.body.sLoc_lat,
+				sLoc_lon: req.body.sLoc_lon,
+				dest_lat: req.body.dest_lat,
+				dest_lon: req.body.dest_lon
 
-  
-		// create a record with the submitted information accroding to the schema of a post entry in the database
-  		var record = new PostsSchema({
-			from: xss(req.body.from),
-			to: xss(req.body.to),
-			startdate: req.body.startdate,
-			returndate: req.body.returndate,
-			description: xss(req.body.descript),
-			username: req.session.passport.user,
-			counts: 0,
-    		rating: 0,
-    		result: "",
-			sLoc_lat: req.body.sLoc_lat,
-			sLoc_lon: req.body.sLoc_lon,
-			dest_lat: req.body.dest_lat,
-			dest_lon: req.body.dest_lon
-
-		});
+				});
   		
-		//save the records into the database
-		record.save(function(err) {
+				//save the records into the database
+				record.save(function(err) {
 				if (err) {
 					console.log(err);
 					res.status(500).json({status: 'failure'});
 				}else {
 					res.redirect('/dashboard');
 				} 
+				});
+			}		
 		});
+  
+		// create a record with the submitted information accroding to the schema of a post entry in the database
+
 		
 		//update the information of the post to the current user's my_post array in the database
 		UserSchema.update({username:req.session.passport.user}, { $addToSet: {my_posts :{
@@ -244,7 +253,6 @@ module.exports = function(){
 
 	functions.rating = function(req, res) {	
 	// this function allows user to submit a rating for another user
-		console.log(req.body.username);
 
 		//find the user
 		

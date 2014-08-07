@@ -21,7 +21,7 @@ module.exports = mongoose.model('user', {
     lon: Number,
     counts: Number,
     rating: Number,
-    result: Number,
+    result: String,
 	comments: [{
 			commenter: String,
 			comment: String
