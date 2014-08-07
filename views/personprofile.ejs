@@ -112,7 +112,7 @@
                 <div id="collapsePersonal1" class="panel-collapse collapse in">         
                 <div class="panel-body">
                 <% for(var i=0; i<item.saved_posts.length; i++) { %>
-
+				<p></p>
                   <div class="review">
                     <h3><%=item.saved_posts[i].from %> to <%=item.saved_posts[i].to %></h3>
     		            <p>Posted by: <%=item.saved_posts[i].poster %> </p>        
@@ -128,7 +128,7 @@
 		        <input type ="hidden" name ="poster" id = "poster" value =<%=item.saved_posts[i].poster %>> 
                 <button type="submit">Unsave Post</button>
                 </form>	
-		<p><br><br></p>
+				<br>
                   </div>              
 
     	           <%}%>
