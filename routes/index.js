@@ -64,35 +64,6 @@ module.exports = function(){
 		//save the records into the database
 	};
 	
-	functions.verify = function(req, res) {
-		
-		// Load the twilio module
-		
-		// Create a new REST API client to make authenticated requests against the twilio
-		var client = new twilio.RestClient('ACadc16280c49b63e42858d56e6f77c5fe', '90e593855e19bed6034db72ff9008b39');
-
-		client.sms.messages.create({
-			to:'+14162774212',
-			from:'+16475575192',
-			body:'ahoy hoy! Testing Twilio and node.js'
-		}, function(error, message) {
-
-    // The "error" variable will contain error information, if any.
-    // If the request was successful, this value will be "falsy"
-    
-			if (!error) {
-    
-				console.log('Success! The SID for this SMS message is:');
-				console.log(message.sid);
-				console.log('Message sent on:');
-				console.log(message.dateCreated);
-			} 
-			else {
-				console.log('Oops! There was an error.');
-			}
-	});
-		
-	};
 
 
 //dashboard page

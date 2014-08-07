@@ -171,6 +171,7 @@
           <p>A text has been sent to the phone number you provided in step 2 with a 6-digit activation code. Please enter that code below to continue:</p>
 
           <form role="form" action ="/verify" method ="post">
+			<input type= "hidden", name= "_csrf", value= <%= token %>>
             <div class="form-group">
               <label for="field-new-verify">Activation Code</label>
               <input type="number" class="form-control" id="field-new-verify" required>
