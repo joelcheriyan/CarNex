@@ -122,6 +122,8 @@
             <input type= "hidden", name= "_csrf", value= <%= token %>>
 		        <input type ="hidden" name ="from" id = "from" value =<%=item.saved_posts[i].from %>> 
 		        <input type ="hidden" name ="to" id = "to" value =<%=item.saved_posts[i].to %>>
+		        <input type ="hidden" name ="retundate" id = "return" value =<%=item.saved_posts[i].returndate%>>  
+		        <input type ="hidden" name ="startdate" id = "start" value =<%=item.saved_posts[i].startdate%>>  
 		        <input type ="hidden" name ="descript" id = "descript" value =<%=item.saved_posts[i].description %>>  
 		        <input type ="hidden" name ="poster" id = "poster" value =<%=item.saved_posts[i].poster %>> 
                 <button type="submit">Unsave Post</button>
@@ -157,6 +159,7 @@
     <input type= "hidden", name= "_csrf", value= <%= token %>>
 		<input type ="hidden" name ="from" id = "from" value =<%=item.my_posts[i].from %>> 
 		<input type ="hidden" name ="to" id = "to" value =<%=item.my_posts[i].to %>>
+		<input type ="hidden" name ="_id" id = "return" value =<%=item.my_posts[i]._id%>>  
 		<input type ="hidden" name ="descript" id = "descript" value =<%=item.my_posts[i].description %>>  
 		<input type ="hidden" name ="poster" id = "poster" value =<%=item.my_posts[i].poster %>> 
                 <button type="submit">Delete Post</button>

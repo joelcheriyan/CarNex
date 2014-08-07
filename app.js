@@ -107,22 +107,22 @@
    	// stores in database. Post is sent from signup.ejs form
 	app.post('/signup', routes.signup);
 	
-	app.post('/verify', function(req, res) {
+	app.post('/text', function(req, res) {
 		
-		console.log('verifying');
+		
 		// Load the twilio module
 		var twilio = require('twilio');
 		// Create a new REST API client to make authenticated requests against the twilio
 		var client = new twilio.RestClient('ACadc16280c49b63e42858d56e6f77c5fe', '90e593855e19bed6034db72ff9008b39');
 
 		client.sms.messages.create({
-			to:'+14162774212',
+			to:req.body.phone,
 			from:'+16475575192',
-			body:'ahoy hoy! Testing Twilio and node.js'
+			body:'Thank you for choosing CarNex. The activation code is 12345 '
 		}, function(error, message) {
 
-    // The "error" variable will contain error information, if any.
-    // If the request was successful, this value will be "falsy"
+			// The "error" variable will contain error information, if any.
+			// If the request was successful, this value will be "falsy"
     
 			if (!error) {
     
@@ -134,11 +134,25 @@
 			else {
 				console.log('Oops! There was an error.');
 			}
-	});
+		});
 		
+		res.redirect('/verify');
+	});
+	
+	app.get('/verify', function(req, res) {
+		res.render('signup2.ejs');
 	});
 
-
+	app.post('/verify', function(req, res) {
+		console.log(req.body.code);
+		if (req.body.code == 12345){
+			res.render('signup3.ejs');
+		}
+		else{
+			res.render('signup_error2.ejs');
+			
+		}	
+	});
 	
 
 	app.get('/dashboard', function(req, res) 

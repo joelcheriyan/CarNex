@@ -56,10 +56,12 @@ module.exports = function(){
 				if (err) {
 					console.log(err);
 					//res.status(500).json({status: 'failure'}); // if an error occurs report a failure
-					res.render('signup2.ejs');
+					res.render('signup_error.ejs');
 				} 
 			});
 		});
+		
+		
 		
 		//save the records into the database
 	};
@@ -323,14 +325,15 @@ module.exports = function(){
 		UserSchema.update({username:req.session.passport.user}, { $pull: {my_posts :{
 			from: req.body.from,
 			to: req.body.to,
-			//description: req.body.descript,
+			_id: req.body._id,									
 			poster: req.body.poster
 			}}
-		}).exec(function(err){ console.log (req.body.descript);});
+		}).exec(function(err){});
+
 
 		
 		// removes the post from the database that corresponds to the specified fields
-		PostsSchema.remove({from: req.body.from, to:req.body.to, username: req.body.poster}, true)
+		PostsSchema.remove({from: req.body.from, to:req.body.to, _id: req.body._id, username: req.body.poster}, true)
 		.exec(function(err, user){
 			if (err) 
 			{
